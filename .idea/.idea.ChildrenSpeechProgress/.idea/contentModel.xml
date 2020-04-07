@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Folomeev\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Folomeev\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ChildrenSpeechProgress.1132927413.00" t="ExcludeRecursive" />
+    <e p="D:\MyPrograms\ChildrenSpeechProgress" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="ChildrenManager" t="Include">
+            <e p="Child.cs" t="Include" />
+            <e p="ChildrenManager.cs" t="Include" />
+          </e>
+          <e p="DragableObject.cs" t="Include" />
+          <e p="UImanager" t="Include">
+            <e p="ExitPanel.cs" t="Include" />
+            <e p="InfoPanel.cs" t="Include" />
+            <e p="Panel.cs" t="Include" />
+            <e p="PanelsGame" t="Include">
+              <e p="PanelsEndGame" t="Include">
+                <e p="EndGamePanel.cs" t="Include" />
+                <e p="LosePanel.cs" t="Include" />
+                <e p="NextLvlPanel.cs" t="Include" />
+                <e p="PanelEndGameDecorator.cs" t="Include" />
+                <e p="WinPanel.cs" t="Include" />
+              </e>
+            </e>
+            <e p="PanelsMenu" t="Include">
+              <e p="LevelsPanel.cs" t="Include" />
+              <e p="MenuPanel.cs" t="Include" />
+              <e p="MissionsPanel.cs" t="Include" />
+              <e p="PanelsChildren" t="Include">
+                <e p="AddChildPanel.cs" t="Include" />
+                <e p="ChildrenPanel.cs" t="Include" />
+              </e>
+              <e p="SectionsPanel.cs" t="Include" />
+              <e p="SettingsPanel.cs" t="Include" />
+              <e p="StatsPanel.cs" t="Include" />
+            </e>
+            <e p="UIManagerGame.cs" t="Include" />
+            <e p="UIManagerMenu.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TempAssets" t="Include">
+          <e p="Plugins" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Effects" t="Include">
+                <e p="UIParticleSystem.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="UI Particle Add.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="ChildrenSpeechProgress.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
