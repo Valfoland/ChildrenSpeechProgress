@@ -82,8 +82,8 @@ public class LevelsPanel : Panel, IinfOfPanel
     {
         this.idLevel = idLevel;
         SetInfoPanel();
-        HidePanel();
-        GoToNextScene();
+        //HidePanel();
+        //GoToNextScene();
     }
 
     private void GoToNextScene()
