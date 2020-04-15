@@ -12,6 +12,10 @@
             <e p="ChildrenManager.cs" t="Include" />
           </e>
           <e p="DragableObject.cs" t="Include" />
+          <e p="GameManager" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="LevelManager.cs" t="Include" />
+          </e>
           <e p="UImanager" t="Include">
             <e p="ExitPanel.cs" t="Include" />
             <e p="InfoPanel.cs" t="Include" />
@@ -37,6 +41,7 @@
               <e p="SettingsPanel.cs" t="Include" />
               <e p="StatsPanel.cs" t="Include" />
             </e>
+            <e p="UIManagerBridge.cs" t="Include" />
             <e p="UIManagerGame.cs" t="Include" />
             <e p="UIManagerMenu.cs" t="Include" />
           </e>

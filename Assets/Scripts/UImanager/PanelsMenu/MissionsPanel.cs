@@ -68,7 +68,7 @@ public class MissionsPanel : Panel, IinfOfPanel
         panelObject.SetActive(true);
     }
 
-    protected override void HidePanel()
+    public override void HidePanel()
     {
         missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[0].onClick.RemoveAllListeners();
         missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[1].onClick.RemoveAllListeners();

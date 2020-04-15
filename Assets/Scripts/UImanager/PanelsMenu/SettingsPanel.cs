@@ -31,10 +31,5 @@ public class SettingsPanel : Panel
     {
         panelObject.SetActive(true);
     }
-
-    protected override void HidePanel()
-    {
-        base.HidePanel();
-    }
 }
 

@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class DataSetNextLvlPanel
+public class NextLvlPanel : PanelEndGameDecorator
 {
-    public GameObject NextLvlPanelObject;
-}
-
-public class NextLvlPanel : Panel
-{
-    private DataSetNextLvlPanel nextLvlPanel;
-
-    public NextLvlPanel(DataSetNextLvlPanel nextLvlPanel) : base(nextLvlPanel.NextLvlPanelObject)
+    
+    public NextLvlPanel(Panel panel, DataSetEndGamePanel endGamePanel) : base(panel, endGamePanel)
     {
         try
         {
-            this.nextLvlPanel = nextLvlPanel;
+            
         }
         catch (System.NullReferenceException)
         {
@@ -27,12 +20,12 @@ public class NextLvlPanel : Panel
 
     public override void ShowPanel()
     {
-        panelObject.SetActive(true);
+        panel.ShowPanel();
     }
 
-    protected override void HidePanel()
+    public override void HidePanel()
     {
-        base.HidePanel();
+        panel.HidePanel();
     }
 }
 

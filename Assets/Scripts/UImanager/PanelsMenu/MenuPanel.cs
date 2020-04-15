@@ -7,12 +7,9 @@ using UnityEngine.UI;
 public class DataSetMenuPanel
 {
     public GameObject MenuPanelObject;
-    public Button ChildrenToMenuBtn;
-    public Button SectionsToMenuBtn;
-    public Button StatsToMenuBtn;
-    public Button GoToStatsBtn;
-    public Button GoToSectionsBtn;
-    public Button GoToChildrenBtn;
+
+    public List<Button> ShowBtns;
+    public List<Button> HideBtns;
 }
 
 public class MenuPanel : Panel
@@ -21,14 +18,12 @@ public class MenuPanel : Panel
     {
         try
         {
-            menuPanel.ChildrenToMenuBtn.onClick.AddListener(ShowPanel);
-            menuPanel.SectionsToMenuBtn.onClick.AddListener(ShowPanel);
-            menuPanel.StatsToMenuBtn.onClick.AddListener(ShowPanel);
-            menuPanel.GoToStatsBtn.onClick.AddListener(HidePanel);
-            menuPanel.GoToSectionsBtn.onClick.AddListener(HidePanel);
-            menuPanel.GoToChildrenBtn.onClick.AddListener(HidePanel);
+            menuPanel.ShowBtns.ForEach(x => x.onClick.AddListener(ShowPanel));
+            menuPanel.HideBtns.ForEach(x => x.onClick.AddListener(HidePanel));
         }
-        catch (System.NullReferenceException) { }
+        catch (System.NullReferenceException)
+        {
+        }
     }
 
     public override void ShowPanel()
@@ -36,7 +31,7 @@ public class MenuPanel : Panel
         panelObject.SetActive(true);
     }
 
-    protected override void HidePanel()
+    public override void HidePanel()
     {
         onHidePanel?.Invoke();
         if (PlayerPrefs.HasKey("countChild"))

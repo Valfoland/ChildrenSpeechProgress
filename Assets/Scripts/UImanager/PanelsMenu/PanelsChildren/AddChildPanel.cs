@@ -40,11 +40,6 @@ public class AddChildPanel : Panel
         panelObject.SetActive(true);
     }
 
-    protected override void HidePanel()
-    {
-        base.HidePanel();
-    }
-
     private void AddChild()
     {
         DataSetAddChildPanel.onAddChild?.Invoke(addChildPanel);

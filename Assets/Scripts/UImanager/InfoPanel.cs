@@ -62,11 +62,6 @@ public class InfoPanel : Panel, ITextPanel
         panelObject.SetActive(true);
     }
 
-    protected override void HidePanel()
-    {
-        base.HidePanel();
-    }
-
     public void SetTextInfo(string nameActivePanel = "")
     {
         infoPanel.BtnGoToInfo.gameObject.SetActive(true);

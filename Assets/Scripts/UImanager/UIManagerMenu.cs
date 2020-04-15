@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Bridge;
+using Bridge.BridgeReceiver;
 
 public class UIManagerMenu : MonoBehaviour
 {
@@ -32,13 +34,14 @@ public class UIManagerMenu : MonoBehaviour
     private Panel panelMissions;
     private Panel panelLevels;
     private ITextPanel panelInfo;
-    
+
     private void Start()
     {
         new SettingsPanel(dataSettings);
         new ChildrenPanel(dataSetChildrenPanel);
         new ExitPanel(dataSetExitPanel);
         new StatsPanel(dataSetStats);
+        new UIManagerBridge<DataSetInfoPanel>(new UiReceiver(),  dataSetInfo);
         
         panelMenu = new MenuPanel(dataSetMenuPanel);
         panelAddChild = new AddChildPanel(dataSetAddChildPanel);
@@ -47,6 +50,7 @@ public class UIManagerMenu : MonoBehaviour
         panelLevels = new LevelsPanel(dataSetLevelsPanel);
         panelInfo = new InfoPanel(dataSetInfo);
         InitActions();
+        
     }
 
     private void InitActions()
@@ -54,6 +58,7 @@ public class UIManagerMenu : MonoBehaviour
         panelMenu.onHidePanel += ClickChildrenPanel;
         panelSections.onHidePanel += ClickGoToMissions;
         panelMissions.onHidePanel += ClickGoToLevels;
+        
         panelMissions.onShowPanel += SetTextInfo;
         panelLevels.onShowPanel += SetTextInfo;
         panelSections.onShowPanel += SetTextInfo;

@@ -397,6 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123740492}
   - component: {fileID: 123740491}
+  - component: {fileID: 123740493}
   m_Layer: 0
   m_Name: UIMangerMenu
   m_TagString: Untagged
@@ -418,12 +419,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataSetMenuPanel:
     MenuPanelObject: {fileID: 1354601622}
-    ChildrenToMenuBtn: {fileID: 148912316}
-    SectionsToMenuBtn: {fileID: 1638964720}
-    StatsToMenuBtn: {fileID: 1584437454}
-    GoToStatsBtn: {fileID: 296154327}
-    GoToSectionsBtn: {fileID: 1307236873}
-    GoToChildrenBtn: {fileID: 2014588904}
+    ShowBtns:
+    - {fileID: 148912316}
+    - {fileID: 1638964720}
+    - {fileID: 1584437454}
+    HideBtns:
+    - {fileID: 296154327}
+    - {fileID: 1307236873}
+    - {fileID: 2014588904}
   dataSettings:
     SettingsPanelObject: {fileID: 70619585}
     BtnBackToMenu: {fileID: 411236607}
@@ -664,13 +667,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123740490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 516.38916, y: 215.58673, z: -380.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -798.38574, y: -500.35474, z: -380.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 181039568}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123740493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123740490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d4796bc3eba1848be0c61b14da5777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataSetMenuPanel: {MenuPanelObject: {fileID: 0}, ChildrenToMenuBtn: {fileID: 0},
+    SectionsToMenuBtn: {fileID: 0}, StatsToMenuBtn: {fileID: 0}, GoToStatsBtn: {fileID: 0},
+    GoToSectionsBtn: {fileID: 0}, GoToChildrenBtn: {fileID: 0}}
+  dataSettings: {SettingsPanelObject: {fileID: 0}, BtnBackToMenu: {fileID: 0}, BtnGoToSettings: {fileID: 0}}
+  dataSetInfo: {BtnGoToInfo: {fileID: 0}, BtnCloseInfo: {fileID: 0}, InfoText: {fileID: 0},
+    InfoPanelObject: {fileID: 0}, TextIdSectionsList: []
+}
 --- !u!1 &137884859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1082,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163852121}
   m_CullTransparentMesh: 0
+--- !u!1 &181039567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181039568}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181039568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181039567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1314.7749, y: 715.94147, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 123740492}
+  - {fileID: 586235202}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &195458766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,11 +2664,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586235201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 516.38916, y: 215.58673, z: -380.50003}
+  m_LocalPosition: {x: -798.38574, y: -500.35474, z: -380.50003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 181039568}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586235203
 MonoBehaviour:

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,10 +26,12 @@ public class SectionsPanel : Panel, IinfOfPanel
             sectionsPanel.GoToSectionsBtn.onClick.AddListener(ShowPanel);
             sectionsPanel.BackToSectionsBtn.onClick.AddListener(ShowPanel);
             sectionsPanel.GoToMenuBtn.onClick.AddListener(HidePanel);
-            
-            sectionsPanel.GoToMissionsBtn[0].onClick.AddListener(() => HideSectionPanel(0));
-            sectionsPanel.GoToMissionsBtn[1].onClick.AddListener(() => HideSectionPanel(1));
-            sectionsPanel.GoToMissionsBtn[2].onClick.AddListener(() => HideSectionPanel(2));
+
+            for (int i = 0; i < sectionsPanel.GoToMissionsBtn.Length; i++)
+            {
+                var i1 = i;
+                sectionsPanel.GoToMissionsBtn[i].onClick.AddListener(() => HideSectionPanel(i1));
+            }
         }
         catch (System.NullReferenceException) { }
     }

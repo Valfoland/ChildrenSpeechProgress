@@ -9,6 +9,8 @@ public class DataSetEndGamePanel
 {
     public GameObject EndGamePanelObject;
     public Button BtnBackToMenu;
+    public Button BtnOther;
+    public Text TxtOther;
 }
 
 public class EndGamePanel : Panel
@@ -18,8 +20,7 @@ public class EndGamePanel : Panel
     {
         try
         {
-            ShowPanel();
-            dataSetEndGamePanel.BtnBackToMenu.onClick.AddListener(GoToMenu);
+            dataSetEndGamePanel.BtnBackToMenu.onClick.AddListener(BackToMenu);
         }
         catch (System.NullReferenceException)
         {
@@ -32,12 +33,7 @@ public class EndGamePanel : Panel
         panelObject.SetActive(true);   
     }
 
-    protected override void HidePanel()
-    {
-        base.HidePanel();
-    }
-
-    private void GoToMenu()
+    private void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
     }

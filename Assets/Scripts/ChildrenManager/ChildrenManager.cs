@@ -75,7 +75,6 @@ public class ChildrenManager : MonoBehaviour
         internal void ChildDataSave()
         { 
             PlayerPrefs.SetInt("countChild", Child.CountChildren);
-            Debug.Log(Child.CountChildren);
             PlayerPrefs.SetString(Child.CountChildren.ToString(), JsonUtility.ToJson(child.ChildrenData));
         }  
     }

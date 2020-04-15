@@ -7,22 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class LosePanel : PanelEndGameDecorator
 {
-    private Image endGameImage;
-    public LosePanel(Panel p, DataSetEndGamePanel endGamePanel) : base(p, endGamePanel)
+    public LosePanel(Panel panel, DataSetEndGamePanel endGamePanel) : base(panel, endGamePanel)
     {
-        endGameImage = dataSetEndGamePanel.EndGamePanelObject.GetComponent<Image>();
-        dataSetEndGamePanel.BtnBackToMenu.onClick.AddListener(BackToMenu);
-        ShowPanel();
+        dataSetEndGamePanel.BtnOther.onClick.AddListener(Restart);
     }
 
     public override void ShowPanel()
     {
         //dataSetEndGamePanel.TextEndGame.text = "Вы проиграли";
+        panel.ShowPanel();
     }
 
-    protected override void BackToMenu()
+    private void Restart()
     {
-        base.BackToMenu();
+        SceneManager.LoadScene("Game");
     }
 }
 

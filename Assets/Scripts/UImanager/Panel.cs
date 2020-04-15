@@ -20,7 +20,7 @@ public abstract class Panel
 {
     protected GameObject panelObject;
     public abstract void ShowPanel();
-    protected virtual void HidePanel() => panelObject.SetActive(false);
+    public virtual void HidePanel() => panelObject.SetActive(false);
     public Panel(GameObject panelObject = null) => this.panelObject = panelObject;
     public System.Action onHidePanel;
     public System.Action<string> onShowPanel;

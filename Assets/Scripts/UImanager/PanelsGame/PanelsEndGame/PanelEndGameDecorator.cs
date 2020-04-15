@@ -8,16 +8,11 @@ public abstract class PanelEndGameDecorator : Panel
 {
     protected DataSetEndGamePanel dataSetEndGamePanel;
     protected Panel panel;
-
-    public PanelEndGameDecorator(Panel panel, DataSetEndGamePanel dataSetendGamePanel)
+    public PanelEndGameDecorator(Panel panel, DataSetEndGamePanel dataSetEndGamePanel):
+        base(dataSetEndGamePanel.EndGamePanelObject)
     {
         this.panel = panel;
-        this.dataSetEndGamePanel = dataSetendGamePanel;
-    }
-
-    protected virtual void BackToMenu()
-    {
-        SceneManager.LoadScene("Menu");
+        this.dataSetEndGamePanel = dataSetEndGamePanel;
     }
 }
 

@@ -2,29 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class WinPanel : PanelEndGameDecorator
 {
-    public static System.Action onStartAnimBank;
-    private Image endGameImage;
-
-    public WinPanel(Panel p, DataSetEndGamePanel endGamePanel) : base(p, endGamePanel)
+    public WinPanel(Panel panel, DataSetEndGamePanel endGamePanel) : base(panel, endGamePanel)
     {
-        endGameImage = dataSetEndGamePanel.EndGamePanelObject.GetComponent<Image>();
-        dataSetEndGamePanel.BtnBackToMenu.onClick.AddListener(BackToMenu);
-        ShowPanel();
+        dataSetEndGamePanel.BtnOther.onClick.AddListener(ShowResults);
     }
-
+        
     public override void ShowPanel()
     {
         //dataSetEndGamePanel.TextEndGame.text = "Вы выиграли";
-        onStartAnimBank?.Invoke();
+        panel.ShowPanel();
     }
 
-    protected override void BackToMenu()
+    private  void ShowResults()
     {
-        base.BackToMenu();
+        SceneManager.LoadScene("Menu");
     }
 }
 

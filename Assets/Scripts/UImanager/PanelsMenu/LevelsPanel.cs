@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -55,26 +56,19 @@ public class LevelsPanel : Panel, IinfOfPanel
             if (i < maxCountLvls)
             {
                 levelsPanel.GoToGameBtns[i].gameObject.SetActive(true);
+                levelsPanel.GoToGameBtns[i].onClick.AddListener(() => HideSectionPanel(i));
             }
             else
             {
                 levelsPanel.GoToGameBtns[i].gameObject.SetActive(false);
             }
         }
-
-        levelsPanel.GoToGameBtns[0].onClick.AddListener(() => HideSectionPanel(0));
-        levelsPanel.GoToGameBtns[1].onClick.AddListener(() => HideSectionPanel(1));
-        levelsPanel.GoToGameBtns[2].onClick.AddListener(() => HideSectionPanel(1));
-        //levelsPanel.GoToGameBtns[3].onClick.AddListener(() => HideSectionPanel(1));
         panelObject.SetActive(true);
     }
 
-    protected override void HidePanel()
+    public override void HidePanel()
     {
-        levelsPanel.GoToGameBtns[0].onClick.RemoveAllListeners();
-        levelsPanel.GoToGameBtns[1].onClick.RemoveAllListeners();
-        levelsPanel.GoToGameBtns[2].onClick.RemoveAllListeners();
-        //levelsPanel.GoToGameBtns[3].onClick.RemoveAllListeners();
+        levelsPanel.GoToGameBtns.ToList().ForEach(x => x.onClick.RemoveAllListeners());
         base.HidePanel();
     }
     
@@ -82,8 +76,8 @@ public class LevelsPanel : Panel, IinfOfPanel
     {
         this.idLevel = idLevel;
         SetInfoPanel();
-        //HidePanel();
-        //GoToNextScene();
+        HidePanel();
+        GoToNextScene();
     }
 
     private void GoToNextScene()
