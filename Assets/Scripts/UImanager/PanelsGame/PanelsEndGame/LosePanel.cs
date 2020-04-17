@@ -1,20 +1,35 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class DataSetLosePanel
+{
+    public string TextLose;
+}
 
 public class LosePanel : PanelEndGameDecorator
 {
-    public LosePanel(Panel panel, DataSetEndGamePanel endGamePanel) : base(panel, endGamePanel)
+    private DataSetLosePanel dataSetLosePanel;
+    public LosePanel(Panel panel, DataSetEndGamePanel endGamePanel, DataSetLosePanel dataSetLosePanel) : base(panel, endGamePanel)
     {
-        dataSetEndGamePanel.BtnOther.onClick.AddListener(Restart);
+        try
+        {
+            this.dataSetLosePanel = dataSetLosePanel;
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
     }
 
     public override void ShowPanel()
     {
-        //dataSetEndGamePanel.TextEndGame.text = "Вы проиграли";
+        dataSetEndGamePanel.BtnOther.onClick.AddListener(Restart);
+        dataSetEndGamePanel.TxtOther.text = dataSetLosePanel.TextLose;
         panel.ShowPanel();
     }
 

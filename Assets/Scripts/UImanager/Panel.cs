@@ -9,13 +9,6 @@ public interface IinfOfPanel
     void SetInfoPanel();
 }
 
-public class InfoOfPanel
-{
-    public static int IdSelectSection;
-    public static int IdSelectMission;
-    public static int IdSelectLvl;
-}
-
 public abstract class Panel
 {
     protected GameObject panelObject;

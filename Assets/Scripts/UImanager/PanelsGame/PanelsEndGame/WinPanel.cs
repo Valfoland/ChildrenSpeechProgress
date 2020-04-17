@@ -1,19 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+[System.Serializable]
+public class DataSetWinPanel
+{
+    public string TextWin;
+}
+
 public class WinPanel : PanelEndGameDecorator
 {
-    public WinPanel(Panel panel, DataSetEndGamePanel endGamePanel) : base(panel, endGamePanel)
+    private DataSetWinPanel dataSetWinPanel;
+    public WinPanel(Panel panel, DataSetEndGamePanel endGamePanel, DataSetWinPanel dataSetWinPanel) : base(panel, endGamePanel)
     {
-        dataSetEndGamePanel.BtnOther.onClick.AddListener(ShowResults);
+        try
+        {
+            this.dataSetWinPanel = dataSetWinPanel;
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
     }
         
     public override void ShowPanel()
     {
-        //dataSetEndGamePanel.TextEndGame.text = "Вы выиграли";
+        dataSetEndGamePanel.BtnOther.onClick.AddListener(ShowResults);
+        dataSetEndGamePanel.TxtOther.text = dataSetWinPanel.TextWin;
         panel.ShowPanel();
     }
 

@@ -397,7 +397,6 @@ GameObject:
   m_Component:
   - component: {fileID: 123740492}
   - component: {fileID: 123740491}
-  - component: {fileID: 123740493}
   m_Layer: 0
   m_Name: UIMangerMenu
   m_TagString: Untagged
@@ -674,25 +673,6 @@ Transform:
   m_Father: {fileID: 181039568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &123740493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123740490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d4796bc3eba1848be0c61b14da5777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataSetMenuPanel: {MenuPanelObject: {fileID: 0}, ChildrenToMenuBtn: {fileID: 0},
-    SectionsToMenuBtn: {fileID: 0}, StatsToMenuBtn: {fileID: 0}, GoToStatsBtn: {fileID: 0},
-    GoToSectionsBtn: {fileID: 0}, GoToChildrenBtn: {fileID: 0}}
-  dataSettings: {SettingsPanelObject: {fileID: 0}, BtnBackToMenu: {fileID: 0}, BtnGoToSettings: {fileID: 0}}
-  dataSetInfo: {BtnGoToInfo: {fileID: 0}, BtnCloseInfo: {fileID: 0}, InfoText: {fileID: 0},
-    InfoPanelObject: {fileID: 0}, TextIdSectionsList: []
-}
 --- !u!1 &137884859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1091,7 @@ Transform:
   m_Children:
   - {fileID: 123740492}
   - {fileID: 586235202}
+  - {fileID: 1192465613}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4941,6 +4922,55 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1192465612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192465613}
+  - component: {fileID: 1192465614}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1192465613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192465612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 181039568}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192465614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192465612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6487b4b47c0859743b6f63352f11921f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countSections:
+  - CountMissions:
+    - CountLevels: 3
+    - CountLevels: 4
+  - CountMissions: []
+  - CountMissions: []
 --- !u!1 &1194667929
 GameObject:
   m_ObjectHideFlags: 0

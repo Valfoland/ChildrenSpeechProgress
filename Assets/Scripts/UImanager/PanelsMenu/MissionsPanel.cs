@@ -49,29 +49,29 @@ public class MissionsPanel : Panel, IinfOfPanel
     {
         onShowPanel?.Invoke("Missions");
         int maxCountMissions = missionsPanel
-            .CountMissionsIdSection[InfoOfPanel.IdSelectSection]
+            .CountMissionsIdSection[DataTasks.IdSelectSection]
             .CountMissions;
         int capcityMissions = missionsPanel
-            .GoToLvlBtns[InfoOfPanel.IdSelectSection]
+            .GoToLvlBtns[DataTasks.IdSelectSection]
             .GoToLvlBtn.Length;
         
         for (int i = 0; i < capcityMissions; i++)
         {
             if (i < maxCountMissions)
-                missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(true);
+                missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(true);
             else
-                missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(false);
+                missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(false);
         }
-        missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[0].onClick.AddListener(() => HideSectionPanel(0));
-        missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[1].onClick.AddListener(() => HideSectionPanel(1));
+        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[0].onClick.AddListener(() => HideSectionPanel(0));
+        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[1].onClick.AddListener(() => HideSectionPanel(1));
         
         panelObject.SetActive(true);
     }
 
     public override void HidePanel()
     {
-        missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[0].onClick.RemoveAllListeners();
-        missionsPanel.GoToLvlBtns[InfoOfPanel.IdSelectSection].GoToLvlBtn[1].onClick.RemoveAllListeners();
+        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[0].onClick.RemoveAllListeners();
+        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[1].onClick.RemoveAllListeners();
         base.HidePanel();
     }
 
@@ -85,7 +85,7 @@ public class MissionsPanel : Panel, IinfOfPanel
 
     public void SetInfoPanel()
     {
-        InfoOfPanel.IdSelectMission= idMission;
+        DataTasks.IdSelectMission= idMission;
     }
 }
 

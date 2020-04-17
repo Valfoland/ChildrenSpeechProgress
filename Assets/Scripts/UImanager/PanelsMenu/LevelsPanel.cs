@@ -48,15 +48,30 @@ public class LevelsPanel : Panel, IinfOfPanel
     {
         onShowPanel?.Invoke("Levels");
         int maxCountLvls = levelsPanel
-            .CountLvlsIdSections[InfoOfPanel.IdSelectSection]
-            .CountLvlsIdMissions[InfoOfPanel.IdSelectMission]
+            .CountLvlsIdSections[DataTasks.IdSelectSection]
+            .CountLvlsIdMissions[DataTasks.IdSelectMission]
             .CountLvl;
+        var completedLvls = DataTasks
+            .CountSections[DataTasks.IdSelectSection]
+            .CountMissions[DataTasks.IdSelectMission]
+            .CompletedLevels;
+        
         for (int i = 0; i < levelsPanel.GoToGameBtns.Length; i++)
         {
             if (i < maxCountLvls)
             {
                 levelsPanel.GoToGameBtns[i].gameObject.SetActive(true);
-                levelsPanel.GoToGameBtns[i].onClick.AddListener(() => HideSectionPanel(i));
+                var i1 = i;
+                levelsPanel.GoToGameBtns[i].onClick.AddListener(() => HideLevelPanel(i1));
+                
+                if (i > 0)
+                {
+                    levelsPanel.GoToGameBtns[i].interactable = false;
+                    if (completedLvls[i - 1].isCompleted)
+                    {
+                        levelsPanel.GoToGameBtns[i].interactable = true;
+                    }
+                }
             }
             else
             {
@@ -72,7 +87,7 @@ public class LevelsPanel : Panel, IinfOfPanel
         base.HidePanel();
     }
     
-    private void HideSectionPanel(int idLevel)
+    private void HideLevelPanel(int idLevel)
     {
         this.idLevel = idLevel;
         SetInfoPanel();
@@ -87,7 +102,7 @@ public class LevelsPanel : Panel, IinfOfPanel
 
     public void SetInfoPanel()
     {
-        InfoOfPanel.IdSelectLvl = idLevel;
+        DataTasks.IdSelectLvl = idLevel;
     }
 }
 

@@ -156,6 +156,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2458207210418957226}
+  - component: {fileID: 715988487217615017}
+  - component: {fileID: 7623333905654244955}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -184,6 +186,239 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &715988487217615017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458207210418957225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffd68b5528b8fc498b55707bedbbba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagesBox:
+  - {fileID: 2458207211672393959}
+  - {fileID: 2458207211735077604}
+  - {fileID: 2458207211341952821}
+  - {fileID: 2458207212352942036}
+  - {fileID: 2458207210352981706}
+  - {fileID: 2458207211400445997}
+--- !u!114 &7623333905654244955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458207210418957225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc6da4c0fa0af64c8ae5ed70560d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataLevelList:
+  - NameItem: "\u0421\u0442\u043E\u043B"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041A\u0440\u043E\u0432\u0430\u0442\u044C"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0422\u0430\u0431\u0443\u0440\u0435\u0442\u043A\u0430"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041A\u0443\u0441\u0442"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0410\u0432\u0442\u043E\u0431\u0443\u0441"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0421\u0442\u043E\u043B\u0431"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0417\u043E\u043D\u0442"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041C\u043E\u043B\u043E\u0442\u043E\u043A"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u043E\u043C"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u0440\u043A\u0430"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u0432\u0435\u0440\u044C"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u0443\u0431"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0412\u043E\u0434\u0430"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u0438\u043D\u043E\u0437\u0430\u0432\u0440"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041C\u0435\u0434\u0430\u043B\u044C"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0420\u0430\u0434\u0443\u0433\u0430"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041B\u0430\u0434\u043E\u043D\u044C"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u042F\u0434"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0417\u0430\u0432\u043E\u0434"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041A\u043B\u0430\u0434"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u041F\u043E\u0435\u0437\u0434"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0425\u043E\u043B\u043E\u0434"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  - NameItem: "\u0414\u044B\u043D\u044F"
+    SpriteItem: {fileID: 0}
+  nameWordPairList: []
 --- !u!1 &2458207210752074907
 GameObject:
   m_ObjectHideFlags: 0

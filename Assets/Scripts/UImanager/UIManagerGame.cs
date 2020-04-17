@@ -5,16 +5,23 @@ using Bridge.BridgeReceiver;
 
 public class UiManagerGame : MonoBehaviour
 {
-    [Header("Панель выхода из игры")]
-    [SerializeField] private DataSetExitPanel dataSetExitPanel;
-    [Header("Панель переходов на новый уровень")] 
-    [SerializeField] private DataSetEndGamePanel dataSetEndGamePanel;
-
+    [Header("Панель инфо")] [SerializeField]
+    private DataSetInfoPanel dataSetInfoPanel;
+    [Header("Панель выхода из игры")] [SerializeField] 
+    private DataSetExitPanel dataSetExitPanel;
+    [Header("Панель конца уровня")] [SerializeField] 
+    private DataSetEndGamePanel dataSetEndGamePanel;
+    [Header("Панель новый уровень")] [SerializeField] 
+    private DataSetLosePanel dataSetLosePanel;
+    [Header("Панель новый уровень")] [SerializeField] 
+    private DataSetWinPanel dataSetWinPanel;
+    [Header("Панель новый уровень")] [SerializeField] 
+    private DataSetNextLvlPanel dataSetNextLvlPanel;
+    
     private Panel nextLvlPanel;
     private Panel losePanel;
     private Panel winPanel;
-    private Panel infoPanel;
-    
+
     private void Start()
     {
         InitPanels();
@@ -22,19 +29,23 @@ public class UiManagerGame : MonoBehaviour
 
     private void InitPanels()
     {
+        dataSetInfoPanel.TextIdSectionsList = UiReceiver.DataSetInfoPanel.TextIdSectionsList;
+        
         Panel tempPanel = new EndGamePanel(dataSetEndGamePanel);
-        nextLvlPanel = new NextLvlPanel(tempPanel, dataSetEndGamePanel);
-        losePanel = new LosePanel(tempPanel, dataSetEndGamePanel);
-        winPanel = new WinPanel(tempPanel, dataSetEndGamePanel);
-        infoPanel = new InfoPanel(UiReceiver.DataSetInfoPanel);
+        nextLvlPanel = new NextLvlPanel(tempPanel, dataSetEndGamePanel, dataSetNextLvlPanel);
+        losePanel = new LosePanel(tempPanel, dataSetEndGamePanel, dataSetLosePanel);
+        winPanel = new WinPanel(tempPanel, dataSetEndGamePanel, dataSetWinPanel);
+        
+        new InfoPanel(dataSetInfoPanel);
+        new ExitPanel(dataSetExitPanel);
     }
     
-    private void EndGame()
+    public void EndGame()
     {
        winPanel.ShowPanel();
     }
 
-    private void EndLvl(bool isWin)
+    public void EndLvl(bool isWin)
     {
         if (isWin)
         {
