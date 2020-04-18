@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using System.IO;
 
-namespace HomeLevels.Level1
+namespace Section0.HomeLevels.Level1
 {
     public class DataLevel1Manager : MonoBehaviour
     {
@@ -12,7 +12,11 @@ namespace HomeLevels.Level1
         public static Queue<string> DataNameList = new Queue<string>();
         private void Awake()
         {
-            InitData();
+            Debug.Log($"{DataNameList.Count} {DataLevel1Dict.Count}");
+            if (DataNameList.Count == 0 || DataLevel1Dict.Count == 0)
+            {
+                InitData();
+            }
         }
 
         private void InitData()

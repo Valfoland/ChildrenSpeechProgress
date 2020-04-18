@@ -18,15 +18,22 @@
             <e p="LevelInstancer.cs" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="HomeLevels" t="Include">
-              <e p="Level1" t="Include">
-                <e p="BoxLevel1.cs" t="Include" />
-                <e p="DataLevel1Manager.cs" t="Include" />
-                <e p="Level1.cs" t="Include" />
+            <e p="AttemptCounter.cs" t="Include" />
+            <e p="DataSounds.cs" t="Include" />
+            <e p="ResultKeeper.cs" t="Include" />
+            <e p="Section0" t="Include">
+              <e p="HomeLevels" t="Include">
+                <e p="Level1" t="Include">
+                  <e p="BoxLevel1.cs" t="Include" />
+                  <e p="DataLevel1Manager.cs" t="Include" />
+                  <e p="Level1.cs" t="Include" />
+                  <e p="VoiceLevel1.cs" t="Include" />
+                </e>
               </e>
-            </e>
-            <e p="PatternLevels" t="Include">
-              <e p="Level.cs" t="Include" />
+              <e p="PatternLevels" t="Include">
+                <e p="Level.cs" t="Include" />
+              </e>
+              <e p="ResultKeeper.cs" t="Include" />
             </e>
           </e>
           <e p="UImanager" t="Include">

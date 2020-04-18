@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace  HomeLevels.Level1
+namespace  Section0.HomeLevels.Level1
 {
     public class BoxLevel1 : MonoBehaviour
     {
+        [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
+        [SerializeField] private Text hren; //TEMP
         private char letterBox;
         public static System.Action<char, BoxLevel1> onClickBox;    
         
@@ -21,13 +23,19 @@ namespace  HomeLevels.Level1
             
         }
 
+        public void AnimBox()
+        {
+            animFalse.Play();
+        }
+        
         public void SetDataBox(Sprite spriteBox, char letterBox)
         {
+            hren.text = spriteBox.name;
             this.letterBox = letterBox;
-            imageBox.sprite = spriteBox;
+            //imageBox.sprite = spriteBox;
         }
 
-        private void ClickBox()
+        public void ClickBox()
         {
             onClickBox?.Invoke(letterBox, this);
         }

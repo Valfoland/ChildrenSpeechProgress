@@ -6,22 +6,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace HomeLevels.Level1
+namespace Section0.HomeLevels.Level1
 {
     public class Level1 : MonoBehaviour
     {
         [SerializeField] private BoxLevel1[] boxLevels;
-
-        public static char CurrentLetter;
+        [SerializeField] private Text textMessage;
+        
+        private static char currentLetter;
         private static string currentName;
         private static int countSelectNeedBox;
         private static int currentIdPack;
         
+        private string firstPartMessage;
         private int countNeedBox = 0;
         private int countOtherBox = 0;
         
         private void Start()
         {
+            firstPartMessage = textMessage.text;
+            ReShapeSprites();
             BoxLevel1.onClickBox += CheckBox;
         }
 
@@ -32,17 +36,19 @@ namespace HomeLevels.Level1
 
         public void CheckBox(char letterBox, BoxLevel1 boxLevel1)
         {
-            if (letterBox == CurrentLetter)
+            if (letterBox == currentLetter)
             {
                 if (countSelectNeedBox >= boxLevels.Length / 2)
                 {
                     ReShapeSprites();
                 }
+                AttemptCounter.SetAttempt(true);
                 countSelectNeedBox++;
             }
             else
             {
-                //boxLevel1.animation... //TODO запускается анимация неправильного блока
+                AttemptCounter.SetAttempt(false);
+                boxLevel1.AnimBox();
             }
         }
         
@@ -51,16 +57,29 @@ namespace HomeLevels.Level1
             SetCurrentLetter();
             foreach (var box in boxLevels)
             {
-                box.SetDataBox(GetRandomSprite(GetRandomLetter()), CurrentLetter);
+                char randLetter = GetRandomLetter();
+                Sprite sprite = GetRandomSprite(randLetter);
+                box.SetDataBox(sprite, randLetter);
             }
             
-            if (currentIdPack < DataLevel1Manager.DataLevel1Dict.Count - 1)
+            if (currentIdPack < DataLevel1Manager.DataLevel1Dict.Count)
             {
+                countSelectNeedBox = 0;
+                countNeedBox = 0;
+                countOtherBox = 0;
                 currentIdPack++;
             }
             else
             {
                 //TODO выиграли этот уровень
+                if (AttemptCounter.IsLevelPass())
+                {
+                    //Выиграл
+                }
+                else
+                {
+                    //Проиграл
+                }
             }
         }
 
@@ -68,23 +87,34 @@ namespace HomeLevels.Level1
         {
             currentName = DataLevel1Manager.DataNameList.Dequeue();
             DataLevel1Manager.DataNameList.Enqueue(currentName);
-            CurrentLetter = currentName.Replace("-", "")[Random.Range(0, 2)];
+            string pairName = currentName.Replace("-", "");
+            currentLetter = pairName[Random.Range(0, 2)];
+            textMessage.text = $"{firstPartMessage} {currentLetter.ToString().ToUpper()}";
         }
 
         private Sprite GetRandomSprite(char inputLetter)
         {
-            var levelDict = DataLevel1Manager.DataLevel1Dict[currentName];
-            var spriteList = levelDict.Where(x =>
-                x.name.Contains(inputLetter) ||
-                x.name.Contains(inputLetter.ToString().ToUpper())) as List<Sprite>;
-            return spriteList?[Random.Range(0, spriteList.Count)];
+            var levelList = DataLevel1Manager.DataLevel1Dict[currentName];
+            var spriteList = new List<Sprite>();
+            
+            foreach (var data in levelList)
+            {
+                if (data.name.Contains(inputLetter) ||
+                    data.name.Contains(inputLetter.ToString().ToUpper()))
+                {
+                    spriteList.Add(data);
+                }
+            }
+            int rand = Random.Range(0, spriteList.Count);
+            
+            return spriteList[rand];
         }
 
         private char GetRandomLetter()
         {
-            char letter = currentName.Replace("-", "")[Random.Range(0, 2)];
-                
-            if (letter == CurrentLetter)
+            string pairName = currentName.Replace("-", "");
+            char letter = pairName[Random.Range(0, 2)];
+            if (letter == currentLetter)
             {
                 if (countNeedBox >= boxLevels.Length / 2)
                 {
@@ -103,12 +133,11 @@ namespace HomeLevels.Level1
             else
             {
                 if (countOtherBox >= boxLevels.Length / 2)
-                    letter = CurrentLetter;
+                    letter = currentLetter;
                 else
                     countOtherBox++;
             }
-
             return letter;
-        } 
+        }
     }
 }
