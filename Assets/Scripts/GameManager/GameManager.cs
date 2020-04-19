@@ -1,12 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Section0.HomeLevels.Level1;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private UiManagerGame uiManagerGame;
-    
-    public void EndLevel(bool isWin)
+
+    private void Start()
+    {
+        Level1.onEndLevel += EndLevel;
+    }
+
+    private void OnDestroy()
+    {
+        Level1.onEndLevel -= EndLevel;
+    }
+
+    private void EndLevel(bool isWin)
     {
         if (isWin)
         {

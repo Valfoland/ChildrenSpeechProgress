@@ -7,6 +7,7 @@ namespace  Section0.HomeLevels.Level1
 {
     public class BoxLevel1 : MonoBehaviour
     {
+        public Button BtnBox;
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
         [SerializeField] private Text hren; //TEMP
@@ -15,7 +16,7 @@ namespace  Section0.HomeLevels.Level1
         
         private void Start()
         {
-            
+            BtnBox.onClick.AddListener(ClickBox);
         }
 
         private void OnDestroy()

@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class AttemptCounter : MonoBehaviour
 {
+    public static System.Action<float> onSetResult;
     private static Dictionary<string, float> rateDict = new Dictionary<string, float>()
     {
         {"perfect", 1},
@@ -14,7 +15,8 @@ public class AttemptCounter : MonoBehaviour
         {"sat", 0.25f},
         {"bad", 0}
     };
-    public static List<float> AttemptResultList = new List<float>();
+
+    private static List<float> attemptResultList = new List<float>();
     private static int attempCount;
     private const float REQ_RESULT = 0.85f;
     
@@ -25,16 +27,16 @@ public class AttemptCounter : MonoBehaviour
             switch (attempCount)
             {
                 case 0 : 
-                    AttemptResultList.Add(rateDict["perfect"]);
+                    attemptResultList.Add(rateDict["perfect"]);
                     break;
                 case 1 :
-                    AttemptResultList.Add(rateDict["good"]);
+                    attemptResultList.Add(rateDict["good"]);
                     break;
                 case 2 :
-                    AttemptResultList.Add(rateDict["sat"]);
+                    attemptResultList.Add(rateDict["sat"]);
                     break;
                 default:
-                    AttemptResultList.Add(rateDict["bad"]);
+                    attemptResultList.Add(rateDict["bad"]);
                     break;
             }
             attempCount = 0;
@@ -49,9 +51,10 @@ public class AttemptCounter : MonoBehaviour
     public static bool IsLevelPass()
     {
         float result = 0;
-        AttemptResultList.ForEach(x => result += x);
-        result /= AttemptResultList.Count;
-        Section0.ResultKeeper.SetResultSession(result);
+        attemptResultList.ForEach(x => result += x);
+        result /= attemptResultList.Count;
+        attemptResultList.Clear();
+        onSetResult?.Invoke(result);
         return result >= REQ_RESULT;
     }
 }

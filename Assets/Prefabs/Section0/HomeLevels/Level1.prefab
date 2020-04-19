@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd4a56eae7caa4092934c010286701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BtnBox: {fileID: 2107360156822118857}
   animFalse: {fileID: 3472708105260066533}
   imageBox: {fileID: 2458207210352981706}
   hren: {fileID: 2674534393469207312}
@@ -113,10 +114,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5451228, g: 0.9245283, b: 0.6364107, a: 0.6666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -134,18 +135,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2458207210352981706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2303749617496104459}
-        m_MethodName: ClickBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!111 &3472708105260066533
 Animation:
   m_ObjectHideFlags: 0
@@ -247,7 +237,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2458207210418957226}
   - component: {fileID: 715988487217615017}
-  - component: {fileID: 7623333905654244955}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -296,18 +285,6 @@ MonoBehaviour:
   - {fileID: 2303749617496104459}
   - {fileID: 2095071395765675825}
   textMessage: {fileID: 2458207212221406334}
---- !u!114 &7623333905654244955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2458207210418957225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cc6da4c0fa0af64c8ae5ed70560d1dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2458207210752074907
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd4a56eae7caa4092934c010286701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BtnBox: {fileID: 4191754394345210202}
   animFalse: {fileID: 8980754597343751023}
   imageBox: {fileID: 2458207211341952821}
   hren: {fileID: 35887782633139170}
@@ -495,10 +473,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5451228, g: 0.9245283, b: 0.6364107, a: 0.6666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -516,18 +494,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2458207211341952821}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1569926928327865474}
-        m_MethodName: ClickBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!111 &8980754597343751023
 Animation:
   m_ObjectHideFlags: 0
@@ -633,6 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd4a56eae7caa4092934c010286701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BtnBox: {fileID: 5376587830941418702}
   animFalse: {fileID: 711188262878161974}
   imageBox: {fileID: 2458207211400445997}
   hren: {fileID: 7820980778413188764}
@@ -657,10 +625,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5451228, g: 0.9245283, b: 0.6364107, a: 0.6666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -678,18 +646,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2458207211400445997}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2095071395765675825}
-        m_MethodName: ClickBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!111 &711188262878161974
 Animation:
   m_ObjectHideFlags: 0
@@ -910,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd4a56eae7caa4092934c010286701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BtnBox: {fileID: 8981443238655467489}
   animFalse: {fileID: 8039891809445339808}
   imageBox: {fileID: 2458207211672393959}
   hren: {fileID: 3403422104403950893}
@@ -934,10 +892,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5451228, g: 0.9245283, b: 0.6364107, a: 0.6666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -955,18 +913,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2458207211672393959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 534370495016847699}
-        m_MethodName: ClickBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!111 &8039891809445339808
 Animation:
   m_ObjectHideFlags: 0
@@ -1072,6 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd4a56eae7caa4092934c010286701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BtnBox: {fileID: 6910024351386396153}
   animFalse: {fileID: 8369159842769504705}
   imageBox: {fileID: 2458207211735077604}
   hren: {fileID: 6991209531916402829}
@@ -1096,10 +1044,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5451228, g: 0.9245283, b: 0.6364107, a: 0.6666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1117,18 +1065,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2458207211735077604}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1322462204385967189}
-        m_MethodName: ClickBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!111 &8369159842769504705
 Animation:
   m_ObjectHideFlags: 0
@@ -1379,6 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd4a56eae7caa4092934c010286701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BtnBox: {fileID: 6450662482428783933}
   animFalse: {fileID: 4039135270604018017}
   imageBox: {fileID: 2458207212352942036}
   hren: {fileID: 5760579754179035487}
@@ -1403,10 +1341,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.5451228, g: 0.9245283, b: 0.6364107, a: 0.6666667}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1424,18 +1362,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2458207212352942036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8571808804694988974}
-        m_MethodName: ClickBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!111 &4039135270604018017
 Animation:
   m_ObjectHideFlags: 0

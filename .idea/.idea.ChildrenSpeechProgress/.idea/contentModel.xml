@@ -7,6 +7,11 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Carousel" t="Include">
+            <e p="CarouselController.cs" t="Include" />
+            <e p="CarouselElement.cs" t="Include" />
+            <e p="ICarouselElement.cs" t="Include" />
+          </e>
           <e p="ChildrenManager" t="Include">
             <e p="Child.cs" t="Include" />
             <e p="ChildrenManager.cs" t="Include" />
@@ -19,6 +24,7 @@
           </e>
           <e p="Levels" t="Include">
             <e p="AttemptCounter.cs" t="Include" />
+            <e p="DataLevelManager.cs" t="Include" />
             <e p="DataSounds.cs" t="Include" />
             <e p="ResultKeeper.cs" t="Include" />
             <e p="Section0" t="Include">
@@ -29,6 +35,11 @@
                   <e p="Level1.cs" t="Include" />
                   <e p="VoiceLevel1.cs" t="Include" />
                 </e>
+                <e p="Level2" t="Include">
+                  <e p="DataLevel2Manager.cs" t="Include" />
+                  <e p="ItemLevel2.cs" t="Include" />
+                  <e p="Level2.cs" t="Include" />
+                </e>
               </e>
               <e p="PatternLevels" t="Include">
                 <e p="Level.cs" t="Include" />
@@ -36,6 +47,8 @@
               <e p="ResultKeeper.cs" t="Include" />
             </e>
           </e>
+          <e p="MousPositionDetecter.cs" t="Include" />
+          <e p="SocketItem.cs" t="Include" />
           <e p="UImanager" t="Include">
             <e p="ExitPanel.cs" t="Include" />
             <e p="InfoPanel.cs" t="Include" />
@@ -64,18 +77,6 @@
             <e p="UIManagerBridge.cs" t="Include" />
             <e p="UIManagerGame.cs" t="Include" />
             <e p="UIManagerMenu.cs" t="Include" />
-          </e>
-        </e>
-        <e p="TempAssets" t="Include">
-          <e p="Plugins" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="Effects" t="Include">
-                <e p="UIParticleSystem.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Shaders" t="Include">
-              <e p="UI Particle Add.shader" t="Include" />
-            </e>
           </e>
         </e>
       </e>

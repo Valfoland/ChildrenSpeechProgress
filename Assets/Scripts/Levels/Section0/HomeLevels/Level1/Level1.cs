@@ -13,18 +13,29 @@ namespace Section0.HomeLevels.Level1
         [SerializeField] private BoxLevel1[] boxLevels;
         [SerializeField] private Text textMessage;
         
-        private static char currentLetter;
-        private static string currentName;
-        private static int countSelectNeedBox;
-        private static int currentIdPack;
-        
         private string firstPartMessage;
-        private int countNeedBox = 0;
-        private int countOtherBox = 0;
+        private string currentName;
+        private char needLetter;
+        private char otherLetter;
+        private int countSelectNeedBox;
+        private int currentIdPack;
+        private int currentRound;
+
+
+        private int countInstanceNeedBox;
+        private int countInstanceOtherBox;
+        private const int COUNT_BOX_HALF = 3;
+
+        private List<Sprite> spriteListBox = new List<Sprite>();
+        private Dictionary<char, List<Sprite>> spriteDictLetter = new Dictionary<char, List<Sprite>>();
+
+        public static Action<bool> onEndLevel;
         
         private void Start()
         {
             firstPartMessage = textMessage.text;
+            ILevelData data = new DataLevel1Manager();
+            data.InitData();
             ReShapeSprites();
             BoxLevel1.onClickBox += CheckBox;
         }
@@ -36,14 +47,16 @@ namespace Section0.HomeLevels.Level1
 
         public void CheckBox(char letterBox, BoxLevel1 boxLevel1)
         {
-            if (letterBox == currentLetter)
+            if (letterBox == needLetter)
             {
-                if (countSelectNeedBox >= boxLevels.Length / 2)
+                AttemptCounter.SetAttempt(true);
+                boxLevel1.BtnBox.interactable = false;
+                countSelectNeedBox++;
+
+                if (countSelectNeedBox >= COUNT_BOX_HALF)
                 {
                     ReShapeSprites();
                 }
-                AttemptCounter.SetAttempt(true);
-                countSelectNeedBox++;
             }
             else
             {
@@ -51,91 +64,105 @@ namespace Section0.HomeLevels.Level1
                 boxLevel1.AnimBox();
             }
         }
-        
+
         private void ReShapeSprites()
         {
-            SetCurrentLetter();
-            foreach (var box in boxLevels)
-            {
-                char randLetter = GetRandomLetter();
-                Sprite sprite = GetRandomSprite(randLetter);
-                box.SetDataBox(sprite, randLetter);
-            }
-            
-            if (currentIdPack < DataLevel1Manager.DataLevel1Dict.Count)
+            if (currentIdPack < DataLevelManager.DataLevelDict.Count)
             {
                 countSelectNeedBox = 0;
-                countNeedBox = 0;
-                countOtherBox = 0;
+                countInstanceNeedBox = 0;
+                countInstanceOtherBox = 0;
                 currentIdPack++;
+
+                SetCurrentLetter();
+                SetDictSprite();
+
+                foreach (var box in boxLevels)
+                {
+                    char randLetter = GetRandomLetterBox();
+                    Sprite sprite = GetRandomSprite(randLetter);
+                    spriteListBox.Add(sprite);
+                    box.SetDataBox(sprite, randLetter);
+                    box.BtnBox.interactable = true;
+                }
             }
             else
             {
-                //TODO выиграли этот уровень
-                if (AttemptCounter.IsLevelPass())
+                if (currentRound >= 1)
                 {
-                    //Выиграл
+                    if (AttemptCounter.IsLevelPass())
+                    {
+                        onEndLevel?.Invoke(true);
+                    }
+                    else
+                    {
+                        onEndLevel?.Invoke(false);
+                    }
                 }
                 else
                 {
-                    //Проиграл
+                    currentIdPack = 0;
+                    currentRound++;
+                    ReShapeSprites();
                 }
             }
         }
 
         private void SetCurrentLetter()
         {
-            currentName = DataLevel1Manager.DataNameList.Dequeue();
-            DataLevel1Manager.DataNameList.Enqueue(currentName);
-            string pairName = currentName.Replace("-", "");
-            currentLetter = pairName[Random.Range(0, 2)];
-            textMessage.text = $"{firstPartMessage} {currentLetter.ToString().ToUpper()}";
+            currentName = DataLevelManager.DataNameList.Dequeue();
+            DataLevelManager.DataNameList.Enqueue(currentName);
+            var nameListSprite = currentName.Replace("-", "");
+            needLetter = nameListSprite[currentRound];
+            otherLetter = nameListSprite.Replace(nameListSprite[currentRound].ToString(), "")[0];
+            textMessage.text = $"{firstPartMessage} {nameListSprite[currentRound].ToString().ToUpper()}";
         }
 
         private Sprite GetRandomSprite(char inputLetter)
         {
-            var levelList = DataLevel1Manager.DataLevel1Dict[currentName];
-            var spriteList = new List<Sprite>();
-            
-            foreach (var data in levelList)
-            {
-                if (data.name.Contains(inputLetter) ||
-                    data.name.Contains(inputLetter.ToString().ToUpper()))
-                {
-                    spriteList.Add(data);
-                }
-            }
-            int rand = Random.Range(0, spriteList.Count);
-            
-            return spriteList[rand];
+            var sprite = spriteDictLetter[inputLetter][Random.Range(0, spriteDictLetter[inputLetter].Count)];
+            spriteDictLetter[inputLetter].Remove(sprite);
+            return sprite;
         }
 
-        private char GetRandomLetter()
+        private void SetDictSprite()
         {
-            string pairName = currentName.Replace("-", "");
-            char letter = pairName[Random.Range(0, 2)];
-            if (letter == currentLetter)
+            spriteDictLetter.Clear();
+            spriteDictLetter.Add(needLetter, new List<Sprite>());
+            spriteDictLetter.Add(otherLetter, new List<Sprite>());
+            
+            foreach (var data in DataLevelManager.DataLevelDict[currentName])
             {
-                if (countNeedBox >= boxLevels.Length / 2)
+                if (data.name.Contains(needLetter) ||
+                    data.name.Contains(needLetter.ToString().ToUpper()))
                 {
-                    foreach (char name in currentName)
-                    {
-                        if (letter != name)
-                        {
-                            letter = name;
-                            break;
-                        }
-                    }
+                    spriteDictLetter[needLetter].Add(data);
                 }
                 else
-                    countNeedBox++;
+                {
+                    spriteDictLetter[otherLetter].Add(data);
+                }
+            }
+        }
+
+        private char GetRandomLetterBox()
+        {
+            var pairName = currentName.Replace("-", "");
+            var letter = pairName[Random.Range(0, 2)];
+            
+            if (letter == needLetter)
+            {
+                if (countInstanceNeedBox >= COUNT_BOX_HALF)
+                    letter = otherLetter;
+                else
+                    countInstanceNeedBox++;
             }
             else
             {
-                if (countOtherBox >= boxLevels.Length / 2)
-                    letter = currentLetter;
+                if (countInstanceOtherBox >= COUNT_BOX_HALF)
+                    letter = needLetter;
                 else
-                    countOtherBox++;
+                    countInstanceOtherBox++;
             }
             return letter;
         }
