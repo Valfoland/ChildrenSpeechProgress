@@ -200,7 +200,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 60, y: 65}
+  m_Size: {x: 40, y: 45}
   m_EdgeRadius: 0
 --- !u!114 &5049720678219161478
 MonoBehaviour:
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateRect: 1
-  disableBackSocket: 0
   isInsertableSocket: 0
 --- !u!114 &1942913880491653454
 MonoBehaviour:

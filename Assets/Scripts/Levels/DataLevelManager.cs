@@ -30,7 +30,7 @@ public class DataLevelManager
                 DataLevelDict.Add(dirTemp, Resources.LoadAll<Sprite>($"Home/Level{idLvl}/{dirTemp}").ToList());
             }
         }
-        catch (System.IO.DirectoryNotFoundException)
+        catch (DirectoryNotFoundException)
         {
         }
     }

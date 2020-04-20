@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Section0.HomeLevels.Level1;
+using Section0.HomeLevels.Level2;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,12 +11,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Level1.onEndLevel += EndLevel;
+        LevelManager.onEndLevel += EndLevel;
     }
 
     private void OnDestroy()
     {
-        Level1.onEndLevel -= EndLevel;
+        LevelManager.onEndLevel -= EndLevel;
     }
 
     private void EndLevel(bool isWin)

@@ -5,7 +5,7 @@ namespace Section0.HomeLevels.Level2
     {
         public void InitData()
         {
-            idLvl = 2;
+            idLvl = DataTasks.IdSelectLvl + 1;
             InstanceData();
         }
     }

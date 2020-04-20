@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using Section0.HomeLevels.Level2;
 using UnityEngine.Events;
 
 #if UNITY_EDITOR
@@ -17,37 +18,38 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 {
 	#region FIELDS
 	private ICarouselElement currentElement;
-	private List<ICarouselElement> elements;
+	private List<ICarouselElement> elements ;
 	private List<ICarouselElement> elementsIndex;
 	
     [SerializeField] private Button[] buttonLvl;
 	[SerializeField] private float tweenSpeed = 1f;
 	
 	private Vector2 dragPosition;
-	private float respawnDistance;
 	private float deltaX;
 	private int numberLvl;
-	private int minCountElements;
-	private bool isLockRespawn;
-	
+
 	#endregion
+	#region INIT
 
 	private void Start()
 	{
-		buttonLvl[0].onClick.AddListener(() =>ChangePage(false));
-		buttonLvl[1].onClick.AddListener(() =>ChangePage(true));
-        Initialization();
+		Level2.onInit += Initialization;
 	}
-
-	#region INIT
+	
 	/// <summary>
 	/// Инициализация элементов карусели
 	/// </summary>
 	public void Initialization()
 	{
-		numberLvl = 1;
-        elements = new List<ICarouselElement>();
-
+		StopAllCoroutines();
+		buttonLvl[0].onClick.AddListener(() => ChangePage(false));
+		buttonLvl[1].onClick.AddListener(() => ChangePage(true));
+		
+		numberLvl = 0;
+		currentElement = null;
+		
+		elements = new List<ICarouselElement>();
+		
 		foreach (RectTransform child in transform)
 		{
 			AddElement(child);
@@ -55,8 +57,7 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 		elementsIndex = new List<ICarouselElement>(elements);
 
 		SetCurrentElement(elementsIndex[0]);
-        buttonLvl[0].gameObject.SetActive(false);
-    }
+	}
 
 	private void AddElement(RectTransform child)
 	{
@@ -94,14 +95,14 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	private void OnNextLvlPack()
 	{
-		CheckCurrentElement(-0.1f);
+		CheckCurrentElement(-1);
 		StopAllCoroutines();
 		StartCoroutine(TweenToElement(currentElement));
 	}
 
 	private void OnPrevLvlPack()
 	{
-		CheckCurrentElement(0.1f);
+		CheckCurrentElement(1);
 		StopAllCoroutines();
 		StartCoroutine(TweenToElement(currentElement));
 	}
@@ -130,6 +131,7 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 			{
 				element.Translate(Vector2.right * deltaX);
 			}
+			Debug.Log(deltaX);
 			UpdateDragPosition();
 
 		}
@@ -158,23 +160,23 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	private void SetCurrentElement(ICarouselElement element)
 	{
-		for (int i = 0; i < elements.Count; i++)
+		buttonLvl[0].gameObject.SetActive(true);
+		buttonLvl[1].gameObject.SetActive(true);
+		
+		if (elements.Count == 1)
 		{
-            buttonLvl[0].gameObject.SetActive(true);
-            buttonLvl[1].gameObject.SetActive(true);
-            if (numberLvl == 1)
-            {
-                buttonLvl[0].gameObject.SetActive(false);
-            }
-            else if (numberLvl == 2)
-            {
-                buttonLvl[1].gameObject.SetActive(false);
-            }
-            /*if (element == elementsIndex[i])
-			{
-				OnChangeElement?.Invoke(i);
-			}*/
+			buttonLvl[0].gameObject.SetActive(false);
+			buttonLvl[1].gameObject.SetActive(false);
 		}
+		else if (numberLvl == 0)
+		{
+			buttonLvl[0].gameObject.SetActive(false);
+		}
+		else if (numberLvl == elements.Count - 1)
+		{
+			buttonLvl[1].gameObject.SetActive(false);
+		}
+		
 		currentElement = element;
 	}
 
@@ -203,22 +205,20 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 	private ICarouselElement FindCenterElement(float deltaX)
 	{
 		ICarouselElement centerElement = null;
-		int k = 0;
+		
 		for (int i = 0; i < elements.Count; i++)
 		{
 			if (elements[i] == currentElement)
 			{
-				k = i + 1;
-
-				if (deltaX > 0 && i - 1 >= 0)
+				if (deltaX > 0 && i > 0)
 				{
 					centerElement = elements[i - 1];
-					numberLvl = (k - 1);
+					numberLvl = i - 1;
 				}
-				else if (deltaX < 0 && i + 1 < elements.Count)
+				else if (deltaX < 0 && i < elements.Count - 1)
 				{
 					centerElement = elements[i + 1];
-					numberLvl = (k + 1);
+					numberLvl = i + 1;
 				}
 				else
 				{
@@ -234,6 +234,9 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	private void OnDestroy()
 	{
+		Level2.onInit -= Initialization;
+		buttonLvl[0].onClick.RemoveAllListeners();
+		buttonLvl[1].onClick.RemoveAllListeners();
 		StopAllCoroutines();
 	}
 	#endregion

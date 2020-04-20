@@ -31,4 +31,9 @@ public class CarouselElement : MonoBehaviour, ICarouselElement
         }
         return rectTransform;
     }
+
+    private void OnDestroy()
+    {
+        rectTransform = null;
+    }
 }

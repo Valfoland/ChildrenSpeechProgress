@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Section0.HomeLevels.Level1
 {
-    public class Level1 : MonoBehaviour
+    public class Level1 : LevelManager
     {
         [SerializeField] private BoxLevel1[] boxLevels;
         [SerializeField] private Text textMessage;
@@ -29,15 +29,10 @@ namespace Section0.HomeLevels.Level1
         private List<Sprite> spriteListBox = new List<Sprite>();
         private Dictionary<char, List<Sprite>> spriteDictLetter = new Dictionary<char, List<Sprite>>();
 
-        public static Action<bool> onEndLevel;
-        
         private void Start()
         {
-            firstPartMessage = textMessage.text;
-            ILevelData data = new DataLevel1Manager();
-            data.InitData();
+            InitData();
             ReShapeSprites();
-            BoxLevel1.onClickBox += CheckBox;
         }
 
         private void OnDestroy()
@@ -45,7 +40,15 @@ namespace Section0.HomeLevels.Level1
             BoxLevel1.onClickBox -= CheckBox;
         }
 
-        public void CheckBox(char letterBox, BoxLevel1 boxLevel1)
+        private void InitData()
+        {
+            firstPartMessage = textMessage.text;
+            ILevelData data = new DataLevel1Manager();
+            data.InitData();
+            BoxLevel1.onClickBox += CheckBox;
+        }
+        
+        private void CheckBox(char letterBox, BoxLevel1 boxLevel1)
         {
             if (letterBox == needLetter)
             {
@@ -88,23 +91,21 @@ namespace Section0.HomeLevels.Level1
             }
             else
             {
-                if (currentRound >= 1)
-                {
-                    if (AttemptCounter.IsLevelPass())
-                    {
-                        onEndLevel?.Invoke(true);
-                    }
-                    else
-                    {
-                        onEndLevel?.Invoke(false);
-                    }
-                }
-                else
-                {
-                    currentIdPack = 0;
-                    currentRound++;
-                    ReShapeSprites();
-                }
+                CheckWinLevel();
+            }
+        }
+
+        private void CheckWinLevel()
+        {
+            if (currentRound >= 1)
+            {
+                onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
+            }
+            else
+            {
+                currentIdPack = 0;
+                currentRound++;
+                ReShapeSprites();
             }
         }
 
@@ -116,6 +117,7 @@ namespace Section0.HomeLevels.Level1
             needLetter = nameListSprite[currentRound];
             otherLetter = nameListSprite.Replace(nameListSprite[currentRound].ToString(), "")[0];
             textMessage.text = $"{firstPartMessage} {nameListSprite[currentRound].ToString().ToUpper()}";
+            onVoice?.Invoke(needLetter.ToString());
         }
 
         private Sprite GetRandomSprite(char inputLetter)

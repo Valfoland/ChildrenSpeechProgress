@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Section0.HomeLevels.Level2;
 using UnityEngine;
 using  UnityEngine.EventSystems;
 using Vector2 = UnityEngine.Vector2;
@@ -9,16 +10,12 @@ using Vector2 = UnityEngine.Vector2;
 /// </summary>
 public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    private static Action<RectTransform> onPutItem;
-    private static Action onCheckBusy;
-    public static Action<GameObject, bool, bool> onPutAgent;
+    private static Action<RectTransform, SocketItem> onPutItem;
+    public static Action<SocketItem> onPut;
     
     [SerializeField] private StateRect stateRect;
-    [SerializeField] private bool disableBackSocket;
     [SerializeField] private bool isInsertableSocket;
-
-    private const string FIELD_PUT_NAME = "FieldPut";
-    private const string NAME_ITEM = "Agent";
+    
     private int countEnter;
     private bool isBusy;
     private static GameObject startSocket;
@@ -26,15 +23,13 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
     private RectTransform mainRect;
     public static  RectTransform TempContainer;
     private RectTransform startParentTransform;
-    private static Dictionary<RectTransform, bool> socketDict = new Dictionary<RectTransform, bool>();
-    
+
     private void Start()
     {
         mainRect = GetComponent<RectTransform>();
         startParentTransform = mainRect.parent.GetComponent<RectTransform>();
         
         SubscribeEvents();
-        AddSocketsToDict();
     }
 
     private void OnDestroy()
@@ -45,13 +40,11 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
     private void SubscribeEvents()
     {
         onPutItem += PutItem;
-        onCheckBusy += GetBusySocket;
     }
 
     private void DescribeEvents()
     {
         onPutItem -= PutItem;
-        onCheckBusy -= GetBusySocket;
     }
 
     /// <summary>
@@ -78,15 +71,14 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
     }
 
     /// <summary>
-    /// Здесь проверяем наши сокеты на их доступБ также оповещяем другие сокеты о том что надо поместить агента
+    /// Здесь оповещяем другие сокеты о том что надо поместить агента, если ставить некуда то возвращяем обратно
     /// </summary>
     /// <param name="eventData"></param>
     public void OnPointerUp(PointerEventData eventData)
     {
-        onCheckBusy?.Invoke();
         if (stateRect == StateRect.Item && countEnter > 0)
         {
-            onPutItem?.Invoke(mainRect);
+            onPutItem?.Invoke(mainRect, this);
         }
         if (mainRect.parent == TempContainer)
         {
@@ -104,87 +96,27 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
         if(countEnter > 0) countEnter--;
     }
 
-    private void PutItem(RectTransform itemRect)
+    private void PutItem(RectTransform itemRect, SocketItem item)
     {
-        if (stateRect == StateRect.Socket && countEnter > 0 && !isBusy && isInsertableSocket)
+        if (stateRect == StateRect.Socket && countEnter > 0  && isInsertableSocket)
         {
+            countEnter = 0;
             SetItemToSocket(itemRect, mainRect);
             if (startSocket != gameObject)
             {
-                if (startSocket.name.StartsWith(FIELD_PUT_NAME) && !gameObject.name.StartsWith(FIELD_PUT_NAME) ||
-                    !startSocket.name.StartsWith(FIELD_PUT_NAME) && gameObject.name.StartsWith(FIELD_PUT_NAME))
-                {
-                    onPutAgent?.Invoke(itemRect.gameObject, false, false);
-                }
+                onPut?.Invoke(item);
             }
         }
     }
-    
-    private void BackToStartPos()
+
+    public void BackToStartPos()
     {
-        SetItemToSocket(mainRect, FindFreeSocket(startParentTransform));
-        if (startSocket != transform.parent.gameObject)
-        {
-            onPutAgent?.Invoke(mainRect.gameObject, true, false);
-        }
+        SetItemToSocket(mainRect, startParentTransform);
     }
 
     private void SetItemToSocket(RectTransform itemRect, RectTransform socketRect)
     {
         itemRect.SetParent(socketRect);
-        itemRect.anchoredPosition = Vector2.zero;
-        itemRect.anchorMin = new Vector2(0.5f, 0.5f);
-        itemRect.anchorMax = new Vector2(0.5f, 0.5f);
-        itemRect.sizeDelta = socketRect.sizeDelta;
-    }
-
-    private void GetBusySocket()
-    {
-        isBusy = false;
-        if (stateRect == StateRect.Socket)
-        {
-            foreach (Transform child in transform)
-            {
-                if (child.name.Contains(NAME_ITEM) && child.gameObject.activeSelf)
-                {
-                    isBusy = true;
-                }
-            }
-            if (socketDict.ContainsKey(mainRect))
-            {
-                socketDict[mainRect] = isBusy;
-            }
-        }
-    }
-
-    private void AddSocketsToDict()
-    {
-        if (stateRect == StateRect.Socket && !disableBackSocket)
-        {
-            GetBusySocket();
-            socketDict.Add(mainRect, isBusy);
-        }
-    }
-    
-    private RectTransform FindFreeSocket(RectTransform startSocket)
-    {
-        foreach (var socket in socketDict)
-        {
-            if (socket.Key == startSocket && socket.Value == false)
-            {
-                return startSocket;
-            }
-        }
-
-        foreach (var socket in socketDict)
-        {
-            if (socket.Value == false)
-            {
-                return socket.Key;
-            }
-        }
-        
-        return null;
     }
 
     [Serializable]

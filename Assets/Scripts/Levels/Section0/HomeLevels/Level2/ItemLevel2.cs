@@ -14,35 +14,42 @@ namespace Section0.HomeLevels.Level2
 
         private void Awake()
         {
-            Level2.onInstanceItem += SetImage;
-            Level2.onDestroyItem += DestroyItem;
+            Level2.onInstanceItem += SetData;
+            Level2.onPutItem += SetInteractable;
+            Level2.onDestroy += DestroyItem;
         }
 
         private void OnDestroy()
         {
-            Level2.onInstanceItem -= SetImage;
-            Level2.onDestroyItem -= DestroyItem;
+            Level2.onInstanceItem -= SetData;
+            Level2.onDestroy -= DestroyItem;
+            Level2.onPutItem -= SetInteractable;
         }
 
-        private void SetImage(GameObject item, Sprite spriteItem)
+        private void SetData(GameObject item, Sprite spriteItem)
         {
             if (gameObject == item)
             {
                 //imageItem.sprite = spriteItem;
                 textItem.text = spriteItem.name; //temp
+                gameObject.name = spriteItem.name;
             }
         }
 
-        private void SetInteractable()
+        private void SetInteractable(GameObject item)
         {
-            socketItem.enabled = false;
-            imageItem.color = Color.gray;
+            if (gameObject == item)
+            {
+                socketItem.enabled = false;
+                imageItem.color = Color.gray;
+            }
         }
 
         private void DestroyItem()
         {
             Destroy(gameObject);
         }
+
     }
 
 }
