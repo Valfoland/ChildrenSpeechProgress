@@ -10,7 +10,7 @@ namespace  Section0.HomeLevels.Level1
         public Button BtnBox;
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
-        [SerializeField] private Text hren; //TEMP
+        [SerializeField] private Text txt; //TEMP
         private char letterBox;
         public static System.Action<char, BoxLevel1> onClickBox;    
         
@@ -31,7 +31,7 @@ namespace  Section0.HomeLevels.Level1
         
         public void SetDataBox(Sprite spriteBox, char letterBox)
         {
-            hren.text = spriteBox.name;
+            txt.text = spriteBox.name;
             this.letterBox = letterBox;
             //imageBox.sprite = spriteBox;
         }

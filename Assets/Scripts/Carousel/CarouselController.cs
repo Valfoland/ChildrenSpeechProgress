@@ -131,7 +131,6 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 			{
 				element.Translate(Vector2.right * deltaX);
 			}
-			Debug.Log(deltaX);
 			UpdateDragPosition();
 
 		}

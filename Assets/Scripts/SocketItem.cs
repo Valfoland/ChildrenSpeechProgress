@@ -12,7 +12,8 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
 {
     private static Action<RectTransform, SocketItem> onPutItem;
     public static Action<SocketItem> onPut;
-    
+
+    [SerializeField] private Animation animSocket;
     [SerializeField] private StateRect stateRect;
     [SerializeField] private bool isInsertableSocket;
     
@@ -117,6 +118,18 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
     private void SetItemToSocket(RectTransform itemRect, RectTransform socketRect)
     {
         itemRect.SetParent(socketRect);
+    }
+
+    private void AnimSocket(bool isTrue)
+    {
+        if (isTrue)
+        {
+            
+        }
+        else
+        {
+            animSocket.Play();
+        }
     }
 
     [Serializable]

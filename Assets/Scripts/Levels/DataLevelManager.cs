@@ -15,11 +15,11 @@ public class DataLevelManager
     public static Queue<string> DataNameList = new Queue<string>();
     protected int idLvl;
 
-    protected void InstanceData()
+    protected virtual void InstanceData()
     {
         DataLevelDict.Clear();
         DataNameList.Clear();
-
+        idLvl = DataTasks.IdSelectLvl + 1;
         try
         {
             var dirLevel = Directory.GetDirectories("Assets/Resources/Home/Level" + idLvl);

@@ -55,6 +55,7 @@ public class AttemptCounter : MonoBehaviour
         result /= attemptResultList.Count;
         attemptResultList.Clear();
         onSetResult?.Invoke(result);
+        Debug.Log(result);
         return result >= REQ_RESULT;
     }
 }

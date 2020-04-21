@@ -27,6 +27,7 @@
             <e p="DataLevelManager.cs" t="Include" />
             <e p="DataSounds.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
+            <e p="LevelSaver.cs" t="Include" />
             <e p="ResultKeeper.cs" t="Include" />
             <e p="Section0" t="Include">
               <e p="HomeLevels" t="Include">
@@ -43,6 +44,7 @@
                 </e>
                 <e p="Level3" t="Include">
                   <e p="BoxLevel3.cs" t="Include" />
+                  <e p="DataLevel3Manager.cs" t="Include" />
                   <e p="Level3.cs" t="Include" />
                 </e>
               </e>

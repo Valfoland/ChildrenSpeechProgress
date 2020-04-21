@@ -92,7 +92,7 @@ MonoBehaviour:
   BtnBox: {fileID: 2107360156822118857}
   animFalse: {fileID: 3472708105260066533}
   imageBox: {fileID: 2458207210352981706}
-  hren: {fileID: 2674534393469207312}
+  txt: {fileID: 2674534393469207312}
 --- !u!114 &2107360156822118857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   BtnBox: {fileID: 4191754394345210202}
   animFalse: {fileID: 8980754597343751023}
   imageBox: {fileID: 2458207211341952821}
-  hren: {fileID: 35887782633139170}
+  txt: {fileID: 35887782633139170}
 --- !u!114 &4191754394345210202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ MonoBehaviour:
   BtnBox: {fileID: 5376587830941418702}
   animFalse: {fileID: 711188262878161974}
   imageBox: {fileID: 2458207211400445997}
-  hren: {fileID: 7820980778413188764}
+  txt: {fileID: 7820980778413188764}
 --- !u!114 &5376587830941418702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ MonoBehaviour:
   BtnBox: {fileID: 8981443238655467489}
   animFalse: {fileID: 8039891809445339808}
   imageBox: {fileID: 2458207211672393959}
-  hren: {fileID: 3403422104403950893}
+  txt: {fileID: 3403422104403950893}
 --- !u!114 &8981443238655467489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   BtnBox: {fileID: 6910024351386396153}
   animFalse: {fileID: 8369159842769504705}
   imageBox: {fileID: 2458207211735077604}
-  hren: {fileID: 6991209531916402829}
+  txt: {fileID: 6991209531916402829}
 --- !u!114 &6910024351386396153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   BtnBox: {fileID: 6450662482428783933}
   animFalse: {fileID: 4039135270604018017}
   imageBox: {fileID: 2458207212352942036}
-  hren: {fileID: 5760579754179035487}
+  txt: {fileID: 5760579754179035487}
 --- !u!114 &6450662482428783933
 MonoBehaviour:
   m_ObjectHideFlags: 0
