@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using System;
-using Section0.HomeLevels.Level2;
+using Section0.HomeLevels;
 using UnityEngine.Events;
 
 #if UNITY_EDITOR
@@ -33,7 +33,7 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	private void Start()
 	{
-		Level2.onInit += Initialization;
+		HomeLevel2.onInit += Initialization;
 	}
 	
 	/// <summary>
@@ -233,7 +233,7 @@ public class CarouselController : MonoBehaviour, IBeginDragHandler, IEndDragHand
 
 	private void OnDestroy()
 	{
-		Level2.onInit -= Initialization;
+		HomeLevel2.onInit -= Initialization;
 		buttonLvl[0].onClick.RemoveAllListeners();
 		buttonLvl[1].onClick.RemoveAllListeners();
 		StopAllCoroutines();

@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace Section0.HomeLevels.Level1
+namespace Section0.HomeLevels
 {
-    public class Level1 : LevelManager
+    public class HomeLevel1 : LevelManager
     {
-        [SerializeField] private BoxLevel1[] boxLevels;
+        [SerializeField] private BoxHomeLevel1[] boxLevels;
         [SerializeField] private Text textMessage;
         
         private string firstPartMessage;
@@ -37,23 +37,23 @@ namespace Section0.HomeLevels.Level1
 
         private void OnDestroy()
         {
-            BoxLevel1.onClickBox -= CheckBox;
+            BoxHomeLevel1.onClickBox -= CheckBox;
         }
 
         private void InitData()
         {
             firstPartMessage = textMessage.text;
-            ILevelData data = new DataLevel1Manager();
+            ILevelData data = new DataHomeLevel1Manager();
             data.InitData();
-            BoxLevel1.onClickBox += CheckBox;
+            BoxHomeLevel1.onClickBox += CheckBox;
         }
         
-        private void CheckBox(char letterBox, BoxLevel1 boxLevel1)
+        private void CheckBox(char letterBox, BoxHomeLevel1 boxHomeLevel1)
         {
             if (letterBox == needLetter)
             {
                 AttemptCounter.SetAttempt(true);
-                boxLevel1.BtnBox.interactable = false;
+                boxHomeLevel1.BtnBox.interactable = false;
                 countSelectNeedBox++;
 
                 if (countSelectNeedBox >= COUNT_BOX_HALF)
@@ -64,7 +64,7 @@ namespace Section0.HomeLevels.Level1
             else
             {
                 AttemptCounter.SetAttempt(false);
-                boxLevel1.AnimBox();
+                boxHomeLevel1.AnimBox();
             }
         }
 

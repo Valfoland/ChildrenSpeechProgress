@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Section0.HomeLevels.Level2;
+using Section0.HomeLevels;
 using UnityEngine;
 using  UnityEngine.EventSystems;
 using Vector2 = UnityEngine.Vector2;

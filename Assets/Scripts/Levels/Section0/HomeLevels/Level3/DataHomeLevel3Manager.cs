@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Section0.HomeLevels.Level3
+namespace Section0.HomeLevels
 {
-    public class DataLevel3
+    public class DataHomeLevel3
     {
         public List<List<string>> ListSentences = new List<List<string>>
         {
@@ -216,11 +216,11 @@ namespace Section0.HomeLevels.Level3
         };
     }
 
-    public class DataLevel3Manager : DataLevelManager, ILevelData
+    public class DataHomeLevel3Manager : DataLevelManager, ILevelData
     {
         private Sprite needSprite;
         private Sprite otherSprite;
-        private DataLevel3 dataLevel3;
+        private DataHomeLevel3 dataHomeLevel3;
         public static Queue<string> QueueSenteceses = new Queue<string>();
         public static Queue<List<Sprite>> QueueSprites = new Queue<List<Sprite>>();
 
@@ -232,9 +232,9 @@ namespace Section0.HomeLevels.Level3
         protected override void InstanceData()
         {
             base.InstanceData();
-            dataLevel3 = new DataLevel3();
+            dataHomeLevel3 = new DataHomeLevel3();
             
-            foreach (var data in dataLevel3.ListSentences)
+            foreach (var data in dataHomeLevel3.ListSentences)
             {
                 if (FindElement(data[1], data[2]))
                 {

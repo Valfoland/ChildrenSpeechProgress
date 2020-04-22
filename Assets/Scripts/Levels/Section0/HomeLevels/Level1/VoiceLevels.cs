@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Section0.HomeLevels.Level1;
+using Section0.HomeLevels;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VoiceLevel : MonoBehaviour
+public class VoiceLevels : MonoBehaviour
 {
     private void Start()
     {
-        Level1.onVoice += VoiceCurrentString;
+        LevelManager.onVoice += VoiceCurrentString;
     }
 
     private void OnDestroy()
     {
-        Level1.onVoice -= VoiceCurrentString;
+        LevelManager.onVoice -= VoiceCurrentString;
     }
     
     public void VoiceCurrentString(string letter)

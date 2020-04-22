@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Section0.HomeLevels.Level2
+namespace Section0.HomeLevels
 {
-    public class Level2 : LevelManager
+    public class HomeLevel2 : LevelManager
     {
         public static Action<GameObject, Sprite> onInstanceItem;
         public static Action onInit;
@@ -37,7 +37,7 @@ namespace Section0.HomeLevels.Level2
         private void InitData()
         {
             SocketItem.TempContainer = GameObject.FindWithTag(TAG_CONTAINER).transform as RectTransform;
-            ILevelData data = new DataLevel2Manager();
+            ILevelData data = new DataHomeLevel2Manager();
             data.InitData();
 
             SocketItem.onPut += CheckSyllable;

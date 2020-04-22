@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Section0.HomeLevels.Level2
+namespace Section0.HomeLevels
 {
-    public class ItemLevel2 : MonoBehaviour
+    public class ItemHomeLevel2 : MonoBehaviour
     {
         [SerializeField] private Image imageItem;
         [SerializeField] private SocketItem socketItem;
@@ -14,16 +14,16 @@ namespace Section0.HomeLevels.Level2
 
         private void Awake()
         {
-            Level2.onInstanceItem += SetData;
-            Level2.onPutItem += SetInteractable;
-            Level2.onDestroy += DestroyItem;
+            HomeLevel2.onInstanceItem += SetData;
+            HomeLevel2.onPutItem += SetInteractable;
+            HomeLevel2.onDestroy += DestroyItem;
         }
 
         private void OnDestroy()
         {
-            Level2.onInstanceItem -= SetData;
-            Level2.onDestroy -= DestroyItem;
-            Level2.onPutItem -= SetInteractable;
+            HomeLevel2.onInstanceItem -= SetData;
+            HomeLevel2.onDestroy -= DestroyItem;
+            HomeLevel2.onPutItem -= SetInteractable;
         }
 
         private void SetData(GameObject item, Sprite spriteItem)

@@ -32,28 +32,31 @@
             <e p="Section0" t="Include">
               <e p="HomeLevels" t="Include">
                 <e p="Level1" t="Include">
-                  <e p="BoxLevel1.cs" t="Include" />
-                  <e p="DataLevel1Manager.cs" t="Include" />
-                  <e p="Level1.cs" t="Include" />
-                  <e p="VoiceLevel1.cs" t="Include" />
+                  <e p="BoxHomeLevel1.cs" t="Include" />
+                  <e p="DataHomeLevel1Manager.cs" t="Include" />
+                  <e p="HomeLevel1.cs" t="Include" />
+                  <e p="VoiceLevels.cs" t="Include" />
                 </e>
                 <e p="Level2" t="Include">
-                  <e p="DataLevel2Manager.cs" t="Include" />
-                  <e p="ItemLevel2.cs" t="Include" />
-                  <e p="Level2.cs" t="Include" />
+                  <e p="DataHomeLevel2Manager.cs" t="Include" />
+                  <e p="HomeLevel2.cs" t="Include" />
+                  <e p="ItemHomeLevel2.cs" t="Include" />
                 </e>
                 <e p="Level3" t="Include">
-                  <e p="BoxLevel3.cs" t="Include" />
-                  <e p="DataLevel3Manager.cs" t="Include" />
-                  <e p="Level3.cs" t="Include" />
+                  <e p="BoxHomeLevel3.cs" t="Include" />
+                  <e p="DataHomeLevel3Manager.cs" t="Include" />
+                  <e p="HomeLevel3.cs" t="Include" />
                 </e>
               </e>
-              <e p="PatternLevels" t="Include">
-                <e p="Level.cs" t="Include" />
+              <e p="PatternsLevels" t="Include">
+                <e p="DataPatternsLevelManager.cs" t="Include" />
+                <e p="ItemPatternsLevel.cs" t="Include" />
+                <e p="PatternsLevel.cs" t="Include" />
               </e>
               <e p="ResultKeeper.cs" t="Include" />
             </e>
           </e>
+          <e p="MathExtensions.cs" t="Include" />
           <e p="MousPositionDetecter.cs" t="Include" />
           <e p="SocketItem.cs" t="Include" />
           <e p="UImanager" t="Include">

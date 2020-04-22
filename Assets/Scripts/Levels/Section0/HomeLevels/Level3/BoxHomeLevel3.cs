@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace  Section0.HomeLevels.Level1
+namespace Section0.HomeLevels
 {
-    public class BoxLevel1 : MonoBehaviour
+    public class BoxHomeLevel3 : MonoBehaviour
     {
         public Button BtnBox;
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
         [SerializeField] private Text txt; //TEMP
-        private char letterBox;
-        public static System.Action<char, BoxLevel1> onClickBox;    
+        private string wordBox;
+        public static System.Action<string, BoxHomeLevel3> onClickBox;    
         
         private void Start()
         {
@@ -29,16 +29,17 @@ namespace  Section0.HomeLevels.Level1
             animFalse.Play();
         }
         
-        public void SetDataBox(Sprite spriteBox, char letterBox)
+        public void SetDataBox(Sprite spriteBox, string wordBox)
         {
-            txt.text = spriteBox.name;
-            this.letterBox = letterBox;
+            Debug.Log("sdsd");
+            txt.text = wordBox;
+            this.wordBox = wordBox;
             //imageBox.sprite = spriteBox;
         }
 
         public void ClickBox()
         {
-            onClickBox?.Invoke(letterBox, this);
+            onClickBox?.Invoke(wordBox, this);
         }
     }
 }

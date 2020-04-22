@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Section0.HomeLevels.Level3
+namespace Section0.HomeLevels
 {
-    public class Level3 : LevelManager
+    public class HomeLevel3 : LevelManager
     {
-        [SerializeField] private BoxLevel3[] boxLevel3;
+        [SerializeField] private BoxHomeLevel3[] boxLevel3;
         [SerializeField] private Text textMessage;
         
         private int currentIdPack;
@@ -21,27 +21,27 @@ namespace Section0.HomeLevels.Level3
         private void Start()
         {
             InitData();
-            Voice(DataLevel3Manager.QueueSenteceses.Peek());
+            Voice(DataHomeLevel3Manager.QueueSenteceses.Peek());
             ReshapeItems();
         }
 
         private void InitData()
         {
-            BoxLevel3.onClickBox += CheckBox;
-            ILevelData data = new DataLevel3Manager();
+            BoxHomeLevel3.onClickBox += CheckBox;
+            ILevelData data = new DataHomeLevel3Manager();
             data.InitData();
         }
 
         private void OnDestroy()
         {
-            BoxLevel3.onClickBox -= CheckBox;
+            BoxHomeLevel3.onClickBox -= CheckBox;
         }
 
         private void ReshapeItems()
         {
             countNeedSprite = 0;
 
-            if (currentIdPack < DataLevel3Manager.QueueSenteceses.Count)
+            if (currentIdPack < DataHomeLevel3Manager.QueueSenteceses.Count)
             {
                 currentIdPack++;
                 GetSentence();
@@ -68,15 +68,15 @@ namespace Section0.HomeLevels.Level3
 
         private void GetSentence()
         {
-            currentSentence = DataLevel3Manager.QueueSenteceses.Dequeue();
-            DataLevel3Manager.QueueSenteceses.Enqueue(currentSentence);
+            currentSentence = DataHomeLevel3Manager.QueueSenteceses.Dequeue();
+            DataHomeLevel3Manager.QueueSenteceses.Enqueue(currentSentence);
             SetTextMessage(currentSentence);
         }
 
         private void GetRandomSprites()
         {
-            spriteList  = DataLevel3Manager.QueueSprites.Dequeue();
-            DataLevel3Manager.QueueSprites.Enqueue(spriteList);
+            spriteList  = DataHomeLevel3Manager.QueueSprites.Dequeue();
+            DataHomeLevel3Manager.QueueSprites.Enqueue(spriteList);
             bool[] mixStates = {true, false};
             bool toMix = mixStates[Random.Range(0, 2)];
             
@@ -91,7 +91,7 @@ namespace Section0.HomeLevels.Level3
             otherWord = toMix ? spriteList[0].name: spriteList[1].name;
         }
 
-        private void CheckBox(string wordBox, BoxLevel3 boxLevel3)
+        private void CheckBox(string wordBox, BoxHomeLevel3 boxHomeLevel3)
         {
             if (wordBox == needWord)
             {
@@ -104,7 +104,7 @@ namespace Section0.HomeLevels.Level3
             else
             {
                 AttemptCounter.SetAttempt(false);
-                boxLevel3.AnimBox();
+                boxHomeLevel3.AnimBox();
             }
         }
         

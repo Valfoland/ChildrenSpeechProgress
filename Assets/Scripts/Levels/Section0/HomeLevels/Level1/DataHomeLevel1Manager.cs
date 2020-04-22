@@ -1,7 +1,7 @@
 ﻿
-namespace Section0.HomeLevels.Level1
+namespace Section0.HomeLevels
 {
-    public class DataLevel1Manager : DataLevelManager, ILevelData
+    public class DataHomeLevel1Manager : DataLevelManager, ILevelData
     {
         
         public void InitData()

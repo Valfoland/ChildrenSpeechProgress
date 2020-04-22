@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4622960761070600626}
   - component: {fileID: 8409830419140831283}
   m_Layer: 5
-  m_Name: PageAgents
+  m_Name: PageItems
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48972055, g: 0.6518999, b: 0.6698113, a: 1}
+  m_Color: {r: 0.637994, g: 0.7504383, b: 0.764151, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
