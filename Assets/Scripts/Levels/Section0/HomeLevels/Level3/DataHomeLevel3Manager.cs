@@ -7,6 +7,10 @@ namespace Section0.HomeLevels
 {
     public class DataHomeLevel3
     {
+        public List<string> NameDirList = new List<string>
+        {
+            "images"
+        };
         public List<List<string>> ListSentences = new List<List<string>>
         {
             new List<string>
@@ -221,24 +225,26 @@ namespace Section0.HomeLevels
         private Sprite needSprite;
         private Sprite otherSprite;
         private DataHomeLevel3 dataHomeLevel3;
-        public static Queue<string> QueueSenteceses = new Queue<string>();
-        public static Queue<List<Sprite>> QueueSprites = new Queue<List<Sprite>>();
+        public static Queue<string> QueueSentenceses;
+        public static Queue<List<Sprite>> QueueSprites;
 
         public void InitData()
         {
-            InstanceData();
+            dataHomeLevel3 = new DataHomeLevel3();
+            InstanceData(dataHomeLevel3.NameDirList);
         }
 
-        protected override void InstanceData()
+        protected override void InstanceData(List<string> nameDirList)
         {
-            base.InstanceData();
-            dataHomeLevel3 = new DataHomeLevel3();
+            base.InstanceData(dataHomeLevel3.NameDirList);
+            QueueSentenceses = new Queue<string>();
+            QueueSprites = new Queue<List<Sprite>>();
             
             foreach (var data in dataHomeLevel3.ListSentences)
             {
                 if (FindElement(data[1], data[2]))
                 {
-                    QueueSenteceses.Enqueue(data[0]);
+                    QueueSentenceses.Enqueue(data[0]);
                     QueueSprites.Enqueue(new List<Sprite>()
                     {
                         needSprite,

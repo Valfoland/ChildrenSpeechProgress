@@ -23,7 +23,8 @@ namespace Section0.HomeLevels
         private string currentLetter;
         private int countNeedSprite;
         private int currentIdPack;
-        
+        private int countPut;
+
         private const int CAPASITY_FIELD = 8;
         private const string TAG_FIELD = "Field";
         private const string TAG_CONTAINER = "Container";
@@ -144,9 +145,8 @@ namespace Section0.HomeLevels
                 {
                     ReshapeItems();
                 }
-                
             }
-            else
+            else if(item.transform.parent != tempFloor.transform )
             {
                 AttemptCounter.SetAttempt(false);
                 item.BackToStartPos();

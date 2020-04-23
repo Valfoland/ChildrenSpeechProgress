@@ -78,8 +78,8 @@ namespace Section0.PatternsLevel
     public class DataPatternsLevelManager : DataLevelManager, ILevelData
     {
         private DataPatternsLevel dataLevels;
-        public static List<string> WordsLevel = new List<string>();
-        public static List<string> WordsWithoutSounds = new List<string>();
+        public static List<string> WordsLevel;
+        public static List<string> WordsWithoutSounds;
         public static Dictionary<char, Color> SoundsLevel = new Dictionary<char, Color>();
         public void InitData()
         {
@@ -94,8 +94,8 @@ namespace Section0.PatternsLevel
         {
             var shuffleNumbers = dataLevels.Words[idLvl].Count.ShuffleNumbers();
             
-            WordsLevel.Clear();
-            WordsWithoutSounds.Clear();
+            WordsLevel = new List<string>();
+            WordsWithoutSounds = new List<string>();
             
             for (int i = 0; i < dataLevels.CountRows; i++)
             {

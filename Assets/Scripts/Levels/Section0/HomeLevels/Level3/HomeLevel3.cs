@@ -21,7 +21,7 @@ namespace Section0.HomeLevels
         private void Start()
         {
             InitData();
-            Voice(DataHomeLevel3Manager.QueueSenteceses.Peek());
+            Voice(DataHomeLevel3Manager.QueueSentenceses.Peek());
             ReshapeItems();
         }
 
@@ -41,7 +41,7 @@ namespace Section0.HomeLevels
         {
             countNeedSprite = 0;
 
-            if (currentIdPack < DataHomeLevel3Manager.QueueSenteceses.Count)
+            if (currentIdPack < DataHomeLevel3Manager.QueueSentenceses.Count)
             {
                 currentIdPack++;
                 GetSentence();
@@ -68,8 +68,8 @@ namespace Section0.HomeLevels
 
         private void GetSentence()
         {
-            currentSentence = DataHomeLevel3Manager.QueueSenteceses.Dequeue();
-            DataHomeLevel3Manager.QueueSenteceses.Enqueue(currentSentence);
+            currentSentence = DataHomeLevel3Manager.QueueSentenceses.Dequeue();
+            DataHomeLevel3Manager.QueueSentenceses.Enqueue(currentSentence);
             SetTextMessage(currentSentence);
         }
 
@@ -99,13 +99,15 @@ namespace Section0.HomeLevels
                 Voice(currentSentence + "/" + needWord);
                 var newSentence = currentSentence.Replace("...", " " + needWord.ToLower());
                 SetTextMessage(newSentence);
-                StartCoroutine(WaitReshape());
+                StartCoroutine(WaitReshape(1f));
             }
             else
             {
                 AttemptCounter.SetAttempt(false);
                 boxHomeLevel3.AnimBox();
+                StartCoroutine(WaitReshape(0.5f));
             }
+            
         }
         
         private void CheckWinLevel()
@@ -119,9 +121,9 @@ namespace Section0.HomeLevels
             textMessage.text = msg;
         }
 
-        private IEnumerator WaitReshape()
+        private IEnumerator WaitReshape(float time)
         {
-            yield return  new WaitForSeconds(1f); //TEMP
+            yield return  new WaitForSeconds(time); //TEMP
             ReshapeItems();
         }
     }

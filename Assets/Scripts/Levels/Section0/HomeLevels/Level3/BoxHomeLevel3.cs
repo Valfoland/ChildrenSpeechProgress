@@ -31,7 +31,6 @@ namespace Section0.HomeLevels
         
         public void SetDataBox(Sprite spriteBox, string wordBox)
         {
-            Debug.Log("sdsd");
             txt.text = wordBox;
             this.wordBox = wordBox;
             //imageBox.sprite = spriteBox;

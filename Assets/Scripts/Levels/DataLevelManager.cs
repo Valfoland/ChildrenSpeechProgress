@@ -15,19 +15,17 @@ public class DataLevelManager
     public static Queue<string> DataNameList = new Queue<string>();
     protected int idLvl;
 
-    protected virtual void InstanceData()
+    protected virtual void InstanceData(List<string> nameDir)
     {
         DataLevelDict.Clear();
         DataNameList.Clear();
         idLvl = DataTasks.IdSelectLvl + 1;
         try
         {
-            var dirLevel = Directory.GetDirectories("Assets/Resources/Home/Level" + idLvl);
-            foreach (var dir in dirLevel)
+            foreach (var dir in nameDir)
             {
-                var dirTemp = dir.Replace("Assets/Resources/Home/Level" + idLvl + @"\", "");
-                DataNameList.Enqueue(dirTemp);
-                DataLevelDict.Add(dirTemp, Resources.LoadAll<Sprite>($"Home/Level{idLvl}/{dirTemp}").ToList());
+                DataNameList.Enqueue(dir);
+                DataLevelDict.Add(dir, Resources.LoadAll<Sprite>($"Home/Level{idLvl}/{dir}").ToList());
             }
         }
         catch (DirectoryNotFoundException)
