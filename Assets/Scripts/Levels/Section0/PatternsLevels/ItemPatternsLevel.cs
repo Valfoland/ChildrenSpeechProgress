@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,6 @@ namespace Section0.PatternsLevel
     public class ItemPatternsLevel : MonoBehaviour
     {
         [SerializeField] private Button BtnBox;
-        [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
         [SerializeField] private Text letterBoxText;
         
@@ -17,23 +17,29 @@ namespace Section0.PatternsLevel
         private static ItemPatternsLevel prevItem;
 
         private int countSound;
-        public int Line;
-        public int PosInWord;
-        public char CurrentSound;
-        public static System.Action<ItemPatternsLevel, ItemPatternsLevel> onClickBox;    
+        [HideInInspector] public int Line;
+        [HideInInspector] public int PosInWord;
+        [HideInInspector] public char CurrentSound;
+        public static System.Action<ItemPatternsLevel, ItemPatternsLevel> onClickBox;
+        private static System.Action<int> onSetInteractable;
         
-        public void AnimBox()
+        private void Start()
         {
-            animFalse.Play();
+            onSetInteractable += SetInteractable;
         }
-        
+
+        private void OnDestroy()
+        {
+            onSetInteractable -= SetInteractable;
+        }
+
         public void SetDataBox(int line, int posInWord,  Dictionary<char, Color> availableSounds, string letterBox = "")
         {
             this.availableSounds = availableSounds;
             Line = line;
             PosInWord = posInWord;
             BtnBox.onClick.AddListener(ClickBox);
-            
+
             if (letterBox != "")
             {
                 BtnBox.interactable = false;
@@ -54,6 +60,23 @@ namespace Section0.PatternsLevel
             imageBox.color = availableSounds.ToList()[countSound].Value;
             letterBoxText.text = CurrentSound.ToString();
             countSound++;
+            if (countSound >= availableSounds.Count)
+            {
+                countSound = 0;
+            }
+        }
+
+        public void CallInteractable(int line)
+        {
+            onSetInteractable?.Invoke(line);
+        }
+
+        private void SetInteractable(int line)
+        {
+            if (Line == line)
+            {
+                BtnBox.interactable = false;
+            }
         }
     }
 }

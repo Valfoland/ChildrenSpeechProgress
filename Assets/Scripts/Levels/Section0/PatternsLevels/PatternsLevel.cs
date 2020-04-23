@@ -11,10 +11,15 @@ namespace Section0.PatternsLevel
     public class PatternsLevel : LevelManager
     {
         [SerializeField] private GameObject circlePrefab;
+        [SerializeField] private Animation[] animField;
         [SerializeField] private Transform[] circleParent;
         [SerializeField] private Button[] voiceBtns;
+        [SerializeField] private Image[] checkerImages;
+
+        [SerializeField] private Sprite trueSprite;
+        [SerializeField] private Sprite falseSprite;
         private int countTrueWords;
-        
+
         private void Start()
         {
             InitData();
@@ -26,6 +31,13 @@ namespace Section0.PatternsLevel
             ItemPatternsLevel.onClickBox += CheckBox;
             ILevelData data = new DataPatternsLevelManager();
             data.InitData();
+
+
+            for (int i = 0; i < voiceBtns.Length; i++)
+            {
+                var i1 = i;
+                voiceBtns[i].onClick.AddListener(() => Voice(i1));
+            }
         }
 
         private void OnDestroy()
@@ -41,6 +53,7 @@ namespace Section0.PatternsLevel
         private void InstanceCircles()
         {
             var word = DataPatternsLevelManager.WordsWithoutSounds;
+            Debug.Log(DataPatternsLevelManager.WordsWithoutSounds.Count);
             for (int i = 0; i < DataPatternsLevelManager.WordsWithoutSounds.Count; i++)
             {
                 for (int j = 0; j < word[i].Length; j++)
@@ -49,54 +62,75 @@ namespace Section0.PatternsLevel
                     if (word[i][j] != '_')
                     {
                         circleObject.GetComponent<ItemPatternsLevel>()
-                            .SetDataBox(i, j, DataPatternsLevelManager.SoundsLevel);
+                            .SetDataBox(i, j, DataPatternsLevelManager.SoundsLevel,
+                                word[i][j].ToString());
                     }
                     else
                     {
                         circleObject.GetComponent<ItemPatternsLevel>()
-                            .SetDataBox(i, j, DataPatternsLevelManager.SoundsLevel,
-                                word[i][j].ToString());
+                            .SetDataBox(i, j, DataPatternsLevelManager.SoundsLevel);
                     }
                 }
             }
         }
 
-        private void Voice(string data)
+        private void Voice(int idLine)
         {
-            onVoice?.Invoke(data);
+            Debug.Log(DataPatternsLevelManager.WordsLevel[idLine]);
+            onVoice?.Invoke(DataPatternsLevelManager.WordsLevel[idLine]);
         }
-        
+
         private void CheckBox(ItemPatternsLevel prevBox, ItemPatternsLevel currentBox)
         {
-            if (prevBox == currentBox)
+            var word = DataPatternsLevelManager
+                .WordsWithoutSounds[currentBox.Line]
+                .Remove(currentBox.PosInWord, 1);
+            DataPatternsLevelManager.WordsWithoutSounds[currentBox.Line] =
+                word.Insert(currentBox.PosInWord, currentBox.CurrentSound.ToString());
+
+            if (DataPatternsLevelManager.WordsWithoutSounds[currentBox.Line] ==
+                DataPatternsLevelManager.WordsLevel[currentBox.Line])
             {
-                StringBuilder currentWordBuilder = 
-                    new StringBuilder(DataPatternsLevelManager.WordsWithoutSounds[currentBox.Line]);
-                string currentWord = currentWordBuilder.Replace('_', currentBox.CurrentSound, currentBox.PosInWord,
-                    currentBox.PosInWord + 1).ToString();
 
-                if (currentWord == DataPatternsLevelManager.WordsLevel[currentBox.Line])
+                SetCheckWordImage(currentBox.Line, true);
+                currentBox.CallInteractable(currentBox.Line);
+                AttemptCounter.SetAttempt(true);
+                countTrueWords++;
+                
+                if (countTrueWords >= DataPatternsLevelManager.WordsLevel.Count)
                 {
-                    AttemptCounter.SetAttempt(true);
-                    countTrueWords++;
-
-                    if (countTrueWords >= DataPatternsLevelManager.WordsLevel.Count)
-                    {
-                        CheckWinLevel();
-                    }
+                    CheckWinLevel();
                 }
             }
-            else
+
+            if (prevBox != null && 
+                prevBox.transform.parent != currentBox.transform.parent && 
+                DataPatternsLevelManager.WordsWithoutSounds[prevBox.Line] !=
+                DataPatternsLevelManager.WordsLevel[prevBox.Line])
             {
-                currentBox.AnimBox();
+                AnimField(prevBox.Line);
+                SetCheckWordImage(prevBox.Line, false);
                 AttemptCounter.SetAttempt(false);
             }
-            
         }
-        
+
         private void CheckWinLevel()
         {
             onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
+        }
+
+        private void AnimField(int line)
+        {
+            animField[line].Play();
+        }
+
+        private void SetCheckWordImage(int line, bool isTrue)
+        {
+            if (checkerImages[line].gameObject.activeSelf == false)
+            {
+                checkerImages[line].gameObject.SetActive(true);
+            }
+            checkerImages[line].sprite = isTrue ? trueSprite : falseSprite;
         }
     }
 }

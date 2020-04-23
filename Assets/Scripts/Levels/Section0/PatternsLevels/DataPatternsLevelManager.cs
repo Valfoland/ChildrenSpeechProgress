@@ -45,20 +45,20 @@ namespace Section0.PatternsLevel
             new Dictionary<char, Color>
             {
                 {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 1)}, 
+                {'г', new Color32(255,128, 0, 255)}, 
                 {'з', Color.green}
             },
             new Dictionary<char, Color>
             {
                 {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 1)}, 
+                {'г', new Color32(255,128, 0, 255)}, 
                 {'з', Color.green}, 
                 {'c', Color.blue}
             },
             new Dictionary<char, Color>
             {
                 {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 1)}, 
+                {'г', new Color32(255,128, 0, 255)}, 
                 {'з', Color.red}, 
                 {'c', Color.blue}, 
                 {'д', Color.yellow}
@@ -66,11 +66,11 @@ namespace Section0.PatternsLevel
             new Dictionary<char, Color>
             {
                 {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 1)}, 
+                {'г', new Color32(255,128, 0, 255)}, 
                 {'з', Color.red}, 
                 {'c', Color.blue}, 
                 {'д', Color.yellow}, 
-                {'т', new Color32(255,128, 0, 1)}
+                {'т', new Color32(255,128, 0, 255)}
             }
         };
     }
@@ -94,13 +94,16 @@ namespace Section0.PatternsLevel
         {
             var shuffleNumbers = dataLevels.Words[idLvl].Count.ShuffleNumbers();
             
+            WordsLevel.Clear();
+            WordsWithoutSounds.Clear();
+            
             for (int i = 0; i < dataLevels.CountRows; i++)
             {
                 string wordLevel  = dataLevels.Words[idLvl][shuffleNumbers[i]];
                 string wordWithoutSounds = wordLevel;
                 foreach (var dataSound in dataLevels.Sounds[idLvl])
                 {
-                    wordWithoutSounds = wordWithoutSounds.Replace(dataSound.ToString(), "_");
+                    wordWithoutSounds = wordWithoutSounds.Replace(dataSound.Key.ToString(), "_");
                 }
                 WordsLevel.Add(wordLevel);
                 WordsWithoutSounds.Add(wordWithoutSounds);
