@@ -5,6 +5,7 @@ namespace Section0.HomeLevels
 {
     public class DataHomeLevel2
     {
+        public string NameMission = "Home";
         public List<string> NameDirList = new List<string>
         {
             "а",
@@ -27,7 +28,7 @@ namespace Section0.HomeLevels
         public void InitData()
         {
             dataHomeLevel2 = new DataHomeLevel2();
-            InstanceData(dataHomeLevel2.NameDirList);
+            InstanceData(dataHomeLevel2.NameDirList, dataHomeLevel2.NameMission);
         }
     }
 }

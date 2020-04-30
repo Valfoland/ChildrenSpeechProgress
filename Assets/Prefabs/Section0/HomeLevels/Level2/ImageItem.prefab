@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2703923300148252062}
   - component: {fileID: 5049720678219161478}
   - component: {fileID: 1942913880491653454}
+  - component: {fileID: 3375599459828185560}
   m_Layer: 5
   m_Name: ImageItem
   m_TagString: Untagged
@@ -214,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46993271d9ee37f4083da551ee464ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animSocket: {fileID: 0}
   stateRect: 1
   isInsertableSocket: 0
 --- !u!114 &1942913880491653454
@@ -229,6 +229,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b54ff7710f96b4686daf69fe0e141b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animImage: {fileID: 3375599459828185560}
   imageItem: {fileID: 4903162087984380344}
   socketItem: {fileID: 5049720678219161478}
   textItem: {fileID: 6005876295256722565}
+--- !u!111 &3375599459828185560
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904884854572076326}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0d7a9cb824250914da7c2067bcbea4d4, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0d7a9cb824250914da7c2067bcbea4d4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

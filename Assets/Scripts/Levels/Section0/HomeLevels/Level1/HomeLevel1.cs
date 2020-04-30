@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sounds;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -28,7 +29,10 @@ namespace Section0.HomeLevels
 
         private List<Sprite> spriteListBox = new List<Sprite>();
         private Dictionary<char, List<Sprite>> spriteDictLetter = new Dictionary<char, List<Sprite>>();
+        private bool isNotStart;
 
+        private string helpWord = "звук";
+        
         private void Start()
         {
             InitData();
@@ -42,10 +46,15 @@ namespace Section0.HomeLevels
 
         private void InitData()
         {
-            firstPartMessage = textMessage.text;
             ILevelData data = new DataHomeLevel1Manager();
             data.InitData();
             BoxHomeLevel1.onClickBox += CheckBox;
+            SetTextMessage();
+        }
+
+        private void SetTextMessage()
+        {
+            textMessage.text = firstPartMessage = DataLevelManager.StartSentence;
         }
         
         private void CheckBox(char letterBox, BoxHomeLevel1 boxHomeLevel1)
@@ -79,7 +88,18 @@ namespace Section0.HomeLevels
 
                 SetCurrentLetter();
                 SetDictSprite();
-
+                if (isNotStart == false)
+                {
+                    Voice(firstPartMessage);
+                    Voice(needLetter.ToString());
+                    isNotStart = true;
+                }
+                else
+                {
+                    Voice(helpWord);
+                    Voice(needLetter.ToString());
+                }
+                
                 foreach (var box in boxLevels)
                 {
                     char randLetter = GetRandomLetterBox();
@@ -147,6 +167,16 @@ namespace Section0.HomeLevels
             }
         }
 
+        public void ClickButtonVoice()
+        {
+            SoundSource.VoiceSound(needLetter.ToString());
+        }
+        
+        private void Voice(string word)
+        {
+            SoundSource.VoiceSound(word);
+        }
+        
         private char GetRandomLetterBox()
         {
             var pairName = currentName.Replace("-", "");

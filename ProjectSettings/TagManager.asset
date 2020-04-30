@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Container
   - Field
+  - Sounds
   layers:
   - Default
   - TransparentFX

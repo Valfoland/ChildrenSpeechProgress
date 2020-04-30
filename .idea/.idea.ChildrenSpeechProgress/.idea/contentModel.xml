@@ -25,7 +25,6 @@
           <e p="Levels" t="Include">
             <e p="AttemptCounter.cs" t="Include" />
             <e p="DataLevelManager.cs" t="Include" />
-            <e p="DataSounds.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="LevelSaver.cs" t="Include" />
             <e p="ResultKeeper.cs" t="Include" />
@@ -55,6 +54,7 @@
               </e>
               <e p="ResultKeeper.cs" t="Include" />
             </e>
+            <e p="SoundSource.cs" t="Include" />
           </e>
           <e p="MathExtensions.cs" t="Include" />
           <e p="MousPositionDetecter.cs" t="Include" />

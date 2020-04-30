@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Sounds;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,11 +33,10 @@ namespace Section0.PatternsLevel
             ILevelData data = new DataPatternsLevelManager();
             data.InitData();
 
-
             for (int i = 0; i < voiceBtns.Length; i++)
             {
                 var i1 = i;
-                voiceBtns[i].onClick.AddListener(() => Voice(i1));
+                voiceBtns[i].onClick.AddListener(() => Voice(DataPatternsLevelManager.WordsLevel[i1]));
             }
         }
 
@@ -74,10 +74,9 @@ namespace Section0.PatternsLevel
             }
         }
 
-        private void Voice(int idLine)
+        private void Voice(string word)
         {
-            Debug.Log(DataPatternsLevelManager.WordsLevel[idLine]);
-            onVoice?.Invoke(DataPatternsLevelManager.WordsLevel[idLine]);
+            SoundSource.VoiceSound(word);
         }
 
         private void CheckBox(ItemPatternsLevel prevBox, ItemPatternsLevel currentBox)

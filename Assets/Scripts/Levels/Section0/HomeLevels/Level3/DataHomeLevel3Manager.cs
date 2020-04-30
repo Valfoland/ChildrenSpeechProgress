@@ -7,6 +7,7 @@ namespace Section0.HomeLevels
 {
     public class DataHomeLevel3
     {
+        public string NameMission = "Home";
         public List<string> NameDirList = new List<string>
         {
             "images"
@@ -15,7 +16,7 @@ namespace Section0.HomeLevels
         {
             new List<string>
             {
-                "Лежит лентяй на раскладушке, Грызет, похрустывая...",
+                "Лежит лентяй на раскладушке, грызет, похрустывая...",
                 "Сушки",
                 "Пушки"
             },
@@ -83,12 +84,12 @@ namespace Section0.HomeLevels
             {
                 "По столу ползёт огромный...",
                 "Жук",
-                "Лук"
+                "лук"
             },
             new List<string>
             {
                 "Баба Таня чистит...",
-                "Лук",
+                "лук",
                 "Жук"
             },
             new List<string>
@@ -231,12 +232,12 @@ namespace Section0.HomeLevels
         public void InitData()
         {
             dataHomeLevel3 = new DataHomeLevel3();
-            InstanceData(dataHomeLevel3.NameDirList);
+            InstanceData(dataHomeLevel3.NameDirList, dataHomeLevel3.NameMission);
         }
 
-        protected override void InstanceData(List<string> nameDirList)
+        protected override void InstanceData(List<string> nameDirList, string NameMission, string startSentence = "")
         {
-            base.InstanceData(dataHomeLevel3.NameDirList);
+            base.InstanceData(dataHomeLevel3.NameDirList, NameMission);
             QueueSentenceses = new Queue<string>();
             QueueSprites = new Queue<List<Sprite>>();
             

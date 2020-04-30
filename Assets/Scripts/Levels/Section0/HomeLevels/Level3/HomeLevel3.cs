@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Sounds;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,6 @@ namespace Section0.HomeLevels
         private void Start()
         {
             InitData();
-            Voice(DataHomeLevel3Manager.QueueSentenceses.Peek());
             ReshapeItems();
         }
 
@@ -46,7 +46,7 @@ namespace Section0.HomeLevels
                 currentIdPack++;
                 GetSentence();
                 GetRandomSprites();
-
+                Voice(currentSentence);
                 int i = 0;
                 foreach (var box in boxLevel3)
                 {
@@ -61,9 +61,9 @@ namespace Section0.HomeLevels
             }
         }
 
-        private void Voice(string data)
+        private void Voice(string word)
         {
-            onVoice?.Invoke(data);
+            SoundSource.VoiceSound(word);
         }
 
         private void GetSentence()
@@ -96,18 +96,17 @@ namespace Section0.HomeLevels
             if (wordBox == needWord)
             {
                 AttemptCounter.SetAttempt(true);
-                Voice(currentSentence + "/" + needWord);
                 var newSentence = currentSentence.Replace("...", " " + needWord.ToLower());
                 SetTextMessage(newSentence);
-                StartCoroutine(WaitReshape(1f));
             }
             else
             {
                 AttemptCounter.SetAttempt(false);
                 boxHomeLevel3.AnimBox();
-                StartCoroutine(WaitReshape(0.5f));
             }
-            
+            StartCoroutine(WaitReshape(2f));
+            Voice(currentSentence);
+            Voice(needWord);
         }
         
         private void CheckWinLevel()

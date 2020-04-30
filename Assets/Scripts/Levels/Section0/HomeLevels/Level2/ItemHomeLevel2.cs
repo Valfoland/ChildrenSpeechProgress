@@ -8,6 +8,7 @@ namespace Section0.HomeLevels
 {
     public class ItemHomeLevel2 : MonoBehaviour
     {
+        [SerializeField] private Animation animImage;
         [SerializeField] private Image imageItem;
         [SerializeField] private SocketItem socketItem;
         [SerializeField] private Text textItem;
@@ -36,12 +37,19 @@ namespace Section0.HomeLevels
             }
         }
 
-        private void SetInteractable(GameObject item)
+        private void SetInteractable(GameObject item, bool isRightPlace)
         {
             if (gameObject == item)
             {
-                socketItem.enabled = false;
-                imageItem.color = Color.gray;
+                if (isRightPlace)
+                {
+                    socketItem.enabled = false;
+                    imageItem.color = Color.gray;
+                }
+                else
+                {
+                    animImage.Play();
+                }
             }
         }
 

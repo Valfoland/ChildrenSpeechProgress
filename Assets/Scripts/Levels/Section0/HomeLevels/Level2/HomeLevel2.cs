@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sounds;
 using UnityEngine;
 
 namespace Section0.HomeLevels
@@ -10,7 +11,7 @@ namespace Section0.HomeLevels
         public static Action<GameObject, Sprite> onInstanceItem;
         public static Action onInit;
         public static Action onDestroy;
-        public static Action<GameObject> onPutItem;
+        public static Action<GameObject, bool> onPutItem;
 
         [SerializeField] private GameObject itemPrefab;
         [SerializeField] private GameObject pagePrefab;
@@ -56,7 +57,6 @@ namespace Section0.HomeLevels
             if (currentIdPack < DataLevelManager.DataLevelDict.Count)
             {
                 DestroyItems();
-                Voice();
                 
                 currentIdPack++;
                 currentLetter = DataLevelManager.DataNameList.Dequeue();
@@ -64,6 +64,8 @@ namespace Section0.HomeLevels
 
                 ReshapeField();
                 ReshapeImages();
+                Voice("звук");
+                Voice(currentLetter);
                 
                 if (DataLevelManager.DataLevelDict[currentLetter].Count != 0)
                 {
@@ -114,9 +116,10 @@ namespace Section0.HomeLevels
             onInit?.Invoke();
         }
 
-        private void Voice()
+        private void Voice(string word)
         {
-            onVoice?.Invoke(""); //TODO считывание с data level manager
+            Debug.Log(word);
+            SoundSource.VoiceSound(word);
         }
 
         private void DestroyItems()
@@ -138,7 +141,7 @@ namespace Section0.HomeLevels
             if (item.transform.parent == tempFloor.transform)
             {
                 countNeedSprite++;
-                onPutItem?.Invoke(item.gameObject);
+                onPutItem?.Invoke(item.gameObject, true);
                 AttemptCounter.SetAttempt(true);
 
                 if (countNeedSprite >= DataLevelManager.DataLevelDict[currentLetter].Count)
@@ -148,6 +151,7 @@ namespace Section0.HomeLevels
             }
             else if(item.transform.parent != tempFloor.transform )
             {
+                onPutItem?.Invoke(item.gameObject, false);
                 AttemptCounter.SetAttempt(false);
                 item.BackToStartPos();
             }
