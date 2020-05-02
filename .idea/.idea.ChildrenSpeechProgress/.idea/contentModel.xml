@@ -7,11 +7,6 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CodeMonkey_Graph" t="Include">
-          <e p="Scripts" t="Include">
-            <e p="Window_Graph.cs" t="Include" />
-          </e>
-        </e>
         <e p="Plugins" t="Include">
           <e p="CodeMonkey" t="Include">
             <e p="Assets.cs" t="Include" />
@@ -47,6 +42,8 @@
             <e p="ICarouselElement.cs" t="Include" />
           </e>
           <e p="Chart" t="Include">
+            <e p="BarGraphVisual.cs" t="Include" />
+            <e p="LineGraphVisual.cs" t="Include" />
             <e p="WindowGraph.cs" t="Include" />
           </e>
           <e p="ChildrenManager" t="Include">
