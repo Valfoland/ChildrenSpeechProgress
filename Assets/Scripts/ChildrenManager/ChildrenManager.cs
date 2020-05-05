@@ -8,74 +8,70 @@ using System.IO;
 public class ChildrenManager : MonoBehaviour
 {
     private ChildrenDataSaver childSaver = new ChildrenDataSaver();
-    public static Queue<ChildrenData> ChildDataQueue = new Queue<ChildrenData>();
+    private static Queue<ChildrenData> childDataQueue = new Queue<ChildrenData>();
 
     [SerializeField] private GameObject childPrefab;
     [SerializeField] private Transform parentTransformChild;
 
     private void Start()
     {
-        DataSetAddChildPanel.onAddChild += ClickAddChild;
-
-        Child.CountChildren = 0;
-        childSaver.ChildDataRead();
-        if (ChildDataQueue.Count != 0)
-        {
-            AddChild();
-        }
+        DontDestroy();
+        Init();
     }
 
+    private void DontDestroy()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("ChildManager");
+
+        if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+    
+    private void Init()
+    {
+        DataSetAddChildPanel.onAddChild += ClickAddChild;
+        AttemptCounter.onSetResult += SetResultChild;
+        
+        ChildrenDataSaver.InitResultDict();
+        Child.CountChildren = 0;
+        childDataQueue = childSaver.ChildDataRead();
+
+        if (childDataQueue.Count != 0)
+            RestoreChildren();
+    }
+    
     private void OnDestroy()
     {
         DataSetAddChildPanel.onAddChild -= ClickAddChild;
+        AttemptCounter.onSetResult -= SetResultChild;
     }
-
-    public void ClickAddChild(DataSetAddChildPanel dataSetAddChildPanel)
+    
+    private void SetResultChild()
     {
-        childSaver.ChildDataWrite(InstanceChild(), 0, dataSetAddChildPanel, null);
+        childSaver.ChildDataSave(Child.CurrentChildrenData);
+    }
+    
+    private void ClickAddChild(DataSetAddChildPanel dataSetAddChildPanel)
+    {
+        childSaver.ChildDataWrite(InstanceChild(), dataSetAddChildPanel, null);
         childSaver.ChildDataSave();
     }
 
-    public void AddChild()
-    {     
-        for (int i = 0; i <= PlayerPrefs.GetInt("countChild"); i++)
+    private void RestoreChildren()
+    {
+        for (int i = 0; i <= PlayerPrefs.GetInt(ChildrenDataSaver.COUNT_CHILD); i++)
         {
-            childSaver.ChildDataWrite(InstanceChild(), i, null, ChildDataQueue.Dequeue());
+            childSaver.ChildDataWrite(InstanceChild(), null, childDataQueue.Dequeue());
         }
     }
 
     private GameObject InstanceChild()
     {
-        return Instantiate(childPrefab, parentTransformChild);
-    }
-
-    internal class ChildrenDataSaver
-    {
-        private ChildrenData childData;
-        private Child child;
-
-        internal void ChildDataWrite(GameObject childObject, int id, DataSetAddChildPanel dataSetAddChildPanel, ChildrenData childData)
-        {
-            child = childObject.GetComponent<Child>();
-            child.Name.text = child.ChildrenData.Name = childData == null ? dataSetAddChildPanel.NameField.text : childData.Name;
-            child.Age.text = child.ChildrenData.Age = childData == null ? dataSetAddChildPanel.AgeField.text : childData.Age;
-            child.GroupName.text = child.ChildrenData.GroupName = childData == null ? dataSetAddChildPanel.GroupField.text : childData.GroupName;
-            child.Score.text = dataSetAddChildPanel == null ? PlayerPrefs.GetInt(id.ToString() + "ScoreChild").ToString() : 0.ToString(); 
-        }
-
-        internal void ChildDataRead()
-        {
-            ChildDataQueue.Clear();
-            for (int i = 0; i <= PlayerPrefs.GetInt("countChild") && PlayerPrefs.HasKey(i.ToString()); i++)
-            {
-                ChildDataQueue.Enqueue(JsonUtility.FromJson<ChildrenData>(PlayerPrefs.GetString(i.ToString())));
-            }
-        }
-
-        internal void ChildDataSave()
-        { 
-            PlayerPrefs.SetInt("countChild", Child.CountChildren);
-            PlayerPrefs.SetString(Child.CountChildren.ToString(), JsonUtility.ToJson(child.ChildrenData));
-        }  
-    }
+       GameObject childObject = Instantiate(childPrefab, parentTransformChild);
+       return childObject;
+    } 
 }

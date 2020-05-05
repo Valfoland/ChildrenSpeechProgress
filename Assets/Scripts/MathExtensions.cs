@@ -18,4 +18,9 @@ public static class MathExtensions
         
         return perm;
     }
+
+    public static int CalculatePercent(int smallValue, int bigValue)
+    {
+        return (smallValue / bigValue) * 100;
+    }
 }

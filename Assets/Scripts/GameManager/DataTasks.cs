@@ -30,7 +30,7 @@ public class DataTasks : MonoBehaviour
     public static int IdSelectMission;
     public static int IdSelectLvl;
 
-    private void Start()
+    private void Awake()
     {
         if (CountSections == null)
         {

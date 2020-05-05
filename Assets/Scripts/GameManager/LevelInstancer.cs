@@ -40,7 +40,7 @@ public class LevelInstancer : MonoBehaviour
     {
         NextLvlPanel.onNextLvl -= InstanceLevel;
     }
-    
+
     private void InstanceLevel()
     {
         if (prefabLvl != null)

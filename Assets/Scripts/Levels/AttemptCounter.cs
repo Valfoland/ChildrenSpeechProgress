@@ -7,7 +7,8 @@ using UnityEngine;
 /// </summary>
 public class AttemptCounter : MonoBehaviour
 {
-    public static System.Action<float> onSetResult;
+    public static System.Action onSetResult;
+    
     private static Dictionary<string, float> rateDict = new Dictionary<string, float>()
     {
         {"perfect", 1},
@@ -47,6 +48,20 @@ public class AttemptCounter : MonoBehaviour
         }
     }
 
+    private static void SetResultList(float result)
+    {
+        Debug.Log(Child.CurrentChildrenData.ResultMission.Count);
+        float average = result;
+        float valueResult = Child.CurrentChildrenData.ResultMission[
+            DataTasks.IdSelectSection.ToString() + DataTasks.IdSelectMission][DataTasks.IdSelectLvl];
+        
+        if (valueResult > -1)
+            average = (average + valueResult) / 2;
+
+        Child.CurrentChildrenData.ResultMission[
+            DataTasks.IdSelectSection.ToString() + DataTasks.IdSelectMission][DataTasks.IdSelectLvl] = average;
+        onSetResult?.Invoke();
+    }
 
     public static bool IsLevelPass()
     {
@@ -54,8 +69,7 @@ public class AttemptCounter : MonoBehaviour
         attemptResultList.ForEach(x => result += x);
         result /= attemptResultList.Count;
         attemptResultList.Clear();
-        onSetResult?.Invoke(result);
-        Debug.Log(result);
+        SetResultList(result);
         return result >= REQ_RESULT;
     }
 }

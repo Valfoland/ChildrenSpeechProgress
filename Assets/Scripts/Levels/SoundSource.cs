@@ -168,22 +168,51 @@ namespace Sounds
             PlayAudio(soundName);
         }
 
-        private void PlayAudio(string  soundName)
+        private void PlayAudio(string soundName)
         {
+            int percentMax = 0;
+            string actualSound = "";
+
             foreach (var sound in dataSounds.soundNameList)
             {
-                if (sound.ToUpper().StartsWith(soundName.ToUpper()) || 
-                    sound.ToLower().StartsWith(soundName.ToLower()) ||
-                    sound.ToLower().StartsWith(soundName.ToUpper()) || 
-                    sound.ToUpper().StartsWith(soundName.ToLower()))
+                if (soundName.ToLower().StartsWith(sound.ToLower()))
                 {
-                    Debug.Log($"{sound} {soundName}");
-                    ResourceRequest resourceRequest = Resources.LoadAsync<AudioClip>($"Sounds/{sound}");
+                    GetActualSound(ref actualSound, ref percentMax, sound, soundName);
+
+                    ResourceRequest resourceRequest = Resources.LoadAsync<AudioClip>($"Sounds/{actualSound}");
                     audioSource.clip = resourceRequest.asset as AudioClip;
                     audioSource.Play();
                 }
             }
+
+        }
+        
+        private void GetActualSound(ref string actualSound, ref int percentMax, string sound, string soundName)
+        {
+           
+            string soundTempBigger = sound.Length > soundName.Length ? sound : soundName;
+            string soundTempSmaller = sound.Length <= soundName.Length ? sound : soundName;
+            int counTrueSound = 0;
+
+            for (int i = 0; i < soundTempBigger.Length; i++)
+            {
+                if (i < soundTempSmaller.Length &&
+                    soundTempBigger[i] == soundTempSmaller[i])
+                {
+                    counTrueSound++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (percentMax <= MathExtensions.CalculatePercent(counTrueSound, soundTempBigger.Length))
+            {
+                percentMax = MathExtensions.CalculatePercent(counTrueSound, soundTempBigger.Length);
+                actualSound = sound;
+            }
         }
     }
-
+   
 }

@@ -62,8 +62,10 @@ public class MissionsPanel : Panel, IinfOfPanel
             else
                 missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(false);
         }
-        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[0].onClick.AddListener(() => HideSectionPanel(0));
-        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[1].onClick.AddListener(() => HideSectionPanel(1));
+        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[0].onClick.AddListener(
+            () => HideSectionPanel(0));
+        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[1].onClick.AddListener(
+            () => HideSectionPanel(1));
         
         panelObject.SetActive(true);
     }

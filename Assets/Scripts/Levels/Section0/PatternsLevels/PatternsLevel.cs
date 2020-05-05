@@ -53,7 +53,6 @@ namespace Section0.PatternsLevel
         private void InstanceCircles()
         {
             var word = DataPatternsLevelManager.WordsWithoutSounds;
-            Debug.Log(DataPatternsLevelManager.WordsWithoutSounds.Count);
             for (int i = 0; i < DataPatternsLevelManager.WordsWithoutSounds.Count; i++)
             {
                 for (int j = 0; j < word[i].Length; j++)
