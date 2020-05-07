@@ -85,7 +85,7 @@ namespace Section0.PatternsLevel
         {
             dataLevels = new DataPatternsLevel();
             dataLevels.CountRows = 4;
-            idLvl = DataTasks.IdSelectLvl;
+            idLvl = DataGame.IdSelectLvl;
             SoundsLevel = dataLevels.Sounds[idLvl];
             RemoveSoundsInWords();
         }

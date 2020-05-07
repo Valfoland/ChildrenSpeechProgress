@@ -39,11 +39,11 @@ public class NextLvlPanel : PanelEndGameDecorator
 
     private void NextLvl()
     {
-        if (DataTasks.IdSelectLvl < 
-            DataTasks.CountSections[DataTasks.IdSelectSection]
-            .CountMissions[DataTasks.IdSelectMission].CountLevels - 1)
+        if (DataGame.IdSelectLvl < 
+            DataGame.CountSections[DataGame.IdSelectSection]
+            .CountMissions[DataGame.IdSelectMission].CountLevels - 1)
         {
-            DataTasks.IdSelectLvl++;
+            DataGame.IdSelectLvl++;
             onNextLvl?.Invoke();
             HidePanel();
         }

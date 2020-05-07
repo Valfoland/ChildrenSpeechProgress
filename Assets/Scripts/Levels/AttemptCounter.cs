@@ -50,16 +50,16 @@ public class AttemptCounter : MonoBehaviour
 
     private static void SetResultList(float result)
     {
-        Debug.Log(Child.CurrentChildrenData.ResultMission.Count);
+        
         float average = result;
         float valueResult = Child.CurrentChildrenData.ResultMission[
-            DataTasks.IdSelectSection.ToString() + DataTasks.IdSelectMission][DataTasks.IdSelectLvl];
+            DataGame.IdSelectSection.ToString() + DataGame.IdSelectMission][DataGame.IdSelectLvl];
         
         if (valueResult > -1)
             average = (average + valueResult) / 2;
 
         Child.CurrentChildrenData.ResultMission[
-            DataTasks.IdSelectSection.ToString() + DataTasks.IdSelectMission][DataTasks.IdSelectLvl] = average;
+            DataGame.IdSelectSection.ToString() + DataGame.IdSelectMission][DataGame.IdSelectLvl] = (int)(average * 100f);
         onSetResult?.Invoke();
     }
 

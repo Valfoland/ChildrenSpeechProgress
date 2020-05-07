@@ -4,29 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class MissionsButtons
-{
-    [SerializeField] private string nameSection;
-    public Button[] GoToLvlBtn;
-}
-
-[System.Serializable]
-public class MissionsCount
-{
-    [SerializeField] private string nameSection;
-    public int CountMissions;
-}
-
-[System.Serializable]
 public class DataSetMissionsPanel
 {
     public GameObject MissionsPanelObject;
     public Button BackToMissionsBtn;
     public Button GoToSectionsBtn;
     [Header("Кол-во и виды кнопок в зав. от раздела")]
-    public List<MissionsButtons> GoToLvlBtns;
-    [Header("Кол-во миссий в зав. от раздела")]
-    public List<MissionsCount> CountMissionsIdSection;
+    public Button[] GoToLvlBtns;
 }
 
 public class MissionsPanel : Panel, IinfOfPanel
@@ -48,23 +32,16 @@ public class MissionsPanel : Panel, IinfOfPanel
     public override void ShowPanel()
     {
         onShowPanel?.Invoke("Missions");
-        int maxCountMissions = missionsPanel
-            .CountMissionsIdSection[DataTasks.IdSelectSection]
-            .CountMissions;
-        int capcityMissions = missionsPanel
-            .GoToLvlBtns[DataTasks.IdSelectSection]
-            .GoToLvlBtn.Length;
-        
-        for (int i = 0; i < capcityMissions; i++)
+        int maxCountMissions = DataGame.CountSections[DataGame.IdSelectSection].CountMissions.Count;
+
+        for (int i = 0; i < missionsPanel.GoToLvlBtns.Length; i++)
         {
-            if (i < maxCountMissions)
-                missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(true);
-            else
-                missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[i].gameObject.SetActive(false);
+            missionsPanel.GoToLvlBtns[DataGame.IdSelectSection].gameObject
+                .SetActive(i < maxCountMissions);
         }
-        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[0].onClick.AddListener(
+        missionsPanel.GoToLvlBtns[0].onClick.AddListener(
             () => HideSectionPanel(0));
-        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[1].onClick.AddListener(
+        missionsPanel.GoToLvlBtns[1].onClick.AddListener(
             () => HideSectionPanel(1));
         
         panelObject.SetActive(true);
@@ -72,8 +49,8 @@ public class MissionsPanel : Panel, IinfOfPanel
 
     public override void HidePanel()
     {
-        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[0].onClick.RemoveAllListeners();
-        missionsPanel.GoToLvlBtns[DataTasks.IdSelectSection].GoToLvlBtn[1].onClick.RemoveAllListeners();
+        missionsPanel.GoToLvlBtns[0].onClick.RemoveAllListeners();
+        missionsPanel.GoToLvlBtns[1].onClick.RemoveAllListeners();
         base.HidePanel();
     }
 
@@ -87,7 +64,7 @@ public class MissionsPanel : Panel, IinfOfPanel
 
     public void SetInfoPanel()
     {
-        DataTasks.IdSelectMission= idMission;
+        DataGame.IdSelectMission = idMission;
     }
 }
 

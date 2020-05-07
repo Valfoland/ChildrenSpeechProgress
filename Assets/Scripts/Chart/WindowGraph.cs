@@ -41,48 +41,38 @@ public class WindowGraph : MonoBehaviour
     private RectTransform toolTipRect;
     private List<GameObject> gameObjectList = new List<GameObject>();
     private List<IGraphVisualObject> graphVisualObjects = new List<IGraphVisualObject>();
-
-    [SerializeField] private Button barChartBtn;
-    [SerializeField] private Button lineChartBtn;
-    [SerializeField] private Button zoomMinusBtn;
-    [SerializeField] private Button zoomPlusBtn;
+    private IGraphVisual[] graphVisuals = new IGraphVisual[2];
     
     private void Awake()
     {
         instance = this;
-        List<int> valuesList = new List<int> {5, 98, 56, 45, 30, 22, 17, 15, 13, 17, 25, 37, 40, 36, 33, 50, 60, 40, 70};
-        IGraphVisual graphVisualLine = new LineGraphVisual(graphContainer, dotSprite, Color.blue, Color.gray);
-        IGraphVisual graphVisualBar = new BarGraphVisual(graphContainer, Color.blue, 0.7f);
-        ShowGraph(
-            valuesList, 
-            graphVisualBar, 
-            -1, 
-            (int _i) => "Day " + (_i + 1), 
-            (float _f) => "$" + Mathf.RoundToInt(_f));
-
-        barChartBtn.onClick.AddListener(() => { SetGraphVisual(graphVisualBar); });
-        lineChartBtn.onClick.AddListener(() => { SetGraphVisual(graphVisualLine); });
-        zoomMinusBtn.onClick.AddListener(ZoomMinusBtn);
-        zoomPlusBtn.onClick.AddListener(ZoomPlusBtn);
-
+        graphVisuals[0] = new LineGraphVisual(graphContainer, dotSprite, Color.blue, Color.gray);
+        graphVisuals[1] = new BarGraphVisual(graphContainer, Color.blue, 0.7f);
         toolTipTxt = toolTip.GetComponentInChildren<Text>();
         toolTipRect = toolTip.GetComponent<RectTransform>();
-        
-        
-        /*bool useBarChart = false;
-        FunctionPeriodic.Create(() => {
-            for (int i = 0; i < valuesList.Count; i++) {
-                valuesList[i] = Mathf.RoundToInt(valuesList[i] * UnityEngine.Random.Range(0.8f, 1.2f));
-            }
-            if (useBarChart) {
-                ShowGraph(valuesList, graphVisualBar, -1, (int _i) => "Day " + (_i + 1), (float _f) => "$" + Mathf.RoundToInt(_f));
-            } else {
-                ShowGraph(valuesList, graphVisualLine, -1, (int _i) => "Day " + (_i + 1), (float _f) => "$" + Mathf.RoundToInt(_f));
-            }
-            //useBarChart = !useBarChart;
-        }, .5f);*/
     }
 
+    public void ChangeGraph(int idGraph)
+    {
+        switch (idGraph)
+        {
+            case 0: 
+                SetGraphVisual(graphVisuals[0]);
+                break;
+            case 1: 
+                SetGraphVisual(graphVisuals[1]);
+                break;
+        }
+    }
+
+    public void ZoomGraph(bool isPlusZoom)
+    {
+        if (isPlusZoom) 
+            ZoomPlusBtn();
+        else 
+            ZoomMinusBtn();
+    }
+    
     public static void ShowToolTipStatic(string toolTipTxt, Vector2 anchoredPos)
     {
         instance.ShowToolTip(toolTipTxt, anchoredPos);
@@ -109,17 +99,7 @@ public class WindowGraph : MonoBehaviour
     {
         toolTip.SetActive(false);
     }
-    
-    private void SetGetAxisLabelX(Func<int, string> getAxisLabelX)
-    {
-        ShowGraph(valuesList, graphVisual, maxVisibleAmount, getAxisLabelX, getAxisLabelY);
-    }
-    
-    private void SetGetAxisLabelYX(Func<float, string> getAxisLabelY)
-    {
-        ShowGraph(valuesList, graphVisual, maxVisibleAmount, getAxisLabelX, getAxisLabelY);
-    }
-    
+
     private void ZoomMinusBtn() 
     {
        ShowGraph(valuesList, graphVisual, maxVisibleAmount - 1, getAxisLabelX, getAxisLabelY);
@@ -133,6 +113,23 @@ public class WindowGraph : MonoBehaviour
     private void SetGraphVisual(IGraphVisual graphVisual)
     {
         ShowGraph(valuesList, graphVisual, maxVisibleAmount, getAxisLabelX, getAxisLabelY);
+    }
+
+    public void SetGraph(List<int> valuesList = null)
+    {
+        if (valuesList != null)
+        {
+            ShowGraph(
+                valuesList,
+                graphVisuals[0],
+                -1,
+                i => (i + 1).ToString(),
+                f => Mathf.RoundToInt(f) + "%");
+        }
+        else
+        {
+            DestroyGraph();
+        }
     }
 
     private void ShowGraph(List<int> valuesList, IGraphVisual graphVisual, int maxVisibleAmount = -1, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
@@ -149,11 +146,8 @@ public class WindowGraph : MonoBehaviour
         
         this.maxVisibleAmount = maxVisibleAmount;
         
-        gameObjectList.ForEach(Destroy);
-        gameObjectList.Clear();
-        graphVisualObjects.ForEach(x => x.CleanUp());
-        graphVisualObjects.Clear();
-
+        DestroyGraph();
+        
         float graphHeight = graphContainer.sizeDelta.y;
         float graphWidth = graphContainer.sizeDelta.x;
         yMax = valuesList[0];
@@ -180,7 +174,7 @@ public class WindowGraph : MonoBehaviour
         for (int i = Mathf.Max(valuesList.Count - maxVisibleAmount, 0); i < valuesList.Count; i++)
         {
             float xPos = xSize + xIndex * xSize;
-            float yPos = ((valuesList[i] - yMin) / (yMax - yMin)) * graphHeight;
+            float yPos = (valuesList[i] - yMin) / (yMax - yMin) * graphHeight;
             string toolTipTxt = getAxisLabelY(valuesList[i]);
             
             if (i == valuesList.Count - 1)
@@ -195,6 +189,14 @@ public class WindowGraph : MonoBehaviour
         CreateSeparatorsY(yMax, yMin, graphHeight);
     }
 
+    private void DestroyGraph()
+    {
+        gameObjectList.ForEach(Destroy);
+        gameObjectList.Clear();
+        graphVisualObjects.ForEach(x => x.CleanUp());
+        graphVisualObjects.Clear();
+    }
+    
     private void CreateSeparatorsX(int i, float xPos)
     {
         string axisLabel = getAxisLabelX(i);

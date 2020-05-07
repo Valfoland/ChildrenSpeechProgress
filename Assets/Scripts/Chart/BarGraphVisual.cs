@@ -20,7 +20,7 @@ public class BarGraphVisual : ScriptableObject, IGraphVisual
         bool isEnd = false)
     {
         GameObject barObject = CreateBar(graphPos, graphPosWidth);
-        BarChartVisualObject barChartVisualObject = new BarChartVisualObject(barObject, barWidthMultiplier);
+        IGraphVisualObject barChartVisualObject = new BarChartVisualObject(barObject, barWidthMultiplier);
         barChartVisualObject.SetGraphVisualObjectInfo(graphPos, graphPosWidth, toolTipTxt);
         return barChartVisualObject;
     }
@@ -59,6 +59,7 @@ public class BarGraphVisual : ScriptableObject, IGraphVisual
             RectTransform rectTransform = barObject.GetComponent<RectTransform>();
             rectTransform.anchoredPosition = new Vector2(graphPos.x, 0f);
             rectTransform.sizeDelta = new Vector2(graphPosWidth * barWidthMultiplier, graphPos.y);
+            
             Button_UI buttonUi = barObject.GetComponent<Button_UI>();
             buttonUi.MouseOverOnceFunc = () => { WindowGraph.ShowToolTipStatic(toolTipTxt, graphPos); };
             buttonUi.MouseOutOnceFunc = WindowGraph.HideToolTipStatic;

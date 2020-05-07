@@ -2,6 +2,7 @@
 
 public class GameManager : MonoBehaviour
 {
+    public static System.Action onSetCompletionLevel;
     [SerializeField] private UiManagerGame uiManagerGame;
 
     private void Start()
@@ -18,8 +19,8 @@ public class GameManager : MonoBehaviour
     {
         if (isWin)
         {
-            if (DataTasks.IdSelectLvl <
-                DataTasks.CountSections[DataTasks.IdSelectSection].CountMissions[DataTasks.IdSelectMission].CountLevels - 1)
+            if (DataGame.IdSelectLvl <
+                DataGame.CountSections[DataGame.IdSelectSection].CountMissions[DataGame.IdSelectMission].CountLevels - 1)
             {
                 NextLevel();
             }
@@ -54,10 +55,9 @@ public class GameManager : MonoBehaviour
 
     private void SetCompletedLvl()
     {
-        DataTasks
-            .CountSections[DataTasks.IdSelectSection]
-            .CountMissions[DataTasks.IdSelectMission]
-            .CompletedLevels[DataTasks.IdSelectLvl]
-            .isCompleted = true;
+        Child.CurrentChildrenData.CompletedLevels
+            [$"{DataGame.IdSelectSection}{DataGame.IdSelectMission}"]
+            [DataGame.IdSelectLvl] = true;
+        onSetCompletionLevel?.Invoke();
     }
 }

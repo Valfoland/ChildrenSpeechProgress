@@ -6,31 +6,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class LvlCounterFromMissions
-{
-    [SerializeField] private string nameMission;
-    public int CountLvl;
-}
-
-[System.Serializable]
-public class LvlCounterFromSections
-{
-    [SerializeField] private string nameSection;
-    public List<LvlCounterFromMissions> CountLvlsIdMissions;
-}
-
-[System.Serializable]
 public class DataSetLevelsPanel
 {
     public GameObject LevelsPanelObject;
     public Button GoToMissionsBtn;
     public Button[] GoToGameBtns;
-    [Header("Количество уровней в зав. от номеров миссий и разделов")]
-    public List<LvlCounterFromSections> CountLvlsIdSections;
 }
 
 public class LevelsPanel : Panel, IinfOfPanel
 {
+    public static System.Action<AsyncOperation> onStartLoadScene;
     private int idLevel;
     private DataSetLevelsPanel levelsPanel;
 
@@ -47,15 +32,12 @@ public class LevelsPanel : Panel, IinfOfPanel
     public override void ShowPanel()
     {
         onShowPanel?.Invoke("Levels");
-        int maxCountLvls = levelsPanel
-            .CountLvlsIdSections[DataTasks.IdSelectSection]
-            .CountLvlsIdMissions[DataTasks.IdSelectMission]
-            .CountLvl;
-        var completedLvls = DataTasks
-            .CountSections[DataTasks.IdSelectSection]
-            .CountMissions[DataTasks.IdSelectMission]
-            .CompletedLevels;
-        
+        int maxCountLvls = DataGame.CountSections[DataGame.IdSelectSection]
+            .CountMissions[DataGame.IdSelectMission]
+            .CountLevels;
+        var completedLvls = Child.CurrentChildrenData.CompletedLevels
+            [$"{DataGame.IdSelectSection}{DataGame.IdSelectMission}"];
+
         for (int i = 0; i < levelsPanel.GoToGameBtns.Length; i++)
         {
             if (i < maxCountLvls)
@@ -66,11 +48,7 @@ public class LevelsPanel : Panel, IinfOfPanel
                 
                 if (i > 0)
                 {
-                    levelsPanel.GoToGameBtns[i].interactable = false;
-                    if (completedLvls[i - 1].isCompleted)
-                    {
-                        levelsPanel.GoToGameBtns[i].interactable = true;
-                    }
+                    levelsPanel.GoToGameBtns[i].interactable = completedLvls[i - 1];
                 }
             }
             else
@@ -97,12 +75,12 @@ public class LevelsPanel : Panel, IinfOfPanel
 
     private void GoToNextScene()
     {
-        SceneManager.LoadScene("Game");
+        onStartLoadScene?.Invoke(SceneManager.LoadSceneAsync("Game"));
     }
 
     public void SetInfoPanel()
     {
-        DataTasks.IdSelectLvl = idLevel;
+        DataGame.IdSelectLvl = idLevel;
     }
 }
 

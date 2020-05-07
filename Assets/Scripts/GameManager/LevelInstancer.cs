@@ -50,9 +50,9 @@ public class LevelInstancer : MonoBehaviour
 
         SetTextLvl();
         prefabLvl = Instantiate(
-            dataLevelsOfSection[DataTasks.IdSelectSection].
-                DataLevelsOfMission[DataTasks.IdSelectMission]
-                .DataLevels[DataTasks.IdSelectLvl].PrefabLevel,
+            dataLevelsOfSection[DataGame.IdSelectSection].
+                DataLevelsOfMission[DataGame.IdSelectMission]
+                .DataLevels[DataGame.IdSelectLvl].PrefabLevel,
             parentTransform);
     }
     
@@ -60,7 +60,7 @@ public class LevelInstancer : MonoBehaviour
     private void SetTextLvl()
     {
         Regex regex = new Regex(@"\d");
-        textLvl.text = regex.Replace(textLvl.text, $" {DataTasks.IdSelectLvl + 1}");
+        textLvl.text = regex.Replace(textLvl.text, $" {DataGame.IdSelectLvl + 1}");
 
     }
 }

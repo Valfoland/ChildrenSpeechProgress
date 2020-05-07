@@ -71,12 +71,12 @@ public class InfoPanel : Panel, ITextPanel
             {
                 case "Missions":
                     infoPanel.InfoText.text = infoPanel
-                        .TextIdSectionsList[DataTasks.IdSelectSection].TextSection;
+                        .TextIdSectionsList[DataGame.IdSelectSection].TextSection;
                     break;
                 case "Levels":
                     infoPanel.InfoText.text = infoPanel
-                        .TextIdSectionsList[DataTasks.IdSelectSection]
-                        .TextMissionsList[DataTasks.IdSelectMission].TextMission;
+                        .TextIdSectionsList[DataGame.IdSelectSection]
+                        .TextMissionsList[DataGame.IdSelectMission].TextMission;
                     break;
                 default:
                     infoPanel.InfoText.text = "";
@@ -86,9 +86,9 @@ public class InfoPanel : Panel, ITextPanel
         else if(SceneManager.GetActiveScene().name == "Game")
         {
             infoPanel.InfoText.text = infoPanel
-                .TextIdSectionsList[DataTasks.IdSelectSection]
-                .TextMissionsList[DataTasks.IdSelectMission]
-                .TextLevelsList[DataTasks.IdSelectLvl].TextLevel;
+                .TextIdSectionsList[DataGame.IdSelectSection]
+                .TextMissionsList[DataGame.IdSelectMission]
+                .TextLevelsList[DataGame.IdSelectLvl].TextLevel;
         }
 
         if (infoPanel.InfoText.text == "")

@@ -55,7 +55,7 @@ public class SectionsPanel : Panel, IinfOfPanel
 
     public void SetInfoPanel()
     {
-        DataTasks.IdSelectSection = idSect;
+        DataGame.IdSelectSection = idSect;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
 using System.IO;
@@ -8,12 +9,13 @@ using System.IO;
 public class ChildrenManager : MonoBehaviour
 {
     private ChildrenDataSaver childSaver = new ChildrenDataSaver();
-    private static Queue<ChildrenData> childDataQueue = new Queue<ChildrenData>();
+    public static List<ChildrenData> ChildDataList = new List<ChildrenData>();
 
     [SerializeField] private GameObject childPrefab;
-    [SerializeField] private Transform parentTransformChild;
-
-    private void Start()
+    [SerializeField] private GameObject parentChild;
+    private static GameObject parentSingletonChild;
+    
+    private void Awake()
     {
         DontDestroy();
         Init();
@@ -34,23 +36,33 @@ public class ChildrenManager : MonoBehaviour
     private void Init()
     {
         DataSetAddChildPanel.onAddChild += ClickAddChild;
-        AttemptCounter.onSetResult += SetResultChild;
-        
-        ChildrenDataSaver.InitResultDict();
-        Child.CountChildren = 0;
-        childDataQueue = childSaver.ChildDataRead();
-
-        if (childDataQueue.Count != 0)
-            RestoreChildren();
+        AttemptCounter.onSetResult += SetDataChild;
+        GameManager.onSetCompletionLevel += SetDataChild;
+        InitChildren();
     }
     
     private void OnDestroy()
     {
         DataSetAddChildPanel.onAddChild -= ClickAddChild;
-        AttemptCounter.onSetResult -= SetResultChild;
+        AttemptCounter.onSetResult -= SetDataChild;
+        GameManager.onSetCompletionLevel -= SetDataChild;
     }
     
-    private void SetResultChild()
+    private void InitChildren()
+    {
+        if (parentSingletonChild == null)
+        {
+            parentSingletonChild = parentChild;
+        }
+        
+        Child.CountChildren = 0;
+        ChildDataList = childSaver.ChildDataRead();
+        
+        if (ChildDataList.Count != 0)
+            RestoreChildren();
+    }
+
+    private void SetDataChild()
     {
         childSaver.ChildDataSave(Child.CurrentChildrenData);
     }
@@ -59,19 +71,21 @@ public class ChildrenManager : MonoBehaviour
     {
         childSaver.ChildDataWrite(InstanceChild(), dataSetAddChildPanel, null);
         childSaver.ChildDataSave();
+        childSaver.ChildCountSave();
+        ChildDataList = childSaver.ChildDataRead();
     }
 
     private void RestoreChildren()
     {
-        for (int i = 0; i <= PlayerPrefs.GetInt(ChildrenDataSaver.COUNT_CHILD); i++)
+        foreach (var childrenData in ChildDataList)
         {
-            childSaver.ChildDataWrite(InstanceChild(), null, childDataQueue.Dequeue());
+            childSaver.ChildDataWrite(InstanceChild(), null, childrenData);
         }
     }
 
     private GameObject InstanceChild()
     {
-       GameObject childObject = Instantiate(childPrefab, parentTransformChild);
+       GameObject childObject = Instantiate(childPrefab, parentSingletonChild.transform);
        return childObject;
     } 
 }

@@ -21,7 +21,7 @@ public class DataLevelManager
         StartSentence = startSentence;
         DataLevelDict.Clear();
         DataNameList.Clear();
-        idLvl = DataTasks.IdSelectLvl + 1;
+        idLvl = DataGame.IdSelectLvl + 1;
         try
         {
             Resources.UnloadUnusedAssets();

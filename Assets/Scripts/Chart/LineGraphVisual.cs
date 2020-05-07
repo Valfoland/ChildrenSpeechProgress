@@ -40,12 +40,11 @@ public class LineGraphVisual : ScriptableObject, IGraphVisual
 
         LineGraphVisualObject lineGraphVisualObject =
             new LineGraphVisualObject(dotObject, dotConnectionObject, lastLineObject);
-        lineGraphVisualObject.SetGraphVisualObjectInfo(graphPos, graphPosWidth, toolTipTxt);
+        IGraphVisualObject iLineGraphVisualObject = lineGraphVisualObject;
+        
+        iLineGraphVisualObject.SetGraphVisualObjectInfo(graphPos, graphPosWidth, toolTipTxt);
 
-        if (!isEnd)
-            lastLineObject = lineGraphVisualObject;
-        else
-            lastLineObject = null;
+        lastLineObject = !isEnd ? lineGraphVisualObject : null;
 
         return lineGraphVisualObject;
     }
