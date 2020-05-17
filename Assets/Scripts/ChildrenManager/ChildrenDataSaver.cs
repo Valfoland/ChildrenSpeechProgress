@@ -12,7 +12,7 @@ public class ChildrenDataSaver
     private const string RESULT_CHILD = "resultChild";
     private const string CHILD = "child";
 
-    public void ChildDataWrite(GameObject childObject, DataSetAddChildPanel dataSetAddChildPanel,
+    public void ChildDataWrite(GameObject childObject, DataAddChildPanel dataAddChildPanel,
         ChildrenData childData)
     {
         child = childObject.GetComponent<Child>();
@@ -21,9 +21,9 @@ public class ChildrenDataSaver
         {
             child.ChildrenData.IdChild = Child.CountChildren;
             
-            child.ChildrenData.Name = dataSetAddChildPanel.NameField.text;
-            child.ChildrenData.Age = dataSetAddChildPanel.AgeField.text;
-            child.ChildrenData.GroupName = dataSetAddChildPanel.GroupField.text;
+            child.ChildrenData.Name = dataAddChildPanel.NameField.text;
+            child.ChildrenData.Age = dataAddChildPanel.AgeField.text;
+            child.ChildrenData.GroupName = dataAddChildPanel.GroupField.text;
             child.ChildrenData.ResultMission = DataGame.GetCompletionLevelsDict(-1);
             child.ChildrenData.CompletedLevels = DataGame.GetCompletionLevelsDict(false);
         }
@@ -33,11 +33,11 @@ public class ChildrenDataSaver
         }
 
         child.Name.text = 
-            childData == null ? dataSetAddChildPanel.NameField.text : childData.Name;
+            childData == null ? dataAddChildPanel.NameField.text : childData.Name;
         child.Age.text = 
-            childData == null ? dataSetAddChildPanel.AgeField.text : childData.Age;
+            childData == null ? dataAddChildPanel.AgeField.text : childData.Age;
         child.GroupName.text = 
-            childData == null ? dataSetAddChildPanel.GroupField.text : childData.GroupName;
+            childData == null ? dataAddChildPanel.GroupField.text : childData.GroupName;
 
         if (PlayerPrefs.GetInt(COUNT_CHILD) == 0 ||
             child.ChildrenData.IdChild == PlayerPrefs.GetInt(CHOOSE_CHILD))

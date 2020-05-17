@@ -131,8 +131,9 @@ GameObject:
   m_Component:
   - component: {fileID: 16488483}
   - component: {fileID: 16488484}
+  - component: {fileID: 16488485}
   m_Layer: 0
-  m_Name: UiManager
+  m_Name: UiTransitionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,23 +165,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79581a6555cb00641be003c1f1d6245f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataSetInfoPanel:
-    BtnGoToInfo: {fileID: 0}
-    BtnCloseInfo: {fileID: 95603416}
+  dataPanel:
+  - NamePanel: GamePanel
+    PanelObject: {fileID: 391478599}
+    DataPanelBtns:
+    - ItemPanelTypes: 0
+      BtnPanel: {fileID: 1083631468}
+    - ItemPanelTypes: 1
+      BtnPanel: {fileID: 528576701}
+  - NamePanel: ExitPanel
+    PanelObject: {fileID: 528576702}
+    DataPanelBtns:
+    - ItemPanelTypes: 0
+      BtnPanel: {fileID: 528576701}
+    - ItemPanelTypes: 1
+      BtnPanel: {fileID: 1083631468}
+  - NamePanel: InfoPanel
+    PanelObject: {fileID: 95603418}
+    DataPanelBtns:
+    - ItemPanelTypes: 0
+      BtnPanel: {fileID: 95603416}
+    - ItemPanelTypes: 1
+      BtnPanel: {fileID: 1251057732}
+  - NamePanel: EndGamePanel
+    PanelObject: {fileID: 526275622550957004}
+    DataPanelBtns:
+    - ItemPanelTypes: 0
+      BtnPanel: {fileID: 526275622550957002}
+    - ItemPanelTypes: 0
+      BtnPanel: {fileID: 526275622550957001}
+  dataInfoPanel:
     InfoText: {fileID: 95603417}
-    InfoPanelObject: {fileID: 95603418}
     TextIdSectionsList: []
-  dataSetExitPanel:
-    ExitPanelObject: {fileID: 528576702}
+  dataExitPanel:
     ExitBtn: {fileID: 528576700}
-    StayBtn: {fileID: 528576701}
-    OpenExitBtn: {fileID: 1083631468}
-  dataSetEndGamePanel:
-    EndGamePanelObject: {fileID: 526275622550957004}
-    BtnBackToMenu: {fileID: 526275622550957002}
-    BtnOther: {fileID: 526275622550957001}
+  dataEndGamePanel:
     TxtOther: {fileID: 526275622550957003}
-  dataSetLosePanel:
+  dataLosePanel:
     TextLose: "\u041F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C
       \u0441\u043D\u043E\u0432\u0430?"
   dataSetWinPanel:
@@ -188,9 +209,21 @@ MonoBehaviour:
       \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u043B \u0434\u0430\u043D\u043D\u043E\u0439
       \u0437\u0430\u0434\u0430\u043D\u0438\u0435! \u041F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C
       \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B?"
-  dataSetNextLvlPanel:
-    TextNext: "\u0425\u043E\u0447\u0435\u0448\u044C \u043F\u0440\u043E\u0439\u0442\u0438
-      \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C?"
+  dataNextLvlPanel:
+    TextNext: "\u041F\u0435\u0440\u0435\u0439\u0442\u0438 \u043D\u0430 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
+      \u0443\u0440\u043E\u0432\u0435\u043D\u044C?"
+--- !u!114 &16488485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16488482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0adc1689acafb48b55136c1888d095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &95603414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,7 +687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391478600}
   m_Layer: 5
-  m_Name: PanelLevel
+  m_Name: PanelGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1325,7 +1358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ca88a5290d8f84c8e1c86503e5a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManagerGame: {fileID: 16488484}
+  uiTransitionManagerGameData: {fileID: 16488484}
 --- !u!114 &1350006736
 MonoBehaviour:
   m_ObjectHideFlags: 0

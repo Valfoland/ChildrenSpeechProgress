@@ -100,33 +100,41 @@
           <e p="MousPositionDetecter.cs" t="Include" />
           <e p="SocketItem.cs" t="Include" />
           <e p="UImanager" t="Include">
-            <e p="ExitPanel.cs" t="Include" />
-            <e p="InfoPanel.cs" t="Include" />
-            <e p="Panel.cs" t="Include" />
-            <e p="PanelsGame" t="Include">
-              <e p="PanelsEndGame" t="Include">
-                <e p="EndGamePanel.cs" t="Include" />
-                <e p="LosePanel.cs" t="Include" />
-                <e p="NextLvlPanel.cs" t="Include" />
-                <e p="PanelEndGameDecorator.cs" t="Include" />
-                <e p="WinPanel.cs" t="Include" />
-              </e>
+            <e p="UIManagerBridge.cs" t="Include" />
+          </e>
+          <e p="UiTransitionPlugin" t="Include">
+            <e p="ManagersData" t="Include">
+              <e p="UiTransitionManagerData.cs" t="Include" />
+              <e p="UiTransitionManagerGameData.cs" t="Include" />
+              <e p="UiTransitionManagerMenuData.cs" t="Include" />
             </e>
-            <e p="PanelsMenu" t="Include">
+            <e p="Panel.cs" t="Include" />
+            <e p="UiTransitionEditor" t="Include">
+              <e p="UiTransitionEditor.cs" t="Include" />
+            </e>
+            <e p="UiTransitionInstance" t="Include">
+              <e p="PanelInstancer.cs" t="Include" />
+              <e p="PanelObjectInstancer.cs" t="Include" />
+            </e>
+            <e p="UiTransitionManager.cs" t="Include" />
+            <e p="UiTransitionPanels" t="Include">
+              <e p="AddChildPanel.cs" t="Include" />
+              <e p="ChildrenPanel.cs" t="Include" />
+              <e p="EndGamePanel.cs" t="Include" />
+              <e p="ExitPanel.cs" t="Include" />
+              <e p="GamePanel.cs" t="Include" />
+              <e p="InfoPanel.cs" t="Include" />
               <e p="LevelsPanel.cs" t="Include" />
+              <e p="LosePanel.cs" t="Include" />
               <e p="MenuPanel.cs" t="Include" />
               <e p="MissionsPanel.cs" t="Include" />
-              <e p="PanelsChildren" t="Include">
-                <e p="AddChildPanel.cs" t="Include" />
-                <e p="ChildrenPanel.cs" t="Include" />
-              </e>
+              <e p="NextLvlPanel.cs" t="Include" />
+              <e p="PanelEndGameDecorator.cs" t="Include" />
               <e p="SectionsPanel.cs" t="Include" />
               <e p="SettingsPanel.cs" t="Include" />
               <e p="StatsPanel.cs" t="Include" />
+              <e p="WinPanel.cs" t="Include" />
             </e>
-            <e p="UIManagerBridge.cs" t="Include" />
-            <e p="UiManagerGame.cs" t="Include" />
-            <e p="UIManagerMenu.cs" t="Include" />
           </e>
         </e>
       </e>

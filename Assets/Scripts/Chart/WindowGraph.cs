@@ -26,7 +26,6 @@ public class WindowGraph : MonoBehaviour
     private int maxVisibleAmount;
     private Func<int, string> getAxisLabelX;
     private Func<float, string> getAxisLabelY;
-    private float yMin;
     private float yMax;
     private float xSize;
     
@@ -117,7 +116,11 @@ public class WindowGraph : MonoBehaviour
 
     public void SetGraph(List<int> valuesList = null)
     {
-        if (valuesList != null)
+        if (valuesList == null)
+        {
+            DestroyGraph();
+        }
+        else
         {
             ShowGraph(
                 valuesList,
@@ -125,10 +128,6 @@ public class WindowGraph : MonoBehaviour
                 -1,
                 i => (i + 1).ToString(),
                 f => Mathf.RoundToInt(f) + "%");
-        }
-        else
-        {
-            DestroyGraph();
         }
     }
 
@@ -138,55 +137,52 @@ public class WindowGraph : MonoBehaviour
         this.graphVisual = graphVisual;
         this.getAxisLabelX = getAxisLabelX;
         this.getAxisLabelY = getAxisLabelY;
-        
-        if (maxVisibleAmount <= 0)
+
+        if (maxVisibleAmount <= 1)
+        {
             maxVisibleAmount = valuesList.Count;
-        if (maxVisibleAmount >= valuesList.Count)
-            maxVisibleAmount = valuesList.Count;
-        
+        }
+        else if (maxVisibleAmount > valuesList.Count)
+        {
+            maxVisibleAmount = 2;
+        }
         this.maxVisibleAmount = maxVisibleAmount;
         
         DestroyGraph();
         
         float graphHeight = graphContainer.sizeDelta.y;
         float graphWidth = graphContainer.sizeDelta.x;
-        yMax = valuesList[0];
-        yMin = valuesList[0];
         xSize = graphWidth / (maxVisibleAmount + 1);
 
+        int xIndex = 0;
+
+        for (int i = Mathf.Max(valuesList.Count - maxVisibleAmount, 0); i < valuesList.Count; i++)
+        {
+            float xPos = xSize + xIndex * xSize;
+            float yPos = valuesList[i] / 100f * graphHeight;
+            string toolTipTxt = getAxisLabelY(valuesList[i]);
+            bool isEnd = i == valuesList.Count - 1;
+
+            graphVisualObjects.Add(graphVisual.CreateGraphVisualObject(new Vector2(xPos, yPos), xSize, toolTipTxt, isEnd));
+            CreateSeparatorsX(i, xPos);
+            
+            xIndex++;
+        }
+        
+        CreateSeparatorsY(graphHeight);
+    }
+
+    private float GetYMaxValue()
+    {
+        yMax = valuesList[0];
         for (int i = Mathf.Max(valuesList.Count - maxVisibleAmount, 0); i < valuesList.Count; i++)
         {
             int value = valuesList[i];
             if (value > yMax)
                 yMax = value;
-            if (value < yMin)
-                yMin = value;
         }
 
-        float yDiff = yMax - yMin;
-        int xIndex = 0;
-        
-        if (yDiff <= 0) yDiff = 5;
-        
-        yMax = yMax + yDiff * 0.2f;
-        yMin = 0;
-        
-        for (int i = Mathf.Max(valuesList.Count - maxVisibleAmount, 0); i < valuesList.Count; i++)
-        {
-            float xPos = xSize + xIndex * xSize;
-            float yPos = (valuesList[i] - yMin) / (yMax - yMin) * graphHeight;
-            string toolTipTxt = getAxisLabelY(valuesList[i]);
-            
-            if (i == valuesList.Count - 1)
-                graphVisualObjects.Add(graphVisual.CreateGraphVisualObject(new Vector2(xPos, yPos), xSize, toolTipTxt, true));
-            else
-                graphVisualObjects.Add(graphVisual.CreateGraphVisualObject(new Vector2(xPos, yPos), xSize, toolTipTxt));
-            
-            CreateSeparatorsX(i, xPos);
-            xIndex++;
-        }
-        
-        CreateSeparatorsY(yMax, yMin, graphHeight);
+        return yMax;
     }
 
     private void DestroyGraph()
@@ -207,14 +203,14 @@ public class WindowGraph : MonoBehaviour
         CreateDashes(dashTemplateX, anchoredPosDash);
     }
     
-    private void CreateSeparatorsY(float yMax, float yMin, float graphHeight)
+    private void CreateSeparatorsY(float graphHeight)
     {
         int separatorCount = 10;
 
         for (int i = 0; i <= separatorCount; i++)
         {
             float normalizedValue = i * 1f / separatorCount;
-            string axisLabel = getAxisLabelY(yMin + normalizedValue * (yMax - yMin));
+            string axisLabel = getAxisLabelY(normalizedValue * 100);
             Vector2 anchoredPosLabel = new Vector2(labelTemplateY.anchoredPosition.x, normalizedValue * graphHeight);
             Vector2 anchoredPosDash = new Vector2(dashTemplateY.anchoredPosition.x, normalizedValue * graphHeight);
 

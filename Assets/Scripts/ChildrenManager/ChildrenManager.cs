@@ -35,7 +35,7 @@ public class ChildrenManager : MonoBehaviour
     
     private void Init()
     {
-        DataSetAddChildPanel.onAddChild += ClickAddChild;
+        DataAddChildPanel.onAddChild += ClickAddChild;
         AttemptCounter.onSetResult += SetDataChild;
         GameManager.onSetCompletionLevel += SetDataChild;
         InitChildren();
@@ -43,7 +43,7 @@ public class ChildrenManager : MonoBehaviour
     
     private void OnDestroy()
     {
-        DataSetAddChildPanel.onAddChild -= ClickAddChild;
+        DataAddChildPanel.onAddChild -= ClickAddChild;
         AttemptCounter.onSetResult -= SetDataChild;
         GameManager.onSetCompletionLevel -= SetDataChild;
     }
@@ -67,9 +67,9 @@ public class ChildrenManager : MonoBehaviour
         childSaver.ChildDataSave(Child.CurrentChildrenData);
     }
     
-    private void ClickAddChild(DataSetAddChildPanel dataSetAddChildPanel)
+    private void ClickAddChild(DataAddChildPanel dataAddChildPanel)
     {
-        childSaver.ChildDataWrite(InstanceChild(), dataSetAddChildPanel, null);
+        childSaver.ChildDataWrite(InstanceChild(), dataAddChildPanel, null);
         childSaver.ChildDataSave();
         childSaver.ChildCountSave();
         ChildDataList = childSaver.ChildDataRead();

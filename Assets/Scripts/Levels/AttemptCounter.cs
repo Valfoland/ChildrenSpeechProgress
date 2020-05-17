@@ -56,8 +56,10 @@ public class AttemptCounter : MonoBehaviour
             DataGame.IdSelectSection.ToString() + DataGame.IdSelectMission][DataGame.IdSelectLvl];
         
         if (valueResult > -1)
-            average = (average + valueResult) / 2;
+            average = (average + (valueResult / 100)) / 2;
 
+        
+        Debug.Log(average);
         Child.CurrentChildrenData.ResultMission[
             DataGame.IdSelectSection.ToString() + DataGame.IdSelectMission][DataGame.IdSelectLvl] = (int)(average * 100f);
         onSetResult?.Invoke();

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class GraphDataSelecter : MonoBehaviour
 {
+   public System.Action<bool> onInteractableButtons;
    [SerializeField] private WindowGraph windowGraph;
    [SerializeField] private Dropdown selectChildDropdown;
    [SerializeField] private Dropdown selectSectionDropdown;
@@ -16,12 +17,17 @@ public class GraphDataSelecter : MonoBehaviour
 
    private string dataKeyChild;
 
-   private void Start()
+   private void Awake()
    {
+      StatsPanel.onSetStats += InitDropDowns;
       selectChildDropdown.onValueChanged.AddListener(OnSelectChild);
       selectSectionDropdown.onValueChanged.AddListener(OnSelectSection);
       selectMissionDropdown.onValueChanged.AddListener(OnSelectMission);
-      InitDropDowns();
+   }
+
+   private void OnDestroy()
+   {
+      StatsPanel.onSetStats -= InitDropDowns;
    }
 
    private void OnDisable()
@@ -50,9 +56,7 @@ public class GraphDataSelecter : MonoBehaviour
       }
 
       InitMissionsDropDown();
-      Debug.Log(Child.CurrentChildrenData.IdChild);
-      Debug.Log(DataGame.IdSelectSection);
-      Debug.Log(DataGame.IdSelectMission);
+
       selectChildDropdown.value = Child.CurrentChildrenData.IdChild;
       selectSectionDropdown.value = DataGame.IdSelectSection;
       selectMissionDropdown.value = DataGame.IdSelectMission;
@@ -98,10 +102,13 @@ public class GraphDataSelecter : MonoBehaviour
       if (resultList.Count == 0)
       {
          textNoData.gameObject.SetActive(true);
+         windowGraph.SetGraph();
+         onInteractableButtons?.Invoke(false);
       }
       else
       {
          windowGraph.SetGraph(resultList);
+         onInteractableButtons?.Invoke(true);
       }
    }
 }

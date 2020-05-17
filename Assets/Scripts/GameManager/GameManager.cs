@@ -3,7 +3,7 @@
 public class GameManager : MonoBehaviour
 {
     public static System.Action onSetCompletionLevel;
-    [SerializeField] private UiManagerGame uiManagerGame;
+    [SerializeField] private UiTransitionManagerGameData uiTransitionManagerGameData;
 
     private void Start()
     {
@@ -39,18 +39,18 @@ public class GameManager : MonoBehaviour
     private void NextLevel()
     {
         SetCompletedLvl();
-        uiManagerGame.EndLvl(true);
+        uiTransitionManagerGameData.EndLvl(true);
     }
 
     private void EndGame()
     {
         SetCompletedLvl();
-        uiManagerGame.EndGame();
+        uiTransitionManagerGameData.EndGame();
     }
 
     private void Restart()
     {
-        uiManagerGame.EndLvl(false);
+        uiTransitionManagerGameData.EndLvl(false);
     }
 
     private void SetCompletedLvl()

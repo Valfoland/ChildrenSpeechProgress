@@ -32,13 +32,13 @@ public class LevelInstancer : MonoBehaviour
     
     private void Start()
     {
-        NextLvlPanel.onNextLvl += InstanceLevel;
+        DataNextLvlPanel.onNextLvl += InstanceLevel;
         InstanceLevel();
     }
 
     private void OnDestroy()
     {
-        NextLvlPanel.onNextLvl -= InstanceLevel;
+        DataNextLvlPanel.onNextLvl -= InstanceLevel;
     }
 
     private void InstanceLevel()
@@ -55,7 +55,6 @@ public class LevelInstancer : MonoBehaviour
                 .DataLevels[DataGame.IdSelectLvl].PrefabLevel,
             parentTransform);
     }
-    
     
     private void SetTextLvl()
     {
