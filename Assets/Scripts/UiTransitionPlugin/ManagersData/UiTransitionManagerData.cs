@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Newtonsoft.Json;
-using UnityEditor;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+#if UNITY_EDITOR
+using UnityEditor.SceneManagement;
+#endif
 
 public class UiTransitionManagerData : MonoBehaviour
 {
@@ -23,6 +23,7 @@ public class UiTransitionManagerData : MonoBehaviour
         InitData();
     }
 
+#if UNITY_EDITOR
     /// <summary>
     /// Иницииализация данных панели (кнопки переходов)
     /// </summary>
@@ -85,7 +86,8 @@ public class UiTransitionManagerData : MonoBehaviour
         gameObject.GetComponent<UiTransitionManagerData>().dataPanel = dataPanelTemp;
         EditorSceneManager.SaveOpenScenes();
     }
-
+#endif
+    
     protected virtual void InitPanels()
     {
         dataPanelDict = new Dictionary<string, DataPanel>();

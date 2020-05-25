@@ -19,11 +19,6 @@ namespace Section0.HomeLevels
             BtnBox.onClick.AddListener(ClickBox);
         }
 
-        private void OnDestroy()
-        {
-            
-        }
-
         public void AnimBox()
         {
             animFalse.Play();
@@ -31,9 +26,9 @@ namespace Section0.HomeLevels
         
         public void SetDataBox(Sprite spriteBox, string wordBox)
         {
-            txt.text = wordBox;
+            //txt.text = wordBox;
             this.wordBox = wordBox;
-            //imageBox.sprite = spriteBox;
+            imageBox.sprite = spriteBox;
         }
 
         public void ClickBox()

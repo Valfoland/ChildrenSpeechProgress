@@ -66,7 +66,7 @@ public class Child : MonoBehaviour
         }
         else
         {
-            setChildImage.color = Color.white;
+            setChildImage.color = Color.green;
         }
     }
 }

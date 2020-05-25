@@ -31,9 +31,19 @@ namespace  Section0.HomeLevels
         
         public void SetDataBox(Sprite spriteBox, char letterBox)
         {
-            txt.text = spriteBox.name;
+            Debug.Log(letterBox);
+            if (letterBox.ToString().ToLower() != "б" &&
+                letterBox.ToString().ToLower() != "п")
+            {
+                txt.text = spriteBox.name;
+            }
+            else
+            {
+                txt.text = "";
+            }
+            
             this.letterBox = letterBox;
-            //imageBox.sprite = spriteBox;
+            imageBox.sprite = spriteBox;
         }
 
         public void ClickBox()

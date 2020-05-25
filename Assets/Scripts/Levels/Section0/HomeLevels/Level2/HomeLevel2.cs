@@ -8,7 +8,7 @@ namespace Section0.HomeLevels
 {
     public class HomeLevel2 : LevelManager
     {
-        public static Action<GameObject, Sprite> onInstanceItem;
+        public static Action<GameObject, Sprite, string> onInstanceItem;
         public static Action onInit;
         public static Action onDestroy;
         public static Action<GameObject, bool> onPutItem;
@@ -62,6 +62,11 @@ namespace Section0.HomeLevels
                 currentLetter = DataLevelManager.DataNameList.Dequeue();
                 DataLevelManager.DataNameList.Enqueue(currentLetter);
 
+                if (DataLevelManager.DataLevelDict[currentLetter].Count == 0 )
+                {
+                    CheckWinLevel();
+                }
+
                 ReshapeField();
                 ReshapeImages();
                 Voice("звук");
@@ -107,7 +112,7 @@ namespace Section0.HomeLevels
                 i++;
                     
                 GameObject item = Instantiate(itemPrefab, pageItem);
-                onInstanceItem?.Invoke(item, data);
+                onInstanceItem?.Invoke(item, data, currentLetter);
             }
         }
         
@@ -118,7 +123,6 @@ namespace Section0.HomeLevels
 
         private void Voice(string word)
         {
-            Debug.Log(word);
             SoundSource.VoiceSound(word);
         }
 
@@ -131,9 +135,9 @@ namespace Section0.HomeLevels
         private void CheckSyllable(SocketItem item)
         {
             SocketItem tempFloor;
-            if (item.gameObject.name.IndexOf(currentLetter, StringComparison.Ordinal) == 0)
+            if (item.gameObject.name.IndexOf(currentLetter, StringComparison.OrdinalIgnoreCase) == 0)
                 tempFloor = floorItem[0];
-            else if (item.gameObject.name.IndexOf(currentLetter, StringComparison.Ordinal) + 1 == item.gameObject.name.Length)
+            else if (item.gameObject.name.IndexOf(currentLetter, StringComparison.OrdinalIgnoreCase) + 1 == item.gameObject.name.Length)
                 tempFloor = floorItem[2];
             else
                 tempFloor = floorItem[1];

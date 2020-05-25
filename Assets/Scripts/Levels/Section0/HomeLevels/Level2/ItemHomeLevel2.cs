@@ -27,12 +27,20 @@ namespace Section0.HomeLevels
             HomeLevel2.onPutItem -= SetInteractable;
         }
 
-        private void SetData(GameObject item, Sprite spriteItem)
+        private void SetData(GameObject item, Sprite spriteItem, string currentLetter)
         {
             if (gameObject == item)
             {
-                //imageItem.sprite = spriteItem;
-                textItem.text = spriteItem.name; //temp
+                if (currentLetter.ToLower() != "а")
+                {
+                    textItem.text = spriteItem.name;
+                }
+                else
+                {
+                    textItem.text = "";
+                }
+                
+                imageItem.sprite = spriteItem;
                 gameObject.name = spriteItem.name;
             }
         }

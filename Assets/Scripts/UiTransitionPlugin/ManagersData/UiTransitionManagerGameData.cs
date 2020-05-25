@@ -106,7 +106,6 @@ public class UiTransitionManagerGameData : UiTransitionManagerData
 
     private void SetTextInfo(string nameActivePanel = "")
     {
-        Debug.Log(nameActivePanel);
         string text = dataInfoPanel
                 .TextIdSectionsList[DataGame.IdSelectSection]
                 .TextMissionsList[DataGame.IdSelectMission]

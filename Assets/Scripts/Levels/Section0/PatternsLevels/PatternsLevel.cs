@@ -128,7 +128,17 @@ namespace Section0.PatternsLevel
             {
                 checkerImages[line].gameObject.SetActive(true);
             }
-            checkerImages[line].sprite = isTrue ? trueSprite : falseSprite;
+
+            if (isTrue)
+            {
+                checkerImages[line].sprite = trueSprite;
+                checkerImages[line].color = new Color(0,0.5f,0,1);
+            }
+            else
+            {
+                checkerImages[line].sprite = falseSprite;
+                checkerImages[line].color = new Color(0.5f,0,0,1);
+            }
         }
     }
 }

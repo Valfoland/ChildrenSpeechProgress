@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class UiTransitionEditor : EditorWindow
 {
     private PanelInstancer panelInstancer = new PanelInstancer();
@@ -168,3 +169,5 @@ public class UiTransitionEditor : EditorWindow
         PanelInstancer.ItemTypeDict.Clear();
     }
 }
+
+#endif

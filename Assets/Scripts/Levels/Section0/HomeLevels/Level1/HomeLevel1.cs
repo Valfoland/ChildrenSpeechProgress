@@ -36,7 +36,7 @@ namespace Section0.HomeLevels
         private void Start()
         {
             InitData();
-            ReShapeSprites();
+            ReShapeImages();
         }
 
         private void OnDestroy()
@@ -67,7 +67,7 @@ namespace Section0.HomeLevels
 
                 if (countSelectNeedBox >= COUNT_BOX_HALF)
                 {
-                    ReShapeSprites();
+                    ReShapeImages();
                 }
             }
             else
@@ -77,7 +77,7 @@ namespace Section0.HomeLevels
             }
         }
 
-        private void ReShapeSprites()
+        private void ReShapeImages()
         {
             if (currentIdPack < DataLevelManager.DataLevelDict.Count)
             {
@@ -104,6 +104,11 @@ namespace Section0.HomeLevels
                 {
                     char randLetter = GetRandomLetterBox();
                     Sprite sprite = GetRandomSprite(randLetter);
+                    if (sprite == null)
+                    {
+                        CheckWinLevel();
+                        break;
+                    }
                     spriteListBox.Add(sprite);
                     box.SetDataBox(sprite, randLetter);
                     box.BtnBox.interactable = true;
@@ -125,7 +130,7 @@ namespace Section0.HomeLevels
             {
                 currentIdPack = 0;
                 currentRound++;
-                ReShapeSprites();
+                ReShapeImages();
             }
         }
 
@@ -142,9 +147,18 @@ namespace Section0.HomeLevels
 
         private Sprite GetRandomSprite(char inputLetter)
         {
-            var sprite = spriteDictLetter[inputLetter][Random.Range(0, spriteDictLetter[inputLetter].Count)];
-            spriteDictLetter[inputLetter].Remove(sprite);
-            return sprite;
+            try
+            {
+                var sprite = spriteDictLetter[inputLetter][Random.Range(0, spriteDictLetter[inputLetter].Count)];
+                spriteDictLetter[inputLetter].Remove(sprite);
+                return sprite;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                
+            }
+
+            return null;
         }
 
         private void SetDictSprite()
