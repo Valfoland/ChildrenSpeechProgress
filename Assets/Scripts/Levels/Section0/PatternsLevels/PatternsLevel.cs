@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Section0.PatternsLevel
 {
-    public class PatternsLevel : LevelManager
+    public class PatternsLevel : LevelProduct
     {
         [SerializeField] private GameObject circlePrefab;
         [SerializeField] private Animation[] animField;
@@ -21,6 +21,8 @@ namespace Section0.PatternsLevel
         [SerializeField] private Sprite falseSprite;
         private int countTrueWords;
 
+        private DataPatternsLevelManager dataPatternsLevelManager;
+        
         private void Start()
         {
             InitData();
@@ -30,13 +32,12 @@ namespace Section0.PatternsLevel
         private void InitData()
         {
             ItemPatternsLevel.onClickBox += CheckBox;
-            ILevelData data = new DataPatternsLevelManager();
-            data.InitData();
+            dataPatternsLevelManager = new DataPatternsLevelManager();
 
             for (int i = 0; i < voiceBtns.Length; i++)
             {
                 var i1 = i;
-                voiceBtns[i].onClick.AddListener(() => Voice(DataPatternsLevelManager.WordsLevel[i1]));
+                voiceBtns[i].onClick.AddListener(() => Voice(dataPatternsLevelManager.WordsLevel[i1]));
             }
         }
 
@@ -52,8 +53,8 @@ namespace Section0.PatternsLevel
 
         private void InstanceCircles()
         {
-            var word = DataPatternsLevelManager.WordsWithoutSounds;
-            for (int i = 0; i < DataPatternsLevelManager.WordsWithoutSounds.Count; i++)
+            var word = dataPatternsLevelManager.WordsWithoutSounds;
+            for (int i = 0; i < dataPatternsLevelManager.WordsWithoutSounds.Count; i++)
             {
                 for (int j = 0; j < word[i].Length; j++)
                 {
@@ -61,13 +62,13 @@ namespace Section0.PatternsLevel
                     if (word[i][j] != '_')
                     {
                         circleObject.GetComponent<ItemPatternsLevel>()
-                            .SetDataBox(i, j, DataPatternsLevelManager.SoundsLevel,
+                            .SetDataBox(i, j, dataPatternsLevelManager.SoundsLevel,
                                 word[i][j].ToString());
                     }
                     else
                     {
                         circleObject.GetComponent<ItemPatternsLevel>()
-                            .SetDataBox(i, j, DataPatternsLevelManager.SoundsLevel);
+                            .SetDataBox(i, j, dataPatternsLevelManager.SoundsLevel);
                     }
                 }
             }
@@ -80,14 +81,14 @@ namespace Section0.PatternsLevel
 
         private void CheckBox(ItemPatternsLevel prevBox, ItemPatternsLevel currentBox)
         {
-            var word = DataPatternsLevelManager
+            var word = dataPatternsLevelManager
                 .WordsWithoutSounds[currentBox.Line]
                 .Remove(currentBox.PosInWord, 1);
-            DataPatternsLevelManager.WordsWithoutSounds[currentBox.Line] =
+            dataPatternsLevelManager.WordsWithoutSounds[currentBox.Line] =
                 word.Insert(currentBox.PosInWord, currentBox.CurrentSound.ToString());
 
-            if (DataPatternsLevelManager.WordsWithoutSounds[currentBox.Line] ==
-                DataPatternsLevelManager.WordsLevel[currentBox.Line])
+            if (dataPatternsLevelManager.WordsWithoutSounds[currentBox.Line] ==
+                dataPatternsLevelManager.WordsLevel[currentBox.Line])
             {
 
                 SetCheckWordImage(currentBox.Line, true);
@@ -95,7 +96,7 @@ namespace Section0.PatternsLevel
                 AttemptCounter.SetAttempt(true);
                 countTrueWords++;
                 
-                if (countTrueWords >= DataPatternsLevelManager.WordsLevel.Count)
+                if (countTrueWords >= dataPatternsLevelManager.WordsLevel.Count)
                 {
                     CheckWinLevel();
                 }
@@ -103,18 +104,13 @@ namespace Section0.PatternsLevel
 
             if (prevBox != null && 
                 prevBox.transform.parent != currentBox.transform.parent && 
-                DataPatternsLevelManager.WordsWithoutSounds[prevBox.Line] !=
-                DataPatternsLevelManager.WordsLevel[prevBox.Line])
+                dataPatternsLevelManager.WordsWithoutSounds[prevBox.Line] !=
+                dataPatternsLevelManager.WordsLevel[prevBox.Line])
             {
                 AnimField(prevBox.Line);
                 SetCheckWordImage(prevBox.Line, false);
                 AttemptCounter.SetAttempt(false);
             }
-        }
-
-        private void CheckWinLevel()
-        {
-            onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
         }
 
         private void AnimField(int line)

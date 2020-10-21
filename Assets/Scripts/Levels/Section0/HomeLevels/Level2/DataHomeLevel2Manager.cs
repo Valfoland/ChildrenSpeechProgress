@@ -22,13 +22,13 @@ namespace Section0.HomeLevels
         };
     }
 
-    public class DataHomeLevel2Manager : DataLevelManager, ILevelData
+    public sealed class DataHomeLevel2Manager : DataLevelManager
     {
         private DataHomeLevel2 dataHomeLevel2;
-        public void InitData()
+        public DataHomeLevel2Manager()
         {
             dataHomeLevel2 = new DataHomeLevel2();
-            InstanceData(dataHomeLevel2.NameDirList, dataHomeLevel2.NameMission);
+            InstantiateData(dataHomeLevel2.NameDirList, dataHomeLevel2.NameMission);
         }
     }
 }

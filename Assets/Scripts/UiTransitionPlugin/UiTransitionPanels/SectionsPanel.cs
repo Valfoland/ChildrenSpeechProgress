@@ -18,12 +18,9 @@ public class SectionsPanel : Panel
     {
         try
         {
+            AddButtonListener();
             this.dataSectionsPanel = dataSectionsPanel;
             GetBtnSection();
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
         }
         catch (System.NullReferenceException) { }
     }
@@ -35,11 +32,6 @@ public class SectionsPanel : Panel
         {
             base.ShowPanel();
         }
-    }
-
-    public override void HidePanel()
-    {
-        base.HidePanel();
     }
 
     private void GetBtnSection()

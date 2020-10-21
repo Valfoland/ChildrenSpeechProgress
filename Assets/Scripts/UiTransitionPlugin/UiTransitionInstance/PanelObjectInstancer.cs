@@ -23,7 +23,7 @@ public class PanelObjectInstancer : MonoBehaviour
         foreach (var item in PanelInstancer.ItemDict)
         {
             GameObject oldObject = GameObject.Find(item.Key);
-            if (oldObject != null) Destroy(oldObject);
+            if (oldObject != null) DestroyImmediate(oldObject);
 
             GameObject objectPanel = Instantiate(container, containerObject.transform);
             objectPanel.name = $"{item.Key}";

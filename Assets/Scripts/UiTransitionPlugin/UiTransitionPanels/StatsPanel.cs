@@ -15,14 +15,7 @@ public class StatsPanel : Panel
 
     public StatsPanel(DataPanel dataPanel, DataStatsPanel statsPanel, PanelTypes panelType) : base(dataPanel, panelType)
     {
-        try
-        {
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
-        }
-        catch (System.NullReferenceException) { }
+        AddButtonListener();
     }
 
     public override void ShowPanel()

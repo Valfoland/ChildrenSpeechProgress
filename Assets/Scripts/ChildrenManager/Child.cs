@@ -14,12 +14,6 @@ public class ChildrenData
     public Dictionary<string, List<bool>> CompletedLevels = new Dictionary<string, List<bool>>();
 }
 
-public interface ICompletionLevels<T>
-{
-    
-}
-
-
 public class Child : MonoBehaviour
 {
     public Text Name;

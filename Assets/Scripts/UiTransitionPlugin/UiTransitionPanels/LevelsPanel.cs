@@ -23,10 +23,7 @@ public class LevelsPanel : Panel
         {
             this.levelsPanel = levelsPanel;
             SetInfoPanel();
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
+            AddButtonListener();
         }
         catch (System.NullReferenceException) { }
     }
@@ -46,6 +43,10 @@ public class LevelsPanel : Panel
 
     private void GetActiveBtnsLvl()
     {
+        foreach (var data in Child.CurrentChildrenData.CompletedLevels["00"])
+        {
+            Debug.Log(data);
+        }
         int maxCountLvls = DataGame.CountSections[DataGame.IdSelectSection]
             .CountMissions[DataGame.IdSelectMission]
             .CountLevels;

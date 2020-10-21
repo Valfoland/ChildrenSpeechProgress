@@ -21,7 +21,7 @@ public class PanelInstancer
     private const string FIELD_PLACEMENT = "Auto_Generated_Code_Placement_Field";
     private const string DATA_INIT_PLACEMENT = "Auto_Generated_Code_Placement_Init";
     private const string NAME_UI_MANAGER = "UiTransitionManager";
-    private const string NAME_UI_DATA = "UiTransitionPanelData";
+    private const string NAME_UI_DATA = "UiTransitionManagerTestData";
 
     private string[] forbiddenNames =
     {
@@ -98,8 +98,7 @@ public class PanelInstancer
 
     private string TextCodePanel(string nameClass)
     {
-        string textCode =
-            @"using UnityEngine;
+        string textCode = @"using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -132,10 +131,10 @@ private void OnClickBtn(ItemTypes itemTypes)
 
     private void EditAdjustmentData()
     {
-        string path = @"Assets/Scripts/UiTransitionManager/";
+        string path = @"Assets/Scripts/UiTransitionPlugin/ManagersData/";
         string fileName = NAME_UI_DATA + ".cs";
         string textData = "";
-
+        
         try
         {
             using (StreamReader sr = new StreamReader(path + fileName))
@@ -217,7 +216,6 @@ private void OnClickBtn(ItemTypes itemTypes)
         
         for (int i = insertId; i < textData.Length; i++)
         {
-            
             if (textData[i] == '#')
             {
                 id = i - insertId;

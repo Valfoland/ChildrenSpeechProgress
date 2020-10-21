@@ -20,7 +20,6 @@ public class ChildrenDataSaver
         if (childData == null)
         {
             child.ChildrenData.IdChild = Child.CountChildren;
-            
             child.ChildrenData.Name = dataAddChildPanel.NameField.text;
             child.ChildrenData.Age = dataAddChildPanel.AgeField.text;
             child.ChildrenData.GroupName = dataAddChildPanel.GroupField.text;
@@ -61,8 +60,6 @@ public class ChildrenDataSaver
     public void ChildCountSave()
     {
         PlayerPrefs.SetInt(COUNT_CHILD, PlayerPrefs.GetInt(COUNT_CHILD) + 1);
-        
-        Debug.Log(PlayerPrefs.GetInt(COUNT_CHILD));
     }
     
     public void ChildDataSave(ChildrenData childrenData = null)

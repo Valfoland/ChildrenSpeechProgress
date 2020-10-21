@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Section0.PatternsLevel
 {
-
     public class DataPatternsLevel
     {
         public int CountRows;
@@ -40,53 +40,57 @@ namespace Section0.PatternsLevel
             }
         };
 
-        public List<Dictionary<char, Color>> Sounds = new List<Dictionary<char, Color>>
+        private List<Dictionary<char, Color>> soundsDict = new List<Dictionary<char, Color>>
         {
             new Dictionary<char, Color>
-            {
+            { 
                 {'к', Color.red}, 
                 {'г', new Color32(255,128, 0, 255)}, 
-                {'з', Color.green}
+                {'з', Color.red},
             },
             new Dictionary<char, Color>
             {
-                {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 255)}, 
-                {'з', Color.green}, 
-                {'c', Color.blue}
+                {'c', Color.blue},
             },
             new Dictionary<char, Color>
             {
-                {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 255)}, 
-                {'з', Color.red}, 
-                {'c', Color.blue}, 
-                {'д', Color.yellow}
+                {'д', Color.yellow},
             },
             new Dictionary<char, Color>
             {
-                {'к', Color.red}, 
-                {'г', new Color32(255,128, 0, 255)}, 
-                {'з', Color.red}, 
-                {'c', Color.blue}, 
-                {'д', Color.yellow}, 
                 {'т', new Color32(255,128, 0, 255)}
-            }
+            },
+            
         };
+
+        public Dictionary<char, Color> GetColorSound(int levelId)
+        {
+            Dictionary<char, Color> soundsDict = new Dictionary<char, Color>();
+            soundsDict = this.soundsDict[0];
+
+            for (var i = 1; i <= levelId; i++)
+            {
+                soundsDict = soundsDict
+                    .Concat(this.soundsDict[i])
+                    .ToDictionary(x => x.Key, x => x.Value);
+            }
+
+            return soundsDict;
+        }
     }
 
-    public class DataPatternsLevelManager : DataLevelManager, ILevelData
+    public class DataPatternsLevelManager : DataLevelManager
     {
         private DataPatternsLevel dataLevels;
-        public static List<string> WordsLevel;
-        public static List<string> WordsWithoutSounds;
-        public static Dictionary<char, Color> SoundsLevel = new Dictionary<char, Color>();
-        public void InitData()
+        public List<string> WordsLevel;
+        public List<string> WordsWithoutSounds;
+        public Dictionary<char, Color> SoundsLevel;
+        
+        public DataPatternsLevelManager()
         {
-            dataLevels = new DataPatternsLevel();
-            dataLevels.CountRows = 4;
+            dataLevels = new DataPatternsLevel {CountRows = 4};
             idLvl = DataGame.IdSelectLvl;
-            SoundsLevel = dataLevels.Sounds[idLvl];
+            SoundsLevel = dataLevels.GetColorSound(idLvl);
             RemoveSoundsInWords();
         }
 
@@ -101,7 +105,7 @@ namespace Section0.PatternsLevel
             {
                 string wordLevel  = dataLevels.Words[idLvl][shuffleNumbers[i]];
                 string wordWithoutSounds = wordLevel;
-                foreach (var dataSound in dataLevels.Sounds[idLvl])
+                foreach (var dataSound in SoundsLevel)
                 {
                     wordWithoutSounds = wordWithoutSounds.Replace(dataSound.Key.ToString(), "_");
                 }
@@ -109,5 +113,7 @@ namespace Section0.PatternsLevel
                 WordsWithoutSounds.Add(wordWithoutSounds);
             }
         }
+        
+        
     }
 }

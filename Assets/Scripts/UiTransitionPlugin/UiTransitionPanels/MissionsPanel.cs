@@ -14,18 +14,11 @@ public class MissionsPanel : Panel
     private int idMission;
     private DataMissionsPanel dataMissionsPanel;
 
-    public MissionsPanel(DataPanel dataPanel, DataMissionsPanel dataMissionsPanel, PanelTypes panelType) : 
+    public MissionsPanel(DataPanel dataPanel, DataMissionsPanel dataMissionsPanel, PanelTypes panelType) :
         base(dataPanel, panelType)
     {
-        try
-        {
-            this.dataMissionsPanel = dataMissionsPanel;
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
-        }
-        catch (System.NullReferenceException) { }
+        this.dataMissionsPanel = dataMissionsPanel;
+        AddButtonListener();
     }
 
     public override void ShowPanel()

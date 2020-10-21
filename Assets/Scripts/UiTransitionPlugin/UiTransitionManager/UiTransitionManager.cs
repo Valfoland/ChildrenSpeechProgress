@@ -31,14 +31,15 @@ public class UiTransitionManager : MonoBehaviour
 {
     private Panel[] uiTransitionList = new Panel[2];
     private int counterTransition;
-
-    private void Start()
+    protected ITextPanel iInfoPanel;
+    
+    protected virtual void Start()
     {
         Panel.onClickBtn += OnClickBtnTransition;
         Panel.onDirectionTransition += OnClickDirectionBtnTransition;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         Panel.onClickBtn -= OnClickBtnTransition;
         Panel.onDirectionTransition -= OnClickDirectionBtnTransition;
@@ -48,13 +49,9 @@ public class UiTransitionManager : MonoBehaviour
     {
         counterTransition++;
         uiTransitionList[(int) itemType] = panel;
-        
-        if ( UiTransitionManagerData.UiTransitionDict[panel].Count == 0 && itemType == ItemTypes.Inside)
-        {
-            panel.HidePanel();
-            counterTransition = 0;
-        }
-        
+
+        if (!UiTransitionManagerData.UiTransitionDict.ContainsKey(panel)) return;
+
         if (counterTransition >= 2 && uiTransitionList[0] != uiTransitionList[1])
         {
             MakeTransition(uiTransitionList[0], uiTransitionList[1]);

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Section0.HomeLevels
 {
-    public class HomeLevel3 : LevelManager
+    public class HomeLevel3 : LevelProduct
     {
         [SerializeField] private BoxHomeLevel3[] boxLevel3;
         [SerializeField] private Text textMessage;
@@ -18,6 +18,7 @@ namespace Section0.HomeLevels
         private string currentSentence;
         
         private List<Sprite> spriteList = new List<Sprite>();
+        private DataHomeLevel3Manager dataHomeLevel3Manager;
         
         private void Start()
         {
@@ -28,8 +29,7 @@ namespace Section0.HomeLevels
         private void InitData()
         {
             BoxHomeLevel3.onClickBox += CheckBox;
-            ILevelData data = new DataHomeLevel3Manager();
-            data.InitData();
+            dataHomeLevel3Manager = new DataHomeLevel3Manager();
         }
 
         private void OnDestroy()
@@ -41,7 +41,7 @@ namespace Section0.HomeLevels
         {
             countNeedSprite = 0;
 
-            if (currentIdPack < DataHomeLevel3Manager.QueueSentenceses.Count)
+            if (currentIdPack < dataHomeLevel3Manager.QueueSentenceses.Count)
             {
                 currentIdPack++;
                 GetSentence();
@@ -57,6 +57,7 @@ namespace Section0.HomeLevels
             }
             else
             {
+                currentIdPack = 0;
                 CheckWinLevel();
             }
         }
@@ -68,15 +69,15 @@ namespace Section0.HomeLevels
 
         private void GetSentence()
         {
-            currentSentence = DataHomeLevel3Manager.QueueSentenceses.Dequeue();
-            DataHomeLevel3Manager.QueueSentenceses.Enqueue(currentSentence);
+            currentSentence = dataHomeLevel3Manager.QueueSentenceses.Dequeue();
+            dataHomeLevel3Manager.QueueSentenceses.Enqueue(currentSentence);
             SetTextMessage(currentSentence);
         }
 
         private void GetRandomSprites()
         {
-            spriteList  = DataHomeLevel3Manager.QueueSprites.Dequeue();
-            DataHomeLevel3Manager.QueueSprites.Enqueue(spriteList);
+            spriteList  = dataHomeLevel3Manager.QueueSprites.Dequeue();
+            dataHomeLevel3Manager.QueueSprites.Enqueue(spriteList);
             bool[] mixStates = {true, false};
             bool toMix = mixStates[Random.Range(0, 2)];
             
@@ -107,12 +108,6 @@ namespace Section0.HomeLevels
             StartCoroutine(WaitReshape(2f));
             Voice(currentSentence);
             Voice(needWord);
-        }
-        
-        private void CheckWinLevel()
-        {
-            currentIdPack = 0;
-            onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
         }
 
         private void SetTextMessage(string msg)

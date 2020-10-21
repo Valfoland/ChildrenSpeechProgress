@@ -65,7 +65,7 @@ public class UiTransitionEditor : EditorWindow
             nameItems[i] = EditorGUILayout.TextField("Имя панели", nameItems[i],
                 GUILayout.Height(20));
             
-            if (GUILayout.Button("X", GUILayout.Height(20), GUILayout.Width(20)) &&
+            if (GUILayout.Button("X", "BoldLabel", GUILayout.Height(20), GUILayout.Width(20)) &&
                 nameItems.Count >= 1)
             {
                 nameItems.Remove(nameItems[i]);

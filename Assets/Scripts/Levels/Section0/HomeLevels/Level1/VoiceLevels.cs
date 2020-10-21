@@ -9,12 +9,12 @@ public class VoiceLevels : MonoBehaviour
 {
     private void Start()
     {
-        LevelManager.onVoice += VoiceCurrentString;
+        LevelProduct.onVoice += VoiceCurrentString;
     }
 
     private void OnDestroy()
     {
-        LevelManager.onVoice -= VoiceCurrentString;
+        LevelProduct.onVoice -= VoiceCurrentString;
     }
     
     public void VoiceCurrentString(string letter)

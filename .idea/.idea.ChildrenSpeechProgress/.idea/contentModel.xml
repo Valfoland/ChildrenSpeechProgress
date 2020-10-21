@@ -40,7 +40,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AsyncLoadVisual.cs" t="Include" />
           <e p="Carousel" t="Include">
             <e p="CarouselController.cs" t="Include" />
             <e p="CarouselElement.cs" t="Include" />
@@ -58,18 +57,15 @@
             <e p="ChildrenDataSaver.cs" t="Include" />
             <e p="ChildrenManager.cs" t="Include" />
           </e>
-          <e p="DragableObject.cs" t="Include" />
           <e p="GameManager" t="Include">
             <e p="DataGame.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
-            <e p="LevelInstancer.cs" t="Include" />
           </e>
           <e p="Levels" t="Include">
             <e p="AttemptCounter.cs" t="Include" />
             <e p="DataLevelManager.cs" t="Include" />
-            <e p="LevelManager.cs" t="Include" />
-            <e p="LevelSaver.cs" t="Include" />
-            <e p="ResultKeeper.cs" t="Include" />
+            <e p="LevelCreator.cs" t="Include" />
+            <e p="LevelProduct.cs" t="Include" />
             <e p="Section0" t="Include">
               <e p="HomeLevels" t="Include">
                 <e p="Level1" t="Include">
@@ -92,24 +88,24 @@
               <e p="PatternsLevels" t="Include">
                 <e p="DataPatternsLevelManager.cs" t="Include" />
                 <e p="ItemPatternsLevel.cs" t="Include" />
+                <e p="LevelPatternProduct.cs" t="Include" />
                 <e p="PatternsLevel.cs" t="Include" />
               </e>
             </e>
             <e p="SoundSource.cs" t="Include" />
           </e>
-          <e p="MathExtensions.cs" t="Include" />
-          <e p="MousPositionDetecter.cs" t="Include" />
-          <e p="SocketItem.cs" t="Include" />
+          <e p="Other" t="Include">
+            <e p="AsyncLoadVisual.cs" t="Include" />
+            <e p="DontDestroyObject.cs" t="Include" />
+            <e p="DragableObject.cs" t="Include" />
+            <e p="MathExtensions.cs" t="Include" />
+            <e p="MousPositionDetecter.cs" t="Include" />
+            <e p="SocketItem.cs" t="Include" />
+          </e>
           <e p="UImanager" t="Include">
             <e p="UIManagerBridge.cs" t="Include" />
           </e>
           <e p="UiTransitionPlugin" t="Include">
-            <e p="ManagersData" t="Include">
-              <e p="UiTransitionManagerData.cs" t="Include" />
-              <e p="UiTransitionManagerGameData.cs" t="Include" />
-              <e p="UiTransitionManagerMenuData.cs" t="Include" />
-            </e>
-            <e p="Panel.cs" t="Include" />
             <e p="UiTransitionEditor" t="Include">
               <e p="UiTransitionEditor.cs" t="Include" />
             </e>
@@ -117,7 +113,14 @@
               <e p="PanelInstancer.cs" t="Include" />
               <e p="PanelObjectInstancer.cs" t="Include" />
             </e>
-            <e p="UiTransitionManager.cs" t="Include" />
+            <e p="UiTransitionManager" t="Include">
+              <e p="UiTransitionManager.cs" t="Include" />
+              <e p="UiTransitionManagerData.cs" t="Include" />
+              <e p="UiTransitionManagerGame.cs" t="Include" />
+              <e p="UiTransitionManagerGameData.cs" t="Include" />
+              <e p="UiTransitionManagerMenu.cs" t="Include" />
+              <e p="UiTransitionManagerMenuData.cs" t="Include" />
+            </e>
             <e p="UiTransitionPanels" t="Include">
               <e p="AddChildPanel.cs" t="Include" />
               <e p="ChildrenPanel.cs" t="Include" />
@@ -130,6 +133,7 @@
               <e p="MenuPanel.cs" t="Include" />
               <e p="MissionsPanel.cs" t="Include" />
               <e p="NextLvlPanel.cs" t="Include" />
+              <e p="Panel.cs" t="Include" />
               <e p="PanelEndGameDecorator.cs" t="Include" />
               <e p="SectionsPanel.cs" t="Include" />
               <e p="SettingsPanel.cs" t="Include" />

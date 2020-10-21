@@ -24,11 +24,8 @@ public class AddChildPanel : Panel
         try
         {
             this.dataAddChildPanel = dataAddChildPanel;
-            
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
+
+            AddButtonListener();
             
             dataAddChildPanel.BtnCancel.onClick.AddListener(() => AddChild(false));
             dataAddChildPanel.BtnAddChild.onClick.AddListener(() => AddChild(true));

@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace Section0.HomeLevels
 {
-    public class HomeLevel1 : LevelManager
+    public class HomeLevel1 : LevelProduct
     {
         [SerializeField] private BoxHomeLevel1[] boxLevels;
         [SerializeField] private Text textMessage;
@@ -32,7 +32,8 @@ namespace Section0.HomeLevels
         private bool isNotStart;
 
         private string helpWord = "звук";
-        
+        private DataHomeLevel1Manager dataHomeLevel1Manager;
+
         private void Start()
         {
             InitData();
@@ -45,16 +46,15 @@ namespace Section0.HomeLevels
         }
 
         private void InitData()
-        {
-            ILevelData data = new DataHomeLevel1Manager();
-            data.InitData();
+        { 
+            dataHomeLevel1Manager = new DataHomeLevel1Manager();
             BoxHomeLevel1.onClickBox += CheckBox;
             SetTextMessage();
         }
 
         private void SetTextMessage()
         {
-            textMessage.text = firstPartMessage = DataLevelManager.StartSentence;
+            textMessage.text = firstPartMessage = dataHomeLevel1Manager.StartSentence;
         }
         
         private void CheckBox(char letterBox, BoxHomeLevel1 boxHomeLevel1)
@@ -79,7 +79,7 @@ namespace Section0.HomeLevels
 
         private void ReShapeImages()
         {
-            if (currentIdPack < DataLevelManager.DataLevelDict.Count)
+            if (currentIdPack < dataHomeLevel1Manager.DataLevelDict.Count)
             {
                 countSelectNeedBox = 0;
                 countInstanceNeedBox = 0;
@@ -120,11 +120,11 @@ namespace Section0.HomeLevels
             }
         }
 
-        private void CheckWinLevel()
+        protected override void CheckWinLevel()
         {
             if (currentRound >= 1)
             {
-                onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
+                base.CheckWinLevel();
             }
             else
             {
@@ -136,8 +136,8 @@ namespace Section0.HomeLevels
 
         private void SetCurrentLetter()
         {
-            currentName = DataLevelManager.DataNameList.Dequeue();
-            DataLevelManager.DataNameList.Enqueue(currentName);
+            currentName = dataHomeLevel1Manager.DataNameList.Dequeue();
+            dataHomeLevel1Manager.DataNameList.Enqueue(currentName);
             var nameListSprite = currentName.Replace("-", "");
             needLetter = nameListSprite[currentRound];
             otherLetter = nameListSprite.Replace(nameListSprite[currentRound].ToString(), "")[0];
@@ -167,7 +167,7 @@ namespace Section0.HomeLevels
             spriteDictLetter.Add(needLetter, new List<Sprite>());
             spriteDictLetter.Add(otherLetter, new List<Sprite>());
             
-            foreach (var data in DataLevelManager.DataLevelDict[currentName])
+            foreach (var data in dataHomeLevel1Manager.DataLevelDict[currentName])
             {
                 if (data.name.Contains(needLetter) ||
                     data.name.Contains(needLetter.ToString().ToUpper()))

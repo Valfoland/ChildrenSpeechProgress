@@ -221,23 +221,23 @@ namespace Section0.HomeLevels
         };
     }
 
-    public class DataHomeLevel3Manager : DataLevelManager, ILevelData
+    public class DataHomeLevel3Manager : DataLevelManager
     {
         private Sprite needSprite;
         private Sprite otherSprite;
         private DataHomeLevel3 dataHomeLevel3;
-        public static Queue<string> QueueSentenceses;
-        public static Queue<List<Sprite>> QueueSprites;
+        public Queue<string> QueueSentenceses;
+        public Queue<List<Sprite>> QueueSprites;
 
-        public void InitData()
+        public DataHomeLevel3Manager()
         {
             dataHomeLevel3 = new DataHomeLevel3();
-            InstanceData(dataHomeLevel3.NameDirList, dataHomeLevel3.NameMission);
+            InstantiateData(dataHomeLevel3.NameDirList, dataHomeLevel3.NameMission);
         }
 
-        protected override void InstanceData(List<string> nameDirList, string NameMission, string startSentence = "")
+        protected sealed override void InstantiateData(List<string> nameDirList, string NameMission, string startSentence = "")
         {
-            base.InstanceData(dataHomeLevel3.NameDirList, NameMission);
+            base.InstantiateData(dataHomeLevel3.NameDirList, NameMission);
             QueueSentenceses = new Queue<string>();
             QueueSprites = new Queue<List<Sprite>>();
             

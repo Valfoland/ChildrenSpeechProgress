@@ -16,11 +16,7 @@ public class GamePanel : Panel
     {
         try
         {
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
-
+            AddButtonListener();
             ShowPanel();
         }
         catch (System.NullReferenceException) { }

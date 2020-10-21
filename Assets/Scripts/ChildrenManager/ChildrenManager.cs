@@ -17,7 +17,7 @@ public class ChildrenManager : MonoBehaviour
     
     private void Awake()
     {
-        DontDestroy();
+        //DontDestroy();
         Init();
     }
 

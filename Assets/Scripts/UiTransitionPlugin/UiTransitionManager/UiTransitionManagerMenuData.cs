@@ -12,7 +12,6 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
     #region Auto_Generated_Code_Placement_Field
     [SerializeField] private DataMenuPanel dataMenuPanel;
     [SerializeField] private DataSettingsPanel dataSettingsPanel;
-    [SerializeField] private DataInfoPanel dataInfoPanel;
     [SerializeField] private DataStatsPanel dataStatsPanel;
     [SerializeField] private DataChildrenPanel dataChildrenPanel;
     [SerializeField] private DataAddChildPanel dataAddChildPanel;
@@ -20,68 +19,49 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
     [SerializeField] private DataSectionsPanel dataSectionsPanel;
     [SerializeField] private DataMissionsPanel dataSetMissionsPanel;
     [SerializeField] private DataSetLevelsPanel dataSetLevelsPanel;
-
-    private ITextPanel iTextInfo;
-    private Panel addChildPanel;
+    public DataInfoPanel DataInfoPanel;
+    
+    public Panel AddChildPanel;
     private Panel missionsPanel;
     private Panel levelsPanel;
-    private Panel childrenPanel;
-    private Panel menuPanel;
-
+    public Panel ChildrenPanel;
+    public Panel MenuPanel;
+    public Panel InfoPanel;
     #endregion
 
     protected override void Start()
     {
-        Panel.onSetInfoPanel += SetTextInfo;
-        DataMenuPanel.onCheckChild += ShowAddChildPanel;
-        DataAddChildPanel.onCheckEmptyPanel += CheckEmptyPanel;
         InitPanels();
         base.Start();
-    }
-    
-    private void OnDestroy()
-    {
-        Panel.onSetInfoPanel -= SetTextInfo;
-        DataMenuPanel.onCheckChild -= ShowAddChildPanel;
-        DataAddChildPanel.onCheckEmptyPanel -= CheckEmptyPanel;
-    }
-
-    private void CheckEmptyPanel()
-    {
-        if (childrenPanel.PanelObject.activeSelf == false)
-        {
-            menuPanel.ShowPanel();
-        }
     }
 
     protected override void InitPanels()
     {
         base.InitPanels();
-        #region Auto_Generated_Code_Placement_Init
-
-        new UIManagerBridge<DataInfoPanel>(new UiReceiver(), dataInfoPanel);
         
-        menuPanel = new MenuPanel(dataPanelDict["MenuPanel"], dataMenuPanel, PanelTypes.Main);
+        new UIManagerBridge<DataInfoPanel>(new UiReceiver(), DataInfoPanel);
+
+        #region Auto_Generated_Code_Placement_Init
+        MenuPanel = new MenuPanel(dataPanelDict["MenuPanel"], dataMenuPanel, PanelTypes.Main);
         Panel statsPanel = new StatsPanel(dataPanelDict["StatsPanel"], dataStatsPanel, PanelTypes.Main);
-        childrenPanel = new ChildrenPanel(dataPanelDict["ChildrenPanel"], dataChildrenPanel, PanelTypes.Main);
+        ChildrenPanel = new ChildrenPanel(dataPanelDict["ChildrenPanel"], dataChildrenPanel, PanelTypes.Main);
         levelsPanel = new LevelsPanel(dataPanelDict["LevelsPanel"], dataSetLevelsPanel, PanelTypes.Main);
         Panel sectionsPanel = new SectionsPanel(dataPanelDict["SectionsPanel"], dataSectionsPanel, PanelTypes.Main);
         missionsPanel = new MissionsPanel(dataPanelDict["MissionsPanel"], dataSetMissionsPanel, PanelTypes.Main);
 
         Panel settingsPanel = new SettingsPanel(dataPanelDict["SettingsPanel"], dataSettingsPanel, PanelTypes.Secondary);
         Panel exitPanel = new ExitPanel(dataPanelDict["ExitPanel"], dataExitPanel, PanelTypes.Secondary);
-        addChildPanel = new AddChildPanel(dataPanelDict["AddChildPanel"], dataAddChildPanel, PanelTypes.Secondary);
-        Panel infoPanel = new InfoPanel(dataPanelDict["InfoPanel"], dataInfoPanel, PanelTypes.Secondary);
-        iTextInfo = (ITextPanel) infoPanel;
+        AddChildPanel = new AddChildPanel(dataPanelDict["AddChildPanel"], dataAddChildPanel, PanelTypes.Secondary);
+        InfoPanel = new InfoPanel(dataPanelDict["InfoPanel"], DataInfoPanel, PanelTypes.Secondary);
 
         UiTransitionDict = new Dictionary<Panel, Dictionary<Panel, TransitionTypes>>
         {
             {
-                menuPanel,
+                MenuPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
                     {statsPanel, TransitionTypes.Hard},
-                    {childrenPanel, TransitionTypes.Hard},
+                    {ChildrenPanel, TransitionTypes.Hard},
                     {sectionsPanel, TransitionTypes.Hard},
                     {exitPanel, TransitionTypes.Soft},
                     {settingsPanel, TransitionTypes.Soft}
@@ -91,19 +71,19 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 statsPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {menuPanel, TransitionTypes.Hard},
+                    {MenuPanel, TransitionTypes.Hard},
                 }
             },
             {
-                childrenPanel,
+                ChildrenPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {menuPanel, TransitionTypes.Hard},
-                    {addChildPanel, TransitionTypes.Soft}
+                    {MenuPanel, TransitionTypes.Hard},
+                    {AddChildPanel, TransitionTypes.Soft}
                 }
             },
             {
-                addChildPanel,
+                AddChildPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
                     
@@ -113,11 +93,11 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 settingsPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {menuPanel, TransitionTypes.Normal},
+                    {MenuPanel, TransitionTypes.Normal},
                 }
             },
             {
-                infoPanel,
+                InfoPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
                     {missionsPanel, TransitionTypes.Normal},
@@ -128,14 +108,14 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 exitPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {menuPanel, TransitionTypes.Hard},
+                    {MenuPanel, TransitionTypes.Hard},
                 }
             },
             {
                 sectionsPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {menuPanel, TransitionTypes.Hard},
+                    {MenuPanel, TransitionTypes.Hard},
                     {missionsPanel, TransitionTypes.Hard}
                 }
             },
@@ -145,7 +125,7 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 {
                     {sectionsPanel, TransitionTypes.Hard},
                     {levelsPanel, TransitionTypes.Hard},
-                    {infoPanel, TransitionTypes.Soft}
+                    {InfoPanel, TransitionTypes.Soft}
                 }
             },
             {
@@ -153,35 +133,12 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 new Dictionary<Panel, TransitionTypes>
                 {
                     {missionsPanel, TransitionTypes.Hard},
-                    {infoPanel, TransitionTypes.Soft}
+                    {InfoPanel, TransitionTypes.Soft}
                 }
             },
         };
 
         #endregion
-    }
-
-    private void SetTextInfo(string nameActivePanel = "")
-    {
-        string text = "";
-        
-        if (nameActivePanel == "Missions")
-        {
-            text = dataInfoPanel.TextIdSectionsList[DataGame.IdSelectSection].TextSection;
-        }
-        else if (nameActivePanel == "Levels")
-        {
-            text = dataInfoPanel.InfoText.text = dataInfoPanel
-                .TextIdSectionsList[DataGame.IdSelectSection]
-                .TextMissionsList[DataGame.IdSelectMission].TextMission;
-        }
-
-        iTextInfo.SetTextInfo(text);
-    }
-
-    private void ShowAddChildPanel()
-    {
-        addChildPanel.ShowPanel();
     }
 }
 

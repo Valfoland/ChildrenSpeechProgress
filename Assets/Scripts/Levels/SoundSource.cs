@@ -127,26 +127,13 @@ namespace Sounds
         {
             onPlayAudio += StartAudio;
             dataSounds = new DataSounds();
-            DontDestroy();
         }
 
         private void OnDestroy()
         {
             onPlayAudio -= StartAudio;
         }
-
-        private void DontDestroy()
-        {
-            GameObject[] objs = GameObject.FindGameObjectsWithTag("Sounds");
-
-            if (objs.Length > 1)
-            {
-                Destroy(gameObject);
-            }
-
-            DontDestroyOnLoad(gameObject);
-        }
-
+        
         public static void VoiceSound(string sentence)
         {
             onPlayAudio?.Invoke(sentence);
@@ -154,6 +141,7 @@ namespace Sounds
 
         private void StartAudio(string  soundName)
         {
+            Debug.Log("AUDIO");
             StartCoroutine(WaitAudio(soundName));
             audioSourceMain = audioSource;
         }

@@ -2,9 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35f58471-837c-4501-96ad-3779d6325d9f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AsyncLoadVisual.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AsyncLoadVisual.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/Child.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/Child.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenDataSaver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenDataSaver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragableObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DragableObject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/DataGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager/DataGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/LevelInstancer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/LevelInstancer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelSaver.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelSaver.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/ResultKeeper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/ResultKeeper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/DataHomeLevel1Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/DataHomeLevel1Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/VoiceLevels.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/VoiceLevels.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/DataHomeLevel2Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/DataHomeLevel2Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/HomeLevel2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/HomeLevel2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/DataHomeLevel3Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/DataHomeLevel3Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/HomeLevel3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/HomeLevel3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/DataPatternsLevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/DataPatternsLevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/SoundSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/SoundSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MathExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MathExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MousPositionDetecter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MousPositionDetecter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SocketItem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SocketItem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerGameData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerGameData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerMenuData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerMenuData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/Panel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/Panel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionEditor/UiTransitionEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionEditor/UiTransitionEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelInstancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelInstancer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelObjectInstancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelObjectInstancer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/AddChildPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/AddChildPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ChildrenPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ChildrenPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ExitPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ExitPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SettingsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SettingsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/StatsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/StatsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TempAsset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,111 +77,122 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/LevelInstancer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/DataGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UImanager/UIManagerBridge.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenuData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/DataPatternsLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/BoxHomeLevel3.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/DataHomeLevel3Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/HomeLevel3.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/HomeLevel2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/DataHomeLevel2Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/ItemHomeLevel2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4CC8EC07-5538-4164-96E5-DB5D391208AC/3a/4940af32/ISerializationCallbackReceiver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/BoxHomeLevel1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/DataHomeLevel1Manager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/AttemptCounter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelObjectInstancer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelInstancer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ExitPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SettingsPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/VoiceLevels.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/PanelEndGameDecorator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LosePanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/StatsPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/AttemptCounter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelObjectInstancer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelInstancer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/SoundSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/WinPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ChildrenPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/Panel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/EndGamePanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/BarGraphVisual.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/GraphDataSelecter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ChildrenPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/LineGraphVisual.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/WindowGraphEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/EndGamePanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/NextLvlPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/WindowGraph.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/LevelProduct.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/LineGraphVisual.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.multiplayer-hlapi@1.0.4/Editor/Tools/Weaver/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/AddChildPanel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SocketItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/WindowGraphEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chart/WindowGraph.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SettingsPanel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionEditor/UiTransitionEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerMenuData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AsyncLoadVisual.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerGameData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/Panel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/DontDestroyObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenDataSaver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildrenManager/Child.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/InfoPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/PanelsMenu/SectionsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/PanelsGame/GamePanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/PanelsMenu/MissionsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/PanelsMenu/LevelsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/LevelInstancer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/Panel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UImanager/PanelsMenu/MenuPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionInstance/PanelInstancer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/Panel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionPanels/SectionsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionPanels/MissionsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionPanels/MenuPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionPanels/PanelEndGameDecorator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionPanels/AddChildPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiManagerGame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiManagerMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionPanelData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiManagerGameData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiManagerMenuData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionManagerData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionManagerGameData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionManager/UiTransitionManagerMenuData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ChildrenPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ExitPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SettingsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/Panel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/StatsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/AddChildPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerMenuData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/Child.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerGameData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelInstancer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/SerialDict.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/DataHomeLevel1Manager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/DataHomeLevel2Manager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelFacthory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelHomeProduct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelPatternProduct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelHomeCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/LevelHomeProduct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/LevelProduct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelSection0Creator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/NextLvlPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/BoxHomeLevel3.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/DataHomeLevel3Manager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/DataPatternsLevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelProduct.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/HomeLevel2.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/BoxHomeLevel1.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/ItemHomeLevel2.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/AttemptCounter.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionEditor/UiTransitionEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/ManagersData/UiTransitionManagerData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelInstancer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionInstance/PanelObjectInstancer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/HomeLevel3.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/VoiceLevels.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/AddChildPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ChildrenPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/ExitPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SettingsPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/StatsPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/WinPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LosePanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/Panel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/EndGamePanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenuData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGameData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/Child.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Other/DontDestroyObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/SoundSource.cs" />
       </list>
     </option>
   </component>
@@ -180,6 +253,21 @@
       <workItem from="1590209606564" duration="7742000" />
       <workItem from="1590397689076" duration="3497000" />
       <workItem from="1600868617927" duration="64000" />
+      <workItem from="1601056965097" duration="946000" />
+      <workItem from="1601135937310" duration="6000" />
+      <workItem from="1601135963623" duration="1336000" />
+      <workItem from="1602173573082" duration="3936000" />
+      <workItem from="1602262088669" duration="2659000" />
+      <workItem from="1602330798516" duration="3082000" />
+      <workItem from="1602415614854" duration="5285000" />
+      <workItem from="1602499529075" duration="1180000" />
+      <workItem from="1602688908643" duration="5394000" />
+      <workItem from="1602773500161" duration="3979000" />
+      <workItem from="1602842849527" duration="4600000" />
+      <workItem from="1603027999673" duration="13523000" />
+      <workItem from="1603096109115" duration="17108000" />
+      <workItem from="1603137677775" duration="4000" />
+      <workItem from="1603189401702" duration="12905000" />
     </task>
     <servers />
   </component>
@@ -202,17 +290,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="0" key="SettingsEditor" timestamp="1588788605674">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="601" y="112" key="RiderGenerateDialog" timestamp="1603116210737">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1588788605674" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1589701518167">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="601" y="112" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1603116210737" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1603200463222">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1589701518167" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588864530868">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="600" height="424" key="javadoc.popup/0.0.1536.824@0.0.1536.824" timestamp="1603200463222" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602176957051">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1588864530867" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602176957051" />
   </component>
 </project>

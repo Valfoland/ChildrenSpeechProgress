@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 [System.Serializable]
 public class DataLevelObjectLevels
@@ -13,35 +15,26 @@ public class DataLevelObjectLevels
 [System.Serializable]
 public class DataLevelObjectMissions
 {
+    [Header("Список уровней")]
     public List<DataLevelObjectLevels> DataLevels;
 }
 
 [System.Serializable]
 public class DataLevelObjectSection
 {
+    [Header("Список миссий")]
     public List<DataLevelObjectMissions> DataLevelsOfMission;
 }
 
-public class LevelInstancer : MonoBehaviour
+public class LevelCreator : MonoBehaviour
 {
-    [SerializeField] private List<DataLevelObjectSection> dataLevelsOfSection;
-    [SerializeField] private Transform parentTransform;
-    [SerializeField] private Text textLvl;
-
-    private GameObject prefabLvl;
+    [Header("Список разделов")]
+    [SerializeField] protected List<DataLevelObjectSection> dataLevelsOfSection;
+    [SerializeField] protected Transform parentTransform;
+    [SerializeField] protected Text textLvl;
+    protected GameObject prefabLvl;
     
-    private void Start()
-    {
-        DataNextLvlPanel.onNextLvl += InstanceLevel;
-        InstanceLevel();
-    }
-
-    private void OnDestroy()
-    {
-        DataNextLvlPanel.onNextLvl -= InstanceLevel;
-    }
-
-    private void InstanceLevel()
+    public void CreateLevel()
     {
         if (prefabLvl != null)
         {
@@ -60,6 +53,5 @@ public class LevelInstancer : MonoBehaviour
     {
         Regex regex = new Regex(@"\d");
         textLvl.text = regex.Replace(textLvl.text, $" {DataGame.IdSelectLvl + 1}");
-
     }
 }

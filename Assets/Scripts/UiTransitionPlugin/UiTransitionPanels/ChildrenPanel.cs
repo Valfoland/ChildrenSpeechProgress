@@ -15,10 +15,7 @@ public class ChildrenPanel : Panel
     {
         try
         {
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
+            AddButtonListener();
         }
         catch (System.NullReferenceException) { }
     }

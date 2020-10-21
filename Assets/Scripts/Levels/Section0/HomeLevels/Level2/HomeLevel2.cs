@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Section0.HomeLevels
 {
-    public class HomeLevel2 : LevelManager
+    public class HomeLevel2 : LevelProduct
     {
         public static Action<GameObject, Sprite, string> onInstanceItem;
         public static Action onInit;
@@ -30,6 +30,8 @@ namespace Section0.HomeLevels
         private const string TAG_FIELD = "Field";
         private const string TAG_CONTAINER = "Container";
 
+        private DataHomeLevel2Manager dataHomeLevel2Manager;
+        
         private void Start()
         {
             InitData();
@@ -39,8 +41,7 @@ namespace Section0.HomeLevels
         private void InitData()
         {
             SocketItem.TempContainer = GameObject.FindWithTag(TAG_CONTAINER).transform as RectTransform;
-            ILevelData data = new DataHomeLevel2Manager();
-            data.InitData();
+            dataHomeLevel2Manager = new DataHomeLevel2Manager();
 
             SocketItem.onPut += CheckSyllable;
         }
@@ -54,15 +55,15 @@ namespace Section0.HomeLevels
         {
             countNeedSprite = 0;
             
-            if (currentIdPack < DataLevelManager.DataLevelDict.Count)
+            if (currentIdPack < dataHomeLevel2Manager.DataLevelDict.Count)
             {
                 DestroyItems();
                 
                 currentIdPack++;
-                currentLetter = DataLevelManager.DataNameList.Dequeue();
-                DataLevelManager.DataNameList.Enqueue(currentLetter);
+                currentLetter = dataHomeLevel2Manager.DataNameList.Dequeue();
+                dataHomeLevel2Manager.DataNameList.Enqueue(currentLetter);
 
-                if (DataLevelManager.DataLevelDict[currentLetter].Count == 0 )
+                if (dataHomeLevel2Manager.DataLevelDict[currentLetter].Count == 0 )
                 {
                     CheckWinLevel();
                 }
@@ -72,13 +73,14 @@ namespace Section0.HomeLevels
                 Voice("звук");
                 Voice(currentLetter);
                 
-                if (DataLevelManager.DataLevelDict[currentLetter].Count != 0)
+                if (dataHomeLevel2Manager.DataLevelDict[currentLetter].Count != 0)
                 {
                     Invoke("InitCarousel", 0.2f);
                 }
             }
             else
             {
+                currentIdPack = 0;
                 CheckWinLevel();
             }
         }
@@ -102,7 +104,7 @@ namespace Section0.HomeLevels
             Transform pageItem = null;
             int i = 0;
                 
-            foreach (var data in DataLevelManager.DataLevelDict[currentLetter])
+            foreach (var data in dataHomeLevel2Manager.DataLevelDict[currentLetter])
             {
                 if (i % CAPASITY_FIELD == 0)
                 {
@@ -148,7 +150,7 @@ namespace Section0.HomeLevels
                 onPutItem?.Invoke(item.gameObject, true);
                 AttemptCounter.SetAttempt(true);
 
-                if (countNeedSprite >= DataLevelManager.DataLevelDict[currentLetter].Count)
+                if (countNeedSprite >= dataHomeLevel2Manager.DataLevelDict[currentLetter].Count)
                 {
                     ReshapeItems();
                 }
@@ -159,12 +161,6 @@ namespace Section0.HomeLevels
                 AttemptCounter.SetAttempt(false);
                 item.BackToStartPos();
             }
-        }
-
-        private void CheckWinLevel()
-        {
-            currentIdPack = 0;
-            onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
         }
     }
 }

@@ -37,6 +37,14 @@ public abstract class Panel
         this.PanelType = panelType;
         this.PanelObject = dataPanel.PanelObject;
     }
+
+    protected void AddButtonListener()
+    {
+        foreach (var data in dataPanel.DataPanelBtns)
+        {
+            data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
+        }
+    }
     
     protected void OnClickBtn(Panel panel, ItemTypes itemTypes)
     {

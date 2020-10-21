@@ -27,7 +27,7 @@ public class DataGame : MonoBehaviour
     {
         CountSections = countSections;
     }
-    
+
     public static Dictionary<string, List<T>> GetCompletionLevelsDict<T>(T item)
     {
         var completionDict = new Dictionary<string, List<T>>();

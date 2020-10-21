@@ -40,15 +40,14 @@ public interface ITextPanel
 
 public class InfoPanel : Panel, ITextPanel
 {
-    private DataInfoPanel dataInfoPanel;
+    public DataInfoPanel DataInfoPanel;
 
     public InfoPanel(DataPanel dataPanel, DataInfoPanel dataInfoPanel, PanelTypes panelType) : base(dataPanel, panelType)
     {
         try
         {
-            this.dataInfoPanel = dataInfoPanel;
+            this.DataInfoPanel = dataInfoPanel;
             SetTextInfo();
-            
             dataPanel.DataPanelBtns[0].BtnPanel.onClick.AddListener(HidePanel);
             dataPanel.DataPanelBtns[1].BtnPanel.onClick.AddListener(ShowPanel);
         }
@@ -62,7 +61,7 @@ public class InfoPanel : Panel, ITextPanel
         {
             dataPanel.DataPanelBtns[1].BtnPanel.gameObject.SetActive(false); 
         }
-        dataInfoPanel.InfoText.text = textInfo;
+        DataInfoPanel.InfoText.text = textInfo;
     }
 }
 

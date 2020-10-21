@@ -3,30 +3,35 @@
 public class GameManager : MonoBehaviour
 {
     public static System.Action onSetCompletionLevel;
-    [SerializeField] private UiTransitionManagerGameData uiTransitionManagerGameData;
-
+    [SerializeField] private UiTransitionManagerGame uiTransitionManagerGame;
+    [SerializeField] private LevelCreator levelCreator;
+    
     private void Start()
     {
-        LevelManager.onEndLevel += EndLevel;
+        LevelProduct.onEndLevel += EndLevel;
+        UiTransitionManagerGame.onNextLvl += NextLevel;
+        NextLevel();
     }
 
     private void OnDestroy()
     {
-        LevelManager.onEndLevel -= EndLevel;
+        LevelProduct.onEndLevel -= EndLevel;
+        UiTransitionManagerGame.onNextLvl -= NextLevel;
     }
 
     private void EndLevel(bool isWin)
     {
         if (isWin)
         {
+            SetCompletedLvl();
             if (DataGame.IdSelectLvl <
                 DataGame.CountSections[DataGame.IdSelectSection].CountMissions[DataGame.IdSelectMission].CountLevels - 1)
             {
-                NextLevel();
+                EndLevel();
             }
             else
             {
-                EndGame();
+                EndMission();
             }
             
         }
@@ -36,21 +41,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void NextLevel()
+    private void EndLevel()
     {
-        SetCompletedLvl();
-        uiTransitionManagerGameData.EndLvl(true);
+        uiTransitionManagerGame.EndLvl(true);
     }
 
-    private void EndGame()
+    private void NextLevel()
     {
-        SetCompletedLvl();
-        uiTransitionManagerGameData.EndGame();
+        levelCreator.CreateLevel();
+    }
+    
+    private void EndMission()
+    {
+        uiTransitionManagerGame.EndGame();
     }
 
     private void Restart()
     {
-        uiTransitionManagerGameData.EndLvl(false);
+        uiTransitionManagerGame.EndLvl(false);
     }
 
     private void SetCompletedLvl()

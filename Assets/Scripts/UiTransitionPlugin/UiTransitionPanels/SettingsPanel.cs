@@ -14,14 +14,7 @@ public class SettingsPanel : Panel
 
     public SettingsPanel(DataPanel dataPanel,  DataSettingsPanel dataSettingsPanel, PanelTypes panelType) : base(dataPanel, panelType)
     {
-        try
-        {
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
-        }
-        catch (System.NullReferenceException) { }
+        AddButtonListener();
     }
 }
 

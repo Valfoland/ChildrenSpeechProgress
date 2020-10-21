@@ -26,6 +26,7 @@ public class UiTransitionManagerData : MonoBehaviour
 #if UNITY_EDITOR
     /// <summary>
     /// Иницииализация данных панели (кнопки переходов)
+    /// Применение данного куска кода инициализирует данные в инспекторе
     /// </summary>
     /// <param name="btnDict">словарь кнопок переходов</param>
     public void InitDataPanel(Dictionary<GameObject, Dictionary<string, Button>> btnDict)

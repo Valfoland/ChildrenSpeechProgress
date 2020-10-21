@@ -18,13 +18,9 @@ public class ExitPanel : Panel
     {
         try
         {
+            AddButtonListener();
             this.dataExitPanel = dataExitPanel;
             dataExitPanel.ExitBtn.onClick.AddListener(ExitApp);
-            
-            foreach (var data in dataPanel.DataPanelBtns)
-            {
-                data.BtnPanel.onClick.AddListener(() => OnClickBtn(this, data.ItemPanelTypes));
-            }
         }
         catch (System.NullReferenceException) { }
     }
