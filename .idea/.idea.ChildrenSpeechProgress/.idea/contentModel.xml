@@ -62,37 +62,46 @@
             <e p="GameManager.cs" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="AttemptCounter.cs" t="Include" />
+            <e p="DataLevelLoader.cs" t="Include" />
             <e p="DataLevelManager.cs" t="Include" />
+            <e p="ItemLevel.cs" t="Include" />
             <e p="LevelCreator.cs" t="Include" />
+            <e p="LevelHelpers" t="Include">
+              <e p="AttemptCounter.cs" t="Include" />
+              <e p="SoundSource.cs" t="Include" />
+            </e>
             <e p="LevelProduct.cs" t="Include" />
             <e p="Section0" t="Include">
-              <e p="HomeLevels" t="Include">
+              <e p="0 HomeLevels" t="Include">
+                <e p="Level0" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
                 <e p="Level1" t="Include">
-                  <e p="BoxHomeLevel1.cs" t="Include" />
-                  <e p="DataHomeLevel1Manager.cs" t="Include" />
-                  <e p="HomeLevel1.cs" t="Include" />
-                  <e p="VoiceLevels.cs" t="Include" />
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
                 </e>
                 <e p="Level2" t="Include">
-                  <e p="DataHomeLevel2Manager.cs" t="Include" />
-                  <e p="HomeLevel2.cs" t="Include" />
-                  <e p="ItemHomeLevel2.cs" t="Include" />
-                </e>
-                <e p="Level3" t="Include">
-                  <e p="BoxHomeLevel3.cs" t="Include" />
-                  <e p="DataHomeLevel3Manager.cs" t="Include" />
-                  <e p="HomeLevel3.cs" t="Include" />
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
                 </e>
               </e>
-              <e p="PatternsLevels" t="Include">
-                <e p="DataPatternsLevelManager.cs" t="Include" />
-                <e p="ItemPatternsLevel.cs" t="Include" />
-                <e p="LevelPatternProduct.cs" t="Include" />
-                <e p="PatternsLevel.cs" t="Include" />
+              <e p="1 PatternsLevels" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
               </e>
             </e>
-            <e p="SoundSource.cs" t="Include" />
+            <e p="Section1" t="Include">
+              <e p="0 HelpAstronautLevels" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="Other" t="Include">
             <e p="AsyncLoadVisual.cs" t="Include" />

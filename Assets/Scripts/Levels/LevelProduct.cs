@@ -4,14 +4,24 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using Sounds;
 
-public abstract class LevelProduct: MonoBehaviour
+namespace Levels
 {
-    public static Action<string> onVoice;
-    public static Action<bool> onEndLevel;
-
-    protected virtual void CheckWinLevel()
+    public abstract class LevelProduct : MonoBehaviour
     {
-        onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
+        public static Action<string> onVoice;
+        public static Action<bool> onEndLevel;
+
+        protected virtual void CheckWinLevel()
+        {
+            onEndLevel?.Invoke(AttemptCounter.IsLevelPass());
+        }
+
+        protected virtual void Voice(string word)
+        {
+            SoundSource.VoiceSound(word);
+        }
+
     }
 }

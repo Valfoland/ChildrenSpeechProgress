@@ -43,13 +43,9 @@ public class LevelsPanel : Panel
 
     private void GetActiveBtnsLvl()
     {
-        foreach (var data in Child.CurrentChildrenData.CompletedLevels["00"])
-        {
-            Debug.Log(data);
-        }
-        int maxCountLvls = DataGame.CountSections[DataGame.IdSelectSection]
-            .CountMissions[DataGame.IdSelectMission]
-            .CountLevels;
+        int maxCountLvls = DataGame.SectionDataList[DataGame.IdSelectSection]
+            .MissionDataList[DataGame.IdSelectMission]
+            .LevelDataList.Count;
         var completedLvls = Child.CurrentChildrenData.CompletedLevels
             [$"{DataGame.IdSelectSection}{DataGame.IdSelectMission}"];
 

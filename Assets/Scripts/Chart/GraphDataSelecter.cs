@@ -46,14 +46,15 @@ public class GraphDataSelecter : MonoBehaviour
             text = childrenData.Name
          });
       }
-
-      for (int i = 0; i < DataGame.CountSections.Count; i++)
+      
+      for (int i = 0; i < DataGame.SectionDataList.Count; i++)
       {
          selectSectionDropdown.options.Add(new Dropdown.OptionData
          {
             text = "Раздел " + (i + 1)
          });
       }
+
 
       InitMissionsDropDown();
 
@@ -63,10 +64,9 @@ public class GraphDataSelecter : MonoBehaviour
 
       ChooseData(selectChildDropdown.value, selectSectionDropdown.value, selectMissionDropdown.value);
    }
-
    private void InitMissionsDropDown(int id = 0)
    {
-      for (int i = 0; i < DataGame.CountSections[id].CountMissions.Count; i++)
+      for (int i = 0; i < DataGame.SectionDataList[id].MissionDataList.Count; i++)
       {
          selectMissionDropdown.options.Add(new Dropdown.OptionData
          {

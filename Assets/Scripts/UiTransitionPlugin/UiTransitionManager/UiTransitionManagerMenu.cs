@@ -33,18 +33,24 @@ public class UiTransitionManagerMenu : UiTransitionManager
     
     private void SetTextInfo(string nameActivePanel = "")
     {
+        Debug.Log(DataGame.IdSelectSection);
+        Debug.Log(DataGame.IdSelectMission);
         iInfoPanel = (ITextPanel) uiTransitionManagerMenuData.InfoPanel;
         string text = "";
         
         if (nameActivePanel == "Missions")
         {
-            text = uiTransitionManagerMenuData.DataInfoPanel.TextIdSectionsList[DataGame.IdSelectSection].TextSection;
+            text = DataGame
+                .SectionDataList[DataGame.IdSelectSection]
+                .TextSection;
         }
         else if (nameActivePanel == "Levels")
         {
-            text = uiTransitionManagerMenuData.DataInfoPanel.InfoText.text = uiTransitionManagerMenuData.DataInfoPanel
-                .TextIdSectionsList[DataGame.IdSelectSection]
-                .TextMissionsList[DataGame.IdSelectMission].TextMission;
+            text = uiTransitionManagerMenuData.DataInfoPanel.InfoText.text = 
+                DataGame
+                    .SectionDataList[DataGame.IdSelectSection]
+                    .MissionDataList[DataGame.IdSelectMission]
+                    .TextMission;
         }
 
         iInfoPanel.SetTextInfo(text);

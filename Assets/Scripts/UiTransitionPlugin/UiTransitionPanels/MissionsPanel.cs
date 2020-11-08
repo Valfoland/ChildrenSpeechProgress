@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class DataMissionsPanel
 {
+    public Text SectionName;
     public Button[] GoToLvlBtns;
 }
 
@@ -25,6 +26,7 @@ public class MissionsPanel : Panel
     {
         onSetInfoPanel?.Invoke("Missions");
         GetActiveBtnMission();
+        SetNameSelectSection();
         base.ShowPanel();
     }
 
@@ -39,15 +41,24 @@ public class MissionsPanel : Panel
 
     private void GetActiveBtnMission()
     {
-        int maxCountMissions = DataGame.CountSections[DataGame.IdSelectSection].CountMissions.Count;
 
+        int maxCountMissions = DataGame.SectionDataList[DataGame.IdSelectSection].MissionDataList.Count;
+
+        
+        
         for (int i = 0; i < dataMissionsPanel.GoToLvlBtns.Length; i++)
         {
+            var isSetActive = i < maxCountMissions;
             dataMissionsPanel.GoToLvlBtns[DataGame.IdSelectSection].gameObject
-                .SetActive(i < maxCountMissions);
+                .SetActive(isSetActive);
             var i1 = i;
             dataMissionsPanel.GoToLvlBtns[i].onClick.AddListener(() => GoToLevels(i1));
         }
+    }
+
+    private void SetNameSelectSection()
+    {
+        dataMissionsPanel.SectionName.text = DataGame.SectionDataList[DataGame.IdSelectSection].NameSection;
     }
 
     private void SetInfoPanel()

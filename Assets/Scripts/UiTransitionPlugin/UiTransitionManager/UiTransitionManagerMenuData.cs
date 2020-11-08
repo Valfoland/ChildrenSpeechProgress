@@ -39,8 +39,6 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
     {
         base.InitPanels();
         
-        new UIManagerBridge<DataInfoPanel>(new UiReceiver(), DataInfoPanel);
-
         #region Auto_Generated_Code_Placement_Init
         MenuPanel = new MenuPanel(dataPanelDict["MenuPanel"], dataMenuPanel, PanelTypes.Main);
         Panel statsPanel = new StatsPanel(dataPanelDict["StatsPanel"], dataStatsPanel, PanelTypes.Main);

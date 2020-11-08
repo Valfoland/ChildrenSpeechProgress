@@ -5,32 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class TextInfoIdLevel
-{
-    public string TextLevel;
-}
-
-[System.Serializable]
-public class TextInfoIdMissions
-{
-    [SerializeField] private string nameMission;
-    public string TextMission;
-    public List<TextInfoIdLevel> TextLevelsList;
-}
-
-[System.Serializable]
-public class TextInfoIdSections
-{
-    [SerializeField] private string nameSection;
-    public string TextSection;
-    public List<TextInfoIdMissions> TextMissionsList;
-}
-
-[System.Serializable]
 public class DataInfoPanel
 {
     public Text InfoText;
-    public List<TextInfoIdSections> TextIdSectionsList;
 }
 
 public interface ITextPanel

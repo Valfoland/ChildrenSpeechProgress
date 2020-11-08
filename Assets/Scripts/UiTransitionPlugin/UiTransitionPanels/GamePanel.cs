@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class DataGamePanel
 {
-    //Сюда можно вставить доп.данные
+
 }
 
 public class GamePanel : Panel

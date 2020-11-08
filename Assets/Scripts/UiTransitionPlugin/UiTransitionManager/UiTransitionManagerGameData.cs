@@ -14,7 +14,7 @@ public class UiTransitionManagerGameData : UiTransitionManagerData
     [SerializeField] private DataLosePanel dataLosePanel;
     [SerializeField] private DataSetWinPanel dataSetWinPanel;
     [SerializeField] private DataNextLvlPanel dataNextLvlPanel;
-    public DataInfoPanel DataInfoPanel;
+    [SerializeField] private DataInfoPanel dataInfoPanel;
     
     public Panel WinPanel;
     public Panel LosePanel;
@@ -32,8 +32,8 @@ public class UiTransitionManagerGameData : UiTransitionManagerData
         base.InitPanels();
         
         #region Auto_Generated_Code_Placement_Init
-        DataInfoPanel.TextIdSectionsList = UiReceiver.DataInfoPanel.TextIdSectionsList;
-        InfoPanel = new InfoPanel(dataPanelDict["InfoPanel"], DataInfoPanel, PanelTypes.Secondary);
+
+        InfoPanel = new InfoPanel(dataPanelDict["InfoPanel"], dataInfoPanel, PanelTypes.Secondary);
         Panel exitPanel = new ExitPanel(dataPanelDict["ExitPanel"], dataExitPanel, PanelTypes.Secondary);
         Panel endGamePanel = new EndGamePanel(dataPanelDict["EndGamePanel"], dataEndGamePanel, PanelTypes.Secondary);
         Panel gamePanel = new GamePanel(dataPanelDict["GamePanel"], dataGamePanel, PanelTypes.Main);

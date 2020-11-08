@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Levels;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,7 +26,9 @@ public class GameManager : MonoBehaviour
         {
             SetCompletedLvl();
             if (DataGame.IdSelectLvl <
-                DataGame.CountSections[DataGame.IdSelectSection].CountMissions[DataGame.IdSelectMission].CountLevels - 1)
+                DataGame.SectionDataList[DataGame.IdSelectSection]
+                    .MissionDataList[DataGame.IdSelectMission]
+                    .LevelDataList.Count - 1)
             {
                 EndLevel();
             }

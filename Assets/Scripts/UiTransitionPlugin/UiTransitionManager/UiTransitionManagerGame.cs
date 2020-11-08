@@ -46,10 +46,9 @@ public class UiTransitionManagerGame : UiTransitionManager
     private void SetTextInfo()
     {
         iInfoPanel = (ITextPanel) uiTransitionManagerGameData.InfoPanel;
-        string text = uiTransitionManagerGameData.DataInfoPanel
-            .TextIdSectionsList[DataGame.IdSelectSection]
-            .TextMissionsList[DataGame.IdSelectMission]
-            .TextLevelsList[DataGame.IdSelectLvl].TextLevel;
+        string text = DataGame.SectionDataList[DataGame.IdSelectSection]
+            .MissionDataList[DataGame.IdSelectMission]
+            .LevelDataList[DataGame.IdSelectLvl].TextLevel;
         iInfoPanel.SetTextInfo(text);
     }
 }

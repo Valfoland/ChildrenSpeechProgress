@@ -42,8 +42,8 @@ public class NextLvlPanel : PanelEndGameDecorator
     private void NextLvl()
     {
         if (DataGame.IdSelectLvl < 
-            DataGame.CountSections[DataGame.IdSelectSection]
-            .CountMissions[DataGame.IdSelectMission].CountLevels - 1)
+            DataGame.SectionDataList[DataGame.IdSelectSection]
+            .MissionDataList[DataGame.IdSelectMission].LevelDataList.Count - 1)
         {
             DataGame.IdSelectLvl++;
             DataNextLvlPanel.onNextLvl?.Invoke();
