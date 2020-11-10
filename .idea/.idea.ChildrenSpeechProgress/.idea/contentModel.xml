@@ -39,6 +39,22 @@
             <e p="link.xml" t="Include" />
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="HelpAstronaut" t="Include">
+            <e p="Level0" t="Include">
+              <e p="JsonData.txt" t="Include" />
+            </e>
+            <e p="Level1" t="Include">
+              <e p="JsonData.txt" t="Include" />
+            </e>
+            <e p="Level2" t="Include">
+              <e p="JsonData.txt" t="Include" />
+            </e>
+            <e p="Level3" t="Include">
+              <e p="JsonData.txt" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Carousel" t="Include">
             <e p="CarouselController.cs" t="Include" />
@@ -107,6 +123,7 @@
             <e p="AsyncLoadVisual.cs" t="Include" />
             <e p="DontDestroyObject.cs" t="Include" />
             <e p="DragableObject.cs" t="Include" />
+            <e p="JsonParser.cs" t="Include" />
             <e p="MathExtensions.cs" t="Include" />
             <e p="MousPositionDetecter.cs" t="Include" />
             <e p="SocketItem.cs" t="Include" />

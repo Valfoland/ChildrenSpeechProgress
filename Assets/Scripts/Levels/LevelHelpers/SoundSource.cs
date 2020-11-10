@@ -131,17 +131,6 @@ namespace Sounds
         
         private void Start()
         {
-            var dir = Directory.GetDirectories(Application.dataPath + "/Resources/Home/Level0");
-            foreach (var d in dir)
-            {
-                var files = Directory.GetFiles(d).Where(x => Path.GetExtension(x) != ".meta").ToArray();
-                foreach (var f in files)
-                {
-                    Debug.Log(f.Replace('\\','/').Substring(f.LastIndexOf('/')));    
-                }
-            }
-            
-            
             onPlayAudio += StartAudio;
             dataSounds = new DataSounds();
         }

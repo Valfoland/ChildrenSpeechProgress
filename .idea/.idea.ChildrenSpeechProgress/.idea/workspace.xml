@@ -4,236 +4,11 @@
     <list default="true" id="35f58471-837c-4501-96ad-3779d6325d9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChildrenSpeechProgress/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PanelChild.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PanelChild.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/ImageItem.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/ImageItem.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/ImagesView.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/ImagesView.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/Level2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/Level2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/PageItems.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level2/PageItems.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/HomeLevels/Level3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/PatternLevels/Level1-4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Section0/PatternLevels/Level1-4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Банан.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Банан.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Гриб.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Гриб.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Песок.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Песок.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Подсолнух.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Подсолнух.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Помидор.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/Помидор.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/бомба.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/б-п/бомба.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Васильки.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Васильки.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Волк.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Волк.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Волосы.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Волосы.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Вулкан.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Вулкан.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Клюв.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Клюв.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Трава.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Трава.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Туфли.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Туфли.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Удав.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Удав.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Фасоль.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Фасоль.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Флаг.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Флаг.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Фонтан.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/в-ф/Фонтан.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гвоздика.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гвоздика.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гном.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гном.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гриб.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гриб.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гром.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Гром.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Колесо.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Колесо.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Коляска.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Коляска.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Косынка.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Косынка.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Кусты.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Кусты.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Солдатик.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/г-к/Солдатик.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Автобус.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Автобус.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дверь.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дверь.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дом.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дом.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дуб.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дуб.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дырка.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Дырка.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Кровать.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Кровать.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Куст.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Куст.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Стол.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Стол.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Табуретка.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/д-т/Табуретка.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Апельсин.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Апельсин.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Книжка.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Книжка.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Компас.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Компас.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Космос.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Космос.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Носорог.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Носорог.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Помидор.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level1/н-м/Помидор.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Автобус.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Автобус.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Апельсин.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Апельсин.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Банан.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Банан.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Соска.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/Соска.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/бомба.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/а/бомба.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б/Банан.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б/Банан.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б/Гриб.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б/Гриб.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б/бомба.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/б/бомба.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/в.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/г.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/д.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/к.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/м.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/н.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/п.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/т.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2/ф.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Врачей.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Врачей.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Грачей.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Грачей.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Пушки.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Пушки.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Сайки.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Сайки.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Сушки.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Сушки.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Чайки.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level3/images/Чайки.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Pattern.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Carousel/CarouselController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Carousel/CarouselController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chart/GraphDataSelecter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chart/GraphDataSelecter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/DataGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager/DataGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/AttemptCounter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/AttemptCounter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Home/Level2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sounds.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelProduct.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelProduct.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/BoxHomeLevel1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/BoxHomeLevel1.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/DataHomeLevel1Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/DataHomeLevel1Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/HomeLevel1.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/VoiceLevels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level1/VoiceLevels.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/DataHomeLevel2Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/DataHomeLevel2Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/HomeLevel2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/HomeLevel2.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/ItemHomeLevel2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level2/ItemHomeLevel2.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/BoxHomeLevel3.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/BoxHomeLevel3.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/DataHomeLevel3Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/DataHomeLevel3Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/HomeLevel3.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/HomeLevels/Level3/HomeLevel3.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/DataPatternsLevelManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/DataPatternsLevelManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/ItemPatternsLevel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/ItemPatternsLevel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/LevelPatternProduct.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/LevelPatternProduct.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/PatternsLevels/PatternsLevel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section1/Level1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section1/Level2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/Section1/Level3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/SoundSource.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/SoundSource.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGameData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenuData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenuData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MissionsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/NextLvlPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/NextLvlPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/SectionsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BgItem.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BgItem.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button2.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Button4.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ButtonPlay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ButtonPlay.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ButtonSelect.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ButtonSelect.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Close1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Close1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Exit.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Home.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Ok1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Ok1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelHelpers/SoundSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Levels/LevelHelpers/SoundSource.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,6 +20,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/DataGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/JsonDataSounds.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UImanager/UIManagerBridge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Carousel/CarouselController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -292,6 +68,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/0 HomeLevels/Level0/DataLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/0 HomeLevels/Level1/DataLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/0 HomeLevels/Level1/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/JsonParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/DontDestroyObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/0 HomeLevels/Level2/ItemLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/MathExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -299,19 +77,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Other/DragableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/1 PatternsLevels/DataLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Section0/0 HomeLevels/Level2/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/JsonDataHomeLevel2.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/JsonDataHomeLevel1.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenDataSaver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/LevelCreator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/JsonDataHomeLevel0.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildrenManager/Child.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildrenManager/ChildrenManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/GamePanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/MenuPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/LevelsPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/NextLvlPanel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionPanels/InfoPanel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerMenuData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionManager/UiTransitionManagerGameData.cs" />
@@ -356,8 +132,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section1/0 HelpAstronautLevels/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section1/0 HelpAstronautLevels/DataLevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UiTransitionPlugin/UiTransitionEditor/UiTransitionEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Home/Level0/JsonData.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/DataLevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Section0/0 HomeLevels/Level1/LevelManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/JsonDataHomeLevel1.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/JsonDataHomeLevel0.json" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelHelpers/SoundSource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Other/JsonParser.cs" />
       </list>
     </option>
   </component>
@@ -439,6 +220,8 @@
       <workItem from="1604034136275" duration="2990000" />
       <workItem from="1604238835822" duration="3708000" />
       <workItem from="1604822768559" duration="17654000" />
+      <workItem from="1604891810418" duration="8811000" />
+      <workItem from="1604991637951" duration="3042000" />
     </task>
     <servers />
   </component>
