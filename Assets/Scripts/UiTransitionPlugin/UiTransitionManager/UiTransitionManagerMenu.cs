@@ -33,8 +33,6 @@ public class UiTransitionManagerMenu : UiTransitionManager
     
     private void SetTextInfo(string nameActivePanel = "")
     {
-        Debug.Log(DataGame.IdSelectSection);
-        Debug.Log(DataGame.IdSelectMission);
         iInfoPanel = (ITextPanel) uiTransitionManagerMenuData.InfoPanel;
         string text = "";
         

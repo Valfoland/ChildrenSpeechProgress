@@ -4,12 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ChildManager
-  - ContentChild
-  - Sounds
-  - Container
   - Field
-  - DontDestroyObject
   layers:
   - Default
   - TransparentFX
