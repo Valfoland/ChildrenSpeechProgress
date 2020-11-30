@@ -147,7 +147,7 @@ namespace Sounds
            
            try
            {
-               dataSounds.SoundNameList = jsonData.GetData("JsonDataSounds")["Sounds"];
+               dataSounds.SoundNameList = jsonData.GetData("JsonDataSounds", "JsonDataSounds")["Sounds"];
            }
            catch (KeyNotFoundException e)
            { }

@@ -12,19 +12,20 @@ namespace Section0.PatternsLevel
         [SerializeField] private Button BtnBox;
         [SerializeField] private Image imageBox;
         [SerializeField] private Text letterBoxText;
-        
-        private Dictionary<char, Color> availableSounds;
-        private static ItemLevel prevItem;
-
-        private int countSound;
         [HideInInspector] public int Line;
         [HideInInspector] public int PosInWord;
-        [HideInInspector] public char CurrentSound;
-        public static System.Action<ItemLevel, ItemLevel> onClickBox;
-        private static System.Action<int> onSetInteractable;
+        [HideInInspector] public char CurrentLetter;
+        
+        private Dictionary<char, Color> availableLetters;
+        private static ItemLevel prevItem;
+        public static Action<ItemLevel, ItemLevel> onClickBox;
+        private static Action<int> onSetInteractable;
+        
+        private int countLetters;
         
         private void Start()
         {
+            BtnBox.onClick.AddListener(ClickBox);
             onSetInteractable += SetInteractable;
         }
 
@@ -33,12 +34,11 @@ namespace Section0.PatternsLevel
             onSetInteractable -= SetInteractable;
         }
 
-        public void SetDataBox(int line, int posInWord,  Dictionary<char, Color> availableSounds, string letterBox = "")
+        public void SetDataBox(int line, int posInWord,  Dictionary<char, Color> availableLetters, string letterBox = "")
         {
-            this.availableSounds = availableSounds;
+            this.availableLetters = availableLetters;
             Line = line;
             PosInWord = posInWord;
-            BtnBox.onClick.AddListener(ClickBox);
 
             if (letterBox != "")
             {
@@ -46,23 +46,17 @@ namespace Section0.PatternsLevel
                 letterBoxText.text = letterBox;
             }
         }
-
-        private void ClickBox()
-        {
-            SetItem();
-            onClickBox?.Invoke(prevItem, this);
-            prevItem = this;
-        }
-
+        
         private void SetItem()
         {
-            CurrentSound = availableSounds.ToList()[countSound].Key;
-            imageBox.color = availableSounds.ToList()[countSound].Value;
-            letterBoxText.text = CurrentSound.ToString();
-            countSound++;
-            if (countSound >= availableSounds.Count)
+            CurrentLetter = availableLetters.ToList()[countLetters].Key;
+            imageBox.color = availableLetters.ToList()[countLetters].Value;
+            letterBoxText.text = CurrentLetter.ToString();
+            countLetters++;
+            
+            if (countLetters >= availableLetters.Count)
             {
-                countSound = 0;
+                countLetters = 0;
             }
         }
 
@@ -78,5 +72,13 @@ namespace Section0.PatternsLevel
                 BtnBox.interactable = false;
             }
         }
+        
+        private void ClickBox()
+        {
+            SetItem();
+            onClickBox?.Invoke(prevItem, this);
+            prevItem = this;
+        }
+
     }
 }

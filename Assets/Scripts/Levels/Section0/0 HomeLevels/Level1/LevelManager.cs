@@ -9,16 +9,16 @@ namespace Section0.HomeLevels.Level1
 {
     public class LevelManager : LevelProduct
     {
-        public static Action<GameObject, Sprite, string> onInstanceItem;
         public static Action onInit;
-        public static Action onDestroy;
-        public static Action<GameObject, bool> onPutItem;
 
-        [SerializeField] private GameObject itemPrefab;
+        [SerializeField] private ItemLevel itemPrefab;
         [SerializeField] private GameObject pagePrefab;
         [SerializeField] private GameObject fieldPrefab;
         [SerializeField] private Transform parentField;
         [SerializeField] private SocketItem[] floorItem;
+        
+        private List<ItemLevel> itemLevelList = new List<ItemLevel>();
+        
         private GameObject currentField;
         private GameObject currentCarousel;
         
@@ -55,15 +55,15 @@ namespace Section0.HomeLevels.Level1
         {
             countNeedSprite = 0;
             
-            if (currentIdPack < dataLevelManager.DataLevelDict.Count)
+            if (currentIdPack < dataLevelManager.LevelSpriteDict.Count)
             {
                 DestroyItems();
                 
                 currentIdPack++;
-                currentLetter = dataLevelManager.DataNameList.Dequeue();
-                dataLevelManager.DataNameList.Enqueue(currentLetter);
+                currentLetter = dataLevelManager.LevelKeySpriteList.Dequeue();
+                dataLevelManager.LevelKeySpriteList.Enqueue(currentLetter);
 
-                if (dataLevelManager.DataLevelDict[currentLetter].Count == 0 )
+                if (dataLevelManager.LevelSpriteDict[currentLetter].Count == 0 )
                 {
                     CheckWinLevel();
                 }
@@ -73,7 +73,7 @@ namespace Section0.HomeLevels.Level1
                 Voice("звук");
                 Voice(currentLetter);
                 
-                if (dataLevelManager.DataLevelDict[currentLetter].Count != 0)
+                if (dataLevelManager.LevelSpriteDict[currentLetter].Count != 0)
                 {
                     Invoke("InitCarousel", 0.2f);
                 }
@@ -104,7 +104,7 @@ namespace Section0.HomeLevels.Level1
             Transform pageItem = null;
             int i = 0;
                 
-            foreach (var data in dataLevelManager.DataLevelDict[currentLetter])
+            foreach (var data in dataLevelManager.LevelSpriteDict[currentLetter])
             {
                 if (i % CAPASITY_FIELD == 0)
                 {
@@ -113,8 +113,9 @@ namespace Section0.HomeLevels.Level1
                 }
                 i++;
                     
-                GameObject item = Instantiate(itemPrefab, pageItem);
-                onInstanceItem?.Invoke(item, data, currentLetter);
+                var item = Instantiate(itemPrefab, pageItem);
+                itemLevelList.Add(item);
+                item.SetData(data, currentLetter);
             }
         }
         
@@ -131,22 +132,34 @@ namespace Section0.HomeLevels.Level1
             if (item.transform.parent == tempFloor.transform)
             {
                 countNeedSprite++;
-                onPutItem?.Invoke(item.gameObject, true);
+
+                SetInteractItems(item, true);
                 AttemptCounter.SetAttempt(true);
 
-                if (countNeedSprite >= dataLevelManager.DataLevelDict[currentLetter].Count)
+                if (countNeedSprite >= dataLevelManager.LevelSpriteDict[currentLetter].Count)
                 {
                     ReshapeItems();
                 }
             }
             else if(item.transform.parent != tempFloor.transform )
             {
-                onPutItem?.Invoke(item.gameObject, false);
+                SetInteractItems(item, false);
                 AttemptCounter.SetAttempt(false);
                 item.BackToStartPos();
             }
         }
-        
+
+        private void SetInteractItems(SocketItem item, bool isRightPlace)
+        {
+            foreach (var i in itemLevelList)
+            {
+                if (i.gameObject == item.gameObject)
+                {
+                    i.SetInteractable(isRightPlace);
+                }
+            }
+        }
+
         private void InitCarousel()
         {
             onInit?.Invoke();
@@ -160,7 +173,10 @@ namespace Section0.HomeLevels.Level1
         private void DestroyItems()
         {
             Destroy(currentCarousel);
-            onDestroy?.Invoke();
+            foreach (var i in itemLevelList)
+            {
+                Destroy(i);
+            }
         }
 
     }

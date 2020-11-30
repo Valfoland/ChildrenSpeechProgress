@@ -8,10 +8,10 @@ namespace Section0.HomeLevels.Level2
 {
     public class ItemLevel : MonoBehaviour
     {
-        public Button BtnBox;
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
-        [SerializeField] private Text txt; //TEMP
+        public Button BtnBox;
+        
         private string wordBox;
         public static System.Action<string, ItemLevel> onClickBox;    
         
@@ -27,12 +27,11 @@ namespace Section0.HomeLevels.Level2
         
         public void SetDataBox(Sprite spriteBox, string wordBox)
         {
-            //txt.text = wordBox;
             this.wordBox = wordBox;
             imageBox.sprite = spriteBox;
         }
 
-        public void ClickBox()
+        private void ClickBox()
         {
             onClickBox?.Invoke(wordBox, this);
         }

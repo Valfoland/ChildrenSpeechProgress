@@ -15,59 +15,32 @@ namespace Section0.HomeLevels.Level1
         [SerializeField] private SocketItem socketItem;
         [SerializeField] private Text textItem;
 
-        private void Awake()
+        public void SetData(Sprite spriteItem, string currentLetter)
         {
-            LevelManager.onInstanceItem += SetData;
-            LevelManager.onPutItem += SetInteractable;
-            LevelManager.onDestroy += DestroyItem;
-        }
-
-        private void OnDestroy()
-        {
-            LevelManager.onInstanceItem -= SetData;
-            LevelManager.onDestroy -= DestroyItem;
-            LevelManager.onPutItem -= SetInteractable;
-        }
-
-        private void SetData(GameObject item, Sprite spriteItem, string currentLetter)
-        {
-            if (gameObject == item)
+            if (currentLetter.ToLower() != "а")
             {
-                if (currentLetter.ToLower() != "а")
-                {
-                    textItem.text = spriteItem.name;
-                }
-                else
-                {
-                    textItem.text = "";
-                }
-                
-                imageItem.sprite = spriteItem;
-                gameObject.name = spriteItem.name;
+                textItem.text = spriteItem.name;
+            }
+            else
+            {
+                textItem.text = "";
+            }
+
+            imageItem.sprite = spriteItem;
+            gameObject.name = spriteItem.name;
+        }
+
+        public void SetInteractable(bool isRightPlace)
+        {
+            if (isRightPlace)
+            {
+                socketItem.enabled = false;
+                imageItem.color = Color.gray;
+            }
+            else
+            {
+                animImage.Play();
             }
         }
-
-        private void SetInteractable(GameObject item, bool isRightPlace)
-        {
-            if (gameObject == item)
-            {
-                if (isRightPlace)
-                {
-                    socketItem.enabled = false;
-                    imageItem.color = Color.gray;
-                }
-                else
-                {
-                    animImage.Play();
-                }
-            }
-        }
-
-        private void DestroyItem()
-        {
-            Destroy(gameObject);
-        }
-
     }
-
 }

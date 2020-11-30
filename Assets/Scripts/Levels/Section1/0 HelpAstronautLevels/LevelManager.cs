@@ -46,7 +46,7 @@ namespace Section1.HelpAstronautLevels.Level0
         {
             countNeedSprite = 0;
 
-            if (currentIdPack < dataLevelManager.QueueSentenceses.Count)
+            /*if (currentIdPack < dataLevelManager.QueueSentences.Count)
             {
                 currentIdPack++;
                 GetSentence();
@@ -64,7 +64,7 @@ namespace Section1.HelpAstronautLevels.Level0
             {
                 currentIdPack = 0;
                 CheckWinLevel();
-            }
+            }*/
         }
         
         private void CheckBox(string wordBox, ItemLevel itemLevel)
@@ -72,7 +72,7 @@ namespace Section1.HelpAstronautLevels.Level0
             if (wordBox == needWord)
             {
                 AttemptCounter.SetAttempt(true);
-                var newSentence = currentSentence.Replace("...", " " + needWord.ToLower());
+                var newSentence = currentSentence + " " + needWord.ToLower();
                 SetTextMessage(newSentence);
             }
             else
@@ -87,26 +87,15 @@ namespace Section1.HelpAstronautLevels.Level0
         
         private void GetSentence()
         {
-            currentSentence = dataLevelManager.QueueSentenceses.Dequeue();
-            dataLevelManager.QueueSentenceses.Enqueue(currentSentence);
+            //currentSentence = dataLevelManager.QueueSentences.Dequeue();
+            //dataLevelManager.QueueSentences.Enqueue(currentSentence);
             SetTextMessage(currentSentence);
         }
 
         private void GetRandomSprites()
         {
-            spriteList  = dataLevelManager.QueueSprites.Dequeue();
-            dataLevelManager.QueueSprites.Enqueue(spriteList);
-            bool[] mixStates = {true, false};
-            bool toMix = mixStates[Random.Range(0, 2)];
-            
-            if (toMix)
-            {
-                var temp = spriteList[0];
-                spriteList[0] = spriteList[1];
-                spriteList[1] = temp;
-            }
-
-            needWord = toMix ? spriteList[1].name: spriteList[0].name;
+            //spriteList  = dataLevelManager.QueueSprites.Dequeue();
+            //dataLevelManager.QueueSprites.Enqueue(spriteList);
         }
 
         private IEnumerator WaitReshape(float time)

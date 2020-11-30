@@ -6,20 +6,7 @@ namespace Section0.HomeLevels.Level1
     public class DataLevel
     {
         public string NameMission = "Home";
-        public List<string> NameDirList = new List<string>
-        {
-            "а",
-            "б",
-            "в",
-            "г",
-            "д",
-            "к",
-            "м",
-            "н",
-            "п",
-            "т",
-            "ф"
-        };
+        public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
     }
 
     public sealed class DataLevelManager : Levels.DataLevelManager
@@ -28,7 +15,15 @@ namespace Section0.HomeLevels.Level1
         public DataLevelManager()
         {
             dataLevel = new DataLevel();
-            InstantiateData(dataLevel.NameDirList, dataLevel.NameMission);
+            GetDataFromJson();
+            InstantiateData(dataLevel.NameDirDict, dataLevel.NameMission);
+        }
+
+        private void GetDataFromJson()
+        {
+            JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
+            var dataText = jsonData.GetData("JsonDataHomeLevels","JsonDataHomeLevel1");
+            dataLevel.NameDirDict = dataText;
         }
     }
 }

@@ -12,16 +12,16 @@ namespace  Levels
 {
     public class DataLevelManager
     {
-        public Dictionary<string, List<Sprite>> DataLevelDict = new Dictionary<string, List<Sprite>>();
-        public Queue<string> DataNameList = new Queue<string>();
+        public Dictionary<string, List<Sprite>> LevelSpriteDict = new Dictionary<string, List<Sprite>>();
+        public Queue<string> LevelKeySpriteList = new Queue<string>();
         public string StartSentence;
         protected int idLvl;
 
-        protected virtual void InstantiateData(List<string> nameDir, string nameMission, string startSentence = "")
+        protected virtual void InstantiateData(Dictionary<string, List<string>> nameDir, string startSentence = "")
         {
             StartSentence = startSentence;
-            DataLevelDict.Clear();
-            DataNameList.Clear();
+            LevelSpriteDict.Clear();
+            LevelKeySpriteList.Clear();
             idLvl = DataGame.IdSelectLvl;
         
             try
@@ -29,8 +29,17 @@ namespace  Levels
                 Resources.UnloadUnusedAssets();
                 foreach (var dir in nameDir)
                 {
-                    DataNameList.Enqueue(dir);
-                    DataLevelDict.Add(dir, Resources.LoadAll<Sprite>($"{nameMission}/Level{idLvl}/{dir}").ToList());
+                    
+                    var tempSpriteList = new List<Sprite>();
+                    foreach (var spriteName in dir.Value)
+                    {
+                        var sprite = Resources.Load<Sprite>($"Images/{spriteName}");
+                        if(sprite != null)
+                            tempSpriteList.Add(sprite);
+                    }
+                    LevelKeySpriteList.Enqueue(dir.Key);
+                    LevelSpriteDict.Add(dir.Key, tempSpriteList); 
+                    
                 }
             }
             catch (DirectoryNotFoundException)
@@ -135,24 +144,9 @@ namespace  Levels
                 var path = Application.dataPath + "/Resources/" + name;
                 var dir = Directory.GetDirectories(path);
 
-                SetDirectories(path, dir);
-                File.WriteAllText(path + "/JsonData.txt", JsonConvert.SerializeObject(dictFiles));
-                AssetDatabase.Refresh();
-            }
-        }
-
-        private void SetDirectories(string path, string[] dir)
-        {
-            if (dir.Length != 0)
-            {
-                foreach (var d in dir)
-                {
-                    SetFiles(d);
-                }
-            }
-            else
-            {
                 SetFiles(path);
+                File.WriteAllText(path + "/JsonData.json", JsonConvert.SerializeObject(dictFiles));
+                AssetDatabase.Refresh();
             }
         }
 

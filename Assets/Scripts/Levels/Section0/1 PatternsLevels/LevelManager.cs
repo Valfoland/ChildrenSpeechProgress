@@ -42,7 +42,7 @@ namespace Section0.PatternsLevel
             for (int i = 0; i < voiceBtns.Length; i++)
             {
                 var i1 = i;
-                voiceBtns[i].onClick.AddListener(() => Voice(dataLevelManager.WordsLevel[i1]));
+                voiceBtns[i].onClick.AddListener(() => Voice(dataLevelManager.WordsList[i1]));
             }
         }
 
@@ -53,8 +53,8 @@ namespace Section0.PatternsLevel
 
         private void InstanceCircles()
         {
-            var word = dataLevelManager.WordsWithoutSounds;
-            for (int i = 0; i < dataLevelManager.WordsWithoutSounds.Count; i++)
+            var word = dataLevelManager.WordsWithoutLetters;
+            for (int i = 0; i < dataLevelManager.WordsWithoutLetters.Count; i++)
             {
                 for (int j = 0; j < word[i].Length; j++)
                 {
@@ -62,13 +62,13 @@ namespace Section0.PatternsLevel
                     if (word[i][j] != '_')
                     {
                         circleObject.GetComponent<ItemLevel>()
-                            .SetDataBox(i, j, dataLevelManager.SoundsLevel,
+                            .SetDataBox(i, j, dataLevelManager.SelectableColorLetters,
                                 word[i][j].ToString());
                     }
                     else
                     {
                         circleObject.GetComponent<ItemLevel>()
-                            .SetDataBox(i, j, dataLevelManager.SoundsLevel);
+                            .SetDataBox(i, j, dataLevelManager.SelectableColorLetters);
                     }
                 }
             }
@@ -77,13 +77,13 @@ namespace Section0.PatternsLevel
         private void CheckBox(ItemLevel prevBox, ItemLevel currentBox)
         {
             var word = dataLevelManager
-                .WordsWithoutSounds[currentBox.Line]
+                .WordsWithoutLetters[currentBox.Line]
                 .Remove(currentBox.PosInWord, 1);
-            dataLevelManager.WordsWithoutSounds[currentBox.Line] =
-                word.Insert(currentBox.PosInWord, currentBox.CurrentSound.ToString());
+            dataLevelManager.WordsWithoutLetters[currentBox.Line] =
+                word.Insert(currentBox.PosInWord, currentBox.CurrentLetter.ToString());
 
-            if (dataLevelManager.WordsWithoutSounds[currentBox.Line] ==
-                dataLevelManager.WordsLevel[currentBox.Line])
+            if (dataLevelManager.WordsWithoutLetters[currentBox.Line] ==
+                dataLevelManager.WordsList[currentBox.Line])
             {
 
                 SetCheckWordImage(currentBox.Line, true);
@@ -91,7 +91,7 @@ namespace Section0.PatternsLevel
                 AttemptCounter.SetAttempt(true);
                 countTrueWords++;
                 
-                if (countTrueWords >= dataLevelManager.WordsLevel.Count)
+                if (countTrueWords >= dataLevelManager.WordsList.Count)
                 {
                     CheckWinLevel();
                 }
@@ -99,8 +99,8 @@ namespace Section0.PatternsLevel
 
             if (prevBox != null && 
                 prevBox.transform.parent != currentBox.transform.parent && 
-                dataLevelManager.WordsWithoutSounds[prevBox.Line] !=
-                dataLevelManager.WordsLevel[prevBox.Line])
+                dataLevelManager.WordsWithoutLetters[prevBox.Line] !=
+                dataLevelManager.WordsList[prevBox.Line])
             {
                 AnimField(prevBox.Line);
                 SetCheckWordImage(prevBox.Line, false);

@@ -10,9 +10,9 @@ public class JsonParserGame<T>
 {
     private T data;
     
-    public T GetData(string fileName)
+    public T GetData(string path, string fileName)
     {
-        var allFiles = new DirectoryInfo(Application.streamingAssetsPath).GetFiles("*.*").
+        var allFiles = new DirectoryInfo(Application.streamingAssetsPath + "/" + path).GetFiles("*.*").
             Where(x => x.Extension != ".meta").ToArray();
         
         foreach (FileInfo file in allFiles)

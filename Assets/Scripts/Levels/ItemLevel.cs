@@ -6,16 +6,11 @@ namespace Levels
 {
     public class ItemLevel : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private Animation animBox;
+        
+        public void AnimBox()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            animBox.Play();
         }
     }
 }

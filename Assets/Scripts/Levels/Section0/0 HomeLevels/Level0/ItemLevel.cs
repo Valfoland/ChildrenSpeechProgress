@@ -7,21 +7,16 @@ namespace  Section0.HomeLevels.Level0
 {
     public class ItemLevel : MonoBehaviour
     {
-        public Button BtnBox;
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
         [SerializeField] private Text txt; //TEMP
+        public Button BtnBox;
         private char letterBox;
         public static System.Action<char, ItemLevel, string> onClickBox;    
         
         private void Start()
         {
             BtnBox.onClick.AddListener(ClickBox);
-        }
-
-        private void OnDestroy()
-        {
-            
         }
 
         public void AnimBox()
@@ -45,7 +40,7 @@ namespace  Section0.HomeLevels.Level0
             imageBox.sprite = spriteBox;
         }
 
-        public void ClickBox()
+        private void ClickBox()
         {
             onClickBox?.Invoke(letterBox, this, imageBox.sprite.name);
         }

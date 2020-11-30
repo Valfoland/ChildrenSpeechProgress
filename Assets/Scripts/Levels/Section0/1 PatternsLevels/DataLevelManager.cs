@@ -9,38 +9,8 @@ namespace Section0.PatternsLevel
     public class DataLevel
     {
         public int CountRows;
-        public List<List<string>> Words = new List<List<string>>
-        {
-            new List<string>
-            {
-                "куст", "газон", "мука", "рука", "гора", 
-                "кора", "книга", "звук", "казна", "знак", 
-                "гроза", "заказ", "закат", "залог"
-            },
-            new List<string>
-            {
-                "куст", "гусь", "луг", "лук", "сок", 
-                "квас", "звонок", "сапог", 
-                "зрачок", "диск", "писк", "квас", 
-                "вкус", "каркас", "скалолаз", "зубы"
-            },
-            new List<string>
-            {
-                "забор", "камень", 
-                "капуста", "закладка", "зубр", "вздор", "дзюдо",
-                "гудок", "город", "радуга", "подвиг"
-            },
-            new List<string>
-            {
-                "капуста", "кусок", "ветка", "стакан", 
-                "компот", "кот", "горизонт", "доктор", "тайга",
-                "тоска", "касатка", "карта", "закат", "салют", 
-                "самокат", "такт", "такса", "проспект", "торг",
-                "чистка", "топаз", "катод", "стыд", "кадет",
-                "медпункт", "студент", "куртка", "стык", "топаз"
-            }
-        };
 
+        public Dictionary<string, List<string>> WordDict = new Dictionary<string, List<string>>();
         private List<Dictionary<char, Color>> soundsDict = new List<Dictionary<char, Color>>
         {
             new Dictionary<char, Color>
@@ -64,7 +34,7 @@ namespace Section0.PatternsLevel
             
         };
 
-        public Dictionary<char, Color> GetColorSound(int levelId)
+        public Dictionary<char, Color> GetColorLetter(int levelId)
         {
             Dictionary<char, Color> soundsDict = new Dictionary<char, Color>();
             soundsDict = this.soundsDict[0];
@@ -80,41 +50,51 @@ namespace Section0.PatternsLevel
         }
     }
 
+    /// <summary>
+    /// Заметки. Для звука нужно пронумеровать два слова, например, одежда 1, одежда 2 ( Чтобы можно было передать менеджеру
+    /// звука параметры типа одежда-одежду.
+    /// </summary>
     public class DataLevelManager : Levels.DataLevelManager
     {
         private DataLevel dataLevels;
-        public List<string> WordsLevel;
-        public List<string> WordsWithoutSounds;
-        public Dictionary<char, Color> SoundsLevel;
+        public List<string> WordsList;
+        public List<string> WordsWithoutLetters;
+        public Dictionary<char, Color> SelectableColorLetters;
         
         public DataLevelManager()
         {
             dataLevels = new DataLevel {CountRows = 4};
             idLvl = DataGame.IdSelectLvl;
-            SoundsLevel = dataLevels.GetColorSound(idLvl);
-            RemoveSoundsInWords();
+            SelectableColorLetters = dataLevels.GetColorLetter(idLvl);
+            GetDataFromJson();
+            RemoveLettersInWords();
+        }
+        
+        private void GetDataFromJson()
+        {
+            JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
+            var dataText = jsonData.GetData("JsonDataHomeLevels","JsonDataPatternLevels");
+            dataLevels.WordDict = dataText;
         }
 
-        private void RemoveSoundsInWords()
+        private void RemoveLettersInWords()
         {
-            var shuffleNumbers = dataLevels.Words[idLvl].Count.ShuffleNumbers();
+            var shuffleNumbers = dataLevels.WordDict["Level" + idLvl].Count.ShuffleNumbers();
             
-            WordsLevel = new List<string>();
-            WordsWithoutSounds = new List<string>();
+            WordsList = new List<string>();
+            WordsWithoutLetters = new List<string>();
             
             for (int i = 0; i < dataLevels.CountRows; i++)
             {
-                string wordLevel  = dataLevels.Words[idLvl][shuffleNumbers[i]];
+                string wordLevel  = dataLevels.WordDict["Level" + idLvl][shuffleNumbers[i]];
                 string wordWithoutSounds = wordLevel;
-                foreach (var dataSound in SoundsLevel)
+                foreach (var dataSound in SelectableColorLetters)
                 {
                     wordWithoutSounds = wordWithoutSounds.Replace(dataSound.Key.ToString(), "_");
                 }
-                WordsLevel.Add(wordLevel);
-                WordsWithoutSounds.Add(wordWithoutSounds);
+                WordsList.Add(wordLevel);
+                WordsWithoutLetters.Add(wordWithoutSounds);
             }
         }
-        
-        
     }
 }

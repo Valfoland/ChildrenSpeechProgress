@@ -9,10 +9,8 @@ namespace Section0.HomeLevels.Level2
     public class DataHome
     {
         public string NameMission = "Home";
-        public List<string> NameDirList = new List<string>
-        {
-            "images"
-        };
+        public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
+
         public List<List<string>> ListSentences = new List<List<string>>
         {
             new List<string>
@@ -226,67 +224,41 @@ namespace Section0.HomeLevels.Level2
     {
         private Sprite needSprite;
         private Sprite otherSprite;
-        private DataHome dataHome;
+        private DataHome dataLevel;
         public Queue<string> QueueSentenceses;
         public Queue<List<Sprite>> QueueSprites;
 
         public DataLevelManager()
         {
-            dataHome = new DataHome();
-            InstantiateData(dataHome.NameDirList, dataHome.NameMission);
+            dataLevel = new DataHome();
+            GetDataFromJson();
+            InstantiateData(dataLevel.NameDirDict, dataLevel.NameMission);
+        }
+        
+        private void GetDataFromJson()
+        {
+            JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
+            var dataText = jsonData.GetData("JsonDataHomeLevels","JsonDataHomeLevel2");
+            dataLevel.NameDirDict = dataText;
         }
 
-        protected sealed override void InstantiateData(List<string> nameDirList, string NameMission, string startSentence = "")
+        protected sealed override void InstantiateData(
+            Dictionary<string, List<string>> nameDirDict, string startSentence = "")
         {
-            base.InstantiateData(dataHome.NameDirList, NameMission);
+            base.InstantiateData(dataLevel.NameDirDict);
             QueueSentenceses = new Queue<string>();
             QueueSprites = new Queue<List<Sprite>>();
-            
-            foreach (var data in dataHome.ListSentences)
+
+            foreach (var sprite in LevelSpriteDict)
             {
-                if (FindElement(data[1], data[2]))
+                QueueSentenceses.Enqueue(sprite.Key);
+
+                QueueSprites.Enqueue(new List<Sprite>()
                 {
-                    QueueSentenceses.Enqueue(data[0]);
-                    QueueSprites.Enqueue(new List<Sprite>()
-                    {
-                        needSprite,
-                        otherSprite
-                    });
-                }
+                    sprite.Value[0],
+                    sprite.Value[1]
+                });
             }
-        }
-
-        private bool FindElement(string needItem, string otherItem)
-        {
-            bool isNeedItem = false;
-            bool isOtherItem = false;
-            needSprite = null;
-            otherSprite = null;
-            
-            foreach (var data in DataLevelDict)
-            {
-                foreach (var dataSprite in data.Value)
-                {
-                    if (needItem == dataSprite.name)
-                    {
-                        needSprite = dataSprite;
-                        isNeedItem = true;
-                    }
-
-                    if (otherItem == dataSprite.name)
-                    {
-                        otherSprite = dataSprite;
-                        isOtherItem = true;
-                    }
-
-                    if (isNeedItem && isOtherItem)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
         }
     }
 }

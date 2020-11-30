@@ -21,8 +21,6 @@ namespace Section0.HomeLevels.Level0
         private int countSelectNeedBox;
         private int currentIdPack;
         private int currentRound;
-
-
         private int countInstanceNeedBox;
         private int countInstanceOtherBox;
         private const int COUNT_BOX_HALF = 3;
@@ -59,7 +57,7 @@ namespace Section0.HomeLevels.Level0
         
         private void ReshapeItems()
         {
-            if (currentIdPack < dataLevelManager.DataLevelDict.Count)
+            if (currentIdPack < dataLevelManager.LevelSpriteDict.Count)
             {
                 countSelectNeedBox = 0;
                 countInstanceNeedBox = 0;
@@ -139,8 +137,8 @@ namespace Section0.HomeLevels.Level0
 
         private void SetCurrentLetter()
         {
-            currentName = dataLevelManager.DataNameList.Dequeue();
-            dataLevelManager.DataNameList.Enqueue(currentName);
+            currentName = dataLevelManager.LevelKeySpriteList.Dequeue();
+            dataLevelManager.LevelKeySpriteList.Enqueue(currentName);
             var nameListSprite = currentName.Replace("-", "");
             needLetter = nameListSprite[currentRound];
             otherLetter = nameListSprite.Replace(nameListSprite[currentRound].ToString(), "")[0];
@@ -169,9 +167,10 @@ namespace Section0.HomeLevels.Level0
             spriteDictLetter.Clear();
             spriteDictLetter.Add(needLetter, new List<Sprite>());
             spriteDictLetter.Add(otherLetter, new List<Sprite>());
-            
-            foreach (var data in dataLevelManager.DataLevelDict[currentName])
+
+            foreach (var data in dataLevelManager.LevelSpriteDict[currentName])
             {
+                
                 if (data.name.Contains(needLetter) ||
                     data.name.Contains(needLetter.ToString().ToUpper()))
                 {

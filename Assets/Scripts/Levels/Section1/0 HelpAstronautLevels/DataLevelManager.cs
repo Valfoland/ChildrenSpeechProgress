@@ -8,90 +8,51 @@ namespace Section1.HelpAstronautLevels.Level0
 {
     public class DataHome
     {
-        public string NameMission = "Home";
-        public List<string> NameDirList = new List<string>
-        {
-            "Признаки",
-            "Прилагательные",
-            "Существительные"
-        };
-        public List<List<string>> ListSentences = new List<List<string>>
-        {
-            new List<string>
-            {
-                "Лежит лентяй на раскладушке, грызет, похрустывая...",
-                "Сушки",
-                "Пушки"
-            },
-            
-        };
+        public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
     }
 
     public class DataLevelManager : Levels.DataLevelManager
     {
-        private Sprite needSprite;
-        private Sprite otherSprite;
-        private DataHome dataHome;
-        public Queue<string> QueueSentenceses;
-        public Queue<List<Sprite>> QueueSprites;
+        public List<Dictionary<string, List<string>>> NameItemsList = new List<Dictionary<string, List<string>>>();
+        private DataHome dataLevel;
 
         public DataLevelManager()
         {
-            dataHome = new DataHome();
-            InstantiateData(dataHome.NameDirList, dataHome.NameMission);
+            dataLevel = new DataHome();
+            GetDataFromJson();
+            InstantiateData(dataLevel.NameDirDict);
         }
 
-        protected sealed override void InstantiateData(List<string> nameDirList, string NameMission, string startSentence = "")
+        protected sealed override void InstantiateData(Dictionary<string,List<string>> nameDirDict, string startSentence = "")
         {
-            base.InstantiateData(dataHome.NameDirList, NameMission);
-            QueueSentenceses = new Queue<string>();
-            QueueSprites = new Queue<List<Sprite>>();
-            
-            foreach (var data in dataHome.ListSentences)
+            base.InstantiateData(nameDirDict);
+
+        }
+        
+        private void GetDataFromJson()
+        {
+            JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
+            NameItemsList[0] = jsonData.GetData($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}", "Objectives");
+            NameItemsList[1] = jsonData.GetData($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}", "Adjectives");
+            NameItemsList[2] = jsonData.GetData($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}", "Signs");
+
+            foreach (var data in NameItemsList)
             {
-                if (FindElement(data[1], data[2]))
-                {
-                    QueueSentenceses.Enqueue(data[0]);
-                    QueueSprites.Enqueue(new List<Sprite>()
-                    {
-                        needSprite,
-                        otherSprite
-                    });
-                }
+                dataLevel.NameDirDict = dataLevel.NameDirDict
+                    .Concat(data)
+                    .ToDictionary(x => x.Key, x => x.Value);
             }
-        }
-
-        private bool FindElement(string needItem, string otherItem)
-        {
-            bool isNeedItem = false;
-            bool isOtherItem = false;
-            needSprite = null;
-            otherSprite = null;
             
-            foreach (var data in DataLevelDict)
+            foreach (var data in dataLevel.NameDirDict)
             {
-                foreach (var dataSprite in data.Value)
+                for (int i = 0; i < data.Value.Count; i++)
                 {
-                    if (needItem == dataSprite.name)
+                    if (data.Value[i] == "")
                     {
-                        needSprite = dataSprite;
-                        isNeedItem = true;
-                    }
-
-                    if (otherItem == dataSprite.name)
-                    {
-                        otherSprite = dataSprite;
-                        isOtherItem = true;
-                    }
-
-                    if (isNeedItem && isOtherItem)
-                    {
-                        return true;
+                        data.Value[i] = data.Key;
                     }
                 }
             }
-
-            return false;
         }
     }
 }

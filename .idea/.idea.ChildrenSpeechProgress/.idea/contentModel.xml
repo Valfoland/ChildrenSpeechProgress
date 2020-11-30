@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\folom\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\folom\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ChildrenSpeechProgress.1132927413.00" t="ExcludeRecursive" />
+    <e p="D:\MyPrograms\ChildrenSpeechProgress" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="nbvxz.txt" t="Include" />
+        <e p="Plugins" t="Include">
+          <e p="CodeMonkey" t="Include">
+            <e p="Assets.cs" t="Include" />
+            <e p="CMDebug.cs" t="Include" />
+            <e p="MonoBehaviours" t="Include">
+              <e p="CameraFollow.cs" t="Include" />
+              <e p="CameraFollowSetup.cs" t="Include" />
+              <e p="ComponentActions.cs" t="Include" />
+              <e p="PositionRendererSorter.cs" t="Include" />
+            </e>
+            <e p="README.txt" t="Include" />
+            <e p="Utils" t="Include">
+              <e p="Button_Sprite.cs" t="Include" />
+              <e p="Button_UI.cs" t="Include" />
+              <e p="FunctionPeriodic.cs" t="Include" />
+              <e p="FunctionTimer.cs" t="Include" />
+              <e p="FunctionUpdater.cs" t="Include" />
+              <e p="UI_Bar.cs" t="Include" />
+              <e p="UI_BarMultiple.cs" t="Include" />
+              <e p="UI_Sprite.cs" t="Include" />
+              <e p="UI_TextComplex.cs" t="Include" />
+              <e p="UtilsClass.cs" t="Include" />
+              <e p="World_Bar.cs" t="Include" />
+              <e p="World_Mesh.cs" t="Include" />
+              <e p="World_Sprite.cs" t="Include" />
+            </e>
+          </e>
+          <e p="JsonDotNet" t="Include">
+            <e p="link.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Carousel" t="Include">
+            <e p="CarouselController.cs" t="Include" />
+            <e p="CarouselElement.cs" t="Include" />
+            <e p="ICarouselElement.cs" t="Include" />
+          </e>
+          <e p="Chart" t="Include">
+            <e p="BarGraphVisual.cs" t="Include" />
+            <e p="GraphDataSelecter.cs" t="Include" />
+            <e p="LineGraphVisual.cs" t="Include" />
+            <e p="WindowGraph.cs" t="Include" />
+            <e p="WindowGraphEditor.cs" t="Include" />
+          </e>
+          <e p="ChildrenManager" t="Include">
+            <e p="Child.cs" t="Include" />
+            <e p="ChildrenDataSaver.cs" t="Include" />
+            <e p="ChildrenManager.cs" t="Include" />
+          </e>
+          <e p="GameManager" t="Include">
+            <e p="DataGame.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+          </e>
+          <e p="Levels" t="Include">
+            <e p="DataLevelLoader.cs" t="Include" />
+            <e p="DataLevelManager.cs" t="Include" />
+            <e p="ItemLevel.cs" t="Include" />
+            <e p="LevelCreator.cs" t="Include" />
+            <e p="LevelHelpers" t="Include">
+              <e p="AttemptCounter.cs" t="Include" />
+              <e p="SoundSource.cs" t="Include" />
+            </e>
+            <e p="LevelProduct.cs" t="Include" />
+            <e p="Section0" t="Include">
+              <e p="0 HomeLevels" t="Include">
+                <e p="Level0" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+                <e p="Level1" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+                <e p="Level2" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+              </e>
+              <e p="1 PatternsLevels" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Section1" t="Include">
+              <e p="0 HelpAstronautLevels" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Other" t="Include">
+            <e p="AsyncLoadVisual.cs" t="Include" />
+            <e p="DontDestroyObject.cs" t="Include" />
+            <e p="DragableObject.cs" t="Include" />
+            <e p="JsonParserGame.cs" t="Include" />
+            <e p="MathExtensions.cs" t="Include" />
+            <e p="MousPositionDetecter.cs" t="Include" />
+            <e p="SocketItem.cs" t="Include" />
+          </e>
+          <e p="UImanager" t="Include">
+            <e p="UIManagerBridge.cs" t="Include" />
+          </e>
+          <e p="UiTransitionPlugin" t="Include">
+            <e p="UiTransitionEditor" t="Include">
+              <e p="UiTransitionEditor.cs" t="Include" />
+            </e>
+            <e p="UiTransitionInstance" t="Include">
+              <e p="PanelInstancer.cs" t="Include" />
+              <e p="PanelObjectInstancer.cs" t="Include" />
+            </e>
+            <e p="UiTransitionManager" t="Include">
+              <e p="UiTransitionManager.cs" t="Include" />
+              <e p="UiTransitionManagerData.cs" t="Include" />
+              <e p="UiTransitionManagerGame.cs" t="Include" />
+              <e p="UiTransitionManagerGameData.cs" t="Include" />
+              <e p="UiTransitionManagerMenu.cs" t="Include" />
+              <e p="UiTransitionManagerMenuData.cs" t="Include" />
+            </e>
+            <e p="UiTransitionPanels" t="Include">
+              <e p="AddChildPanel.cs" t="Include" />
+              <e p="ChildrenPanel.cs" t="Include" />
+              <e p="EndGamePanel.cs" t="Include" />
+              <e p="ExitPanel.cs" t="Include" />
+              <e p="GamePanel.cs" t="Include" />
+              <e p="InfoPanel.cs" t="Include" />
+              <e p="LevelsPanel.cs" t="Include" />
+              <e p="LosePanel.cs" t="Include" />
+              <e p="MenuPanel.cs" t="Include" />
+              <e p="MissionsPanel.cs" t="Include" />
+              <e p="NextLvlPanel.cs" t="Include" />
+              <e p="Panel.cs" t="Include" />
+              <e p="PanelEndGameDecorator.cs" t="Include" />
+              <e p="SectionsPanel.cs" t="Include" />
+              <e p="SettingsPanel.cs" t="Include" />
+              <e p="StatsPanel.cs" t="Include" />
+              <e p="WinPanel.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="TestLoadData.cs" t="Include" />
+      </e>
+      <e p="ChildrenSpeechProgress.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
