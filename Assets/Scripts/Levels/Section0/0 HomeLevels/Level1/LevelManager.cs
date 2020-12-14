@@ -33,8 +33,9 @@ namespace Section0.HomeLevels.Level1
 
         private DataLevelManager dataLevelManager;
         
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             InitData();
             ReshapeItems();
         }
@@ -47,6 +48,7 @@ namespace Section0.HomeLevels.Level1
         private void InitData()
         {
             SocketItem.TempContainer = GameObject.FindWithTag(TAG_CONTAINER).transform as RectTransform;
+            voiceButton.onClick.AddListener(ClickButtonVoice);
             dataLevelManager = new DataLevelManager();
             SocketItem.onPut += CheckSyllable;
         }
@@ -165,7 +167,7 @@ namespace Section0.HomeLevels.Level1
             onInit?.Invoke();
         }
 
-        public void ClickButtonVoice()
+        private void ClickButtonVoice()
         {
             SoundSource.VoiceSound(currentLetter);
         }

@@ -13,6 +13,13 @@ namespace Levels
         public static Action<string> onVoice;
         public static Action<bool> onEndLevel;
 
+        protected Button voiceButton;
+
+        protected virtual void Start()
+        {
+            voiceButton = GameObject.FindWithTag("PlayMessage").GetComponent<Button>();
+        }
+
         protected virtual void CheckWinLevel()
         {
             onEndLevel?.Invoke(AttemptCounter.IsLevelPass());

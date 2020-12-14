@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace  Section0.HomeLevels.Level0
     {
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
-        [SerializeField] private Text txt; //TEMP
+        [SerializeField] private Text textItem;
         public Button BtnBox;
         private char letterBox;
         public static System.Action<char, ItemLevel, string> onClickBox;    
@@ -24,20 +25,11 @@ namespace  Section0.HomeLevels.Level0
             animFalse.Play();
         }
         
-        public void SetDataBox(Sprite spriteBox, char letterBox)
+        public void SetDataBox(KeyValuePair<string, Sprite> spriteItem, char letterBox)
         {
-            if (letterBox.ToString().ToLower() != "б" &&
-                letterBox.ToString().ToLower() != "п")
-            {
-                txt.text = spriteBox.name;
-            }
-            else
-            {
-                txt.text = "";
-            }
-            
+            textItem.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key : "";
             this.letterBox = letterBox;
-            imageBox.sprite = spriteBox;
+            imageBox.sprite = spriteItem.Value;
         }
 
         private void ClickBox()

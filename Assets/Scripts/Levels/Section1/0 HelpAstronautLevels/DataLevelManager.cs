@@ -13,11 +13,14 @@ namespace Section1.HelpAstronautLevels.Level0
 
     public class DataLevelManager : Levels.DataLevelManager
     {
-        public List<Dictionary<string, List<string>>> NameItemsList = new List<Dictionary<string, List<string>>>();
+        public List<KeyValuePair<string, string>> NameItemsPair = new List<KeyValuePair<string, string>>();
+        private List<Dictionary<string, List<string>>> nameItemsList;
         private DataHome dataLevel;
+        private int countRounds;
 
-        public DataLevelManager()
+        public DataLevelManager(int countRounds)
         {
+            this.countRounds = countRounds;
             dataLevel = new DataHome();
             GetDataFromJson();
             InstantiateData(dataLevel.NameDirDict);
@@ -32,11 +35,16 @@ namespace Section1.HelpAstronautLevels.Level0
         private void GetDataFromJson()
         {
             JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
-            NameItemsList[0] = jsonData.GetData($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}", "Objectives");
-            NameItemsList[1] = jsonData.GetData($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}", "Adjectives");
-            NameItemsList[2] = jsonData.GetData($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}", "Signs");
+            var path = $"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}";
+            nameItemsList = new List<Dictionary<string, List<string>>>
+            {
+                jsonData.GetData(path, "Objectives"),
+                jsonData.GetData(path, "Adjectives"),
+                jsonData.GetData(path, "Signs")
+            };
+            ShuffleItemList();
 
-            foreach (var data in NameItemsList)
+            foreach (var data in nameItemsList)
             {
                 dataLevel.NameDirDict = dataLevel.NameDirDict
                     .Concat(data)
@@ -52,6 +60,33 @@ namespace Section1.HelpAstronautLevels.Level0
                         data.Value[i] = data.Key;
                     }
                 }
+            }
+        }
+
+        private void ShuffleItemList()
+        {
+            var tempPair = new List<KeyValuePair<string, string>>();
+
+            foreach (var item in nameItemsList)
+            {
+                foreach (var item1 in item)
+                {
+                    foreach (var item2 in item1.Value)
+                    {
+                        
+                        var tempItem = item2 == "" ? item1.Key : item2;
+                        tempPair.Add(new KeyValuePair<string, string>(item1.Key, tempItem));
+                    }
+                }
+            }
+
+            var shuffleArray = tempPair.Count.ShuffleNumbers();
+
+            countRounds = countRounds > tempPair.Count ? tempPair.Count : countRounds;
+            
+            for(int i = 0; i < countRounds; i++)
+            {
+                NameItemsPair.Add(tempPair[shuffleArray[i]]);
             }
         }
     }

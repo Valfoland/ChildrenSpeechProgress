@@ -8,13 +8,13 @@ using UnityEditor;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 
-namespace  Levels
+namespace Levels
 {
     public class DataLevelManager
     {
-        public Dictionary<string, List<Sprite>> LevelSpriteDict = new Dictionary<string, List<Sprite>>();
-        public Queue<string> LevelKeySpriteList = new Queue<string>();
-        public string StartSentence;
+        public readonly Dictionary<string, Dictionary<string, Sprite>> LevelSpriteDict = new Dictionary<string, Dictionary<string, Sprite>>();
+        public readonly Queue<string> LevelKeySpriteList = new Queue<string>();
+        public string StartSentence { get; private set; }
         protected int idLvl;
 
         protected virtual void InstantiateData(Dictionary<string, List<string>> nameDir, string startSentence = "")
@@ -23,24 +23,25 @@ namespace  Levels
             LevelSpriteDict.Clear();
             LevelKeySpriteList.Clear();
             idLvl = DataGame.IdSelectLvl;
-        
+
             try
             {
                 Resources.UnloadUnusedAssets();
                 foreach (var dir in nameDir)
                 {
-                    
-                    var tempSpriteList = new List<Sprite>();
+                    var tempSpriteList = new Dictionary<string, Sprite>();
+
                     foreach (var spriteName in dir.Value)
                     {
                         var sprite = Resources.Load<Sprite>($"Images/{spriteName}");
-                        if(sprite != null)
-                            tempSpriteList.Add(sprite);
+                        var templateSprite = Resources.Load<Sprite>("Images/TemplateSprite");
+                        tempSpriteList.Add(spriteName, sprite != null ? sprite : templateSprite);
                     }
+
                     LevelKeySpriteList.Enqueue(dir.Key);
-                    LevelSpriteDict.Add(dir.Key, tempSpriteList); 
-                    
+                    LevelSpriteDict.Add(dir.Key, tempSpriteList);
                 }
+                
             }
             catch (DirectoryNotFoundException)
             {
@@ -52,16 +53,16 @@ namespace  Levels
     {
         private Vector2 scrollPos;
         public static List<string> NameItems = new List<string>();
-        private Dictionary<string, List<string>> dictFiles =new Dictionary<string, List<string>>();
+        private Dictionary<string, List<string>> dictFiles = new Dictionary<string, List<string>>();
         private static int countItems;
 
         [MenuItem("Window/DataLevel")]
         private static void Init()
         {
-            DataLevelManagerEditor window = (DataLevelManagerEditor)GetWindow(typeof(DataLevelManagerEditor));
+            DataLevelManagerEditor window = (DataLevelManagerEditor) GetWindow(typeof(DataLevelManagerEditor));
             window.Show();
 
-            
+
             countItems = PlayerPrefs.GetInt("DataCountLevelPath");
             NameItems = JsonConvert.DeserializeObject<List<string>>(PlayerPrefs.GetString("DataLevelPath"));
 
@@ -70,7 +71,7 @@ namespace  Levels
                 NameItems = new List<string>();
             }
         }
-        
+
         private void OnGUI()
         {
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
@@ -85,17 +86,20 @@ namespace  Levels
             try
             {
                 EditorGUILayout.BeginHorizontal("Box");
-                countItems = int.Parse(EditorGUILayout.TextField("Количество путей: ",countItems.ToString(),  GUILayout.Height(20)));
+                countItems = int.Parse(EditorGUILayout.TextField("Количество путей: ", countItems.ToString(),
+                    GUILayout.Height(20)));
                 if (GUILayout.Button("Принять", GUILayout.Height(20), GUILayout.Width(150)))
                 {
                     NameItems.Clear();
-                    for(int i = 0 ; i < countItems; i++)
+                    for (int i = 0; i < countItems; i++)
                         NameItems.Add("");
                 }
+
                 EditorGUILayout.EndHorizontal();
             }
             catch (FormatException)
-            { }
+            {
+            }
         }
 
         private void GetNamesPath()
@@ -104,15 +108,15 @@ namespace  Levels
             {
                 EditorGUILayout.BeginVertical("box");
                 EditorGUILayout.BeginHorizontal("box");
-                
+
                 NameItems[i] = EditorGUILayout.TextField("Путь к директории: ", NameItems[i],
                     GUILayout.Height(20));
-                
+
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.EndVertical();
             }
         }
-        
+
         private void ClickSaveDataToJson()
         {
             if (GUILayout.Button("Save Data To Json", GUILayout.Height(40)))
@@ -155,15 +159,15 @@ namespace  Levels
             var dirName = GetName(dir);
             var files = Directory.GetFiles(dir).Where(x => Path.GetExtension(x) != ".meta").ToList();
             var listFiles = new List<string>();
-            
+
             foreach (var f in files)
             {
                 listFiles.Add(GetName(f));
             }
-            
+
             dictFiles.Add(dirName, listFiles);
         }
-        
+
         private string GetName(string oldString)
         {
             var name = oldString.Replace('\\', '/');
@@ -173,4 +177,3 @@ namespace  Levels
         }
     }
 }
-

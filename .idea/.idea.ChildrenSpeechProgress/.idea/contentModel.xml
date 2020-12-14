@@ -62,7 +62,6 @@
             <e p="GameManager.cs" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="DataLevelLoader.cs" t="Include" />
             <e p="DataLevelManager.cs" t="Include" />
             <e p="ItemLevel.cs" t="Include" />
             <e p="LevelCreator.cs" t="Include" />
@@ -107,15 +106,14 @@
             <e p="AsyncLoadVisual.cs" t="Include" />
             <e p="DontDestroyObject.cs" t="Include" />
             <e p="DragableObject.cs" t="Include" />
+            <e p="ImprovedDict.cs" t="Include" />
             <e p="JsonParserGame.cs" t="Include" />
             <e p="MathExtensions.cs" t="Include" />
             <e p="MousPositionDetecter.cs" t="Include" />
             <e p="SocketItem.cs" t="Include" />
           </e>
-          <e p="UImanager" t="Include">
+          <e p="UiManager" t="Include">
             <e p="UIManagerBridge.cs" t="Include" />
-          </e>
-          <e p="UiTransitionPlugin" t="Include">
             <e p="UiTransitionEditor" t="Include">
               <e p="UiTransitionEditor.cs" t="Include" />
             </e>

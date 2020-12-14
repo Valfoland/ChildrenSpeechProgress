@@ -26,14 +26,15 @@ namespace Section0.HomeLevels.Level0
         private const int COUNT_BOX_HALF = 3;
 
         private List<Sprite> spriteListBox = new List<Sprite>();
-        private Dictionary<char, List<Sprite>> spriteDictLetter = new Dictionary<char, List<Sprite>>();
+        private Dictionary<char, Dictionary<string, Sprite>> spriteDictLetter = new Dictionary<char, Dictionary<string, Sprite>>();
         private bool isNotStart;
 
         private string helpWord = "звук";
         private DataLevelManager dataLevelManager;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             InitData();
             ReshapeItems();
         }
@@ -45,8 +46,9 @@ namespace Section0.HomeLevels.Level0
 
         private void InitData()
         { 
-            dataLevelManager = new DataLevelManager();
             ItemLevel.onClickBox += CheckCorrectChoiceBox;
+            dataLevelManager = new DataLevelManager();
+            voiceButton.onClick.AddListener(ClickButtonVoice);
             SetTextMessage();
         }
 
@@ -82,13 +84,14 @@ namespace Section0.HomeLevels.Level0
                 foreach (var box in itemLevels)
                 {
                     char randLetter = GetRandomLetterBox();
-                    Sprite sprite = GetRandomSprite(randLetter);
-                    if (sprite == null)
+                    var sprite = GetRandomSprite(randLetter);
+                    
+                    if (sprite.Value == null)
                     {
                         CheckWinLevel();
                         break;
                     }
-                    spriteListBox.Add(sprite);
+                    spriteListBox.Add(sprite.Value);
                     box.SetDataBox(sprite, randLetter);
                     box.BtnBox.interactable = true;
                 }
@@ -118,7 +121,7 @@ namespace Section0.HomeLevels.Level0
                 itemLevel.AnimBox();
             }
 
-            //Voice(spriteName);
+            Voice(spriteName);
         }
         
         protected override void CheckWinLevel()
@@ -146,44 +149,42 @@ namespace Section0.HomeLevels.Level0
             onVoice?.Invoke(needLetter.ToString());
         }
 
-        private Sprite GetRandomSprite(char inputLetter)
+        private KeyValuePair<string, Sprite> GetRandomSprite(char inputLetter)
         {
+            var sprite = new KeyValuePair<string, Sprite>();
             try
             {
-                var sprite = spriteDictLetter[inputLetter][Random.Range(0, spriteDictLetter[inputLetter].Count)];
-                spriteDictLetter[inputLetter].Remove(sprite);
-                return sprite;
+                sprite = spriteDictLetter[inputLetter].ToList()[Random.Range(0, spriteDictLetter[inputLetter].Count)];
+                spriteDictLetter[inputLetter].Remove(sprite.Key);
             }
             catch (ArgumentOutOfRangeException)
             {
                 
             }
-
-            return null;
+            return sprite;
         }
 
         private void SetDictSprite()
         {
             spriteDictLetter.Clear();
-            spriteDictLetter.Add(needLetter, new List<Sprite>());
-            spriteDictLetter.Add(otherLetter, new List<Sprite>());
+            spriteDictLetter.Add(needLetter, new Dictionary<string, Sprite>());
+            spriteDictLetter.Add(otherLetter, new Dictionary<string, Sprite>());
 
             foreach (var data in dataLevelManager.LevelSpriteDict[currentName])
             {
-                
-                if (data.name.Contains(needLetter) ||
-                    data.name.Contains(needLetter.ToString().ToUpper()))
+                if (data.Key.Contains(needLetter) ||
+                    data.Key.Contains(needLetter.ToString().ToUpper()))
                 {
-                    spriteDictLetter[needLetter].Add(data);
+                    spriteDictLetter[needLetter].Add(data.Key, data.Value);
                 }
                 else
                 {
-                    spriteDictLetter[otherLetter].Add(data);
+                    spriteDictLetter[otherLetter].Add(data.Key, data.Value);
                 }
             }
         }
 
-        public void ClickButtonVoice()
+        private void ClickButtonVoice()
         {
             Voice(needLetter.ToString());
         }

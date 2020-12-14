@@ -10,6 +10,7 @@ namespace Section1.HelpAstronautLevels.Level0
     {
         [SerializeField] private Animation animFalse;
         [SerializeField] private Image imageBox;
+        [SerializeField] private Text textBox;
         public Button BtnBox;
         
         private string wordBox;
@@ -25,10 +26,11 @@ namespace Section1.HelpAstronautLevels.Level0
             animFalse.Play();
         }
         
-        public void SetDataBox(Sprite spriteBox, string wordBox)
+        public void SetDataBox(KeyValuePair<string, Sprite> spriteItem)
         {
-            this.wordBox = wordBox;
-            imageBox.sprite = spriteBox;
+            textBox.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key : "";
+            wordBox = spriteItem.Key;
+            imageBox.sprite = spriteItem.Value;
         }
 
         private void ClickBox()

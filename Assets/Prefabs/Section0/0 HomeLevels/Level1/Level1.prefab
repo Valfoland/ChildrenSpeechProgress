@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.735849, g: 0.63784033, b: 0.38527945, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -139,7 +138,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.38318795, g: 0.745283, b: 0.46271896, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -254,7 +252,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -313,7 +310,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2585666613973343781}
-        m_TargetAssemblyTypeName: Section0.HomeLevels.HomeLevel2, Assembly-CSharp
         m_MethodName: ClickButtonVoice
         m_Mode: 1
         m_Arguments:
@@ -335,7 +331,7 @@ GameObject:
   - component: {fileID: 8720823613343056079}
   - component: {fileID: 2585666613973343781}
   m_Layer: 5
-  m_Name: Level2
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dd8736809bfa0439e8930eb80a70cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 1904884854572076326, guid: d4c750195f3b6ce4fa6229dc5300dabb,
+  itemPrefab: {fileID: 1942913880491653454, guid: d4c750195f3b6ce4fa6229dc5300dabb,
     type: 3}
   pagePrefab: {fileID: 4640787437173611933, guid: 47fd8b434d3f8da4ea82851c35bcdd29,
     type: 3}
@@ -450,7 +446,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.33962262, g: 0.3155927, b: 0.3155927, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -541,7 +536,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.764151, g: 0.4000979, b: 0.40827888, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -934,7 +928,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.33962262, g: 0.3155927, b: 0.3155927, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1025,7 +1018,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.4811321, g: 0.46933076, b: 0.46933076, a: 0.54509807}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1103,7 +1095,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.33962262, g: 0.3155927, b: 0.3155927, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

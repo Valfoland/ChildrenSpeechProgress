@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sounds;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,11 +18,13 @@ namespace Section0.HomeLevels.Level2
         private string needWord;
         private string currentSentence;
         
-        private List<Sprite> spriteList = new List<Sprite>();
+        private Dictionary<string, Sprite> spriteList = new Dictionary<string, Sprite>();
         private DataLevelManager dataLevelManager;
         
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+            
             InitData();
             ReshapeItems();
         }
@@ -34,12 +37,13 @@ namespace Section0.HomeLevels.Level2
         private void InitData()
         {
             ItemLevel.onClickBox += CheckBox;
+            voiceButton.onClick.AddListener(ClickButtonVoice);
             dataLevelManager = new DataLevelManager();
         }
 
         private void SetTextMessage(string msg)
         {
-            textMessage.text = msg;
+            //textMessage.text = msg;
         }
         
         private void ReshapeItems()
@@ -55,7 +59,7 @@ namespace Section0.HomeLevels.Level2
                 int i = 0;
                 foreach (var box in itemLevel)
                 {
-                    box.SetDataBox(spriteList[i], spriteList[i].name);
+                    box.SetDataBox(spriteList.ToList()[i]);
                     i++;
                 }
                 
@@ -72,14 +76,14 @@ namespace Section0.HomeLevels.Level2
             if (wordBox == needWord)
             {
                 AttemptCounter.SetAttempt(true);
-                var newSentence = currentSentence.Replace("...", " " + needWord.ToLower());
-                SetTextMessage(newSentence);
             }
             else
             {
                 AttemptCounter.SetAttempt(false);
                 itemLevel.AnimBox();
             }
+            var newSentence = currentSentence + " " + needWord.ToLower();
+            SetTextMessage(newSentence);
             StartCoroutine(WaitReshape(6f));
             Voice(currentSentence);
             Voice(needWord);
@@ -101,12 +105,17 @@ namespace Section0.HomeLevels.Level2
             
             if (toMix)
             {
-                var temp = spriteList[0];
-                spriteList[0] = spriteList[1];
-                spriteList[1] = temp;
+                var temp = spriteList.ToList()[0];
+                spriteList.ToList()[0] = spriteList.ToList()[1];
+                spriteList.ToList()[1] = temp;
             }
 
-            needWord = toMix ? spriteList[1].name: spriteList[0].name;
+            needWord = toMix ? spriteList.ToList()[1].Key: spriteList.ToList()[0].Key;
+        }
+        
+        private void ClickButtonVoice()
+        {
+            Voice(currentSentence);
         }
 
         private IEnumerator WaitReshape(float time)

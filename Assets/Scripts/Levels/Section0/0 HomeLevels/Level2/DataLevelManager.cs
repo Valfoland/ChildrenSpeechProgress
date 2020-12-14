@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -226,7 +227,7 @@ namespace Section0.HomeLevels.Level2
         private Sprite otherSprite;
         private DataHome dataLevel;
         public Queue<string> QueueSentenceses;
-        public Queue<List<Sprite>> QueueSprites;
+        public Queue<Dictionary<string, Sprite>> QueueSprites;
 
         public DataLevelManager()
         {
@@ -247,17 +248,20 @@ namespace Section0.HomeLevels.Level2
         {
             base.InstantiateData(dataLevel.NameDirDict);
             QueueSentenceses = new Queue<string>();
-            QueueSprites = new Queue<List<Sprite>>();
-
+            QueueSprites = new Queue<Dictionary<string, Sprite>>();
+            
             foreach (var sprite in LevelSpriteDict)
             {
                 QueueSentenceses.Enqueue(sprite.Key);
 
-                QueueSprites.Enqueue(new List<Sprite>()
+                try
                 {
-                    sprite.Value[0],
-                    sprite.Value[1]
-                });
+                    QueueSprites.Enqueue(sprite.Value);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    
+                }
             }
         }
     }

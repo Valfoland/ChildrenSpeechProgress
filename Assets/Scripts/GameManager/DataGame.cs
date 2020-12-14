@@ -51,16 +51,16 @@ public class DataGame : MonoBehaviour
     {
         var completionDict = new Dictionary<string, List<T>>();
 
-            for (int b = 0; b < SectionDataList.Count; b++)
+            for (int a = 0; a < SectionDataList.Count; a++)
             {
-                for (int c = 0; c < SectionDataList[b].MissionDataList.Count; c++)
+                for (int b = 0; b < SectionDataList[a].MissionDataList.Count; b++)
                 {
                     var levelsList = new List<T>();
-                        for (int d = 0; d < SectionDataList[b].MissionDataList[c].LevelDataList.Count; d++)
+                        for (int c = 0; c < SectionDataList[a].MissionDataList[b].LevelDataList.Count; c++)
                         {
                             levelsList.Add(item);
                         }
-                        completionDict.Add(b.ToString() + c, levelsList);
+                        completionDict.Add(a.ToString() + b, levelsList);
                 }
             }
 

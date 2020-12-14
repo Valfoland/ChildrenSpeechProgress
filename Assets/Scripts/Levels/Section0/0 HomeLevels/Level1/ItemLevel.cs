@@ -15,19 +15,11 @@ namespace Section0.HomeLevels.Level1
         [SerializeField] private SocketItem socketItem;
         [SerializeField] private Text textItem;
 
-        public void SetData(Sprite spriteItem, string currentLetter)
+        public void SetData(KeyValuePair<string, Sprite> spriteItem, string currentLetter)
         {
-            if (currentLetter.ToLower() != "а")
-            {
-                textItem.text = spriteItem.name;
-            }
-            else
-            {
-                textItem.text = "";
-            }
-
-            imageItem.sprite = spriteItem;
-            gameObject.name = spriteItem.name;
+            textItem.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key : "";
+            imageItem.sprite = spriteItem.Value;
+            gameObject.name = spriteItem.Key;
         }
 
         public void SetInteractable(bool isRightPlace)
