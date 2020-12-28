@@ -29,16 +29,12 @@ public class GraphDataSelecter : MonoBehaviour
    {
       StatsPanel.onSetStats -= InitDropDowns;
    }
-
-   private void OnDisable()
-   {
-      selectChildDropdown.options.Clear();
-      selectMissionDropdown.options.Clear();
-      selectSectionDropdown.options.Clear();
-   }
-
+   
    private void InitDropDowns()
    {
+      selectChildDropdown.options.Clear();
+      selectSectionDropdown.options.Clear();
+      
       foreach (var childrenData in ChildrenManager.ChildDataList)
       {
          selectChildDropdown.options.Add(new Dropdown.OptionData
@@ -66,6 +62,8 @@ public class GraphDataSelecter : MonoBehaviour
    }
    private void InitMissionsDropDown(int id = 0)
    {
+      selectMissionDropdown.options.Clear();
+      
       for (int i = 0; i < DataGame.SectionDataList[id].MissionDataList.Count; i++)
       {
          selectMissionDropdown.options.Add(new Dropdown.OptionData

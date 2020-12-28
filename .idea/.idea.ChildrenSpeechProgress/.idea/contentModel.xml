@@ -100,6 +100,21 @@
                 <e p="ItemLevel.cs" t="Include" />
                 <e p="LevelManager.cs" t="Include" />
               </e>
+              <e p="1 IlluminatorLevels" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
+              </e>
+              <e p="2 MarsLevels" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
+              </e>
+              <e p="MissionsDecorator" t="Include">
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="ItemLevel.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="Other" t="Include">

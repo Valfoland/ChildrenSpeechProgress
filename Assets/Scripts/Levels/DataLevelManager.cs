@@ -23,7 +23,7 @@ namespace Levels
             LevelSpriteDict.Clear();
             LevelKeySpriteList.Clear();
             idLvl = DataGame.IdSelectLvl;
-
+            
             try
             {
                 Resources.UnloadUnusedAssets();
@@ -37,7 +37,7 @@ namespace Levels
                         var templateSprite = Resources.Load<Sprite>("Images/TemplateSprite");
                         tempSpriteList.Add(spriteName, sprite != null ? sprite : templateSprite);
                     }
-
+                    
                     LevelKeySpriteList.Enqueue(dir.Key);
                     LevelSpriteDict.Add(dir.Key, tempSpriteList);
                 }
@@ -46,6 +46,8 @@ namespace Levels
             catch (DirectoryNotFoundException)
             {
             }
+            
+            
         }
     }
 

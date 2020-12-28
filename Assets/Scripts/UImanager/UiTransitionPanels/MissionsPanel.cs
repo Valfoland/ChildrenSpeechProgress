@@ -67,7 +67,6 @@ public class MissionsPanel : Panel
     
     private void GoToLevels(int idMission)
     {
-        Debug.Log(idMission);
         this.idMission = idMission;
         SetInfoPanel();
         OnDirectionTransition(this, "LevelsPanel");
