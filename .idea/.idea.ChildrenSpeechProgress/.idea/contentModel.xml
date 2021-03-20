@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\folom\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\folom\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ChildrenSpeechProgress.1132927413.00" t="ExcludeRecursive" />
-    <e p="D:\MyPrograms\ChildrenSpeechProgress" t="IncludeRecursive">
+    <e p="C:\Users\folom\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_ChildrenSpeechProgress.2003324734.00" t="ExcludeRecursive" />
+    <e p="D:\MyPrograms\Студенческие проекты\ChildrenSpeechProgress" t="IncludeRecursive">
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -62,27 +62,19 @@
             <e p="GameManager.cs" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="DataLevelManager.cs" t="Include" />
-            <e p="ItemLevel.cs" t="Include" />
-            <e p="LevelCreator.cs" t="Include" />
-            <e p="LevelHelpers" t="Include">
-              <e p="AttemptCounter.cs" t="Include" />
-              <e p="SoundSource.cs" t="Include" />
-            </e>
-            <e p="LevelProduct.cs" t="Include" />
-            <e p="Section0" t="Include">
+            <e p="0 Section" t="Include">
               <e p="0 HomeLevels" t="Include">
-                <e p="Level0" t="Include">
+                <e p="0 Level" t="Include">
                   <e p="DataLevelManager.cs" t="Include" />
                   <e p="ItemLevel.cs" t="Include" />
                   <e p="LevelManager.cs" t="Include" />
                 </e>
-                <e p="Level1" t="Include">
+                <e p="1 Level" t="Include">
                   <e p="DataLevelManager.cs" t="Include" />
                   <e p="ItemLevel.cs" t="Include" />
                   <e p="LevelManager.cs" t="Include" />
                 </e>
-                <e p="Level2" t="Include">
+                <e p="2 Level" t="Include">
                   <e p="DataLevelManager.cs" t="Include" />
                   <e p="ItemLevel.cs" t="Include" />
                   <e p="LevelManager.cs" t="Include" />
@@ -93,8 +85,30 @@
                 <e p="ItemLevel.cs" t="Include" />
                 <e p="LevelManager.cs" t="Include" />
               </e>
+              <e p="2 EntertainingCleaningLevels" t="Include">
+                <e p="0 Level" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+                <e p="1 Level" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+                <e p="2 Level" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+                <e p="MissionsDecorator" t="Include">
+                  <e p="DataLevelManager.cs" t="Include" />
+                  <e p="ItemLevel.cs" t="Include" />
+                  <e p="LevelManager.cs" t="Include" />
+                </e>
+              </e>
             </e>
-            <e p="Section1" t="Include">
+            <e p="1 Section" t="Include">
               <e p="0 HelpAstronautLevels" t="Include">
                 <e p="DataLevelManager.cs" t="Include" />
                 <e p="ItemLevel.cs" t="Include" />
@@ -116,6 +130,14 @@
                 <e p="LevelManager.cs" t="Include" />
               </e>
             </e>
+            <e p="DataLevelManager.cs" t="Include" />
+            <e p="ItemLevel.cs" t="Include" />
+            <e p="LevelCreator.cs" t="Include" />
+            <e p="LevelHelpers" t="Include">
+              <e p="AttemptCounter.cs" t="Include" />
+              <e p="SoundSource.cs" t="Include" />
+            </e>
+            <e p="LevelProduct.cs" t="Include" />
           </e>
           <e p="Other" t="Include">
             <e p="AsyncLoadVisual.cs" t="Include" />
@@ -170,7 +192,7 @@
       <e p="ChildrenSpeechProgress.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

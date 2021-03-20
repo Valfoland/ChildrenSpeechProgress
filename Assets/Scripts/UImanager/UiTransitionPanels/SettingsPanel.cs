@@ -11,7 +11,6 @@ public class DataSettingsPanel
 
 public class SettingsPanel : Panel
 {
-
     public SettingsPanel(DataPanel dataPanel,  DataSettingsPanel dataSettingsPanel, PanelTypes panelType) : base(dataPanel, panelType)
     {
         AddButtonListener();

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DataMenuPanel
 {
     public static System.Action onCheckChild;
-    public Button[] GoToSectionsButton;
+    public Button GoToSectionsButton;
 }
 
 public class MenuPanel : Panel
@@ -32,16 +32,11 @@ public class MenuPanel : Panel
 
     private void GetBtnSection()
     {
-        for (int i = 0; i < dataMenuPanel.GoToSectionsButton.Length; i++)
-        {
-            var i1 = i;
-            dataMenuPanel.GoToSectionsButton[i].onClick.AddListener(() => GoToSections(i1));
-        }
+        dataMenuPanel.GoToSectionsButton.onClick.AddListener(GoToSections);
     }
 
-    private void GoToSections(int idSect)
+    private void GoToSections()
     {
-        DataGame.TypeOnr = (TypeOnr) idSect;
         OnDirectionTransition(this, "SectionsPanel");
     }
 }

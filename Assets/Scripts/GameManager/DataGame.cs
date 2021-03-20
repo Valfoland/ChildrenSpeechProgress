@@ -29,7 +29,6 @@ public class DataSection
 {
     public string NameSection;
     public string TextSection;
-    public TypeOnr TypeOnr;
     public List<DataMission> MissionDataList;
 }
 
@@ -40,7 +39,6 @@ public class DataGame : MonoBehaviour
     public static int IdSelectSection;
     public static int IdSelectMission;
     public static int IdSelectLvl;
-    public static TypeOnr TypeOnr;
 
     private void Start()
     {

@@ -131,7 +131,9 @@ public class WindowGraph : MonoBehaviour
         }
     }
 
-    private void ShowGraph(List<int> valuesList, IGraphVisual graphVisual, int maxVisibleAmount = -1, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
+    private void ShowGraph(
+        List<int> valuesList, IGraphVisual graphVisual, 
+        int maxVisibleAmount = -1, Func<int, string> getAxisLabelX = null, Func<float, string> getAxisLabelY = null)
     {
         this.valuesList = valuesList;
         this.graphVisual = graphVisual;

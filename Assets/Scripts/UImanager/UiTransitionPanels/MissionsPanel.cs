@@ -24,7 +24,6 @@ public class MissionsPanel : Panel
 
     public override void ShowPanel()
     {
-       
         var txtInfo = DataGame
             .SectionDataList[DataGame.IdSelectSection]
             .TextSection;
