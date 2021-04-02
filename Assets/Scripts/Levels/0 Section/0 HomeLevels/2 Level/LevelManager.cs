@@ -26,9 +26,14 @@ namespace Section0.HomeLevels.Level2
             base.Start();
             
             InitData();
+            StartLevel();
+        }
+
+        protected override void StartLevel()
+        {
             ReshapeItems();
         }
-        
+
         private void OnDestroy()
         {
             ItemLevel.onClickBox -= CheckBox;
@@ -43,7 +48,7 @@ namespace Section0.HomeLevels.Level2
 
         private void SetTextMessage(string msg)
         {
-            //textMessage.text = msg;
+            textMessage.text = msg;
         }
         
         private void ReshapeItems()

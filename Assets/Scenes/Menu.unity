@@ -5693,9 +5693,9 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 211.9, y: 103.6}
-  m_Spacing: {x: 40, y: 0}
-  m_Constraint: 0
+  m_CellSize: {x: 200, y: 100}
+  m_Spacing: {x: 50, y: 50}
+  m_Constraint: 1
   m_ConstraintCount: 2
 --- !u!1 &892859444
 GameObject:
@@ -6150,7 +6150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946254421}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 790c6f6170bc63c408d036fa7a70b1ec, type: 3}
   m_Name: 
@@ -7377,6 +7377,18 @@ MonoBehaviour:
       - TextLevel: "\u04431"
       - TextLevel: "\u04432"
       - TextLevel: "\u04433"
+    - nameMission: "\u0417\u0430\u043D\u0438\u043C\u0430\u0442\u0435\u043B\u044C\u043D\u0430\u044F
+        \u0443\u0431\u043E\u0440\u043A\u0430"
+      TextMission: "\u041C\u0438\u0441\u0441\u0438\u044F \u043F\u0440\u043E \u0443\u0431\u043E\u0440\u043A\u0443"
+      LevelDataList:
+      - TextLevel: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 1"
+      - TextLevel: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 2"
+    - nameMission: "\u041A\u043E\u0440\u0437\u0438\u043D\u043A\u0430 \u0438 \u0431\u0443\u043A\u0432\u044B"
+      TextMission: "\u041C\u0438\u0441\u0441\u0438\u044F \u043F\u0440\u043E \u0434\u0435\u0440\u0435\u0432\u043E"
+      LevelDataList:
+      - TextLevel: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 1"
+      - TextLevel: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 2"
+      - TextLevel: "\u0443\u0440\u043E\u0432\u0435\u043D\u044C 3"
   - NameSection: "\u041F\u043E\u043D\u0438\u043C\u0430\u043D\u0438\u0435 \u0441\u043B\u043E\u0432\u043E\u0441\u043E\u0447\u0435\u0442\u0430\u043D\u0438\u0439,
       \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0435\u043D\u0438\u0439 \u0438 \u0440\u0435\u0447\u0438"
     TextSection: "\u0431\u043B\u0430 \u0431\u043B\u0430"
@@ -7712,11 +7724,9 @@ MonoBehaviour:
     GoToMissionsBtn:
     - {fileID: 1413362147}
     - {fileID: 639905025}
-    - {fileID: 79408027}
     GoToMissionTxt:
     - {fileID: 2046132732}
     - {fileID: 1789046964}
-    - {fileID: 653036468}
     SectionName: {fileID: 765719991}
   dataSetMissionsPanel:
     SectionName: {fileID: 1867137539}

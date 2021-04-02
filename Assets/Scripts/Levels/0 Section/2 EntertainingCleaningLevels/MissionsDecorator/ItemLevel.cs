@@ -15,10 +15,27 @@ namespace Section0.EntertainingCleaningLevels.MissionsDecorator
         
         private string wordBox;
         public static System.Action<string, ItemLevel> onClickBox;
-        
-        public void AnimBox()
+
+        private void Start()
         {
-            animFalse.Play();
+            BtnBox.onClick.AddListener(ClickBox);
+        }
+
+        private void ResetItemBox()
+        {
+            BtnBox.interactable = true;
+        }
+        
+        public void AnimBox(bool isRight)
+        {
+            if (isRight)
+            {
+                BtnBox.interactable = false;
+            }
+            else
+            {
+                animFalse.Play();
+            }
         }
         
         public void SetDataBox(KeyValuePair<string, Sprite> spriteItem)
@@ -26,9 +43,10 @@ namespace Section0.EntertainingCleaningLevels.MissionsDecorator
             textBox.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key : "";
             wordBox = spriteItem.Key;
             imageBox.sprite = spriteItem.Value;
+            ResetItemBox();
         }
 
-        protected void ClickBox()
+        private void ClickBox()
         {
             onClickBox?.Invoke(wordBox, this);
         }

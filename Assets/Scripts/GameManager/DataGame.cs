@@ -39,6 +39,7 @@ public class DataGame : MonoBehaviour
     public static int IdSelectSection;
     public static int IdSelectMission;
     public static int IdSelectLvl;
+    public const string CANVAS_LEVELS = "CanvasLevels";
 
     private void Start()
     {

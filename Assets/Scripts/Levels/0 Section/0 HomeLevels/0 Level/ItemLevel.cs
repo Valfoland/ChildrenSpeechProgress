@@ -13,7 +13,7 @@ namespace  Section0.HomeLevels.Level0
         [SerializeField] private Text textItem;
         public Button BtnBox;
         private char letterBox;
-        public static System.Action<char, ItemLevel, string> onClickBox;    
+        public static Action<char, ItemLevel, string> onClickBox;    
         
         private void Start()
         {

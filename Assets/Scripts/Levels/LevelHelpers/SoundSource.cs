@@ -19,20 +19,22 @@ namespace Sounds
     public class SoundSource: MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;
-        private static AudioSource audioSourceMain;
         private static Action<string> onPlayAudio;
+        private static Action<string, Action> onPlayAudioCallBack;
         private DataSounds dataSounds;
         private bool canPlayAudio;
         
         private void Start()
         {
             onPlayAudio += StartAudio;
+            onPlayAudioCallBack += StartAudioCallBack;
             LoadDataSounds();
         }
 
         private void OnDestroy()
         {
             onPlayAudio -= StartAudio;
+            onPlayAudioCallBack -= StartAudioCallBack;
         }
 
         private void LoadDataSounds()
@@ -53,20 +55,46 @@ namespace Sounds
             onPlayAudio?.Invoke(sentence);
         }
 
+        public static void VoiceSoundCallBack(string sentence, Action endSound)
+        {
+            onPlayAudioCallBack?.Invoke(sentence, endSound);
+        }
+
         private void StartAudio(string  soundName)
         {
             StartCoroutine(WaitAudio(soundName));
-            audioSourceMain = audioSource;
+        }
+        
+        private void StartAudioCallBack(string soundName, Action endSound)
+        {
+            StartCoroutine(WaitAudioCallBack(soundName, endSound));
         }
 
         private IEnumerator WaitAudio(string soundName)
         {
-            while (audioSourceMain != null && audioSourceMain.isPlaying)
+            while (audioSource != null && audioSource.isPlaying)
             {
                 yield return null;
             }
             
             PlayAudio(soundName);
+        }
+        
+        private IEnumerator WaitAudioCallBack(string soundName, Action endSound)
+        {
+            while (audioSource != null && audioSource.isPlaying)
+            {
+                yield return null;
+            }
+            
+            PlayAudio(soundName);
+            
+            while (audioSource != null && audioSource.isPlaying)
+            {
+                yield return null;
+            }
+            
+            if (!audioSource.isPlaying) endSound?.Invoke();
         }
 
         private void PlayAudio(string soundName)

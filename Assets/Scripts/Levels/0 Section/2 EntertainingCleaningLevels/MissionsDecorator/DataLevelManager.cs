@@ -7,49 +7,36 @@ using Levels;
 
 namespace Section0.EntertainingCleaningLevels.MissionsDecorator
 {
-    public class DataHome
+    public class DataLevel
     {
         public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict = new Dictionary<string, Dictionary<string, Sprite>>(); 
     }
 
     public class DataLevelManager : Levels.DataLevelManager
     {
+        protected int countRounds;
+        protected DataLevel dataLevel;
+        
+        public Dictionary<int, List<DialogueData>> DialogueDict = new Dictionary<int, List<DialogueData>>();
         public List<KeyValuePair<string, string>> NameItemsPair = new List<KeyValuePair<string, string>>();
-        public string StartSentence;
-        private List<Dictionary<string, List<string>>> nameItemsList;
-        protected DataHome dataLevel;
-        private int countRounds;
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict;
+        protected Dictionary<string, List<string>> nameItemsList;
 
         public DataLevelManager(int countRounds)
         {
             this.countRounds = countRounds;
         }
 
-        protected virtual void GetDataFromJson(string path)
+        protected virtual void GetDataFromJson(string path, string fileName)
         {
             JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
-            nameItemsList = new List<Dictionary<string, List<string>>>
-            {
-                jsonData.GetData(path, "Objectives"),
-                jsonData.GetData(path, "Adjectives"),
-                jsonData.GetData(path, "Signs")
-            };
+            nameItemsList = jsonData.GetData(path, fileName);
+            nameItemsList.Remove("LevelSentences");
+            dataLevel.NameDirDict = nameItemsList;
+            DialogueDict = LoadDialogueData(nameItemsList["LevelSentences"]);
             ShuffleItemList();
 
-            foreach (var data in nameItemsList)
-            {
-                try
-                {
-                    dataLevel.NameDirDict = dataLevel.NameDirDict
-                        .Concat(data)
-                        .ToDictionary(x => x.Key, x => x.Value);
-                }
-                catch (ArgumentException)
-                {
-                    
-                }
-            }
-            
             foreach (var data in dataLevel.NameDirDict)
             {
                 for (int i = 0; i < data.Value.Count; i++)
@@ -62,19 +49,16 @@ namespace Section0.EntertainingCleaningLevels.MissionsDecorator
             }
         }
 
-        private void ShuffleItemList()
+        protected virtual void ShuffleItemList()
         {
             var tempPair = new List<KeyValuePair<string, string>>();
 
             foreach (var item in nameItemsList)
             {
-                foreach (var item1 in item)
+                foreach (var item1 in item.Value)
                 {
-                    foreach (var item2 in item1.Value)
-                    {
-                        var tempItem = item2 == "" ? item1.Key : item2;
-                        tempPair.Add(new KeyValuePair<string, string>(item1.Key, tempItem));
-                    }
+                    var tempItem = item1 == "" ? item.Key : item1;
+                    tempPair.Add(new KeyValuePair<string, string>(item.Key, tempItem));
                 }
             }
 

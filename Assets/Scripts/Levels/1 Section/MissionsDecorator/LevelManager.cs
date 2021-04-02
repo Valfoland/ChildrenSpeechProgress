@@ -17,13 +17,17 @@ namespace Section1.MissionsDecorator
         private int currentRound;
         private string needWord;
         
-
+        protected override void StartLevel()
+        {
+            ReshapeItems();
+        }
+        
         protected void SetTextMessage(string msg)
         {
             textMessage.text = msg;
         }
 
-        protected void ReshapeItems()
+        private void ReshapeItems()
         {
             if (currentRound < countRounds)
             {
@@ -54,7 +58,7 @@ namespace Section1.MissionsDecorator
                 }
                 
                 var itemPair = dataLevelManager.NameItemsPair[id];
-                var itemSprite = dataLevelManager.LevelSpriteDict[itemPair.Key][itemPair.Value];
+                var itemSprite = dataLevelManager.SpriteDict[itemPair.Key][itemPair.Value];
                 itemLevel[i].SetDataBox(new KeyValuePair<string, Sprite>(itemPair.Key, itemSprite));
             }
         }

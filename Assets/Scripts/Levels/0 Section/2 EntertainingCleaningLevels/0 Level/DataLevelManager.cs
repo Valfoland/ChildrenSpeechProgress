@@ -11,15 +11,12 @@ namespace Section0.EntertainingCleaningLevels.Level0
     {
         public DataLevelManager(int countRounds) : base(countRounds)
         {
-            dataLevel = new DataHome();
-            GetDataFromJson($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}");
-            StartSentence = "Мне нужно заполнить рюкзак. Найди мне среди картинок, где есть ";
-            InstantiateData(dataLevel.NameDirDict);
-        }
-
-        protected override void InstantiateData(Dictionary<string, List<string>> nameDirDict, string startSentence = "")
-        {
-            base.InstantiateData(nameDirDict, startSentence);
+            dataLevel = new MissionsDecorator.DataLevel();
+            InstantiateData();
+            GetDataFromJson("JsonDataEntertainingCleaningLevels", $"JsonDataEntertainingCleaningLevel{idLvl}");
+            
+            dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
+            SpriteDict = dataLevel.SpriteDict;
         }
     }
 }

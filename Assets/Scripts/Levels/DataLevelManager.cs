@@ -10,44 +10,91 @@ using Newtonsoft.Json;
 
 namespace Levels
 {
+    public class DialogueData
+    {
+        public int Id;
+        public string DialogueText = "";
+        public string AnswerText = "";
+        public string NumberSentence = "";
+    }
+
     public class DataLevelManager
     {
-        public readonly Dictionary<string, Dictionary<string, Sprite>> LevelSpriteDict = new Dictionary<string, Dictionary<string, Sprite>>();
-        public readonly Queue<string> LevelKeySpriteList = new Queue<string>();
-        public string StartSentence { get; private set; }
         protected int idLvl;
 
-        protected virtual void InstantiateData(Dictionary<string, List<string>> nameDir, string startSentence = "")
+        protected virtual void InstantiateData()
         {
-            StartSentence = startSentence;
-            LevelSpriteDict.Clear();
-            LevelKeySpriteList.Clear();
             idLvl = DataGame.IdSelectLvl;
-            
-            try
-            {
-                Resources.UnloadUnusedAssets();
-                foreach (var dir in nameDir)
-                {
-                    var tempSpriteList = new Dictionary<string, Sprite>();
+        }
 
-                    foreach (var spriteName in dir.Value)
-                    {
-                        var sprite = Resources.Load<Sprite>($"Images/{spriteName}");
-                        var templateSprite = Resources.Load<Sprite>("Images/TemplateSprite");
-                        tempSpriteList.Add(spriteName, sprite != null ? sprite : templateSprite);
-                    }
-                    
-                    LevelKeySpriteList.Enqueue(dir.Key);
-                    LevelSpriteDict.Add(dir.Key, tempSpriteList);
-                }
-                
-            }
-            catch (DirectoryNotFoundException)
+        protected Dictionary<string, Dictionary<string, Sprite>> LoadSprites(Dictionary<string, List<string>> nameDir)
+        {
+            Resources.UnloadUnusedAssets();
+            var resultSpriteDict = new Dictionary<string, Dictionary<string, Sprite>>(); 
+            
+            foreach (var dir in nameDir)
             {
+                var tempSpriteDict = new Dictionary<string, Sprite>();
+                
+                foreach (var spriteName in dir.Value)
+                {
+                    var sprite = Resources.Load<Sprite>($"Images/{spriteName}");
+                    var templateSprite = Resources.Load<Sprite>("Images/TemplateSprite");
+                    tempSpriteDict.Add(spriteName, sprite != null ? sprite : templateSprite);
+                }
+
+                resultSpriteDict.Add(dir.Key, tempSpriteDict);
             }
+
+            return resultSpriteDict;
+        }
+        
+        protected Dictionary<string, Dictionary<string, Sprite>> LoadSampleData(Dictionary<string, List<string>> nameDir)
+        {
+            var resultSpriteDict = new Dictionary<string, Dictionary<string, Sprite>>(); 
             
-            
+            foreach (var dir in nameDir)
+            {
+                var tempSpriteDict = new Dictionary<string, Sprite>();
+                
+                foreach (var spriteName in dir.Value)
+                {
+                    tempSpriteDict.Add(spriteName, null);
+                }
+
+                resultSpriteDict.Add(dir.Key, tempSpriteDict);
+            }
+
+            return resultSpriteDict;
+        }
+        
+        
+        protected Dictionary<int, List<DialogueData>> LoadDialogueData(List<string> nameItemsList)
+        {
+            var resultDict = new Dictionary<int, List<DialogueData>>();
+
+            foreach (var item in nameItemsList)
+            {
+                string[] arrayString = item.Split('*');
+                DialogueData dialogueData = new DialogueData();
+
+                try
+                {
+                    dialogueData.Id = int.Parse(arrayString[0]);
+                    dialogueData.DialogueText = arrayString[1];
+                    dialogueData.AnswerText = arrayString[2];
+                }
+                catch (IndexOutOfRangeException)
+                { }
+
+                if (!resultDict.ContainsKey(dialogueData.Id))
+                {
+                    resultDict.Add(dialogueData.Id, new List<DialogueData>());
+                }
+                resultDict[dialogueData.Id].Add(dialogueData);
+            }
+
+            return resultDict;
         }
     }
 

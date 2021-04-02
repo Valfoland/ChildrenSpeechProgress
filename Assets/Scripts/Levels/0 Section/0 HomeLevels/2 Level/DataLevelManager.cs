@@ -9,8 +9,8 @@ namespace Section0.HomeLevels.Level2
 {
     public class DataHome
     {
-        public string NameMission = "Home";
         public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict = new Dictionary<string, Dictionary<string, Sprite>>(); 
     }
 
     public class DataLevelManager : Levels.DataLevelManager
@@ -20,12 +20,13 @@ namespace Section0.HomeLevels.Level2
         private DataHome dataLevel;
         public Queue<string> QueueSentenceses;
         public Queue<Dictionary<string, Sprite>> QueueSprites;
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict; 
 
         public DataLevelManager()
         {
             dataLevel = new DataHome();
             GetDataFromJson();
-            InstantiateData(dataLevel.NameDirDict, dataLevel.NameMission);
+            InstantiateData();
         }
         
         private void GetDataFromJson()
@@ -35,14 +36,15 @@ namespace Section0.HomeLevels.Level2
             dataLevel.NameDirDict = dataText;
         }
 
-        protected sealed override void InstantiateData(
-            Dictionary<string, List<string>> nameDirDict, string startSentence = "")
+        protected sealed override void InstantiateData()
         {
-            base.InstantiateData(dataLevel.NameDirDict);
+            base.InstantiateData();
+            dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
+            SpriteDict = dataLevel.SpriteDict;
             QueueSentenceses = new Queue<string>();
             QueueSprites = new Queue<Dictionary<string, Sprite>>();
             
-            foreach (var sprite in LevelSpriteDict)
+            foreach (var sprite in dataLevel.SpriteDict)
             {
                 QueueSentenceses.Enqueue(sprite.Key);
 

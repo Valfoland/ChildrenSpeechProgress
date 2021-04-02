@@ -12,14 +12,12 @@ namespace Section1.IlluminatorLevels.Level0
         public DataLevelManager(int countRounds) : base(countRounds)
         {
             dataLevel = new DataHome();
+            InstantiateData();
             GetDataFromJson($"JsonDataIlluminatorLevels/JsonDataIlluminatorLevel{idLvl}");
+            
             StartSentence = "Найди мне среди картинок, где есть  ";
-            InstantiateData(dataLevel.NameDirDict);
-        }
-
-        protected override void InstantiateData(Dictionary<string, List<string>> nameDirDict, string startSentence = "")
-        {
-            base.InstantiateData(nameDirDict, startSentence);
+            dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
+            SpriteDict = dataLevel.SpriteDict;
         }
     }
 }

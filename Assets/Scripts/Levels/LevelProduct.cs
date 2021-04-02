@@ -12,8 +12,11 @@ namespace Levels
     {
         public static Action<string> onVoice;
         public static Action<bool> onEndLevel;
-
+        
+        protected int currentIdDialogue;
         protected Button voiceButton;
+        
+        protected const string WORD_SOUND = "звук";
 
         protected virtual void Start()
         {
@@ -30,5 +33,13 @@ namespace Levels
             SoundSource.VoiceSound(word);
         }
 
+        protected void VoiceCallBack(string word, Action onEndSound)
+        {
+            SoundSource.VoiceSoundCallBack(word, onEndSound);
+        }
+        
+        protected virtual void StartIntroDialogue() { }
+
+        protected abstract void StartLevel();
     }
 }

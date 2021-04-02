@@ -4,29 +4,40 @@ using UnityEngine;
 
 namespace Section0.HomeLevels.Level0
 {
-    public class DataLevel
-    {
-        public string StartSentence;
-        public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
-    }
-    
     public sealed class DataLevelManager : Levels.DataLevelManager
     {
-        private DataLevel dataLevel;
+        private Dictionary<string, List<string>> nameDirDict = new Dictionary<string, List<string>>();
+        
+        public readonly Dictionary<string, Dictionary<string, Sprite>> SpriteDict;
+        public readonly Queue<string> LevelKeySpriteQueue = new Queue<string>();
+        public Dictionary<int, List<DialogueData>> DialogueDict = new Dictionary<int, List<DialogueData>>();
+        public string StartSentence;
+        
         public DataLevelManager()
         {
-            dataLevel = new DataLevel();
             GetDataFromJson();
-            InstantiateData(dataLevel.NameDirDict, dataLevel.StartSentence);
-        }
+            InstantiateData();
+            
+            SpriteDict = LoadSprites(nameDirDict);
 
+            InitSpriteKeysQueueData();
+        }
+        
         private void GetDataFromJson()
         {
             JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
             var dataText = jsonData.GetData("JsonDataHomeLevels","JsonDataHomeLevel0");
-            dataLevel.StartSentence = dataText["StartSentence"][0];
-            dataText.Remove("StartSentence");
-            dataLevel.NameDirDict = dataText;
+            DialogueDict = LoadDialogueData(dataText["LevelSentences"]);
+            dataText.Remove("LevelSentences");
+            nameDirDict = dataText;
+        }
+        
+        private void InitSpriteKeysQueueData()
+        {
+            foreach (var spriteKey in SpriteDict.Keys)
+            {
+                LevelKeySpriteQueue.Enqueue(spriteKey);
+            }
         }
     }
 }

@@ -37,6 +37,11 @@ namespace Section0.HomeLevels.Level1
         {
             base.Start();
             InitData();
+            StartLevel();
+        }
+
+        protected override void StartLevel()
+        {
             ReshapeItems();
         }
 
@@ -57,25 +62,25 @@ namespace Section0.HomeLevels.Level1
         {
             countNeedSprite = 0;
             
-            if (currentIdPack < dataLevelManager.LevelSpriteDict.Count)
+            if (currentIdPack < dataLevelManager.SpriteDict.Count)
             {
                 DestroyItems();
                 
                 currentIdPack++;
-                currentLetter = dataLevelManager.LevelKeySpriteList.Dequeue();
-                dataLevelManager.LevelKeySpriteList.Enqueue(currentLetter);
+                currentLetter = dataLevelManager.LevelKeySpriteQueue.Dequeue();
+                dataLevelManager.LevelKeySpriteQueue.Enqueue(currentLetter);
 
-                if (dataLevelManager.LevelSpriteDict[currentLetter].Count == 0 )
+                if (dataLevelManager.SpriteDict[currentLetter].Count == 0 )
                 {
                     CheckWinLevel();
                 }
 
                 ReshapeField();
                 ReshapeImages();
-                Voice("звук");
+                Voice(WORD_SOUND);
                 Voice(currentLetter);
                 
-                if (dataLevelManager.LevelSpriteDict[currentLetter].Count != 0)
+                if (dataLevelManager.SpriteDict[currentLetter].Count != 0)
                 {
                     Invoke("InitCarousel", 0.2f);
                 }
@@ -106,7 +111,7 @@ namespace Section0.HomeLevels.Level1
             Transform pageItem = null;
             int i = 0;
                 
-            foreach (var data in dataLevelManager.LevelSpriteDict[currentLetter])
+            foreach (var data in dataLevelManager.SpriteDict[currentLetter])
             {
                 if (i % CAPASITY_FIELD == 0)
                 {
@@ -138,7 +143,7 @@ namespace Section0.HomeLevels.Level1
                 SetInteractItems(item, true);
                 AttemptCounter.SetAttempt(true);
 
-                if (countNeedSprite >= dataLevelManager.LevelSpriteDict[currentLetter].Count)
+                if (countNeedSprite >= dataLevelManager.SpriteDict[currentLetter].Count)
                 {
                     ReshapeItems();
                 }
@@ -169,7 +174,7 @@ namespace Section0.HomeLevels.Level1
 
         private void ClickButtonVoice()
         {
-            SoundSource.VoiceSound(currentLetter);
+            Voice(currentLetter);
         }
 
         private void DestroyItems()

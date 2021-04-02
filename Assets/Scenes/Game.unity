@@ -98,8 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: ff41127148571124aa2f386c910b6763,
-    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ff41127148571124aa2f386c910b6763, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -362,9 +361,9 @@ GameObject:
   - component: {fileID: 169552982}
   - component: {fileID: 169552981}
   - component: {fileID: 169552980}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CanvasLevels
-  m_TagString: Untagged
+  m_TagString: CanvasLevels
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,6 +407,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &169552982
 Canvas:
   m_ObjectHideFlags: 0
@@ -543,6 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -662,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -874,7 +876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &608913858
@@ -912,7 +914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &740744169
@@ -1123,6 +1125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1641,6 +1644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1797,6 +1801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2072,6 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2266,43 +2272,34 @@ MonoBehaviour:
   dataLevelsOfSection:
   - DataLevelsOfMission:
     - DataLevels:
-      - PrefabLevel: {fileID: 2458207210418957225, guid: 2618158425f4baf47a9ce110136c0b54,
-          type: 3}
-      - PrefabLevel: {fileID: 3034627842883793080, guid: 3ddcd48a2bce1a94a880f3ac89ae8acc,
-          type: 3}
-      - PrefabLevel: {fileID: 6248083151249607110, guid: d9adb1c1720dab3488d0b76273a9a10d,
-          type: 3}
+      - PrefabLevel: {fileID: 2458207210418957225, guid: 2618158425f4baf47a9ce110136c0b54, type: 3}
+      - PrefabLevel: {fileID: 3034627842883793080, guid: 3ddcd48a2bce1a94a880f3ac89ae8acc, type: 3}
+      - PrefabLevel: {fileID: 6248083151249607110, guid: d9adb1c1720dab3488d0b76273a9a10d, type: 3}
     - DataLevels:
-      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0,
-          type: 3}
-      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0,
-          type: 3}
-      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0,
-          type: 3}
-      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0,
-          type: 3}
+      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0, type: 3}
+      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0, type: 3}
+      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0, type: 3}
+      - PrefabLevel: {fileID: 9144028517006920669, guid: f7cb57b015803174d9ea70063b86f4d0, type: 3}
+    - DataLevels:
+      - PrefabLevel: {fileID: 4576742232866814204, guid: e6f36a2687fa70e4bbe0de0e7b982937, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: a158559bf08f82d44a3d45d7f2aa663a, type: 3}
+    - DataLevels:
+      - PrefabLevel: {fileID: 4576742232866814204, guid: 363515686efe2a0499eaaf2d6fa853d2, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: 363515686efe2a0499eaaf2d6fa853d2, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: 363515686efe2a0499eaaf2d6fa853d2, type: 3}
   - DataLevelsOfMission:
     - DataLevels:
-      - PrefabLevel: {fileID: 4576742232866814204, guid: e9a767c7fe856c64b88423fc4d90b340,
-          type: 3}
-      - PrefabLevel: {fileID: 4576742232866814204, guid: e9a767c7fe856c64b88423fc4d90b340,
-          type: 3}
-      - PrefabLevel: {fileID: 4576742232866814204, guid: e9a767c7fe856c64b88423fc4d90b340,
-          type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: e9a767c7fe856c64b88423fc4d90b340, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: e9a767c7fe856c64b88423fc4d90b340, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: e9a767c7fe856c64b88423fc4d90b340, type: 3}
     - DataLevels:
-      - PrefabLevel: {fileID: 4576742232866814204, guid: b438c8eca533aef4292506003dac72cd,
-          type: 3}
-      - PrefabLevel: {fileID: 4576742232866814204, guid: b438c8eca533aef4292506003dac72cd,
-          type: 3}
-      - PrefabLevel: {fileID: 4576742232866814204, guid: b438c8eca533aef4292506003dac72cd,
-          type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: b438c8eca533aef4292506003dac72cd, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: b438c8eca533aef4292506003dac72cd, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: b438c8eca533aef4292506003dac72cd, type: 3}
     - DataLevels:
-      - PrefabLevel: {fileID: 4576742232866814204, guid: 0893cf46629751548bb4b73303fbd0b6,
-          type: 3}
-      - PrefabLevel: {fileID: 4576742232866814204, guid: 0893cf46629751548bb4b73303fbd0b6,
-          type: 3}
-      - PrefabLevel: {fileID: 4576742232866814204, guid: 0893cf46629751548bb4b73303fbd0b6,
-          type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: 0893cf46629751548bb4b73303fbd0b6, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: 0893cf46629751548bb4b73303fbd0b6, type: 3}
+      - PrefabLevel: {fileID: 4576742232866814204, guid: 0893cf46629751548bb4b73303fbd0b6, type: 3}
   parentTransform: {fileID: 391478600}
   textLvl: {fileID: 150184020}
 --- !u!114 &1350006735
@@ -2385,6 +2382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3027,6 +3025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3212,7 +3211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1948514626

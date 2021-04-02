@@ -12,14 +12,11 @@ namespace Section1.HelpAstronautLevels.Level0
         public DataLevelManager(int countRounds) : base(countRounds)
         {
             dataLevel = new DataHome();
+            InstantiateData();
             GetDataFromJson($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}");
             StartSentence = "Мне нужно заполнить рюкзак. Найди мне среди картинок, где есть ";
-            InstantiateData(dataLevel.NameDirDict);
-        }
-
-        protected override void InstantiateData(Dictionary<string, List<string>> nameDirDict, string startSentence = "")
-        {
-            base.InstantiateData(nameDirDict, startSentence);
+            dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
+            SpriteDict = dataLevel.SpriteDict;
         }
     }
 }

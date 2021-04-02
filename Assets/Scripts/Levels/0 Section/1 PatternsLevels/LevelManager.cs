@@ -27,7 +27,12 @@ namespace Section0.PatternsLevel
         {
             base.Start();
             InitData();
-            InitItems();
+            StartLevel();
+        }
+
+        protected override void StartLevel()
+        {
+            InstantiateCircles();
         }
 
         private void OnDestroy()
@@ -47,12 +52,7 @@ namespace Section0.PatternsLevel
             }
         }
 
-        private void InitItems()
-        {
-            InstanceCircles();
-        }
-
-        private void InstanceCircles()
+        private void InstantiateCircles()
         {
             var word = dataLevelManager.WordsWithoutLetters;
             for (int i = 0; i < dataLevelManager.WordsWithoutLetters.Count; i++)

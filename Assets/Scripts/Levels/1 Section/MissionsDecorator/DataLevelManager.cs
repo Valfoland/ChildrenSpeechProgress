@@ -10,15 +10,17 @@ namespace Section1.MissionsDecorator
     public class DataHome
     {
         public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict = new Dictionary<string, Dictionary<string, Sprite>>(); 
     }
 
     public class DataLevelManager : Levels.DataLevelManager
     {
-        public List<KeyValuePair<string, string>> NameItemsPair = new List<KeyValuePair<string, string>>();
-        public string StartSentence;
-        private List<Dictionary<string, List<string>>> nameItemsList;
-        protected DataHome dataLevel;
         private int countRounds;
+        public string StartSentence;
+        protected DataHome dataLevel;
+        private List<Dictionary<string, List<string>>> nameItemsList;
+        public List<KeyValuePair<string, string>> NameItemsPair = new List<KeyValuePair<string, string>>();
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict;
 
         public DataLevelManager(int countRounds)
         {

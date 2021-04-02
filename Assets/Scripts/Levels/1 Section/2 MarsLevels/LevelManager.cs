@@ -12,7 +12,7 @@ namespace Section1.MarsLevels.Level0
         private void Start()
         {
             InitData();
-            ReshapeItems();
+            StartLevel();
         }
  
         private void OnDestroy()

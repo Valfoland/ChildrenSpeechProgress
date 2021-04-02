@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="nbvxz.txt" t="Include" />
         <e p="Plugins" t="Include">
           <e p="CodeMonkey" t="Include">
             <e p="Assets.cs" t="Include" />
@@ -39,6 +38,7 @@
             <e p="link.xml" t="Include" />
           </e>
         </e>
+        <e p="README.txt" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Carousel" t="Include">
             <e p="CarouselController.cs" t="Include" />
@@ -88,24 +88,23 @@
               <e p="2 EntertainingCleaningLevels" t="Include">
                 <e p="0 Level" t="Include">
                   <e p="DataLevelManager.cs" t="Include" />
-                  <e p="ItemLevel.cs" t="Include" />
                   <e p="LevelManager.cs" t="Include" />
                 </e>
                 <e p="1 Level" t="Include">
                   <e p="DataLevelManager.cs" t="Include" />
-                  <e p="ItemLevel.cs" t="Include" />
-                  <e p="LevelManager.cs" t="Include" />
-                </e>
-                <e p="2 Level" t="Include">
-                  <e p="DataLevelManager.cs" t="Include" />
-                  <e p="ItemLevel.cs" t="Include" />
                   <e p="LevelManager.cs" t="Include" />
                 </e>
                 <e p="MissionsDecorator" t="Include">
                   <e p="DataLevelManager.cs" t="Include" />
                   <e p="ItemLevel.cs" t="Include" />
-                  <e p="LevelManager.cs" t="Include" />
                 </e>
+              </e>
+              <e p="3 LettersBasketsLevels" t="Include">
+                <e p="Basket.cs" t="Include" />
+                <e p="DataLevelManager.cs" t="Include" />
+                <e p="FallenItem.cs" t="Include" />
+                <e p="ItemsGenerator.cs" t="Include" />
+                <e p="LevelManager.cs" t="Include" />
               </e>
             </e>
             <e p="1 Section" t="Include">
@@ -133,6 +132,7 @@
             <e p="DataLevelManager.cs" t="Include" />
             <e p="ItemLevel.cs" t="Include" />
             <e p="LevelCreator.cs" t="Include" />
+            <e p="LevelDialogue.cs" t="Include" />
             <e p="LevelHelpers" t="Include">
               <e p="AttemptCounter.cs" t="Include" />
               <e p="SoundSource.cs" t="Include" />
@@ -186,6 +186,33 @@
               <e p="WinPanel.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="StreamingAssets" t="Include">
+          <e p="JsonDataEntertainingCleaningLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataHelpAstronautLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataHomeLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataIlluminatorLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataLettersBasketsLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataMarsLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataPatternLevels" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="JsonDataSounds" t="Include">
+            <e p="README.txt" t="Include" />
+          </e>
+          <e p="README.txt" t="Include" />
         </e>
         <e p="TestLoadData.cs" t="Include" />
       </e>

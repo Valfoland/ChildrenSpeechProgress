@@ -13,7 +13,7 @@ namespace Section1.HelpAstronautLevels.Level0
         private void Start()
         {
             InitData();
-            ReshapeItems();
+            StartLevel();
         }
         
         private void OnDestroy()
