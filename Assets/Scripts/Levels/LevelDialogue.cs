@@ -27,7 +27,11 @@ public class LevelDialogue
         this.levelDialogueData = levelDialogueData;
         this.dialogueDict = dialogueDict;
         if(levelDialogueData.ButtonAnswer != null)
-            this.levelDialogueData.ButtonAnswer.onClick.AddListener(() => onEndDialogue?.Invoke());
+            this.levelDialogueData.ButtonAnswer.onClick.AddListener(() =>
+            {
+                onEndDialogue?.Invoke();
+                levelDialogueData.ButtonAnswer.gameObject.SetActive(false);
+            });
     }
     
     public void VoiceSentenceDialogue(int id, string addictionSentence = "")

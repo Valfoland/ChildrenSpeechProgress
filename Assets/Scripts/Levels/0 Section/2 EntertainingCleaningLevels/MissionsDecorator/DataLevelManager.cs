@@ -32,9 +32,9 @@ namespace Section0.EntertainingCleaningLevels.MissionsDecorator
         {
             JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
             nameItemsList = jsonData.GetData(path, fileName);
-            nameItemsList.Remove("LevelSentences");
             dataLevel.NameDirDict = nameItemsList;
             DialogueDict = LoadDialogueData(nameItemsList["LevelSentences"]);
+            nameItemsList.Remove("LevelSentences");
             ShuffleItemList();
 
             foreach (var data in dataLevel.NameDirDict)

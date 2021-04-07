@@ -5,18 +5,19 @@ using Levels;
 
 namespace Section0.LettersBasketsLevels
 {
+
     public class DataLevelManager : Levels.DataLevelManager
     {
         public Dictionary<int, List<DialogueData>> DialogueDict = new Dictionary<int, List<DialogueData>>();
         public Dictionary<int, List<DialogueData>> GameSentencesDict = new Dictionary<int, List<DialogueData>>();
         public Dictionary<string, Dictionary<string, Sprite>> ItemsDataDict;
-        
+
         public DataLevelManager()
         {
             InstantiateData();
             GetDataFromJson();
         }
-        
+
         private void GetDataFromJson()
         {
             JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();

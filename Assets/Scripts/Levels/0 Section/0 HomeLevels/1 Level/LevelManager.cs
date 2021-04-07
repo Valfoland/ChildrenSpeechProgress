@@ -182,8 +182,9 @@ namespace Section0.HomeLevels.Level1
             Destroy(currentCarousel);
             foreach (var i in itemLevelList)
             {
-                Destroy(i);
+                Destroy(i.gameObject);
             }
+            itemLevelList.Clear();
         }
 
     }

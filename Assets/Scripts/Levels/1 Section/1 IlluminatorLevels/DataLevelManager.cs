@@ -15,7 +15,7 @@ namespace Section1.IlluminatorLevels.Level0
             InstantiateData();
             GetDataFromJson($"JsonDataIlluminatorLevels/JsonDataIlluminatorLevel{idLvl}");
             
-            StartSentence = "Найди мне среди картинок, где есть  ";
+            StartSentence = "Найди мне среди картинок, где ";
             dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
             SpriteDict = dataLevel.SpriteDict;
         }

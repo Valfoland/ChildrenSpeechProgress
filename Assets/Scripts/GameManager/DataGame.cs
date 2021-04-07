@@ -19,7 +19,8 @@ public class DataLevel
 [System.Serializable]
 public class DataMission
 {
-    [SerializeField] private string nameMission;
+    public string NameMission;
+    public Sprite SpriteMission;
     public string TextMission;
     public List<DataLevel> LevelDataList;
 }

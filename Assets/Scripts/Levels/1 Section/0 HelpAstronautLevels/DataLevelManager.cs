@@ -14,7 +14,7 @@ namespace Section1.HelpAstronautLevels.Level0
             dataLevel = new DataHome();
             InstantiateData();
             GetDataFromJson($"JsonDataHelpAstronautLevels/JsonDataHelpAstronautLevel{idLvl}");
-            StartSentence = "Мне нужно заполнить рюкзак. Найди мне среди картинок, где есть ";
+            StartSentence = "Мне нужно заполнить рюкзак. Найди мне среди картинок, где ";
             dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
             SpriteDict = dataLevel.SpriteDict;
         }

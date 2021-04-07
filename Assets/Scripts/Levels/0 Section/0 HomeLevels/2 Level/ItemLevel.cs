@@ -28,7 +28,7 @@ namespace Section0.HomeLevels.Level2
         
         public void SetDataBox(KeyValuePair<string, Sprite> spriteItem)
         {
-            textItem.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key : "";
+            textItem.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key.ToLower() : "";
             wordBox = spriteItem.Key;
             imageBox.sprite = spriteItem.Value;
         }

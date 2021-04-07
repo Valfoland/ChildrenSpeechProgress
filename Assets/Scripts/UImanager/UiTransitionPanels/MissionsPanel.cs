@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class DataMissionsPanel
 {
     public Text SectionName;
+    public GameObject[] GoToLvlObjects;
     public Button[] GoToLvlBtns;
+    public Image[] MissionImages;
+    public Text[] MissionText;
 }
 
 public class MissionsPanel : Panel
@@ -45,11 +48,20 @@ public class MissionsPanel : Panel
     private void GetActiveBtnMission()
     {
         int maxCountMissions = DataGame.SectionDataList[DataGame.IdSelectSection].MissionDataList.Count;
-        
+
         for (int i = 0; i < dataMissionsPanel.GoToLvlBtns.Length; i++)
         {
             var i1 = i;
-            dataMissionsPanel.GoToLvlBtns[i].gameObject.SetActive(i < maxCountMissions);
+            dataMissionsPanel.GoToLvlObjects[i].SetActive(i < maxCountMissions);
+            
+            if (i < DataGame.SectionDataList[DataGame.IdSelectSection].MissionDataList.Count)
+            {
+                dataMissionsPanel.MissionImages[i].sprite =
+                    DataGame.SectionDataList[DataGame.IdSelectSection].MissionDataList[i].SpriteMission;
+                dataMissionsPanel.MissionText[i].text =
+                    DataGame.SectionDataList[DataGame.IdSelectSection].MissionDataList[i].NameMission;
+            }
+
             dataMissionsPanel.GoToLvlBtns[i1].onClick.AddListener(() => GoToLevels(i1));
         }
     }

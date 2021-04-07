@@ -10,7 +10,9 @@ namespace Section0.HomeLevels.Level2
     public class DataHome
     {
         public Dictionary<string, List<string>> NameDirDict = new Dictionary<string, List<string>>();
-        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict = new Dictionary<string, Dictionary<string, Sprite>>(); 
+
+        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict =
+            new Dictionary<string, Dictionary<string, Sprite>>();
     }
 
     public class DataLevelManager : Levels.DataLevelManager
@@ -20,7 +22,6 @@ namespace Section0.HomeLevels.Level2
         private DataHome dataLevel;
         public Queue<string> QueueSentenceses;
         public Queue<Dictionary<string, Sprite>> QueueSprites;
-        public Dictionary<string, Dictionary<string, Sprite>> SpriteDict; 
 
         public DataLevelManager()
         {
@@ -28,11 +29,12 @@ namespace Section0.HomeLevels.Level2
             GetDataFromJson();
             InstantiateData();
         }
-        
+
         private void GetDataFromJson()
         {
-            JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
-            var dataText = jsonData.GetData("JsonDataHomeLevels","JsonDataHomeLevel2");
+            JsonParserGame<Dictionary<string, List<string>>> jsonData =
+                new JsonParserGame<Dictionary<string, List<string>>>();
+            var dataText = jsonData.GetData("JsonDataHomeLevels", "JsonDataHomeLevel2");
             dataLevel.NameDirDict = dataText;
         }
 
@@ -40,21 +42,22 @@ namespace Section0.HomeLevels.Level2
         {
             base.InstantiateData();
             dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
-            SpriteDict = dataLevel.SpriteDict;
             QueueSentenceses = new Queue<string>();
             QueueSprites = new Queue<Dictionary<string, Sprite>>();
+
+            var arrayShuffle = dataLevel.SpriteDict.Count.ShuffleNumbers();
             
-            foreach (var sprite in dataLevel.SpriteDict)
+            for (int i = 0; i < arrayShuffle.Length; i++)
             {
-                QueueSentenceses.Enqueue(sprite.Key);
+                QueueSentenceses.Enqueue(dataLevel.SpriteDict.ToList()[arrayShuffle[i]].Key);
 
                 try
                 {
-                    QueueSprites.Enqueue(sprite.Value);
+                    QueueSprites.Enqueue(dataLevel.SpriteDict.ToList()[arrayShuffle[i]].Value);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
-                    
+
                 }
             }
         }

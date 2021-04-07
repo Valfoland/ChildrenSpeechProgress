@@ -37,12 +37,13 @@ namespace Section0.EntertainingCleaningLevels.Level0
             base.Start();
             InitData();
             InitItems();
-            StartIntroDialogue();
+            StartDialogue();
         }
         
         private void OnDestroy()
         {
             MissionsDecorator.ItemLevel.onClickBox -= CheckBox;
+            levelDialogue.onEndDialogue -= StartDialogue;
         }
 
         private void InitData()
@@ -55,21 +56,21 @@ namespace Section0.EntertainingCleaningLevels.Level0
                 countRounds = dataLevelManager.NameItemsPair.Count - 1;
             
             MissionsDecorator.ItemLevel.onClickBox += CheckBox;
-            levelDialogue.onEndDialogue += StartIntroDialogue;
+            levelDialogue.onEndDialogue += StartDialogue;
         }
 
 
-        protected override void StartIntroDialogue()
+        protected override void StartDialogue()
         {
-            if (currentIdDialogue >= dataLevelManager.DialogueDict.Count)
+            if (currentIdSentences >= dataLevelManager.DialogueDict.Count)
             {
                 StartLevel();
-                currentIdDialogue = 0;
+                currentIdSentences = 0;
                 return;
             }    
             
-            levelDialogue.VoiceSentenceDialogue(currentIdDialogue);
-            currentIdDialogue++;
+            levelDialogue.VoiceSentenceDialogue(currentIdSentences);
+            currentIdSentences++;
         }
 
         protected override void StartLevel()
@@ -93,11 +94,12 @@ namespace Section0.EntertainingCleaningLevels.Level0
             
             var mainIndex = Random.Range(0, itemLevels.Length);
             var mainId = Random.Range(0, dataLevelManager.NameItemsPair.Count);
-            
+            Debug.Log(mainIndex);
+            Debug.Log(mainId);
             for (int i = 0; i < itemLevels.Length; i++)
             {
                 var id = SearchUniqueId(i, mainIndex, mainId);
-                
+                Debug.Log(id);
                 idItemsDict.Add(itemLevels[i], id);
                 var itemPair = dataLevelManager.NameItemsPair[id];
                 var itemSprite = dataLevelManager.SpriteDict[itemPair.Key][itemPair.Value];
@@ -127,10 +129,12 @@ namespace Section0.EntertainingCleaningLevels.Level0
 
         private int SearchUniqueId(int i, int mainIndex, int mainId)
         {
-            var id = 0;
+            int id;
             
             if (i != mainIndex)
             {
+                id = Random.Range(0, dataLevelManager.NameItemsPair.Count);
+
                 while (id == mainId)
                 {
                     id = Random.Range(0, dataLevelManager.NameItemsPair.Count);

@@ -5,8 +5,11 @@ using UnityEngine.EventSystems;
 
 public class Basket : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
+    [SerializeField] private Animator animatorBasket;
     [SerializeField] private RectTransform basketRectTransform;
     private Vector2 canvasSize;
+    private static readonly int winAnimTrigger = Animator.StringToHash("Win");
+    private static readonly int loseAnimTrigger = Animator.StringToHash("Lose");
 
     private void Start()
     {
@@ -27,5 +30,10 @@ public class Basket : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDo
 
     public void OnPointerDown(PointerEventData eventData)
     {
+    }
+
+    public void AnimBasket(bool isTrueAttempt)
+    {
+        animatorBasket.SetTrigger(isTrueAttempt ? winAnimTrigger : loseAnimTrigger);
     }
 }

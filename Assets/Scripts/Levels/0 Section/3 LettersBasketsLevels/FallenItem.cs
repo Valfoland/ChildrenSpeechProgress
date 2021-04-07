@@ -14,6 +14,7 @@ public class FallenItem : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        onTouchBasket?.Invoke();
+        if (other.gameObject.name.ToLower().StartsWith("basket"))
+            onTouchBasket?.Invoke();
     }
 }

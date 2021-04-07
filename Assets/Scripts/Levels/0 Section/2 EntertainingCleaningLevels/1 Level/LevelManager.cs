@@ -26,13 +26,13 @@ namespace Section0.EntertainingCleaningLevels.Level1
         {
             base.Start();
             InitData();
-            StartIntroDialogue();
+            StartDialogue();
         }
 
         private void OnDestroy()
         {
             MissionsDecorator.ItemLevel.onClickBox -= CheckBox;
-            levelDialogue.onEndDialogue -= StartIntroDialogue;
+            levelDialogue.onEndDialogue -= StartDialogue;
         }
 
         private void InitData()
@@ -42,20 +42,20 @@ namespace Section0.EntertainingCleaningLevels.Level1
             SetNeedWord();
             
             MissionsDecorator.ItemLevel.onClickBox += CheckBox;
-            levelDialogue.onEndDialogue += StartIntroDialogue;
+            levelDialogue.onEndDialogue += StartDialogue;
         }
         
-        protected override void StartIntroDialogue()
+        protected override void StartDialogue()
         {
-            if (currentIdDialogue >= dataLevelManager.DialogueDict.Count)
+            if (currentIdSentences >= dataLevelManager.DialogueDict.Count)
             {
                 StartLevel();
-                currentIdDialogue = 0;
+                currentIdSentences = 0;
                 return;
             }    
             
-            levelDialogue.VoiceSentenceDialogue(currentIdDialogue);
-            currentIdDialogue++;
+            levelDialogue.VoiceSentenceDialogue(currentIdSentences);
+            currentIdSentences++;
         }
         
         protected override void StartLevel()

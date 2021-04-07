@@ -12,9 +12,9 @@ namespace Section0.HomeLevels.Level2
     {
         [SerializeField] private ItemLevel[] itemLevel;
         [SerializeField] private Text textMessage;
+        [SerializeField] private int countRounds;
         
-        private int currentIdPack;
-        private int countNeedSprite;
+        private int currentRound;
         private string needWord;
         private string currentSentence;
         
@@ -53,11 +53,9 @@ namespace Section0.HomeLevels.Level2
         
         private void ReshapeItems()
         {
-            countNeedSprite = 0;
-
-            if (currentIdPack < dataLevelManager.QueueSentenceses.Count)
+            if (currentRound < countRounds)
             {
-                currentIdPack++;
+                currentRound++;
                 GetSentence();
                 GetRandomSprites();
                 Voice(currentSentence);
@@ -67,11 +65,10 @@ namespace Section0.HomeLevels.Level2
                     box.SetDataBox(spriteList.ToList()[i]);
                     i++;
                 }
-                
             }
             else
             {
-                currentIdPack = 0;
+                currentRound = 0;
                 CheckWinLevel();
             }
         }
@@ -103,16 +100,17 @@ namespace Section0.HomeLevels.Level2
 
         private void GetRandomSprites()
         {
-            spriteList  = dataLevelManager.QueueSprites.Dequeue();
+            spriteList = dataLevelManager.QueueSprites.Dequeue();
             dataLevelManager.QueueSprites.Enqueue(spriteList);
             bool[] mixStates = {true, false};
             bool toMix = mixStates[Random.Range(0, 2)];
-            
+
             if (toMix)
             {
-                var temp = spriteList.ToList()[0];
-                spriteList.ToList()[0] = spriteList.ToList()[1];
-                spriteList.ToList()[1] = temp;
+                var tempList = spriteList.ToList();
+                spriteList.Clear();
+                spriteList.Add(tempList[1].Key, tempList[1].Value);
+                spriteList.Add(tempList[0].Key, tempList[0].Value);
             }
 
             needWord = toMix ? spriteList.ToList()[1].Key: spriteList.ToList()[0].Key;
