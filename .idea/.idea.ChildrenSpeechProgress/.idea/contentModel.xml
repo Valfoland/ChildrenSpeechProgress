@@ -142,6 +142,7 @@
           </e>
           <e p="Other" t="Include">
             <e p="AsyncLoadVisual.cs" t="Include" />
+            <e p="DataChecker.cs" t="Include" />
             <e p="DontDestroyObject.cs" t="Include" />
             <e p="DragableObject.cs" t="Include" />
             <e p="ImprovedDict.cs" t="Include" />

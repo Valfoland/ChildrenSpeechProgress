@@ -20,7 +20,10 @@ namespace Levels
 
         protected virtual void Start()
         {
-            voiceButton = GameObject.FindWithTag("PlayMessage").GetComponent<Button>();
+            var voiceObject = GameObject.FindWithTag("PlayMessage");
+            
+            if(voiceObject != null)
+                voiceButton = voiceObject.GetComponent<Button>();
         }
 
         protected virtual void CheckWinLevel()

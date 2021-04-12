@@ -40,7 +40,9 @@ namespace Levels
                 {
                     var sprite = Resources.Load<Sprite>($"Images/{spriteName}");
                     var templateSprite = Resources.Load<Sprite>("Images/TemplateSprite");
+                    
                     tempSpriteDict.Add(spriteName, sprite != null ? sprite : templateSprite);
+                    //if(sprite == null) Debug.Log(spriteName);
                 }
 
                 resultSpriteDict.Add(dir.Key, tempSpriteDict);
@@ -110,8 +112,7 @@ namespace Levels
         {
             DataLevelManagerEditor window = (DataLevelManagerEditor) GetWindow(typeof(DataLevelManagerEditor));
             window.Show();
-
-
+            
             countItems = PlayerPrefs.GetInt("DataCountLevelPath");
             NameItems = JsonConvert.DeserializeObject<List<string>>(PlayerPrefs.GetString("DataLevelPath"));
 

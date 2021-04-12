@@ -535,7 +535,7 @@ MonoBehaviour:
     Speeker: {fileID: 836162538763535450}
     AnswerButton: {fileID: 982670129}
     Basket: {fileID: 1065355323}
-  countRounds: 20
+  countRounds: 10
 --- !u!114 &9005179767679838229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
   fallenItem: {fileID: 2678609042468447734, guid: 8e7449e935356cc49bc69dcca023b776, type: 3}
   fallenItemsContainer: {fileID: 2680799583831263085}
   maxCountGenerateItems: 20
-  delayGenerateItem: 3
+  delayGenerateItem: 5
   speedItems: 100
 --- !u!114 &5541791571291374979
 MonoBehaviour:

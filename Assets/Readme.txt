@@ -30,3 +30,10 @@
 Эти данные можно будет посмотреть в личном кабинете, также там можно добавить/удалить/редактировать данные о ребенке.
 
 Контакты для вопросов по проекту и его разработке: folomeev.valera98@gmail.com
+
+Ссылки на картинки (Нужно добавить в настройки)
+
+https://www.vecteezy.com/free-vector/train
+https://www.vecteezy.com/free-vector/star
+https://www.vecteezy.com/free-vector/dog
+https://www.freepik.com/vectors/house House vector created by pch.vector - www.freepik.com

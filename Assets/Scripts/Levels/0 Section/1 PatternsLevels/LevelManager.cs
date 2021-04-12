@@ -44,7 +44,7 @@ namespace Section0.PatternsLevel
         {
             ItemLevel.onClickBox += CheckBox;
             dataLevelManager = new DataLevelManager();
-            voiceButton.gameObject.SetActive(false);
+            if(voiceButton != null) voiceButton.gameObject.SetActive(false);
             for (int i = 0; i < voiceBtns.Length; i++)
             {
                 var i1 = i;

@@ -148,6 +148,7 @@ namespace Section0.LettersBasketsLevels
             }
             else
             {
+                Debug.Log("sadsf ");
                 itemsGenerator.DisableGenerateItems();
                 CheckWinLevel();
             }

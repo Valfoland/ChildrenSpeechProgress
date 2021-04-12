@@ -11,7 +11,22 @@ namespace Section0.PatternsLevel
         public int CountRows;
 
         public Dictionary<string, List<string>> WordDict = new Dictionary<string, List<string>>();
-        private List<Dictionary<char, Color>> soundsDict = new List<Dictionary<char, Color>>
+
+        private Dictionary<char, Color> soundsDict = new Dictionary<char, Color>
+        {
+            {'а', Color.red},
+            {'о', new Color32(255, 128, 0, 255)},
+            {'и', Color.green},
+            {'е', Color.blue},
+            {'ё', Color.yellow},
+            {'э', Color.cyan},
+            {'ы', Color.magenta},
+            {'у', new Color32(200, 150, 150, 255)},
+            {'ю', new Color32(200, 150, 250, 255)},
+            {'я', new Color32(60, 160, 150, 255)},
+        };
+        
+        /*private List<Dictionary<char, Color>> soundsDict = new List<Dictionary<char, Color>>
         {
             new Dictionary<char, Color>
             { 
@@ -32,19 +47,19 @@ namespace Section0.PatternsLevel
                 {'т', new Color32(255,128, 0, 255)}
             },
             
-        };
+        };*/
 
         public Dictionary<char, Color> GetColorLetter(int levelId)
         {
             Dictionary<char, Color> soundsDict = new Dictionary<char, Color>();
-            soundsDict = this.soundsDict[0];
+            soundsDict = this.soundsDict;
 
-            for (var i = 1; i <= levelId; i++)
+            /*for (var i = 1; i <= levelId; i++)
             {
                 soundsDict = soundsDict
                     .Concat(this.soundsDict[i])
                     .ToDictionary(x => x.Key, x => x.Value);
-            }
+            }*/
 
             return soundsDict;
         }

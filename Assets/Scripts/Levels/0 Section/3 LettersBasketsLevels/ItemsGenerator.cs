@@ -156,7 +156,7 @@ namespace Section0.LettersBasketsLevels
                     Time.deltaTime * speedItems
                 );
 
-                if (fallenItemsObjectlist[i].ItemRectTransform.anchoredPosition.y <= -canvasSize.y / 2 - 100)
+                if (fallenItemsObjectlist[i].ItemRectTransform.anchoredPosition.y <= -canvasSize.y / 2 - 90)
                 {
                     SetDataToItem(fallenItemsObjectlist[i]);
                     onItemFall?.Invoke(fallenItemsObjectlist[i].TypeWord);
