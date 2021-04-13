@@ -9,8 +9,9 @@ namespace Section1.MarsLevels.Level0
 {
     public class LevelManager : MissionsDecorator.LevelManager
     {
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             InitData();
             StartLevel();
         }

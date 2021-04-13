@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 9144028517006920668}
   - component: {fileID: 2013778859}
   m_Layer: 5
-  m_Name: Level0-3
+  m_Name: 0-3 Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec2b2c11091c14499b03c67664d95d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundObject: {fileID: 1172311693136403604, guid: e0c9d131878a32743bb8cefcacdb15ca, type: 3}
   circlePrefab: {fileID: 6446588845284607885, guid: 9e9210da60dd28e4288712ff3ba65d29, type: 3}
   animField:
   - {fileID: 1648096021}

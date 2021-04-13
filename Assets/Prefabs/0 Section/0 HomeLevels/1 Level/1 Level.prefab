@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dd8736809bfa0439e8930eb80a70cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundObject: {fileID: 1576516894344347017, guid: 3c265d21d5c9a6a4cb69336f10dded24, type: 3}
   itemPrefab: {fileID: 1942913880491653454, guid: d4c750195f3b6ce4fa6229dc5300dabb, type: 3}
   pagePrefab: {fileID: 4640787437173611933, guid: 47fd8b434d3f8da4ea82851c35bcdd29, type: 3}
   fieldPrefab: {fileID: 2311047829205278980, guid: 6e9bd5831758dcc408fe0fac8d8758e5, type: 3}

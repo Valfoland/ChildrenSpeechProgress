@@ -1609,6 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e2c22d8075edf4b9c19175b5bb0ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundObject: {fileID: 6905159869819118701, guid: e62529a6563b9994dbc921377db8364c, type: 3}
   countRounds: 5
   levelDialogueData:
     ButtonAnswer: {fileID: 982670130}

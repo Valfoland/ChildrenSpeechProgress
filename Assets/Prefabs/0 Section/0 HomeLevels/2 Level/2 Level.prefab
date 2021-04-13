@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c63e81438a62f4e83201174791cb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundObject: {fileID: 1576516894344347017, guid: 3c265d21d5c9a6a4cb69336f10dded24, type: 3}
   itemLevel:
   - {fileID: 4776463331549054947}
   - {fileID: 2636578835553758212}

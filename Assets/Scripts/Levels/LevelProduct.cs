@@ -10,6 +10,7 @@ namespace Levels
 {
     public abstract class LevelProduct : MonoBehaviour
     {
+        [SerializeField] protected GameObject backgroundObject;
         public static Action<string> onVoice;
         public static Action<bool> onEndLevel;
         
@@ -21,6 +22,9 @@ namespace Levels
         protected virtual void Start()
         {
             var voiceObject = GameObject.FindWithTag("PlayMessage");
+            var backgroundParentObject = GameObject.FindWithTag("Background");
+
+            Instantiate(backgroundObject, backgroundParentObject.transform);
             
             if(voiceObject != null)
                 voiceButton = voiceObject.GetComponent<Button>();

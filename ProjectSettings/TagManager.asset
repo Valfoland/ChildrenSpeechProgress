@@ -12,6 +12,7 @@ TagManager:
   - PlayMessage
   - Container
   - CanvasLevels
+  - Background
   layers:
   - Default
   - TransparentFX
