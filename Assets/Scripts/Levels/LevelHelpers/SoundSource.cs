@@ -94,33 +94,40 @@ namespace Sounds
                 yield return null;
             }
             
-            if (!audioSource.isPlaying) endSound?.Invoke();
+            endSound?.Invoke();
         }
 
         private void PlayAudio(string soundName)
         {
             int percentMax = 0;
             string actualSound = "";
+            var soundIn = soundName
+                .ToLower()
+                .Replace(" ", "")
+                .Replace("ё", "е");
             
             foreach (var sound in dataSounds.SoundNameList)
             {
-                if (soundName.ToLower().StartsWith(sound.ToLower()))
-                {
-                    GetActualSound(ref actualSound, ref percentMax, sound, soundName);
-                    
-                    ResourceRequest resourceRequest = Resources.LoadAsync<AudioClip>($"Sounds/{actualSound}");
-                    audioSource.clip = resourceRequest.asset as AudioClip;
-                    audioSource.Play();
+                var soundOut = sound
+                    .ToLower()
+                    .Replace(" ", "")
+                    .Replace("ё", "е");
 
+                if (soundIn.StartsWith(soundOut))
+                {
+                    GetMostSuitableSound(ref actualSound, ref percentMax, soundOut, soundIn, sound);
                 }
             }
+            
+            ResourceRequest resourceRequest = Resources.LoadAsync<AudioClip>($"Sounds/{actualSound}");
+            audioSource.clip = resourceRequest.asset as AudioClip;
+            audioSource.Play();
         }
         
-        private void GetActualSound(ref string actualSound, ref int percentMax, string sound, string soundName)
+        private void  GetMostSuitableSound(ref string actualSound, ref int percentMax, string soundOut, string soundIn, string sound)
         {
-            string soundTempBigger = sound.Length > soundName.Length ? sound : soundName;
-            string soundTempSmaller = sound.Length <= soundName.Length ? sound : soundName;
-
+            string soundTempBigger = soundOut.Length > soundIn.Length ? soundOut : soundIn;
+            string soundTempSmaller = soundOut.Length <= soundIn.Length ? soundOut : soundIn;
             int counTrueSound = 0;
 
             for (int i = 0; i < soundTempBigger.Length; i++)

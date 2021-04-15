@@ -47,13 +47,13 @@ namespace Section0.HomeLevels.Level2
 
             var arrayShuffle = dataLevel.SpriteDict.Count.ShuffleNumbers();
             
-            for (int i = 0; i < arrayShuffle.Length; i++)
+            for (int i = 0; i < dataLevel.SpriteDict.Count; i++)
             {
-                QueueSentenceses.Enqueue(dataLevel.SpriteDict.ToList()[arrayShuffle[i]].Key);
+                QueueSentenceses.Enqueue(dataLevel.SpriteDict.ToList()[i].Key);
 
                 try
                 {
-                    QueueSprites.Enqueue(dataLevel.SpriteDict.ToList()[arrayShuffle[i]].Value);
+                    QueueSprites.Enqueue(dataLevel.SpriteDict.ToList()[i].Value);
                 }
                 catch (ArgumentOutOfRangeException e)
                 {

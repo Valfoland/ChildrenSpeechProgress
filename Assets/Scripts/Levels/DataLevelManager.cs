@@ -40,7 +40,9 @@ namespace Levels
                 {
                     var sprite = Resources.Load<Sprite>($"Images/{spriteName}");
                     var templateSprite = Resources.Load<Sprite>("Images/TemplateSprite");
+                    
                     tempSpriteDict.Add(spriteName, sprite != null ? sprite : templateSprite);
+                    //if(sprite == null) Debug.Log(spriteName);
                 }
 
                 resultSpriteDict.Add(dir.Key, tempSpriteDict);
@@ -87,17 +89,23 @@ namespace Levels
                 catch (IndexOutOfRangeException)
                 { }
 
-                if (!resultDict.ContainsKey(dialogueData.Id))
-                {
-                    resultDict.Add(dialogueData.Id, new List<DialogueData>());
-                }
-                resultDict[dialogueData.Id].Add(dialogueData);
+                CheckCorrespondStrings(resultDict, dialogueData);
             }
 
             return resultDict;
         }
+
+        private void CheckCorrespondStrings(Dictionary<int, List<DialogueData>> resultDict, DialogueData dialogueData)
+        {
+            if (!resultDict.ContainsKey(dialogueData.Id))
+            {
+                resultDict.Add(dialogueData.Id, new List<DialogueData>());
+            }
+            resultDict[dialogueData.Id].Add(dialogueData);
+        }
     }
 
+#if UNITY_EDITOR
     public class DataLevelManagerEditor : EditorWindow
     {
         private Vector2 scrollPos;
@@ -110,8 +118,7 @@ namespace Levels
         {
             DataLevelManagerEditor window = (DataLevelManagerEditor) GetWindow(typeof(DataLevelManagerEditor));
             window.Show();
-
-
+            
             countItems = PlayerPrefs.GetInt("DataCountLevelPath");
             NameItems = JsonConvert.DeserializeObject<List<string>>(PlayerPrefs.GetString("DataLevelPath"));
 
@@ -225,4 +232,5 @@ namespace Levels
             return name.Substring(name.LastIndexOf('/') + 1);
         }
     }
+#endif
 }

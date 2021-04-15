@@ -14,7 +14,6 @@ namespace Section0.HomeLevels.Level0
         [SerializeField] private ItemLevel[] itemLevels;
         [SerializeField] private LevelDialogueData levelDialogueData;
         
-        private string firstPartMessage;
         private string currentName;
         private char needLetter;
         private char otherLetter;
@@ -29,15 +28,12 @@ namespace Section0.HomeLevels.Level0
         private Dictionary<char, Dictionary<string, Sprite>> spriteDictLetter = new Dictionary<char, Dictionary<string, Sprite>>();
         private DataLevelManager dataLevelManager;
         private LevelDialogue levelDialogue;
-        
-        private bool isStartLevel;
 
         protected override void Start()
         {
             base.Start();
             InitData();
             StartDialogue();
-            ReshapeItems();
         }
 
         private void OnDestroy()
@@ -49,7 +45,7 @@ namespace Section0.HomeLevels.Level0
         private void InitData()
         {
             dataLevelManager = new DataLevelManager();
-            levelDialogue = new LevelDialogue(levelDialogueData, dataLevelManager.DialogueDict);
+            levelDialogue = new LevelDialogue(levelDialogueData, dataLevelManager.DialogueIntroDict);
             voiceButton.onClick.AddListener(ClickButtonVoice);
             itemLevels.ToList().ForEach(i => i.BtnBox.interactable = false);
             
@@ -59,21 +55,22 @@ namespace Section0.HomeLevels.Level0
 
         protected override void StartDialogue()
         {
-            if (currentIdSentences >= dataLevelManager.DialogueDict.Count)
+            if (currentIdSentences >= dataLevelManager.DialogueIntroDict.Count)
             {
                 StartLevel();
                 currentIdSentences = 0;
                 return;
             }    
             
-            levelDialogue.VoiceSentenceDialogue(currentIdSentences);
             currentIdSentences++;
+
+            levelDialogue.VoiceSentenceDialogue(currentIdSentences - 1);
         }
 
         protected override void StartLevel()
         {
-            isStartLevel = true;
             itemLevels.ToList().ForEach(i => i.BtnBox.interactable = true);
+            ReshapeItems();
         }
         
         private void ReshapeItems()
@@ -87,6 +84,8 @@ namespace Section0.HomeLevels.Level0
 
                 SetCurrentLetter();
                 SetDictSprite();
+                
+                if(currentIdPack > 1) Voice(dataLevelManager.DialogueGameDict[0][0].DialogueText);
                 Voice(needLetter.ToString());
                 
                 foreach (var box in itemLevels)
@@ -101,8 +100,7 @@ namespace Section0.HomeLevels.Level0
                     }
                     spriteListBox.Add(sprite.Value);
                     box.SetDataBox(sprite, randLetter);
-                    
-                    if(isStartLevel) box.BtnBox.interactable = true;
+                    box.BtnBox.interactable = true;
                 }
             }
             else
@@ -154,7 +152,9 @@ namespace Section0.HomeLevels.Level0
             var nameListSprite = currentName.Replace("-", "");
             needLetter = nameListSprite[currentRound];
             otherLetter = nameListSprite.Replace(nameListSprite[currentRound].ToString(), "")[0];
-            levelDialogueData.TextDialog.text = $"{firstPartMessage} {nameListSprite[currentRound].ToString().ToUpper()}";
+            
+            levelDialogueData.TextDialog.text = $"{dataLevelManager.DialogueGameDict[0][0].DialogueText} " +
+                                                $"{nameListSprite[currentRound].ToString().ToUpper()}";
             onVoice?.Invoke(needLetter.ToString());
         }
 
@@ -195,6 +195,7 @@ namespace Section0.HomeLevels.Level0
 
         private void ClickButtonVoice()
         {
+            Voice(dataLevelManager.DialogueGameDict[0][0].DialogueText);
             Voice(needLetter.ToString());
         }
 

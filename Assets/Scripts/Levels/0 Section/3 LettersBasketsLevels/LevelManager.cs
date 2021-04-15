@@ -97,9 +97,9 @@ namespace Section0.LettersBasketsLevels
                 currentIdSentences = 0;
                 return;
             }
-
-            levelDialogue.VoiceSentenceDialogue(currentIdSentences, currentTypeWords.ToLower());
+            
             currentIdSentences++;
+            levelDialogue.VoiceSentenceDialogue(currentIdSentences - 1, currentTypeWords.ToLower());
         }
         
         protected override void StartLevel()
@@ -148,6 +148,7 @@ namespace Section0.LettersBasketsLevels
             }
             else
             {
+                Debug.Log("sadsf ");
                 itemsGenerator.DisableGenerateItems();
                 CheckWinLevel();
             }

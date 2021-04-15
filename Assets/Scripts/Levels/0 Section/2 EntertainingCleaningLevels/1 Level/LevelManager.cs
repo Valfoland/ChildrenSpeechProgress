@@ -52,10 +52,10 @@ namespace Section0.EntertainingCleaningLevels.Level1
                 StartLevel();
                 currentIdSentences = 0;
                 return;
-            }    
+            }   
             
-            levelDialogue.VoiceSentenceDialogue(currentIdSentences);
             currentIdSentences++;
+            levelDialogue.VoiceSentenceDialogue(currentIdSentences - 1);
         }
         
         protected override void StartLevel()

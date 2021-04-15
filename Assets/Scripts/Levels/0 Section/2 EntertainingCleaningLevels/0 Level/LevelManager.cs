@@ -69,8 +69,8 @@ namespace Section0.EntertainingCleaningLevels.Level0
                 return;
             }    
             
-            levelDialogue.VoiceSentenceDialogue(currentIdSentences);
             currentIdSentences++;
+            levelDialogue.VoiceSentenceDialogue(currentIdSentences - 1);
         }
 
         protected override void StartLevel()
@@ -94,12 +94,10 @@ namespace Section0.EntertainingCleaningLevels.Level0
             
             var mainIndex = Random.Range(0, itemLevels.Length);
             var mainId = Random.Range(0, dataLevelManager.NameItemsPair.Count);
-            Debug.Log(mainIndex);
-            Debug.Log(mainId);
+
             for (int i = 0; i < itemLevels.Length; i++)
             {
                 var id = SearchUniqueId(i, mainIndex, mainId);
-                Debug.Log(id);
                 idItemsDict.Add(itemLevels[i], id);
                 var itemPair = dataLevelManager.NameItemsPair[id];
                 var itemSprite = dataLevelManager.SpriteDict[itemPair.Key][itemPair.Value];
