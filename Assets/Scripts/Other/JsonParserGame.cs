@@ -5,24 +5,26 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class JsonParserGame<T>
 {
     private T data;
-    
+
     public T GetData(string path, string fileName)
     {
-        var allFiles = new DirectoryInfo(Application.streamingAssetsPath + "/" + path).GetFiles("*.*").
-            Where(x => x.Extension != ".meta").ToArray();
+#if UNITY_EDITOR
+        var file = File.ReadAllText(Path.Combine (Application.streamingAssetsPath + "/" + path, fileName + ".json"));
+        data = JsonConvert.DeserializeObject<T>(file);
+#elif UNITY_ANDROID
+        UnityWebRequest www = UnityWebRequest.Get(Path.Combine (Application.streamingAssetsPath + "/" + path, fileName + ".json"));
+        www.SendWebRequest();
+        while (!www.isDone) {}
+        string fileText = www.downloadHandler.text;
         
-        foreach (FileInfo file in allFiles)
-        {
-            if (file.Name.StartsWith(fileName))
-            {
-                data =  JsonConvert.DeserializeObject<T>(File.ReadAllText(file.FullName));
-            }
-        }
-
+        data = JsonConvert.DeserializeObject<T>(fileText);
+#endif
         return data;
     }
 }

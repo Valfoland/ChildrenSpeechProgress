@@ -89,17 +89,23 @@ namespace Levels
                 catch (IndexOutOfRangeException)
                 { }
 
-                if (!resultDict.ContainsKey(dialogueData.Id))
-                {
-                    resultDict.Add(dialogueData.Id, new List<DialogueData>());
-                }
-                resultDict[dialogueData.Id].Add(dialogueData);
+                CheckCorrespondStrings(resultDict, dialogueData);
             }
 
             return resultDict;
         }
+
+        private void CheckCorrespondStrings(Dictionary<int, List<DialogueData>> resultDict, DialogueData dialogueData)
+        {
+            if (!resultDict.ContainsKey(dialogueData.Id))
+            {
+                resultDict.Add(dialogueData.Id, new List<DialogueData>());
+            }
+            resultDict[dialogueData.Id].Add(dialogueData);
+        }
     }
 
+#if UNITY_EDITOR
     public class DataLevelManagerEditor : EditorWindow
     {
         private Vector2 scrollPos;
@@ -226,4 +232,5 @@ namespace Levels
             return name.Substring(name.LastIndexOf('/') + 1);
         }
     }
+#endif
 }

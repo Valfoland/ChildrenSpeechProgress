@@ -53,7 +53,7 @@ namespace Section0.HomeLevels.Level2
         
         private void ReshapeItems()
         {
-            if (currentRound < countRounds)
+            if (currentRound < dataLevelManager.QueueSentenceses.Count)
             {
                 currentRound++;
                 GetSentence();
@@ -86,9 +86,9 @@ namespace Section0.HomeLevels.Level2
             }
             var newSentence = currentSentence + " " + needWord.ToLower();
             SetTextMessage(newSentence);
-            StartCoroutine(WaitReshape(6f));
+
             Voice(currentSentence);
-            Voice(needWord);
+            VoiceCallBack(needWord, ReshapeItems);
         }
         
         private void GetSentence()
@@ -119,12 +119,6 @@ namespace Section0.HomeLevels.Level2
         private void ClickButtonVoice()
         {
             Voice(currentSentence);
-        }
-
-        private IEnumerator WaitReshape(float time)
-        {
-            yield return  new WaitForSeconds(time); //TEMP
-            ReshapeItems();
         }
     }
 }

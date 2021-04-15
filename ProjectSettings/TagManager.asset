@@ -5,14 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Field
+  - CanvasLevels
+  - PlayMessage
+  - Background
+  - Container
   - ChildManager
   - ContentChild
   - DontDestroyObject
   - Sounds
-  - PlayMessage
-  - Container
-  - CanvasLevels
-  - Background
+  - TestText
+  - TestText1
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Canvas
+  - 
   - 
   - 
   - 

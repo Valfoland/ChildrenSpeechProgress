@@ -124,12 +124,12 @@ namespace Section0.PatternsLevel
             if (isTrue)
             {
                 checkerImages[line].sprite = trueSprite;
-                checkerImages[line].color = new Color(0,0.5f,0,1);
+                checkerImages[line].color = new Color(0,1f,0,1);
             }
             else
             {
                 checkerImages[line].sprite = falseSprite;
-                checkerImages[line].color = new Color(0.5f,0,0,1);
+                checkerImages[line].color = new Color(1f,0,0,1);
             }
         }
     }
