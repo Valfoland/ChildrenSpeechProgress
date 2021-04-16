@@ -44,13 +44,29 @@ public class LevelDialogue
         
         var idStr = dialogueDict[id].Count > 1 ? Random.Range(0, dialogueDict[id].Count) : 0;
         var dialogueText = dialogueDict[id][idStr].DialogueText;
-        
+        var dialogueList = new List<string>
+        {
+            dialogueText
+        };
+
         if (dialogueText.IndexOf('+') != -1)
         {
             dialogueText = dialogueText.Replace("+", addictionSentence);
+            dialogueList.Add(addictionSentence);
+        }
+
+        for(int i = 0; i < dialogueList.Count; i++)
+        {
+            if (i == dialogueList.Count - 1)
+            {
+                SoundSource.VoiceSoundCallBack(dialogueList[i], () => ShowButtonDialogue(id, idStr));
+            }
+            else
+            {
+                SoundSource.VoiceSound(dialogueList[i]);
+            }
         }
         
-        SoundSource.VoiceSoundCallBack(dialogueText, () => ShowButtonDialogue(id, idStr));
         levelDialogueData.TextDialog.text = dialogueText;
     }
 

@@ -10,6 +10,7 @@ public class FallenItem : MonoBehaviour
     public RectTransform ItemRectTransform;
     public Text TextWord;
     public Image ImageWord;
+    public bool CanFall;
     public Action onTouchBasket;
 
     public void OnTriggerEnter2D(Collider2D other)

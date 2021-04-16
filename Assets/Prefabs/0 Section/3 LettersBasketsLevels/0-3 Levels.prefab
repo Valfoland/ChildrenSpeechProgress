@@ -528,7 +528,7 @@ MonoBehaviour:
     TextInButtonAnswer: {fileID: 394010615}
     TextDialog: {fileID: 1691972745005657469}
   uiShower: {fileID: 5541791571291374979}
-  uiObjectsData:
+  uiLettersBasketsObjectsData:
     Speeker: {fileID: 836162538763535450}
     AnswerButton: {fileID: 982670129}
     Basket: {fileID: 1065355323}
@@ -550,7 +550,7 @@ MonoBehaviour:
   fallenItemsContainer: {fileID: 2680799583831263085}
   maxCountGenerateItems: 20
   delayGenerateItem: 5
-  speedItems: 100
+  speedItems: 30
 --- !u!114 &5541791571291374979
 MonoBehaviour:
   m_ObjectHideFlags: 0

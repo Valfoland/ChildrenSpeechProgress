@@ -174,7 +174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &982670129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1548,6 +1548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2680799583831263085}
   - component: {fileID: 1764153052}
+  - component: {fileID: 8524099499395439981}
   m_Layer: 5
   m_Name: 0 Level
   m_TagString: Untagged
@@ -1592,6 +1593,10 @@ MonoBehaviour:
   backgroundObject: {fileID: 6905159869819118701, guid: e62529a6563b9994dbc921377db8364c,
     type: 3}
   countRounds: 5
+  uiShower: {fileID: 8524099499395439981}
+  uiObjectsData:
+    Speeker: {fileID: 836162538763535450}
+    AnswerButton: {fileID: 0}
   levelDialogueData:
     ButtonAnswer: {fileID: 982670130}
     TextInButtonAnswer: {fileID: 394010615}
@@ -1602,6 +1607,18 @@ MonoBehaviour:
   - {fileID: 1764153049}
   - {fileID: 1783486189}
   - {fileID: 2056372522}
+--- !u!114 &8524099499395439981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576742232866814204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9684e9bbaac8ba49aa3cdc3582814b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4945222004849988988
 GameObject:
   m_ObjectHideFlags: 0

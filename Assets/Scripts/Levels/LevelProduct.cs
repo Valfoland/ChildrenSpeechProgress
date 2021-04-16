@@ -8,6 +8,13 @@ using Sounds;
 
 namespace Levels
 {
+    [Serializable]
+    public class UiObjectsData
+    {
+        public RectTransform Speeker;
+        public RectTransform AnswerButton;
+    }
+    
     public abstract class LevelProduct : MonoBehaviour
     {
         [SerializeField] protected GameObject backgroundObject;

@@ -26,7 +26,7 @@ namespace Section0.LettersBasketsLevels
         private List<KeyValuePair<string, Sprite>> itemsWinDataDict;
         private string winTypeWord;
         private string loseTypeWord;
-        private List<FallenItem> fallenItemsObjectlist = new List<FallenItem>();
+        private List<FallenItem> fallenItemsObjectList = new List<FallenItem>();
         
         private bool canMove;
         private string currentTypeWords;
@@ -83,12 +83,12 @@ namespace Section0.LettersBasketsLevels
 
         public void DisableGenerateItems()
         {
-            foreach (var fallenItemObject in fallenItemsObjectlist)
+            foreach (var fallenItemObject in fallenItemsObjectList)
             {
                 Destroy(fallenItemObject.gameObject);
             }
             
-            fallenItemsObjectlist.Clear();
+            fallenItemsObjectList.Clear();
             capacityFallenItems = 0;
             canMove = false;
         }
@@ -105,12 +105,13 @@ namespace Section0.LettersBasketsLevels
             {
                 var fallenItemObject = Instantiate(fallenItem, fallenItemsContainer);
                 SetDataToItem(fallenItemObject);
-                fallenItemsObjectlist.Add(fallenItemObject);
+                fallenItemsObjectList.Add(fallenItemObject);
             }
         }
         
         private void SetDataToItem(FallenItem fallenItemObject)
         { 
+            fallenItemObject.CanFall = false;
             var randomKeyId = Random.Range(0, 2);
             var itemsDataDict = randomKeyId == 0 ? itemsWinDataDict : itemsLoseDataDict;
             var randomValueId = Random.Range(0, itemsDataDict.Count);
@@ -140,26 +141,35 @@ namespace Section0.LettersBasketsLevels
 
         private void MoveItems()
         {
-            if (Time.time - deltaTime >= delayGenerateItem && capacityFallenItems < fallenItemsObjectlist.Count)
+            if (Time.time - deltaTime >= delayGenerateItem)
             {
                 deltaTime = Time.time;
-                capacityFallenItems++;
+                
+                for(int i = 0; i < fallenItemsObjectList.Count; i++)
+                {
+                    if (fallenItemsObjectList[i].CanFall == false)
+                    {
+                        fallenItemsObjectList[i].CanFall = true;
+                        break;
+                    }
+                }
             }
 
-            for(int i = 0; i < capacityFallenItems; i++)
+            for(int i = 0; i < fallenItemsObjectList.Count; i++)
             {
-                if(fallenItemsObjectlist[i] == null) continue;
+                if(fallenItemsObjectList[i] == null || 
+                   fallenItemsObjectList[i].CanFall == false) continue;
                 
-                fallenItemsObjectlist[i].ItemRectTransform.anchoredPosition = Vector2.MoveTowards(
-                    fallenItemsObjectlist[i].ItemRectTransform.anchoredPosition,
-                    new Vector2(fallenItemsObjectlist[i].ItemRectTransform.anchoredPosition.x, -canvasSize.y / 2 - 100), 
+                fallenItemsObjectList[i].ItemRectTransform.anchoredPosition = Vector2.MoveTowards(
+                    fallenItemsObjectList[i].ItemRectTransform.anchoredPosition,
+                    new Vector2(fallenItemsObjectList[i].ItemRectTransform.anchoredPosition.x, -canvasSize.y / 2 - 100), 
                     Time.deltaTime * speedItems
                 );
 
-                if (fallenItemsObjectlist[i].ItemRectTransform.anchoredPosition.y <= -canvasSize.y / 2 - 90)
+                if (fallenItemsObjectList[i].ItemRectTransform.anchoredPosition.y <= -canvasSize.y / 2 - 90)
                 {
-                    SetDataToItem(fallenItemsObjectlist[i]);
-                    onItemFall?.Invoke(fallenItemsObjectlist[i].TypeWord);
+                    SetDataToItem(fallenItemsObjectList[i]);
+                    onItemFall?.Invoke(fallenItemsObjectList[i].TypeWord);
                 }
             }
         }

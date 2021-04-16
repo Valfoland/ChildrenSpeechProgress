@@ -17,10 +17,8 @@ namespace Section0.LettersBasketsLevels
     /// </summary>
 
     [Serializable]
-    public class UiObjectsData
+    public class UiLettersBasketsObjectsData : UiObjectsData
     {
-        public RectTransform Speeker;
-        public RectTransform AnswerButton;
         public RectTransform Basket;
     }
     
@@ -30,7 +28,7 @@ namespace Section0.LettersBasketsLevels
         [SerializeField] private Basket basket;
         [SerializeField] private LevelDialogueData levelDialogueData;
         [SerializeField] private UiShower uiShower;
-        [SerializeField] private UiObjectsData uiObjectsData;
+        [SerializeField] private UiLettersBasketsObjectsData uiLettersBasketsObjectsData;
         [SerializeField] private int countRounds;
         
         private LevelDialogue levelDialogue;
@@ -108,11 +106,11 @@ namespace Section0.LettersBasketsLevels
 
             uiShower.HideObjects(new List<RectTransform>
             {
-                uiObjectsData.Speeker,
-                uiObjectsData.AnswerButton
+                uiLettersBasketsObjectsData.Speeker,
+                uiLettersBasketsObjectsData.AnswerButton
             });
 
-            uiShower.ShowObjects(new List<RectTransform> {uiObjectsData.Basket});
+            uiShower.ShowObjects(new List<RectTransform> {uiLettersBasketsObjectsData.Basket});
         }
 
         private void CheckFallenItem(string currentTypeWords)
@@ -148,7 +146,6 @@ namespace Section0.LettersBasketsLevels
             }
             else
             {
-                Debug.Log("sadsf ");
                 itemsGenerator.DisableGenerateItems();
                 CheckWinLevel();
             }

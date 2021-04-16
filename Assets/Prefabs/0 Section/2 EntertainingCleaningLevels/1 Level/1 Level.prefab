@@ -545,6 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2680799583831263085}
   - component: {fileID: 7995776280958513532}
+  - component: {fileID: 4651496956503853096}
   m_Layer: 5
   m_Name: 1 Level
   m_TagString: Untagged
@@ -587,7 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundObject: {fileID: 6905159869819118701, guid: e62529a6563b9994dbc921377db8364c,
     type: 3}
-  countRounds: 5
+  countRounds: 8
   itemLevel:
   - {fileID: 2048357061740201115}
   - {fileID: 7845153011041047196}
@@ -595,6 +596,22 @@ MonoBehaviour:
     ButtonAnswer: {fileID: 0}
     TextInButtonAnswer: {fileID: 0}
     TextDialog: {fileID: 1691972745005657469}
+  uiShower: {fileID: 4651496956503853096}
+  uiObjectsData:
+    Speeker: {fileID: 836162538763535450}
+    AnswerButton: {fileID: 2680799583831263085}
+--- !u!114 &4651496956503853096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576742232866814204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9684e9bbaac8ba49aa3cdc3582814b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4945222004849988988
 GameObject:
   m_ObjectHideFlags: 0

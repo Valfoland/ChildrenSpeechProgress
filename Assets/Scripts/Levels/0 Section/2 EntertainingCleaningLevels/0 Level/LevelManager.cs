@@ -22,6 +22,8 @@ namespace Section0.EntertainingCleaningLevels.Level0
     public class LevelManager : LevelProduct
     {       
         [SerializeField] private int countRounds;
+        [SerializeField] private UiShower uiShower;
+        [SerializeField] private UiObjectsData uiObjectsData;
         [SerializeField] private LevelDialogueData levelDialogueData;
         [SerializeField] private MissionsDecorator.ItemLevel[] itemLevels;
         private Dictionary<MissionsDecorator.ItemLevel, int> idItemsDict = new Dictionary<MissionsDecorator.ItemLevel, int>();
@@ -76,6 +78,10 @@ namespace Section0.EntertainingCleaningLevels.Level0
         protected override void StartLevel()
         {
             startLevel = true;
+            uiShower.HideObjects(new List<RectTransform>
+            {
+                uiObjectsData.Speeker
+            });
             Voice(needWord);
         }
 
@@ -110,7 +116,11 @@ namespace Section0.EntertainingCleaningLevels.Level0
 
         private void ResetItem(MissionsDecorator.ItemLevel itemLevel)
         {
-            if (currentRound >= countRounds) CheckWinLevel();
+            if (currentRound >= countRounds)
+            {
+                CheckWinLevel();
+                return;
+            }
 
             var id = Random.Range(0, dataLevelManager.NameItemsPair.Count);
             var itemPair = dataLevelManager.NameItemsPair[id];
@@ -122,6 +132,7 @@ namespace Section0.EntertainingCleaningLevels.Level0
             var idItem = idItemsDict.Values.ToList()[Random.Range(0, idItemsDict.Values.Count)];
             
             needWord = dataLevelManager.NameItemsPair[idItem].Key;
+            Voice(needWord);
             currentRound++;
         }
 

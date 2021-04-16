@@ -19,8 +19,7 @@ public class Basket : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDo
     public void OnDrag(PointerEventData eventData)
     {
         var posX = Input.mousePosition.x;
-        
-        Debug.Log(Input.mousePosition.x);
+
         basketRectTransform.position = 
             new Vector2(
                 Mathf.Clamp(posX, 0, Screen.width), 

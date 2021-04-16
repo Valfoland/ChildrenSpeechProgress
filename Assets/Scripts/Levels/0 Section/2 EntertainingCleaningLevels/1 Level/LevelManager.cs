@@ -15,6 +15,8 @@ namespace Section0.EntertainingCleaningLevels.Level1
         [SerializeField] private int countRounds;
         [SerializeField] private MissionsDecorator.ItemLevel[] itemLevel;
         [SerializeField] private LevelDialogueData levelDialogueData;
+        [SerializeField] private UiShower uiShower;
+        [SerializeField] private UiObjectsData uiObjectsData;
         
         private LevelDialogue levelDialogue;
         private DataLevelManager dataLevelManager;
@@ -60,7 +62,11 @@ namespace Section0.EntertainingCleaningLevels.Level1
         
         protected override void StartLevel()
         {
-            VoiceCallBack(needWord, ReshapeItems);
+            uiShower.HideObjects(new List<RectTransform>
+            {
+                uiObjectsData.Speeker
+            });
+            ReshapeItems();
         }
 
         private void SetNeedWord()
@@ -82,8 +88,9 @@ namespace Section0.EntertainingCleaningLevels.Level1
         {
             if (currentRound < countRounds && itemList.Count == 2)
             {
-                SetItems();
                 currentRound++;
+                Voice(needWord);
+                SetItems();
             }
             else
             {
@@ -123,7 +130,7 @@ namespace Section0.EntertainingCleaningLevels.Level1
         {
             yield return new WaitForSeconds(time);
             SetNeedWord();
-            VoiceCallBack(needWord, ReshapeItems);
+            ReshapeItems();
         }
     }
 }
