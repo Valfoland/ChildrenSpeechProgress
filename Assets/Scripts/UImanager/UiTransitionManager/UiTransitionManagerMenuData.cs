@@ -14,14 +14,12 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
     [SerializeField] private DataSettingsPanel dataSettingsPanel;
     [SerializeField] private DataStatsPanel dataStatsPanel;
     [SerializeField] private DataChildrenPanel dataChildrenPanel;
-    [SerializeField] private DataAddChildPanel dataAddChildPanel;
     [SerializeField] private DataExitPanel dataExitPanel;
     [SerializeField] private DataSectionsPanel dataSectionsPanel;
     [SerializeField] private DataMissionsPanel dataSetMissionsPanel;
     [SerializeField] private DataSetLevelsPanel dataSetLevelsPanel;
     public DataInfoPanel DataInfoPanel;
     
-    public Panel AddChildPanel;
     public Panel ChildrenPanel;
     public Panel MenuPanel;
     public Panel InfoPanel;
@@ -40,7 +38,6 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
         #region Auto_Generated_Code_Placement_Init
         MenuPanel = new MenuPanel(dataPanelDict["MenuPanel"], dataMenuPanel, PanelTypes.Main);
         ChildrenPanel = new ChildrenPanel(dataPanelDict["ChildrenPanel"], dataChildrenPanel, PanelTypes.Main);
-        AddChildPanel = new AddChildPanel(dataPanelDict["AddChildPanel"], dataAddChildPanel, PanelTypes.Secondary);
         InfoPanel = new InfoPanel(dataPanelDict["InfoPanel"], DataInfoPanel, PanelTypes.Secondary);
         
         Panel statsPanel = new StatsPanel(dataPanelDict["StatsPanel"], dataStatsPanel, PanelTypes.Main);
@@ -74,15 +71,7 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 ChildrenPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {MenuPanel, TransitionTypes.Hard},
-                    {AddChildPanel, TransitionTypes.Soft}
-                }
-            },
-            {
-                AddChildPanel,
-                new Dictionary<Panel, TransitionTypes>
-                {
-                    
+                    {MenuPanel, TransitionTypes.Hard}
                 }
             },
             {

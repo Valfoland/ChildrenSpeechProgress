@@ -9,83 +9,106 @@ using System.IO;
 public class ChildrenManager : MonoBehaviour
 {
     private ChildrenDataSaver childSaver = new ChildrenDataSaver();
-    public static List<ChildrenData> ChildDataList = new List<ChildrenData>();
+    public static List<ChildData> ChildDataList = new List<ChildData>();
 
-    [SerializeField] private GameObject childPrefab;
+    [SerializeField] private Child childPrefab;
     [SerializeField] private GameObject parentChild;
-    private static GameObject parentSingletonChild;
-    
-    private void Awake()
-    {
-        //DontDestroy();
-        Init();
-    }
 
-    private void DontDestroy()
+    private void Start()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("ChildManager");
-
-        if (objs.Length > 1)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-    
-    private void Init()
-    {
-        DataAddChildPanel.onAddChild += ClickAddChild;
-        AttemptCounter.onSetResult += SetDataChild;
-        GameManager.onSetCompletionLevel += SetDataChild;
+        AttemptCounter.onSetResult += SetResults;
+        GameManager.onSetCompletionLevel += SetCompletedLevels;
+        InitDefaultChildData();
         InitChildren();
     }
-    
+
     private void OnDestroy()
     {
-        DataAddChildPanel.onAddChild -= ClickAddChild;
-        AttemptCounter.onSetResult -= SetDataChild;
-        GameManager.onSetCompletionLevel -= SetDataChild;
+        AttemptCounter.onSetResult -= SetResults;
+        GameManager.onSetCompletionLevel -= SetCompletedLevels;
     }
-    
-    private void InitChildren()
+
+    private void SetResults(int result)
     {
-        if (parentSingletonChild == null)
+        if (Child.CurrentChildData != Child.DefaultChildData)
         {
-            parentSingletonChild = parentChild;
+            childSaver.ChildResultsWrite(Child.CurrentChildData, result);
         }
-        
-        Child.CountChildren = 0;
-        ChildDataList = childSaver.ChildDataRead();
-        
-        if (ChildDataList.Count != 0)
-            RestoreChildren();
-    }
-
-    private void SetDataChild()
-    {
-        childSaver.ChildDataSave(Child.CurrentChildrenData);
     }
     
-    private void ClickAddChild(DataAddChildPanel dataAddChildPanel)
+    private void SetCompletedLevels()
     {
-        childSaver.ChildDataWrite(InstanceChild(), dataAddChildPanel, null);
-        childSaver.ChildDataSave();
-        childSaver.ChildCountSave();
-        ChildDataList = childSaver.ChildDataRead();
-    }
-
-    private void RestoreChildren()
-    {
-        foreach (var childrenData in ChildDataList)
+        if (Child.CurrentChildData == Child.DefaultChildData)
         {
-            childSaver.ChildDataWrite(InstanceChild(), null, childrenData);
+            childSaver.DefaultChildDataWrite(Child.CurrentChildData);
+        }
+        else
+        {
+            childSaver.ChildCompletedLevelsWrite(ChildDataList, Child.CurrentChildData);
         }
     }
 
-    private GameObject InstanceChild()
+    public void InitDefaultChildData()
     {
-       GameObject childObject = Instantiate(childPrefab, parentSingletonChild.transform);
+        Child.DefaultChildData = childSaver.DefaultChildDataRead();
+        
+        if (Child.DefaultChildData == null)
+        {
+            Child.DefaultChildData = new ChildData
+            {
+                IdChild = -1,
+                Name = ChildDataConfig.DEFAULT_CHILD_NAME,
+                Age = ChildDataConfig.DEFAULT_CHILD_AGE,
+                GroupName = ChildDataConfig.DEFAULT_CHILD_GROUP,
+                CompletedLevels = DataGame.GetCompletionLevelsDict(false)
+            };
+            
+            childSaver.DefaultChildDataWrite(Child.DefaultChildData);
+        }
+        
+        var childObject = InstantiateChildObject();
+        InitChildObject(childObject, Child.DefaultChildData);
+
+        if (ChildDataList == null || ChildDataList.Count == 0)
+        {
+            childObject.ClickChooseChild();
+        }
+    }
+    
+    public void InitChildren()
+    {
+        ChildDataList = childSaver.ChildDataRead();
+        if(ChildDataList == null) return;
+
+        foreach (var childData in ChildDataList)
+        {
+            var childObject = InstantiateChildObject();
+            InitChildObject(childObject, childData);
+            
+            if (childData.IdChild == PlayerPrefs.GetInt(ChildDataConfig.CHOOSE_CHILD))
+            {
+                childObject.ClickChooseChild();
+            }
+        };
+    }
+
+    private void InitChildObject(Child childObject, ChildData childData)
+    {
+        childObject.ChildData = childData;
+        childObject.ChildViewData.Name.text = childData.Name;
+        childObject.ChildViewData.Age.text = childData.Age;
+        childObject.ChildViewData.GroupName.text = childData.GroupName;
+        
+        if (childData.CompletedLevels == null)
+        {
+            childData.CompletedLevels = DataGame.GetCompletionLevelsDict(false);
+        }
+    }
+
+    private Child InstantiateChildObject()
+    {
+       Child childObject = Instantiate(childPrefab, parentChild.transform);
+       childObject.InitChild();
        return childObject;
     } 
 }

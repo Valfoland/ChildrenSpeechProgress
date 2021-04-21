@@ -51,7 +51,7 @@ public class LevelsPanel : Panel
             .MissionDataList[DataGame.IdSelectMission]
             .LevelDataList.Count;
 
-        var completedLvls = Child.CurrentChildrenData.CompletedLevels
+        var completedLvls = Child.CurrentChildData.CompletedLevels
             [$"{DataGame.IdSelectSection}{DataGame.IdSelectMission}"];
 
         for (int i = 0; i < levelsPanel.GoToGameBtns.Length; i++)

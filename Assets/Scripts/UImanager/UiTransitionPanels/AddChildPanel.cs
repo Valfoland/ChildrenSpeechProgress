@@ -38,8 +38,7 @@ public class AddChildPanel : Panel
 
     private void AddChild(bool isAdd)
     {
-        if(isAdd)
-            DataAddChildPanel.onAddChild?.Invoke(dataAddChildPanel);
+        if(isAdd) DataAddChildPanel.onAddChild?.Invoke(dataAddChildPanel);
         HidePanel();
         DataAddChildPanel.onCheckEmptyPanel?.Invoke();
     }

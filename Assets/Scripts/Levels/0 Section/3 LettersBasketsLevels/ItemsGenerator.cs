@@ -35,7 +35,7 @@ namespace Section0.LettersBasketsLevels
 
         public void InitData()
         {
-            canvasSize = GameObject.FindWithTag(DataGame.CANVAS_LEVELS).GetComponent<RectTransform>().sizeDelta;
+            canvasSize = GameObject.FindWithTag(DataGame.CANVAS_LEVEL).GetComponent<RectTransform>().sizeDelta;
         }
         
         public void EnableGenerateItems(string currentTypeWords, Dictionary<string, Dictionary<string, Sprite>> itemsDataDict)

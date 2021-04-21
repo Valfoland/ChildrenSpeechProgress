@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class DataMenuPanel
 {
-    public static System.Action onCheckChild;
     public Button GoToSectionsButton;
 }
 
@@ -19,15 +18,6 @@ public class MenuPanel : Panel
         this.dataMenuPanel = dataMenuPanel;
         AddButtonListener();
         GetBtnSection();
-    }
-
-    public override void HidePanel()
-    {
-        if (PlayerPrefs.GetInt("countChild") <= 0)
-        {
-            DataMenuPanel.onCheckChild?.Invoke();
-        }
-        base.HidePanel();
     }
 
     private void GetBtnSection()

@@ -29,14 +29,11 @@ public class SectionsPanel : Panel
     public override void ShowPanel()
     {
         onSetInfoPanel?.Invoke("");
-        if (PlayerPrefs.GetInt("countChild") > 0)
-        {
-            GetBtnSection();
-            SetNamePanelSections();
-            base.ShowPanel();
-        }
+        GetBtnSection();
+        SetNamePanelSections();
+        base.ShowPanel();
     }
-    
+
     public override void HidePanel()
     {
         foreach (var btn in dataSectionsPanel.GoToMissionsBtn)

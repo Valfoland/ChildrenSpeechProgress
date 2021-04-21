@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void SetCompletedLvl()
     {
-        Child.CurrentChildrenData.CompletedLevels
+        Child.CurrentChildData.CompletedLevels
             [$"{DataGame.IdSelectSection}{DataGame.IdSelectMission}"]
             [DataGame.IdSelectLvl] = true;
         onSetCompletionLevel?.Invoke();

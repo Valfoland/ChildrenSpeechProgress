@@ -6,70 +6,66 @@ using System.Linq;
 
 public class ChildrenDataSaver
 {
-    private Child child;
-    public const string COUNT_CHILD = "countChild";
-    public const string CHOOSE_CHILD = "chooseChild";
-    private const string RESULT_CHILD = "resultChild";
-    private const string CHILD = "child";
-
-    public void ChildDataWrite(GameObject childObject, DataAddChildPanel dataAddChildPanel,
-        ChildrenData childData)
+    public List<ChildData> ChildDataRead()
     {
-        child = childObject.GetComponent<Child>();
-
-        if (childData == null)
-        {
-            child.ChildrenData.IdChild = Child.CountChildren;
-            child.ChildrenData.Name = dataAddChildPanel.NameField.text;
-            child.ChildrenData.Age = dataAddChildPanel.AgeField.text;
-            child.ChildrenData.GroupName = dataAddChildPanel.GroupField.text;
-            child.ChildrenData.ResultMission = DataGame.GetCompletionLevelsDict(-1);
-            child.ChildrenData.CompletedLevels = DataGame.GetCompletionLevelsDict(false);
-        }
-        else
-        {
-            child.ChildrenData = childData;
-        }
-
-        child.Name.text = 
-            childData == null ? dataAddChildPanel.NameField.text : childData.Name;
-        child.Age.text = 
-            childData == null ? dataAddChildPanel.AgeField.text : childData.Age;
-        child.GroupName.text = 
-            childData == null ? dataAddChildPanel.GroupField.text : childData.GroupName;
-
-        if (PlayerPrefs.GetInt(COUNT_CHILD) == 0 ||
-            child.ChildrenData.IdChild == PlayerPrefs.GetInt(CHOOSE_CHILD))
-        {
-            Child.CurrentChildrenData = child.ChildrenData;
-        }
-    }
-    public List<ChildrenData> ChildDataRead()
-    {
-        List<ChildrenData> childrenDataQueue = new List<ChildrenData>();
-
-        for (int i = 0; i <= PlayerPrefs.GetInt(COUNT_CHILD) && PlayerPrefs.HasKey(i + CHILD); i++)
-        {
-            childrenDataQueue.Add(
-                JsonConvert.DeserializeObject<ChildrenData>(PlayerPrefs.GetString(i + CHILD)));
-        }
+        List<ChildData> childrenDataList = 
+            JsonConvert.DeserializeObject<List<ChildData>>(PlayerPrefs.GetString(ChildDataConfig.CHILDREN));
         
-        return childrenDataQueue;
+        var hasNetwork = false; //TODO checkNetwork
+
+        if (hasNetwork)
+        {
+            List<ChildData> remoteChildList = new List<ChildData>(); //TODO read from remoteDatabase
+            
+            for(int i = 0; i < remoteChildList.Count; i++)
+            {
+                for(int j = 0; j < childrenDataList.Count; j++)
+                {
+                    if (remoteChildList[i].IdChild == childrenDataList[j].IdChild)
+                    {
+                        remoteChildList[i].CompletedLevels = childrenDataList[j].CompletedLevels;
+                        break;
+                    }
+                }
+            }
+
+            ChildDataWrite(remoteChildList);
+            return remoteChildList;
+        }
+
+        return childrenDataList;
     }
 
-    public void ChildCountSave()
+    public ChildData DefaultChildDataRead()
     {
-        PlayerPrefs.SetInt(COUNT_CHILD, PlayerPrefs.GetInt(COUNT_CHILD) + 1);
+        ChildData childData = new ChildData();
+        childData =
+            JsonConvert.DeserializeObject<ChildData>(PlayerPrefs.GetString(ChildDataConfig.DEFAULT_CHILD));
+        return childData;
+    }
+
+    public void ChildCompletedLevelsWrite(List<ChildData> childDataList, ChildData childData)
+    {
+        ChildData childDataMain = childDataList?.FirstOrDefault(x => x.IdChild == childData.IdChild);
+        if (childDataMain != null) childDataMain.CompletedLevels = childData.CompletedLevels;
+        ChildDataWrite(childDataList);
     }
     
-    public void ChildDataSave(ChildrenData childrenData = null)
+    public void ChildResultsWrite(ChildData childData, int result)
     {
-        if (childrenData == null)
-        {
-            childrenData = child.ChildrenData;
-        }
+        //TODO команда отправки данных на сервер
+    }
 
-        PlayerPrefs.SetString(childrenData.IdChild + CHILD, JsonConvert.SerializeObject(childrenData));
+    private void ChildDataWrite(List<ChildData> childDataList)
+    {
+        PlayerPrefs.SetString(ChildDataConfig.CHILDREN, JsonConvert.SerializeObject(childDataList));
+        
+        //TODO Команда отправки данных на сервер
+    }
+    
+    public void DefaultChildDataWrite(ChildData childData)
+    {
+        PlayerPrefs.SetString(ChildDataConfig.DEFAULT_CHILD, JsonConvert.SerializeObject(childData));
     }
 }
 

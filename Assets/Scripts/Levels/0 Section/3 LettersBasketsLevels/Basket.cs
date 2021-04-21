@@ -13,7 +13,7 @@ public class Basket : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDo
 
     private void Start()
     {
-        canvasSize = GameObject.FindWithTag(DataGame.CANVAS_LEVELS).GetComponent<RectTransform>().sizeDelta;
+        canvasSize = GameObject.FindWithTag(DataGame.CANVAS_LEVEL).GetComponent<RectTransform>().sizeDelta;
     }
     
     public void OnDrag(PointerEventData eventData)

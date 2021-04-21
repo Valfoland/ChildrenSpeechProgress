@@ -54,7 +54,7 @@ public class GraphDataSelecter : MonoBehaviour
 
       InitMissionsDropDown();
 
-      selectChildDropdown.value = Child.CurrentChildrenData.IdChild;
+      selectChildDropdown.value = Child.CurrentChildData.IdChild;
       selectSectionDropdown.value = DataGame.IdSelectSection;
       selectMissionDropdown.value = DataGame.IdSelectMission;
 
@@ -91,9 +91,9 @@ public class GraphDataSelecter : MonoBehaviour
 
    private void ChooseData(int idChild = 0, int idSection = 0, int idMission = 0)
    {
-      var items = ChildrenManager.ChildDataList
+      /*var items = ChildrenManager.ChildDataList
          .Where(x => x.IdChild == idChild).ToList();
-      var resultList = items[0].ResultMission[idSection.ToString() + idMission]
+      var resultList = items[0].CurrentResultMissions[idSection.ToString() + idMission]
          .Where(x => x > 0).ToList();
 
       textNoData.gameObject.SetActive(false);
@@ -107,6 +107,6 @@ public class GraphDataSelecter : MonoBehaviour
       {
          windowGraph.SetGraph(resultList);
          onInteractableButtons?.Invoke(true);
-      }
+      }*/
    }
 }

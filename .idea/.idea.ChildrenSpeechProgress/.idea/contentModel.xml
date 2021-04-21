@@ -54,6 +54,8 @@
           </e>
           <e p="ChildrenManager" t="Include">
             <e p="Child.cs" t="Include" />
+            <e p="ChildData.cs" t="Include" />
+            <e p="ChildDataConfig.cs" t="Include" />
             <e p="ChildrenDataSaver.cs" t="Include" />
             <e p="ChildrenManager.cs" t="Include" />
           </e>
@@ -139,6 +141,11 @@
               <e p="UiShower.cs" t="Include" />
             </e>
             <e p="LevelProduct.cs" t="Include" />
+          </e>
+          <e p="Network" t="Include">
+            <e p="DataExchanger.cs" t="Include" />
+            <e p="NetworkChecker.cs" t="Include" />
+            <e p="UserAuthentication.cs" t="Include" />
           </e>
           <e p="Other" t="Include">
             <e p="AsyncLoadVisual.cs" t="Include" />

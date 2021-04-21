@@ -3,64 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class ChildrenData
-{
-    public int IdChild;
-    public string Name;
-    public string Age;
-    public string GroupName;
-    public Dictionary<string, List<int>> ResultMission = new Dictionary<string, List<int>>();
-    public Dictionary<string, List<bool>> CompletedLevels = new Dictionary<string, List<bool>>();
-}
-
 public class Child : MonoBehaviour
 {
-    public Text Name;
-    public Text Age;
-    public Text GroupName;
-    
-    public static int CountChildren;
     private static System.Action onChooseChild;
-    public static ChildrenData CurrentChildrenData;
-    public ChildrenData ChildrenData = new ChildrenData();
+    public static ChildData CurrentChildData;
+    public static ChildData DefaultChildData;
+    public ChildData ChildData;
+    public ChildViewData ChildViewData;
+
     
-    [SerializeField] private Image setChildImage;
-    
-    private void Start()
+    public void InitChild()
     {
         onChooseChild += SetChooseChild;
-        AddChild();
     }
-
+    
     private void OnDestroy()
     {
         onChooseChild -= SetChooseChild;
     }
-
-    private void AddChild()
-    {
-        ChildrenData.IdChild = CountChildren;
-        CountChildren++;
-        onChooseChild?.Invoke();
-    }
-
+    
     public void ClickChooseChild()
     {
-        PlayerPrefs.SetInt(ChildrenDataSaver.CHOOSE_CHILD, ChildrenData.IdChild);
-        CurrentChildrenData = ChildrenData;
+        PlayerPrefs.SetInt(ChildDataConfig.CHOOSE_CHILD, ChildData.IdChild);
+        CurrentChildData = ChildData;
         onChooseChild?.Invoke();
     }
 
     private void SetChooseChild()
     {
-        if (ChildrenData.IdChild != PlayerPrefs.GetInt(ChildrenDataSaver.CHOOSE_CHILD))
+        if (ChildData.IdChild != PlayerPrefs.GetInt(ChildDataConfig.CHOOSE_CHILD))
         {
-            setChildImage.color = Color.black;
+            ChildViewData.ChildCheckMarkImage.color = Color.black;
         }
         else
         {
-            setChildImage.color = Color.green;
+            ChildViewData.ChildCheckMarkImage.color = Color.white;
         }
     }
 }
