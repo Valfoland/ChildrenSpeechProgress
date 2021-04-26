@@ -35,11 +35,11 @@ public class GraphDataSelecter : MonoBehaviour
       selectChildDropdown.options.Clear();
       selectSectionDropdown.options.Clear();
       
-      foreach (var childrenData in ChildrenManager.ChildDataList)
+      foreach (var childrenData in ChildrenInitializer.ChildDataList)
       {
          selectChildDropdown.options.Add(new Dropdown.OptionData
          {
-            text = childrenData.Name
+            text = childrenData.NameChild
          });
       }
       
@@ -54,7 +54,7 @@ public class GraphDataSelecter : MonoBehaviour
 
       InitMissionsDropDown();
 
-      selectChildDropdown.value = Child.CurrentChildData.IdChild;
+      selectChildDropdown.value = Child.CurrentChildWithLocalData.Id;
       selectSectionDropdown.value = DataGame.IdSelectSection;
       selectMissionDropdown.value = DataGame.IdSelectMission;
 

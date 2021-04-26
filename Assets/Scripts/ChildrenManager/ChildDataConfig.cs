@@ -8,7 +8,7 @@ public class ChildDataConfig : MonoBehaviour
     public const string RESULT_CHILD = "resultChild";
     public const string CHILDREN = "children";
     public const string DEFAULT_CHILD = "defaultChild";
-    public const string DEFAULT_CHILD_NAME = "Ребенок";
-    public const string DEFAULT_CHILD_AGE = "Возраст";
-    public const string DEFAULT_CHILD_GROUP = "Группа";
+    public const string DEFAULT_CHILD_NAME = "Локальный";
+    public const string DEFAULT_CHILD_AGE = "";
+    public const string DEFAULT_CHILD_GROUP = "";
 }

@@ -18,17 +18,20 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
     [SerializeField] private DataSectionsPanel dataSectionsPanel;
     [SerializeField] private DataMissionsPanel dataSetMissionsPanel;
     [SerializeField] private DataSetLevelsPanel dataSetLevelsPanel;
+
+    public DataLogInPanel DataLogInPanel;
     public DataInfoPanel DataInfoPanel;
-    
+
+    public Panel LogInPanel;
     public Panel ChildrenPanel;
     public Panel MenuPanel;
     public Panel InfoPanel;
     #endregion
 
-    protected override void Start()
+    protected override void Awake()
     {
         InitPanels();
-        base.Start();
+        base.Awake();
     }
 
     protected override void InitPanels()
@@ -36,11 +39,12 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
         base.InitPanels();
         
         #region Auto_Generated_Code_Placement_Init
+
         MenuPanel = new MenuPanel(dataPanelDict["MenuPanel"], dataMenuPanel, PanelTypes.Main);
         ChildrenPanel = new ChildrenPanel(dataPanelDict["ChildrenPanel"], dataChildrenPanel, PanelTypes.Main);
         InfoPanel = new InfoPanel(dataPanelDict["InfoPanel"], DataInfoPanel, PanelTypes.Secondary);
+        LogInPanel = new LogInPanel(dataPanelDict["LogInPanel"], DataLogInPanel, PanelTypes.Secondary);
         
-        Panel statsPanel = new StatsPanel(dataPanelDict["StatsPanel"], dataStatsPanel, PanelTypes.Main);
         Panel levelsPanel = new LevelsPanel(dataPanelDict["LevelsPanel"], dataSetLevelsPanel, PanelTypes.Main);
         Panel sectionsPanel = new SectionsPanel(dataPanelDict["SectionsPanel"], dataSectionsPanel, PanelTypes.Main);
         Panel missionsPanel = new MissionsPanel(dataPanelDict["MissionsPanel"], dataSetMissionsPanel, PanelTypes.Main);
@@ -53,18 +57,11 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 MenuPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {statsPanel, TransitionTypes.Hard},
                     {ChildrenPanel, TransitionTypes.Hard},
                     {sectionsPanel, TransitionTypes.Hard},
                     {exitPanel, TransitionTypes.Soft},
-                    {settingsPanel, TransitionTypes.Soft}
-                }
-            },
-            {
-                statsPanel,
-                new Dictionary<Panel, TransitionTypes>
-                {
-                    {MenuPanel, TransitionTypes.Hard},
+                    {settingsPanel, TransitionTypes.Soft},
+                    {LogInPanel, TransitionTypes.Soft}
                 }
             },
             {
@@ -97,6 +94,13 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 }
             },
             {
+              LogInPanel,
+              new Dictionary<Panel, TransitionTypes>
+              {
+                  {MenuPanel, TransitionTypes.Hard}
+              }
+            },
+            {
                 sectionsPanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
@@ -120,7 +124,7 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                     {missionsPanel, TransitionTypes.Hard},
                     {InfoPanel, TransitionTypes.Soft}
                 }
-            },
+            }
         };
 
         #endregion

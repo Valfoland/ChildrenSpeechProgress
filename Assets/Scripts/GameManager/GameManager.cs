@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        onSetCompletionLevel = null;
         LevelProduct.onEndLevel -= EndLevel;
         UiTransitionManagerGame.onNextLvl -= NextLevel;
     }
@@ -66,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void SetCompletedLvl()
     {
-        Child.CurrentChildData.CompletedLevels
+        Child.CurrentChildWithLocalData.CompletedLevels
             [$"{DataGame.IdSelectSection}{DataGame.IdSelectMission}"]
             [DataGame.IdSelectLvl] = true;
         onSetCompletionLevel?.Invoke();

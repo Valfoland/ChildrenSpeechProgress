@@ -18,7 +18,7 @@ public class UiTransitionManagerData : MonoBehaviour
     public static Dictionary<Panel, List<Panel>> RelationPanelDict;
     #endregion
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         InitData();
     }

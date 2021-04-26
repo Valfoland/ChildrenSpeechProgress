@@ -54,10 +54,12 @@
           </e>
           <e p="ChildrenManager" t="Include">
             <e p="Child.cs" t="Include" />
-            <e p="ChildData.cs" t="Include" />
             <e p="ChildDataConfig.cs" t="Include" />
             <e p="ChildrenDataSaver.cs" t="Include" />
+            <e p="ChildrenInitializer.cs" t="Include" />
             <e p="ChildrenManager.cs" t="Include" />
+            <e p="ChildrenObjectGenerator.cs" t="Include" />
+            <e p="ChildWithLocalData.cs" t="Include" />
           </e>
           <e p="GameManager" t="Include">
             <e p="DataGame.cs" t="Include" />
@@ -143,19 +145,29 @@
             <e p="LevelProduct.cs" t="Include" />
           </e>
           <e p="Network" t="Include">
-            <e p="DataExchanger.cs" t="Include" />
-            <e p="NetworkChecker.cs" t="Include" />
-            <e p="UserAuthentication.cs" t="Include" />
+            <e p="AuthenticationManager.cs" t="Include" />
+            <e p="AuthenticationNotice.cs" t="Include" />
+            <e p="AuthenticationTypes.cs" t="Include" />
+            <e p="Services" t="Include">
+              <e p="BaseNetworkService.cs" t="Include" />
+              <e p="ChildrenNetworkService.cs" t="Include" />
+              <e p="UserNetworkService.cs" t="Include" />
+            </e>
+            <e p="Utilities" t="Include">
+              <e p="InternetChecker.cs" t="Include" />
+            </e>
           </e>
           <e p="Other" t="Include">
             <e p="AsyncLoadVisual.cs" t="Include" />
             <e p="DataChecker.cs" t="Include" />
             <e p="DontDestroyObject.cs" t="Include" />
             <e p="DragableObject.cs" t="Include" />
+            <e p="ForceDisableObject.cs" t="Include" />
             <e p="ImprovedDict.cs" t="Include" />
             <e p="JsonParserGame.cs" t="Include" />
             <e p="MathExtensions.cs" t="Include" />
             <e p="MousPositionDetecter.cs" t="Include" />
+            <e p="NoticeVisual.cs" t="Include" />
             <e p="SocketItem.cs" t="Include" />
           </e>
           <e p="UiManager" t="Include">
@@ -183,6 +195,7 @@
               <e p="GamePanel.cs" t="Include" />
               <e p="InfoPanel.cs" t="Include" />
               <e p="LevelsPanel.cs" t="Include" />
+              <e p="LoginPanel.cs" t="Include" />
               <e p="LosePanel.cs" t="Include" />
               <e p="MenuPanel.cs" t="Include" />
               <e p="MissionsPanel.cs" t="Include" />

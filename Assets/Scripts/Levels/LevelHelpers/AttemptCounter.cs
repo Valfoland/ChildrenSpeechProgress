@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Класс счетчик попыток+назначения балла за попытки
 /// </summary>
-public class AttemptCounter : MonoBehaviour
+public class AttemptCounter
 {
     public static System.Action<int> onSetResult;
     

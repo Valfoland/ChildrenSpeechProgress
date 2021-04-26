@@ -5,10 +5,22 @@ using UnityEngine.UI;
 
 public class ChildData
 {
-    public int IdChild;
-    public string Name;
-    public string Age;
-    public string GroupName;
+    public int Id;
+    public string NameChild;
+    public string AgeChild;
+    public string GroupeChild;
+}
+
+public class ChildResultData
+{
+    public string TypeONR = "";
+    public string TypeSection { get; set; }
+    public string TypeMission { get; set; }
+    public int PercentResult { get; set; }
+}
+
+public class ChildWithLocalData : ChildData
+{
     public Dictionary<string, List<bool>> CompletedLevels;
 }
 

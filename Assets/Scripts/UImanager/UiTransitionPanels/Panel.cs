@@ -23,7 +23,8 @@ public abstract class Panel
 {
     public static System.Action<string> onSetInfoPanel;
     public static System.Action<Panel, ItemTypes> onClickBtn;
-    public static System.Action<Panel,string > onDirectionTransition;
+    public static System.Action<Panel, string> onDirectionTransition;
+    public System.Action onSuccessResult;
     
     public GameObject PanelObject;
     public PanelTypes PanelType;

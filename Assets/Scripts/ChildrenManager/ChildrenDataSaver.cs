@@ -1,71 +1,99 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using System.Linq;
+using System.Xml.Serialization;
 
 public class ChildrenDataSaver
 {
-    public List<ChildData> ChildDataRead()
+    private Action<List<ChildWithLocalData>> onGetChildren;
+
+    public void StartChildDataRead(Action<List<ChildWithLocalData>> onGetChildren)
     {
-        List<ChildData> childrenDataList = 
-            JsonConvert.DeserializeObject<List<ChildData>>(PlayerPrefs.GetString(ChildDataConfig.CHILDREN));
+        this.onGetChildren = onGetChildren;
+        ChildrenNetworkService.Instance.GetChildren(ChildRead);
+    }
+
+    private void ChildRead(List<ChildData> remoteChildList)
+    {
+        List<ChildWithLocalData> childrenDataList =
+            JsonConvert.DeserializeObject<List<ChildWithLocalData>>(PlayerPrefs.GetString(ChildDataConfig.CHILDREN));
         
-        var hasNetwork = false; //TODO checkNetwork
-
-        if (hasNetwork)
+        if (remoteChildList == null)
         {
-            List<ChildData> remoteChildList = new List<ChildData>(); //TODO read from remoteDatabase
-            
-            for(int i = 0; i < remoteChildList.Count; i++)
+            onGetChildren?.Invoke(childrenDataList);
+            return;
+        }
+        
+        var tempRemoteList = new List<ChildWithLocalData>();
+        
+        foreach (var childData in remoteChildList)
+        {
+            tempRemoteList.Add(new ChildWithLocalData
             {
-                for(int j = 0; j < childrenDataList.Count; j++)
-                {
-                    if (remoteChildList[i].IdChild == childrenDataList[j].IdChild)
-                    {
-                        remoteChildList[i].CompletedLevels = childrenDataList[j].CompletedLevels;
-                        break;
-                    }
-                }
-            }
-
-            ChildDataWrite(remoteChildList);
-            return remoteChildList;
+                Id = childData.Id,
+                NameChild = childData.NameChild,
+                AgeChild = childData.AgeChild,
+                GroupeChild = childData.GroupeChild
+            });
         }
 
-        return childrenDataList;
+        if (childrenDataList != null)
+        {
+            foreach (var remoteChildData in tempRemoteList)
+            {
+                foreach (var localChildData in childrenDataList)
+                {
+                    if (remoteChildData.Id != localChildData.Id) continue;
+                    remoteChildData.CompletedLevels = localChildData.CompletedLevels;
+                    break;
+                }
+            }
+        }
+
+        ChildDataSave(tempRemoteList);
+        onGetChildren?.Invoke(tempRemoteList);
     }
 
-    public ChildData DefaultChildDataRead()
+    public ChildWithLocalData DefaultChildDataRead()
     {
-        ChildData childData = new ChildData();
-        childData =
-            JsonConvert.DeserializeObject<ChildData>(PlayerPrefs.GetString(ChildDataConfig.DEFAULT_CHILD));
-        return childData;
+        var childWithLocalData =
+            JsonConvert.DeserializeObject<ChildWithLocalData>(PlayerPrefs.GetString(ChildDataConfig.DEFAULT_CHILD));
+        return childWithLocalData;
     }
 
-    public void ChildCompletedLevelsWrite(List<ChildData> childDataList, ChildData childData)
+    public void ChildCompletedLevelsSave(List<ChildWithLocalData> childDataList, ChildWithLocalData childWithLocalData)
     {
-        ChildData childDataMain = childDataList?.FirstOrDefault(x => x.IdChild == childData.IdChild);
-        if (childDataMain != null) childDataMain.CompletedLevels = childData.CompletedLevels;
-        ChildDataWrite(childDataList);
+        ChildWithLocalData childWithLocalDataMain = childDataList?.FirstOrDefault(x => x.Id == childWithLocalData.Id);
+        if (childWithLocalDataMain != null) childWithLocalDataMain.CompletedLevels = childWithLocalData.CompletedLevels;
+        ChildDataSave(childDataList);
     }
     
-    public void ChildResultsWrite(ChildData childData, int result)
+    public void ChildResultsSend(ChildWithLocalData childWithLocalData, int result)
     {
-        //TODO команда отправки данных на сервер
+        var currentSection = DataGame.SectionDataList[DataGame.IdSelectSection];
+        var currentMission = currentSection.MissionDataList[DataGame.IdSelectMission];
+        
+        var childResult = new ChildResultData
+        {
+            TypeSection = currentSection.NameSection,
+            TypeMission = currentMission.NameMission,
+            PercentResult = result
+        };
+        
+        ChildrenNetworkService.Instance.SetChildResult(childResult, childWithLocalData.Id);
     }
 
-    private void ChildDataWrite(List<ChildData> childDataList)
+    private void ChildDataSave(List<ChildWithLocalData> childDataList)
     {
         PlayerPrefs.SetString(ChildDataConfig.CHILDREN, JsonConvert.SerializeObject(childDataList));
-        
-        //TODO Команда отправки данных на сервер
     }
     
-    public void DefaultChildDataWrite(ChildData childData)
+    public void DefaultChildDataSave(ChildWithLocalData childWithLocalData)
     {
-        PlayerPrefs.SetString(ChildDataConfig.DEFAULT_CHILD, JsonConvert.SerializeObject(childData));
+        PlayerPrefs.SetString(ChildDataConfig.DEFAULT_CHILD, JsonConvert.SerializeObject(childWithLocalData));
     }
 }
 

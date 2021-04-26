@@ -62,12 +62,11 @@ public class UiTransitionManager : MonoBehaviour
 
     private void OnClickDirectionBtnTransition(Panel panelFrom, string toPanel)
     {
-        HardClosePanels(panelFrom);
         foreach (var panel in UiTransitionManagerData.UiTransitionDict.Keys)
         {
             if (panel.GetType().Name == toPanel)
             {
-                panel.ShowPanel();
+                MakeTransition(panelFrom, panel);
             }
         }
     }

@@ -1,44 +1,52 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Child : MonoBehaviour
 {
-    private static System.Action onChooseChild;
-    public static ChildData CurrentChildData;
-    public static ChildData DefaultChildData;
-    public ChildData ChildData;
+    public static List<Child> ChildList = new List<Child>();
+    public static ChildWithLocalData CurrentChildWithLocalData;
+    public static ChildWithLocalData DefaultChildWithLocalData;
+    public ChildWithLocalData ChildWithLocalData;
     public ChildViewData ChildViewData;
 
     
     public void InitChild()
     {
-        onChooseChild += SetChooseChild;
+        ChildList.Add(this);
     }
-    
-    private void OnDestroy()
-    {
-        onChooseChild -= SetChooseChild;
-    }
-    
+
     public void ClickChooseChild()
     {
-        PlayerPrefs.SetInt(ChildDataConfig.CHOOSE_CHILD, ChildData.IdChild);
-        CurrentChildData = ChildData;
-        onChooseChild?.Invoke();
+        PlayerPrefs.SetInt(ChildDataConfig.CHOOSE_CHILD, ChildWithLocalData.Id);
+        CurrentChildWithLocalData = ChildWithLocalData;
+        SetChooseChild();
     }
 
     private void SetChooseChild()
     {
-        if (ChildData.IdChild != PlayerPrefs.GetInt(ChildDataConfig.CHOOSE_CHILD))
+        try
         {
-            ChildViewData.ChildCheckMarkImage.color = Color.black;
+            foreach (var child in ChildList)
+            {
+                if (child.ChildWithLocalData.Id != PlayerPrefs.GetInt(ChildDataConfig.CHOOSE_CHILD))
+                {
+                    child.ChildViewData.ChildCheckMarkImage.color = Color.black;
+                }
+                else
+                {
+                    child.ChildViewData.ChildCheckMarkImage.color = Color.white;
+                }
+            }
+            
         }
-        else
+        catch (MissingReferenceException)
         {
-            ChildViewData.ChildCheckMarkImage.color = Color.white;
+            
         }
+        
     }
 }
 
