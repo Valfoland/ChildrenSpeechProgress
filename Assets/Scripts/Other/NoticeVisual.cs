@@ -16,6 +16,7 @@ public class NoticeVisual : MonoBehaviour
     [SerializeField] private GameObject objectMessage;
     [SerializeField] private Text textMessage;
     [SerializeField] private AuthenticationNotice authenticationNotice;
+    [SerializeField] private DelayedDisableObject delayedDisableObject;
 
     List<string> noticeTextList = new List<string>();
     
@@ -56,5 +57,6 @@ public class NoticeVisual : MonoBehaviour
         }
 
         textMessage.text = sb.ToString();
+        delayedDisableObject.StartDelayedDisable(2);
     }
 }

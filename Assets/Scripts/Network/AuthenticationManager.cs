@@ -9,7 +9,8 @@ public class AuthenticationManager : MonoBehaviour
     [SerializeField] private InternetChecker internetChecker;
     [SerializeField] private UserNetworkService userNetworkService;
     [SerializeField] private Button buttonLoggedIn;
-    [SerializeField] private List<Sprite> spritesLogin;
+    [SerializeField] private Text textLoggedIn;
+    [SerializeField] private List<string> textLoginList;
     [SerializeField] private GameObject BlockObject;
     public Action<bool> onLoginSuccess;
     public Action onInternetFail;
@@ -40,7 +41,7 @@ public class AuthenticationManager : MonoBehaviour
 
     public void OnCheckLogIn(bool result)
     {
-        buttonLoggedIn.image.sprite = result ? spritesLogin[0] : spritesLogin[1];
+        textLoggedIn.text = textLoginList[result ? 0 : 1];
         onLoginSuccess?.Invoke(result);
     }
 
@@ -49,7 +50,7 @@ public class AuthenticationManager : MonoBehaviour
         if (UserNetworkService.IsLoggedIn)
         {
             userNetworkService.Logout();
-            buttonLoggedIn.image.sprite = spritesLogin[1];
+            textLoggedIn.text = textLoginList[0];
         }
     }
 }

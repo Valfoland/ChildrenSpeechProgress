@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceDisableObject : MonoBehaviour
+public class DelayedDisableObject : MonoBehaviour
 {
    private float time;
+   
+   [SerializeField] private bool canDisable;
    [SerializeField] private float forceDisableTime;
 
    private void OnEnable()
@@ -13,12 +15,20 @@ public class ForceDisableObject : MonoBehaviour
       time = Time.time;
    }
 
+   public void StartDelayedDisable(int timeDisable)
+   {
+      canDisable = true;
+      forceDisableTime = timeDisable;
+      time = Time.time;
+   }
+
    private void Update()
    {
-      if (Time.time - time >= forceDisableTime)
+      if (Time.time - time >= forceDisableTime && canDisable)
       {
          time = Time.time;
          gameObject.SetActive(false);
+         canDisable = false;
       }
    }
 }
