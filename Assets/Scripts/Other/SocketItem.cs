@@ -12,6 +12,7 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
 {
     private static Action<RectTransform, SocketItem> onPutItem;
     public static Action<SocketItem> onPut;
+    public static Action<SocketItem> onClickItem;
 
     [SerializeField] private StateRect stateRect;
     [SerializeField] private bool isInsertableSocket;
@@ -67,6 +68,7 @@ public class SocketItem : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoi
         {
             startSocket = transform.parent.gameObject;
             mainRect.SetParent(TempContainer);
+            onClickItem?.Invoke(this);
         }
     }
 

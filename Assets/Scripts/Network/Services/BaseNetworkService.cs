@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class BaseNetworkService : MonoBehaviour
 {
-    protected const string URL = "https://localhost:44300/api/";
+    protected const string URL = "https://childrenspeech.azurewebsites.net/api/";
 }

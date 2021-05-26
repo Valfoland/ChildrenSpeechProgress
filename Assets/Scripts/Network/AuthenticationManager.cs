@@ -50,7 +50,7 @@ public class AuthenticationManager : MonoBehaviour
         if (UserNetworkService.IsLoggedIn)
         {
             userNetworkService.Logout();
-            textLoggedIn.text = textLoginList[0];
+            textLoggedIn.text = textLoginList[1];
         }
     }
 }

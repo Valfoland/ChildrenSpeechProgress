@@ -13,7 +13,7 @@ namespace Section1.IlluminatorLevels.Level0
         {
             base.Start();
             InitData();
-            StartLevel();
+            StartDialogue();
         }
  
         private void OnDestroy()
@@ -21,10 +21,11 @@ namespace Section1.IlluminatorLevels.Level0
             MissionsDecorator.ItemLevel.onClickBox -= CheckBox;
         }
 
-        private void InitData()
+        protected override void InitData()
         {
             MissionsDecorator.ItemLevel.onClickBox += CheckBox;
             dataLevelManager = new DataLevelManager(countRounds);
+            base.InitData();
         }
        
     }

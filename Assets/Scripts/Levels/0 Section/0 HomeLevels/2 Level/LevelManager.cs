@@ -53,7 +53,7 @@ namespace Section0.HomeLevels.Level2
         
         private void ReshapeItems()
         {
-            if (currentRound < dataLevelManager.QueueSentenceses.Count)
+            if (currentRound < dataLevelManager.QueueSentences.Count)
             {
                 currentRound++;
                 GetSentence();
@@ -93,8 +93,8 @@ namespace Section0.HomeLevels.Level2
         
         private void GetSentence()
         {
-            currentSentence = dataLevelManager.QueueSentenceses.Dequeue();
-            dataLevelManager.QueueSentenceses.Enqueue(currentSentence);
+            currentSentence = dataLevelManager.QueueSentences.Dequeue();
+            dataLevelManager.QueueSentences.Enqueue(currentSentence);
             SetTextMessage(currentSentence);
         }
 

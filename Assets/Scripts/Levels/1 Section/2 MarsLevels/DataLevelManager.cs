@@ -14,8 +14,7 @@ namespace Section1.MarsLevels.Level0
             dataLevel = new DataHome();
             InstantiateData();
             GetDataFromJson($"JsonDataMarsLevels/JsonDataMarsLevel{idLvl}");
-            
-            StartSentence = "Найди мне среди картинок, где ";
+            GetCommonDataFromJson("JsonDataMarsLevels", "JsonCommonDataMarsLevels");
             dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
             SpriteDict = dataLevel.SpriteDict;
         }

@@ -649,8 +649,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 144, y: 210}
-  m_SizeDelta: {x: 180, y: 130.89496}
+  m_AnchoredPosition: {x: 130, y: 185}
+  m_SizeDelta: {x: 180, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5415691463684535659
 CanvasRenderer:
@@ -972,7 +972,10 @@ MonoBehaviour:
   - {fileID: 832413612718241625}
   - {fileID: 1191823062860645961}
   - {fileID: 4152096663490863743}
-  textMessage: {fileID: 1691972745005657469}
+  levelDialogueData:
+    ButtonAnswer: {fileID: 0}
+    TextInButtonAnswer: {fileID: 0}
+    TextDialog: {fileID: 1691972745005657469}
 --- !u!1 &4945222004849988988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1059,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 75, y: 75}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 70, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1047295824956413673
 CanvasRenderer:

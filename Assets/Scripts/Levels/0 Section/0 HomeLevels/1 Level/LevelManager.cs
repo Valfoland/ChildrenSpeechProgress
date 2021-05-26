@@ -48,6 +48,7 @@ namespace Section0.HomeLevels.Level1
         private void OnDestroy()
         {
             SocketItem.onPut -= CheckSyllable;
+            SocketItem.onClickItem -= VoiceClickedItem;
         }
 
         private void InitData()
@@ -56,6 +57,7 @@ namespace Section0.HomeLevels.Level1
             voiceButton.onClick.AddListener(ClickButtonVoice);
             dataLevelManager = new DataLevelManager();
             SocketItem.onPut += CheckSyllable;
+            SocketItem.onClickItem += VoiceClickedItem;
         }
 
         private void ReshapeItems()
@@ -166,10 +168,15 @@ namespace Section0.HomeLevels.Level1
                 }
             }
         }
-
+        
         private void InitCarousel()
         {
             onInit?.Invoke();
+        }
+        
+        private void VoiceClickedItem(SocketItem item)
+        {
+            Voice(item.gameObject.name);
         }
 
         private void ClickButtonVoice()

@@ -14,8 +14,7 @@ namespace Section1.IlluminatorLevels.Level0
             dataLevel = new DataHome();
             InstantiateData();
             GetDataFromJson($"JsonDataIlluminatorLevels/JsonDataIlluminatorLevel{idLvl}");
-            
-            StartSentence = "Найди мне среди картинок, где ";
+            GetCommonDataFromJson("JsonDataIlluminatorLevels", "JsonCommonDataIllumLevels");
             dataLevel.SpriteDict = LoadSprites(dataLevel.NameDirDict);
             SpriteDict = dataLevel.SpriteDict;
         }

@@ -16,18 +16,27 @@ namespace Section1.MissionsDecorator
     public class DataLevelManager : Levels.DataLevelManager
     {
         private int countRounds;
-        public string StartSentence;
         protected DataHome dataLevel;
         private List<Dictionary<string, List<string>>> nameItemsList;
         public List<KeyValuePair<string, string>> NameItemsPair = new List<KeyValuePair<string, string>>();
         public Dictionary<string, Dictionary<string, Sprite>> SpriteDict;
-
+        public Dictionary<int, List<DialogueData>> DialogueIntroDict = new Dictionary<int, List<DialogueData>>();
+        public Dictionary<int, List<DialogueData>> DialogueGameDict = new Dictionary<int, List<DialogueData>>();
+        
         public DataLevelManager(int countRounds)
         {
             this.countRounds = countRounds;
         }
 
-        protected virtual void GetDataFromJson(string path)
+        protected void GetCommonDataFromJson(string path, string fileName)
+        {
+            JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
+            var dataText = jsonData.GetData(path, fileName);
+            DialogueIntroDict = LoadDialogueData(dataText["LevelIntroSentences"]);
+            DialogueGameDict = LoadDialogueData(dataText["LevelSentences"]);
+        }
+        
+        protected void GetDataFromJson(string path)
         {
             JsonParserGame<Dictionary<string, List<string>>> jsonData = new JsonParserGame<Dictionary<string, List<string>>>();
             nameItemsList = new List<Dictionary<string, List<string>>>

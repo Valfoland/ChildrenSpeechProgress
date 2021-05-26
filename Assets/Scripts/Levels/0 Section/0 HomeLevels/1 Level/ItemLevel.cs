@@ -14,7 +14,7 @@ namespace Section0.HomeLevels.Level1
         [SerializeField] private Image imageItem;
         [SerializeField] private SocketItem socketItem;
         [SerializeField] private Text textItem;
-
+        
         public void SetData(KeyValuePair<string, Sprite> spriteItem, string currentLetter)
         {
             textItem.text = spriteItem.Value.name.StartsWith("TemplateSprite") ? spriteItem.Key : "";

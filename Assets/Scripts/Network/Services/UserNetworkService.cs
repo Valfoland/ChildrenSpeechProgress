@@ -28,6 +28,7 @@ public class UserNetworkService: BaseNetworkService
     
     public void Logout(Action onGetResponse = null)
     {
+        PlayerPrefs.DeleteKey("AuthCookie");
         UnityWebRequest.ClearCookieCache();
         IsLoggedIn = false;
     }
@@ -48,6 +49,8 @@ public class UserNetworkService: BaseNetworkService
         {
             using (var req = UnityWebRequest.Get(URL + IS_LOGGED_IN_ROUTE))
             {
+                if(PlayerPrefs.HasKey("AuthCookie"))
+                    req.SetRequestHeader("Set-Cookie", PlayerPrefs.GetString("AuthCookie"));
                 yield return req.SendWebRequest();
                 
                 var data = JsonConvert.DeserializeObject<Dictionary<string, bool>>(req.downloadHandler.text);
@@ -67,6 +70,8 @@ public class UserNetworkService: BaseNetworkService
     {
         using (var req = UnityWebRequest.Get(URL + IS_LOGGED_IN_ROUTE))
         {
+            if(PlayerPrefs.HasKey("AuthCookie"))
+                req.SetRequestHeader("Set-Cookie", PlayerPrefs.GetString("AuthCookie"));
             yield return req.SendWebRequest();
             
             var data = JsonConvert.DeserializeObject<Dictionary<string, bool>>(req.downloadHandler.text);
@@ -103,6 +108,10 @@ public class UserNetworkService: BaseNetworkService
         if (!req.isNetworkError)
         {
             IsLoggedIn = req.responseCode == 200;
+            if (req.GetResponseHeaders().ContainsKey("Set-Cookie"))
+            {
+                PlayerPrefs.SetString("AuthCookie", req.GetResponseHeaders()["Set-Cookie"]);
+            }
             onGetResponse?.Invoke(IsLoggedIn);
         }
     }
