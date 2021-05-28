@@ -37,6 +37,22 @@
           <e p="JsonDotNet" t="Include">
             <e p="link.xml" t="Include" />
           </e>
+          <e p="NativeShare" t="Include">
+            <e p="Android" t="Include">
+              <e p="NSCallbackHelper.cs" t="Include" />
+              <e p="NSShareResultCallbackAndroid.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="NativeShare.Editor.asmdef" t="Include" />
+              <e p="NSPostProcessBuild.cs" t="Include" />
+            </e>
+            <e p="iOS" t="Include">
+              <e p="NSShareResultCallbackiOS.cs" t="Include" />
+            </e>
+            <e p="NativeShare.cs" t="Include" />
+            <e p="NativeShare.Runtime.asmdef" t="Include" />
+            <e p="README.txt" t="Include" />
+          </e>
         </e>
         <e p="README.txt" t="Include" />
         <e p="Scripts" t="Include">
@@ -193,6 +209,7 @@
               <e p="EndGamePanel.cs" t="Include" />
               <e p="ExitPanel.cs" t="Include" />
               <e p="GamePanel.cs" t="Include" />
+              <e p="InfoGamePanel.cs" t="Include" />
               <e p="InfoPanel.cs" t="Include" />
               <e p="LevelsPanel.cs" t="Include" />
               <e p="LoginPanel.cs" t="Include" />
@@ -203,7 +220,6 @@
               <e p="Panel.cs" t="Include" />
               <e p="PanelEndGameDecorator.cs" t="Include" />
               <e p="SectionsPanel.cs" t="Include" />
-              <e p="SettingsPanel.cs" t="Include" />
               <e p="StatsPanel.cs" t="Include" />
               <e p="WinPanel.cs" t="Include" />
             </e>
@@ -238,6 +254,8 @@
         </e>
       </e>
       <e p="ChildrenSpeechProgress.sln" t="IncludeFlat" />
+      <e p="NativeShare.Editor.csproj" t="IncludeRecursive" />
+      <e p="NativeShare.Runtime.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />

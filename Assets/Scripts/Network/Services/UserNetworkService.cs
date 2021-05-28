@@ -7,6 +7,7 @@ using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class UserModel
 {
@@ -49,8 +50,7 @@ public class UserNetworkService: BaseNetworkService
         {
             using (var req = UnityWebRequest.Get(URL + IS_LOGGED_IN_ROUTE))
             {
-                if(PlayerPrefs.HasKey("AuthCookie"))
-                    req.SetRequestHeader("Set-Cookie", PlayerPrefs.GetString("AuthCookie"));
+                req.SetRequestHeader("Cookie", string.Format("session = {0}", PlayerPrefs.GetString("AuthCookie")));
                 yield return req.SendWebRequest();
                 
                 var data = JsonConvert.DeserializeObject<Dictionary<string, bool>>(req.downloadHandler.text);
@@ -70,8 +70,7 @@ public class UserNetworkService: BaseNetworkService
     {
         using (var req = UnityWebRequest.Get(URL + IS_LOGGED_IN_ROUTE))
         {
-            if(PlayerPrefs.HasKey("AuthCookie"))
-                req.SetRequestHeader("Set-Cookie", PlayerPrefs.GetString("AuthCookie"));
+            req.SetRequestHeader("Cookie", string.Format("session = {0}", PlayerPrefs.GetString("AuthCookie")));
             yield return req.SendWebRequest();
             
             var data = JsonConvert.DeserializeObject<Dictionary<string, bool>>(req.downloadHandler.text);
@@ -108,6 +107,10 @@ public class UserNetworkService: BaseNetworkService
         if (!req.isNetworkError)
         {
             IsLoggedIn = req.responseCode == 200;
+            foreach (var r in req.GetResponseHeaders())
+            {
+                Debug.Log(r.Key + " " + r.Value);
+            }
             if (req.GetResponseHeaders().ContainsKey("Set-Cookie"))
             {
                 PlayerPrefs.SetString("AuthCookie", req.GetResponseHeaders()["Set-Cookie"]);

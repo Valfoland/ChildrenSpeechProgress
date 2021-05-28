@@ -11,13 +11,13 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
     [Header("Дополнительные данные для панелек")]
     #region Auto_Generated_Code_Placement_Field
     [SerializeField] private DataMenuPanel dataMenuPanel;
-    [SerializeField] private DataSettingsPanel dataSettingsPanel;
     [SerializeField] private DataStatsPanel dataStatsPanel;
     [SerializeField] private DataChildrenPanel dataChildrenPanel;
     [SerializeField] private DataExitPanel dataExitPanel;
     [SerializeField] private DataSectionsPanel dataSectionsPanel;
     [SerializeField] private DataMissionsPanel dataSetMissionsPanel;
     [SerializeField] private DataSetLevelsPanel dataSetLevelsPanel;
+    [SerializeField] private DataInfoGamePanel dataInfoGamePanel;
 
     public DataLogInPanel DataLogInPanel;
     public DataInfoPanel DataInfoPanel;
@@ -48,8 +48,8 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
         Panel levelsPanel = new LevelsPanel(dataPanelDict["LevelsPanel"], dataSetLevelsPanel, PanelTypes.Main);
         Panel sectionsPanel = new SectionsPanel(dataPanelDict["SectionsPanel"], dataSectionsPanel, PanelTypes.Main);
         Panel missionsPanel = new MissionsPanel(dataPanelDict["MissionsPanel"], dataSetMissionsPanel, PanelTypes.Main);
-        Panel settingsPanel = new SettingsPanel(dataPanelDict["SettingsPanel"], dataSettingsPanel, PanelTypes.Secondary);
         Panel exitPanel = new ExitPanel(dataPanelDict["ExitPanel"], dataExitPanel, PanelTypes.Secondary);
+        Panel infoGamePanel = new InfoGamePanel(dataPanelDict["InfoGamePanel"], dataInfoGamePanel, PanelTypes.Secondary);
         
         UiTransitionDict = new Dictionary<Panel, Dictionary<Panel, TransitionTypes>>
         {
@@ -60,8 +60,8 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                     {ChildrenPanel, TransitionTypes.Hard},
                     {sectionsPanel, TransitionTypes.Hard},
                     {exitPanel, TransitionTypes.Soft},
-                    {settingsPanel, TransitionTypes.Soft},
-                    {LogInPanel, TransitionTypes.Soft}
+                    {LogInPanel, TransitionTypes.Soft},
+                    {infoGamePanel, TransitionTypes.Soft}
                 }
             },
             {
@@ -72,10 +72,10 @@ public class UiTransitionManagerMenuData : UiTransitionManagerData
                 }
             },
             {
-                settingsPanel,
+                infoGamePanel,
                 new Dictionary<Panel, TransitionTypes>
                 {
-                    {MenuPanel, TransitionTypes.Normal},
+                    {MenuPanel, TransitionTypes.Hard}
                 }
             },
             {

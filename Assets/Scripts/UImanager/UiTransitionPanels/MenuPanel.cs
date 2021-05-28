@@ -8,6 +8,8 @@ public class DataMenuPanel
 {
     public Button GoToSectionsButton;
     public Button LogInButton;
+    public Button ShareButton;
+    public Button RateButton;
 }
 
 public class MenuPanel : Panel
@@ -18,6 +20,8 @@ public class MenuPanel : Panel
     {
         this.dataMenuPanel = dataMenuPanel;
         this.dataMenuPanel.LogInButton.onClick.AddListener(OnClickLoginButton);
+        this.dataMenuPanel.RateButton.onClick.AddListener(OnClickRateButton);
+        this.dataMenuPanel.ShareButton.onClick.AddListener(OnClickShareButton);
         AddButtonListener();
         GetBtnSection();
     }
@@ -43,6 +47,19 @@ public class MenuPanel : Panel
     private void GoToSections()
     {
         OnDirectionTransition(this, "SectionsPanel");
+    }
+
+    private void OnClickShareButton()
+    {
+        new NativeShare()
+            .SetText($"Диагностическое приложение для развития речи у детей! \n" + 
+                     $"https://play.google.com/store/apps/details?id={Application.identifier}")
+            .Share();
+    }
+
+    private void OnClickRateButton()
+    {
+        Application.OpenURL($"https://play.google.com/store/apps/details?id={Application.identifier}");
     }
 }
 

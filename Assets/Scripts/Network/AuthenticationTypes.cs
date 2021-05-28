@@ -7,5 +7,5 @@ public enum AuthenticationTypes
 
 public class AuthenticationConfig
 {
-    public const string CSP_WEB_SITE = "https://www.google.com";
+    public const string CSP_WEB_SITE = "https://childrenspeech.azurewebsites.net";
 }
